@@ -11,6 +11,10 @@
 <%@include file="../../../../resources/common/header.jsp" %>       
 </header>
 </head>
+<img src="../img/coffee.jpg" alt="">
+<img src="../img/coffee.jpg" alt="">
+<img src="../img/coffee.jpg" alt="">
+<img src="../img/coffee.jpg" alt="">
 <body>
 <table class="brand_images">
         <script>
@@ -18,13 +22,13 @@
             document.write("<tr class='images'>");
             for (i = 1; i < 6; i++) {
                 document.write(
-                    "<td><a href='./brand" + i + ".jsp'><img src='../../../../resources/brandimg/brand_" + i + ".jpg' width='250', height='150'></a></td>"
+                    "<td><a href='brand" + i + "'><img src='resources/brandimg/brand_" + i + ".jpg' width='250', height='150'></a></td>"
                 );
             }
             document.write("<tr class='images'>");
             for (i = 6; i < 11; i++) {
                 document.write(
-                    "<td><a href='./brand" + i + ".jsp'><img src='../../../../resources/brandimg/brand_" + i + ".jpg' width='250', height='150'></a></td>"
+                    "<td><a href='brand" + i + "'><img src='resources/brandimg/brand_" + i + ".jpg' width='250', height='150'></a></td>"
                 );
             }
         </script>

@@ -14,7 +14,7 @@
 <body>
 	<div id="__next" data-reactroot="">
 
-		<section style="background-image: url(../img/brand/youth.jpeg)" class="css-background-img">
+		<section style="background-image: url(resources/brandimg/youth.jpeg)" class="css-background-img">
 
 			<div class="css-brand-text-1">
 
@@ -61,41 +61,41 @@
 
 		<div class="product-list">
 			<a href="#" class="product"> <img
-				src="../img/brand/youth_product_1.jpg" width="225">
+				src="resources/brandimg/youth_product_1.jpg" width="225">
 				<div class="product-name">22SS Net Crew-neck Knit_Black</div>
 				<div class="product-price">131,600</div>
 			</a> <a href="#" class="product"> <img
-				src="../img/brand/youth_product_2.jpg" width="225" height="225px">
+				src="resources/brandimg/youth_product_2.jpg" width="225" height="225px">
 				<div class="product-name">22SS Net Crew-neck Knit_Ivory</div>
 				<div class="product-price">131,600</div>
 			</a> <a href="#" class="product"> <img
-				src="../img/brand/youth_product_3.jpg" width="225" height="225px">
+				src="resources/brandimg/youth_product_3.jpg" width="225" height="225px">
 				<div class="product-name">22SS Layered 2-Tuck Denim
 					Pants_Washed Black</div>
 				<div class="product-price">208,000</div>
 			</a> <a href="#" class="product"> <img
-				src="../img/brand/youth_product_4.jpg" width="225" height="225px">
+				src="resources/brandimg/youth_product_4.jpg" width="225" height="225px">
 				<div class="product-name">22SS Layered 2-Tuck Denim
 					Pants_Medium Blue</div>
 				<div class="product-price">208,000</div>
 			</a> <a href="#" class="product"> <img
-				src="../img/brand/youth_product_5.jpg" width="225" height="225px">
+				src="resources/brandimg/youth_product_5.jpg" width="225" height="225px">
 				<div class="product-name">22SS Knit Collar Cardigan_Black</div>
 				<div class="product-price">218,000</div>
 			</a> <a href="#" class="product"> <img
-				src="../img/brand/youth_product_6.jpg" width="225" height="225px">
+				src="resources/brandimg/youth_product_6.jpg" width="225" height="225px">
 				<div class="product-name">22SS Knit Collar Cardigan_Blue</div>
 				<div class="product-price">218,000</div>
 			</a> <a href="#" class="product"> <img
-				src="../img/brand/youth_product_7.jpg" width="225" height="225px">
+				src="resources/brandimg/youth_product_7.jpg" width="225" height="225px">
 				<div class="product-name">22SS Straight Denim Pants_One Wash</div>
 				<div class="product-price">193,000</div>
 			</a> <a href="#" class="product"> <img
-				src="../img/brand/youth_product_8.jpg" width="225" height="225px">
+				src="resources/brandimg/youth_product_8.jpg" width="225" height="225px">
 				<div class="product-name">Leather Airpods Case 3/Pro White</div>
 				<div class="product-price">48,000</div>
 			</a> <a href="#" class="product"> <img
-				src="../img/brand/youth_product_9.jpg" width="225" height="225px">
+				src="resources/brandimg/youth_product_9.jpg" width="225" height="225px">
 				<div class="product-name">Leather Airpods Case 3/Pro Black</div>
 				<div class="product-price">48,000</div>
 			</a>
