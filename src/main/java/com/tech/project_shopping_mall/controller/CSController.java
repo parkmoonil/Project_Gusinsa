@@ -31,7 +31,7 @@ public class CSController {
 		model.addAttribute("noticeboard",noticeboard);
 		
 	
-		return "csmain";
+		return "/pmi/csmain";
 		
 	}
 	
@@ -94,7 +94,7 @@ public class CSController {
 		model.addAttribute("totRowcnt",total);
 		model.addAttribute("searchVo",searchVO);
 		
-		return "noticeboard";
+		return "/pmi/noticeboard";
 	}
 	
 	@RequestMapping("/inquiry")
@@ -102,7 +102,7 @@ public class CSController {
 		System.out.println("=====Inquiry=====");
 	
 		
-		return "inquiry";
+		return "/pmi/inquiry";
 	}
 	
 	@RequestMapping("/write")
@@ -117,14 +117,14 @@ public class CSController {
 		IDao dao=sqlSession.getMapper(IDao.class);
 		dao.write(nname, ntitle, ncontent);
 		
-		return "redirect:noticeboard";
+		return "/pmi/redirect:noticeboard";
 	}
 	
 	@RequestMapping("/write_view")
 	public String write_view() {
 		System.out.println("=====Write_View=====");
 		
-		return "write_view";
+		return "/pmi/write_view";
 	}
 	
 	@RequestMapping("/content_view")
@@ -138,7 +138,7 @@ public class CSController {
 		NoticeDto dto=dao.contentView(snnum);
 		model.addAttribute("content_view",dto);
 		
-		return "content_view";
+		return "/pmi/content_view";
 	}
 	
 	@RequestMapping("/content_update")
@@ -152,7 +152,7 @@ public class CSController {
 		NoticeDto dto=dao.contentView(snnum);
 		model.addAttribute("content_view",dto);
 		
-		return "content_update";
+		return "/pmi/content_update";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value= "/modify")
@@ -167,7 +167,7 @@ public class CSController {
 		IDao dao=sqlSession.getMapper(IDao.class);
 		dao.modify(nnum, ntitle, ncontent);
 		
-		return "redirect:noticeboard";
+		return "redirect:/pmi/noticeboard";
 	}
 	
 	@RequestMapping("/delete")
@@ -179,20 +179,20 @@ public class CSController {
 		IDao dao=sqlSession.getMapper(IDao.class);
 		dao.delete(snnum);
 		
-		return "redirect:noticeboard";
+		return "redirect:/pmi/noticeboard";
 	}
 	
 	@RequestMapping("/communication")
 	public String communication() {
 		System.out.println("=====communication=====");
 		
-		return "communication";
+		return "/pmi/communication";
 	}
 	
 	@RequestMapping("/communication2")
 	public String communication2() {
 		System.out.println("=====communication2=====");
 		
-		return "communication2";
+		return "/pmi/communication2";
 	}
 }
