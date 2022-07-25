@@ -232,15 +232,17 @@ input[id="menuicon"]:checked +label span:nth-child(3){
                     <ul class="sidebar_ul">
                         <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>주문/배송</b></a></li>
                         <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>매장안내</b></a></li>
-                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>고객센터</b></a></li>
-                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>로그인</b></a></li>
-                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>회원가입</b></a></li>
+                        <li id="sidebar_li"><a href="csmain" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>고객센터</b></a></li>
+                        <li id="sidebar_li"><a href="login/loginform" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>로그인</b></a></li>
+                        <li id="sidebar_li"><a href="join/joinform2" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>회원가입</b></a></li>
                     </ul>
                 </div></li>
                 <!-- /project_shopping_malltest/src/main/webapp/resources/headerimg -->
             <!-- <li><a href=#><img src="../headerimg/목록.png" style="margin-right: 80px;" alt="목록" class="header_img"></a></li> -->
             <li><a href=#><img src="resources/headerimg/장바구니.png" style="height: 47px;" alt="장바구니" class="header_img"></a></li>
-            <li><a href="resources/joinform"><img src="resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></li></a>
+           
+            <li> <a href="login/loginform"><img src="resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"> </li></a>
+           
         </ul>
         </div>
         <form action="search">

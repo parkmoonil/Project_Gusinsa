@@ -16,7 +16,7 @@ public class LoginController {
 //		return "login";
 //	}
 	@RequestMapping("/loginform")
-	public String loginform(HttpServletRequest request) {
+	public String loginform(/* HttpServletRequest request */) {
 //		System.out.println("login");
 //		
 //		System.out.println("카카오로그인");
