@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tech.project_shopping_mall.dao.MainPageDao">
+
+
+<select id="search" resultType = "com.tech.project_shopping_mall.dto.MainPageSearchDto">
+
+	 <!-- SELECT KEYWORD FROM (SELECT KEYWORD,SCORE,ROW_NUMBER() OVER (ORDER BY SCORE DESC) RANK FROM SEARCH) WHERE RANK <= 5  이러면 오류 -->
+
+	SELECT KEYWORD FROM (SELECT KEYWORD,SCORE,ROW_NUMBER() OVER (ORDER BY SCORE DESC) RANK FROM SEARCH) <![CDATA[WHERE RANK <= 5]]>
+</select>
+
+<select  id="SearchProduct" resultType = "com.tech.project_shopping_mall.dto.MainPageSearch_ProductsDto">
+SELECT PID, PNAME, PCONTENT, PPRICE FROM PRODUCT WHERE PNAME LIKE '%'||#{param1}||'%' OR PCONTENT LIKE '%'||#{param1}||'%'
+</select>
+</mapper>
