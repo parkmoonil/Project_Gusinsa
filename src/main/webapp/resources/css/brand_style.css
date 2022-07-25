@@ -1,0 +1,117 @@
+.brand_images {
+	margin: 250px auto 60px auto;
+}
+
+td {
+	padding: 20px;
+}
+
+/* ----------------------------------------- 검색 ----------------------------------------- */
+body {
+	background: #ffffff;
+}
+
+.box {
+	margin: 60px auto 80px auto;
+	width: 290px;
+	height: 50px;
+	z-index: 1;
+}
+
+.container-1 {
+	width: 300px;
+	vertical-align: middle;
+	white-space: nowrap;
+	position: relative;
+}
+
+.container-1 input#search {
+	width: 300px;
+	height: 60px;
+	background: #ffffff;
+	border: none;
+	font-size: 15pt;
+	float: left;
+	color: #63717f;
+	padding-left: 45px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.container-1 input#search::-webkit-input-placeholder {
+	color: #65737e;
+}
+
+.container-1 input#search:-moz-placeholder {
+	/* Firefox 18- */
+	color: #65737e;
+}
+
+.container-1 input#search::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #65737e;
+}
+
+.container-1 input#search:-ms-input-placeholder {
+	color: #65737e;
+}
+
+.container-1 .icon {
+	position: absolute;
+	top: 50%;
+	margin-left: 17px;
+	margin-top: 17px;
+	z-index: 1;
+	color: #6a7783;
+}
+
+.container-1 input#search:hover, .container-1 input#search:focus,
+	.container-1 input#search:active {
+	outline: none;
+	background: #ffffff;
+}
+
+/*  */
+#brand_search {
+	text-align: center;
+	margin: 10px auto 120px auto;
+}
+
+#brand_search a {
+	text-decoration: none;
+	color: black;
+}
+
+.brand_name {
+	scroll-behavior: smooth;
+	display: block;
+	/* text-align: center; */
+	margin: auto;
+	overflow-y: scroll;
+	/* width: 350px; */
+	/* height: 250px; */
+}
+
+.brand_name a {
+	text-decoration: none;
+	color: black;
+}
+
+.brand_name dl {
+	font-size: 50px;
+	font-weight: bold;
+	margin: 70px auto auto 100px;
+}
+
+.brand_name dd {
+	float: left;
+	font-size: medium;
+	font-weight: normal;
+	margin: auto 110px 10px 5px;
+}
+
+.brand_table {
+	border: 1;
+	margin: 180px auto 60px auto;
+}
