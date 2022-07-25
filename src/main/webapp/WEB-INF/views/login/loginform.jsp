@@ -100,8 +100,8 @@ function kakaoLogout() {
 <!-- <link rel="stylesheet" href="../headerimg/header.css"> -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
      <style>
-	/* 여기서부터 은주 */
-		.main11{
+        /* 여기서부터 은주 */
+            .main11{
                 padding-left: 20%;
             }
             .h_2{
@@ -296,12 +296,12 @@ function kakaoLogout() {
             .joinus{
                 text-align: center;
             }
-    </style>
-<body>
-<header>
-<%@include file="../../../../resources/common/header.jsp" %>       
-</header>
-<div class="body_body">
+        </style>
+    <body>
+    <header>
+	<%@include file="../../../../resources/common/header.jsp" %>       
+	</header>
+    <div class="body_body">
         <div class="main11">
             <h2 class="h_2">안녕하세요 고객님!</h2>
             <p>구신사의 회원이 되시면 더 많은 혜택을 누리실 수 있습니다</p>
@@ -371,5 +371,5 @@ function kakaoLogout() {
                 </section>
         </div>
     </div>
-</body>
-</html>
+    </body>
+    </html>
