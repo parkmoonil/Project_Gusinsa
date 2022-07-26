@@ -25,7 +25,7 @@
 </update>
 
 <select  id="SearchProduct" resultType = "com.tech.project_shopping_mall.dto.MainPageSearch_ProductsDto">
-SELECT PID, PNAME, PCONTENT, PPRICE FROM PRODUCT WHERE PNAME LIKE '%'||#{param1}||'%' OR PCONTENT LIKE '%'||#{param1}||'%'
+SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_CLASS, P_CONTENT, P_IMG, DATA FROM PINFO WHERE P_NAME LIKE '%'||#{param1}||'%' OR P_CLASS LIKE '%'||#{param1}||'%'
 </select>
 
 <insert id="search_write">

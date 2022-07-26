@@ -87,8 +87,8 @@
                
                     <td class="td1">
                         <a href="Salebuying.html">
-                            <img src="../clothes/옷1.png" width="250" height="350" style="margin-right: 50px;"><p class="p1">${list.pname }</p></a>
-                        <a href="Salebuying.html"><p class="p1">${list.pprice }</p></a>
+                            <img src="${list.p_img}" width="250" height="350" style="margin-right: 50px;"><p class="p1">${list.p_name }</p></a>
+                        <a href="Salebuying.html"><p class="p1">${list.p_price }</p></a>
                     </td>
                   
             
