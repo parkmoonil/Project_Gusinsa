@@ -263,7 +263,7 @@ text-decoration:none
                 </li>
             </ul>
             <ul class="header_menu_BRAND">
-                <li id="product_menu_list"><a href="" id="high_con">BRAND</a>
+                <li id="product_menu_list"><a href="brand" id="high_con">BRAND</a>
                     <ul class="BRAND_Second">
                         <li class ="ViewallBrands" id="product_menu_list"><a href="" id="con" >View all Brands</a>
                             <ul class="ViewallBrands_Three">
