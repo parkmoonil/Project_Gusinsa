@@ -7,11 +7,11 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/brand1_style.css" />
 <title>Insert title here</title>
+</head>
+<body>
 <header>
 	<%@include file="../../../../resources/common/header.jsp"%>
 </header>
-</head>
-<body>
 	<div id="__next" data-reactroot="">
 
 		<section style="background-image: url(resources/brandimg/youth.jpeg)" class="css-background-img">
