@@ -281,11 +281,11 @@
         </tr>
     </table>
     <h3>hype boy</h3>
-  <form action="list" method="post">
+  <form action="men" method="post">
 	<c:if test="${searchVo.totPage>1 }">
 		<c:if test="${searchVo.page>1 }">
-			<a href="list?page=1">[처음]</a>
-			<a href="list?page=${searchVo.page-1 }">[이전]</a>
+			<a href="men?page=1">[처음]</a>
+			<a href="men?page=${searchVo.page-1 }">[이전]</a>
 		</c:if>
 		<c:forEach begin="${searchVo.pageStart }" end="${searchVo.pageEnd }" var="i">
 			<c:choose>
