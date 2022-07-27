@@ -70,7 +70,13 @@ public class MainPageController {
 		return "/MainPage/search";
 		
 }
-	
+	@RequestMapping("/main")
+	public String main(HttpServletRequest request, Model model) {
+		System.out.println("main 이동!");
+		
+		
+		return "/MainPage/Main";
+	}
 	
 
 	

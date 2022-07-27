@@ -9,6 +9,32 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
+<script type="text/javascript">
+		$(document).ready(function(){
+			// 취소
+			$(".cencle").on("click", function(){
+				
+				location.href = "/login";
+						    
+			})
+		
+			$("#submit").on("click", function(){
+				if($("#userId").val()==""){
+					alert("아이디를 입력해주세요.");
+					$("#mid").focus();
+					return false;
+				}
+				if($("#mpw").val()==""){
+					alert("비밀번호를 입력해주세요.");
+					$("#mpw").focus();
+					return false;
+				}
+			});
+			
+				
+			
+		})
+	</script>
 
 <script>
 // 카카오 초기화
@@ -299,13 +325,14 @@ function kakaoLogout() {
         </style>
     <body>
     <header>
-	<%@include file="../../../../resources/common/header.jsp" %>       
+		<%@include file="../../../../resources/common/header.jsp" %>       
 	</header>
     <div class="body_body">
         <div class="main11">
             <h2 class="h_2">안녕하세요 고객님!</h2>
             <p>구신사의 회원이 되시면 더 많은 혜택을 누리실 수 있습니다</p>
         </div>
+        <form action="login" method="post">
         <div class="main">
                 <input id="tab1" type="radio" name="tabs" checked> 
                 <label for="tab1">회원</label>
@@ -335,8 +362,9 @@ function kakaoLogout() {
                     </tr>
                     <tr>
                         <div class="btn22">
-                                <button class="customm2-btn btn-1">로그인</button>
+                                <button type="submit" class="customm2-btn btn-1">로그인</button>
                           </div>
+                          </form>
                     </tr>
                         <p class="joinus">아직 구신사의 회원이 아니신가요?      
                             <a href="../join/joinform2" class="sp1">회원가입</a></p>
