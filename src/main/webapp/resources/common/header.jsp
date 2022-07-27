@@ -219,7 +219,7 @@ input[id="menuicon"]:checked +label span:nth-child(3){
 } */
     </style>
        <header>
-        <div class="header_left"><a href=#><img src="resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
+        <div class="header_left"><a href="main"><img src="resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
         <div class="header_right">
         <ul id="header_gita">
             <li><input type="checkbox" class="side_list"  id="menuicon">
@@ -240,9 +240,8 @@ input[id="menuicon"]:checked +label span:nth-child(3){
                 <!-- /project_shopping_malltest/src/main/webapp/resources/headerimg -->
             <!-- <li><a href=#><img src="../headerimg/목록.png" style="margin-right: 80px;" alt="목록" class="header_img"></a></li> -->
             <li><a href=#><img src="resources/headerimg/장바구니.png" style="height: 47px;" alt="장바구니" class="header_img"></a></li>
-           
-            <li> <a href="login/loginform"><img src="resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"> </li></a>
-           
+            <li><a href="login/loginform"><img src="resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></li></a>
+
         </ul>
         </div>
         <form action="search">
