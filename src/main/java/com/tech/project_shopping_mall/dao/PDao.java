@@ -8,8 +8,7 @@ import com.tech.project_shopping_mall.dto.Infodto;
 
 public interface PDao {
 
-	ArrayList<Infodto> men(String p_name, String p_price, String p_img);
+	public ArrayList<Infodto> men(int rowStart, int rowEnd, String p_img);
 
-
-
+	public int selectBoardTotCount();
 }
