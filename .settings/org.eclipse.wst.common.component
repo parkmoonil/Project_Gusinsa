@@ -73,8 +73,7 @@
         
         
         <property name="java-output-path" value="target/classes"/>
-                
-        <property name="context-root" value="project_shopping_mall22"/>
+        <property name="context-root" value="project_shopping_mall"/>
                                                                                         	
     
     

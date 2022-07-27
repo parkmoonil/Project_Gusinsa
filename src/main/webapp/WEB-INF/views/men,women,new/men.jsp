@@ -170,7 +170,7 @@
             <td><a href="" id="tb1">인기상품순</a>&nbsp;|&nbsp;</td>
             <td><a href="" id="tb1">신상품순</a>&nbsp;|&nbsp;</td>  
             <td><a href="" id="tb1">낮은가격순</a>&nbsp;|&nbsp;</td>  
-            <td><a href="" id="tb1">높은가격순</a></td>  
+            <td><a href="" id="tb1">높은가격순<a href="">${p_name }</a><a href="">${Men.p_name }</a></a></td>  
         </tr>
         
     </table>

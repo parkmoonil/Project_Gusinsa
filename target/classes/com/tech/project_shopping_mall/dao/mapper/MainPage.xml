@@ -13,7 +13,22 @@
 	SELECT KEYWORD FROM (SELECT KEYWORD,SCORE,ROW_NUMBER() OVER (ORDER BY SCORE DESC) RANK FROM SEARCH) <![CDATA[WHERE RANK <= 5]]>
 </select>
 
-<select  id="SearchProduct" resultType = "com.tech.project_shopping_mall.dto.MainPageSearch_ProductsDto">
-SELECT PID, PNAME, PCONTENT, PPRICE FROM PRODUCT WHERE PNAME LIKE '%'||#{param1}||'%' OR PCONTENT LIKE '%'||#{param1}||'%'
+<select id="searchtest" resultType = "com.tech.project_shopping_mall.dto.MainPageSearchDto">
+
+	 <!-- SELECT KEYWORD FROM (SELECT KEYWORD,SCORE,ROW_NUMBER() OVER (ORDER BY SCORE DESC) RANK FROM SEARCH) WHERE RANK <= 5  이러면 오류 -->
+
+	SELECT * FROM SEARCH WHERE KEYWORD = #{param1}
 </select>
+
+<update id="searchcount">
+	UPDATE SEARCH SET SCORE = SCORE + 1 WHERE  KEYWORD = #{param1}
+</update>
+
+<select  id="SearchProduct" resultType = "com.tech.project_shopping_mall.dto.MainPageSearch_ProductsDto">
+SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_CLASS, P_CONTENT, P_IMG, DATA FROM PINFO WHERE P_NAME LIKE '%'||#{param1}||'%' OR P_CLASS LIKE '%'||#{param1}||'%'
+</select>
+
+<insert id="search_write">
+INSERT INTO SEARCH VALUES(#{param1},1)
+</insert>
 </mapper>
