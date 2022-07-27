@@ -221,7 +221,7 @@ text-decoration:none
 }
     </style>
        <header>
-        <div class="header_left"><a href=#><img src="resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
+        <div class="header_left"><a href="main"><img src="resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
         <div class="header_right">
         <ul id="header_gita">
             <li><input type="checkbox" class="side_list"  id="menuicon">
