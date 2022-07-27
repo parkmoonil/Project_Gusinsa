@@ -23,8 +23,13 @@ public class LoginController {
 	private SqlSession sqlSession;
 	
 	@RequestMapping("/loginform")
+<<<<<<< HEAD
 	public String loginform(HttpServletRequest request, Model model) {
 		System.out.println("=========pass by loginform()=============");
+=======
+	public String loginform(/* HttpServletRequest request */) {
+//		System.out.println("login");
+>>>>>>> c6b8ddd8c06ac72a585bcfd3215d9feaf77d6c81
 //		
 		return "/login/loginform";
 	}
