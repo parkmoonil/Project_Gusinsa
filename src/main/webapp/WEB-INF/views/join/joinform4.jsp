@@ -3,539 +3,419 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    function sample6_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                
-                var addr = ''; // 주소 변수
-                var extraAddr = ''; // 참고항목 변수
-
-                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                    addr = data.roadAddress;
-                } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                    addr = data.jibunAddress;
-                }
-
-                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
-                if(data.userSelectedType === 'R'){
-                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                        extraAddr += data.bname;
-                    }
-                    // 건물명이 있고, 공동주택일 경우 추가한다.
-                    if(data.buildingName !== '' && data.apartment === 'Y'){
-                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                    if(extraAddr !== ''){
-                        extraAddr = ' (' + extraAddr + ')';
-                    }
-                    // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("sample6_extraAddress").value = extraAddr;
-                
-                } else {
-                    document.getElementById("sample6_extraAddress").value = '';
-                }
-
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
-                // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
-            }
-        }).open();
+<!-- <link rel="stylesheet" href="../headerimg/header.css"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+     <style>
+    html,body{
+        margin: 0;
+        padding: 0;
     }
-	function checkOne(chk){
-	    var obj = document.getElementsByName("psn");
-	    for(var i=0; i<obj.length; i++){
-	        if(obj[i] != chk){
-	            obj[i].checked = false;
-	        }
-	    }
-	}
-	function checkTwo(ch){
-	    var obj = document.getElementsByName("marketing");
-	    for(var i=0; i<obj.length; i++){
-	        if(obj[i] != ch){
-	            obj[i].checked = false;
-	        }
-	    }
-	}
-</script>
-<head>
-<meta charset="UTF-8">
-<title>gusinsa.join</title>
-</head>
-    <style>
-        /* 테이블 & th */
-        .table_1{
-            padding-left: 500px;
-        }
-        th{
-            color: #333;
-        }
-        body, h2{
-            margin: 0;
-        }
-        .h_2{
-            width:100%;
-            text-align: center;
-            position: sticky;
-            top: 0; /* 클래스 sticky인 요소 안에서 top값이 0이되면 sticky를 적용 */
-            line-height: 80px;
-        }
-        .h2{
-            background-color: white;
-            /* padding-top: 3%; */
-            font-size: 20px;
-        }
-        .h3{
-            font-family: HY견명조, sans-serif;
-            padding-top:15px;
-            width:100%;
-            height: 100px;
-            padding-bottom: 15px;
-            background-color: black;
-            color: white;
-            text-align: center;
-            font-weight: 400;
-            font-size: 25px;
-        }
-        .sp1{
-            padding-right: 200px;
-        }
-        /* 아이디 */
-        #idemail{
-            width: 400px;
-            height: 35px;
-        }
-        /* 비밀번호 & 확인 */
-        #pw{
-            width: 400px;
-            height: 35px;
-        }
-        #pwcheck{
-            width: 400px;
-            height: 35px;
-        }
-        /* 이름 */
-        #name{
-            width: 400px;
-            height: 35px;
-        }
-        /* 생년월일 */
-        #bithdate{
-            width: 300px;
-            height: 35px;
-        }
-        /* 전화번호 */
-        #tel{
-            width: 300px;
-            height: 35px;
-        }
-        /* 이메일 */
-        #email{
-            width: 400px;
-            height: 35px;
-        }
-        /* 상세주소 */
-        #sample6_postcode{
-            width: 100px;
-            height: 35px;
-            margin-bottom: 5px;
-        }
-        #sample6_address{
-            width: 288px;
-            height: 35px;
-            margin-bottom: 5px;
-        }
-        #sample6_extraAddress{
-            width: 150px;
-            height: 35px;
-        }
-        #sample6_detailAddress{
-            width: 238px;
-            height: 35px;
-        }
-        /* 개인정보설명 */
-        #reperson{
-            width: 400px;
-            height: 35px;        
-        }
-        /* 매장찾기 */
-        #shop{
-            width: 400px;
-            height: 35px;        
-        }
-        /* 비밀번호설명 */
-        #pwex{
-            color: #9c9c9c;
-            font-size: 12px;
-        }
-        /* 회원정보입력 및 회원가입 설명 */
-        .p1{
 
-            text-align: center;
-            font-weight: 400;
-            font-size: 20px;
+        header{
+            width: 100%;
+            height: 236px;
+            position: fixed;
+            background: white;
         }
-        /* 회원정보입력 */
-        .p2{
-            font-weight: 900;
-            font-size: 30px;
-        }
-        /* 회원기본정보 */
-        .t_body{
-            text-align: left;
-        }
-        /* 마케팅동의 */
-        .mar{
-            text-align: left;
-            width: 800px;
-            height: 100px;
-            border: solid;
-            border-width: 1px 1px 1px 1px;
-            border-color: #787878;
-            padding-top: 10px;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-bottom: 10px;
-            color: #9c9c9c;
-            font-size: 15px;
-        }
-        /* 회원가입마지막확인 */
-        .mem-save{
-            text-align: center;
-        }
-        /* 개인정보설명 */
-        .add-info{
-            padding-left:16px;
-            position:relative;
-            color:#5a5d5a;
-            font-size:14px;
-        }
-        /* 개인정보설명2 */
-        .personal{
-            font-size: 10px;
-        }
-        /* -빨간 *- */
-        .red{
-            color : red;
-        }
-        /* 배송주소 설명 */
-        .adep{
-            font-size: 10px;
-        }
-        /* 아이디 동일 이메일 확인 */
-        .idsame{
-            font-size: 10px;
-        }
-        /* 버튼 */
-        /* 우편번호찾기버튼 */
-        .addr-btn {
-            width: 90px;
-            height: 35px;
-            padding: 5px 5px 5px 5px;
-            border: 1px solid #000;
-            font-family: 'Lato', sans-serif;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            display: inline-block;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        /* 우편번호찾기버튼 */
-        .btn-1 {
-            background: #000;
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-        .btn-1:hover {
-            box-shadow:
-            -7px -7px 20px 0px #fff9,
-            -4px -4px 5px 0px #fff9,
-            7px 7px 20px 0px #0002,
-            4px 4px 5px 0px #0001;
-        }
-        /* 매장찾기버튼 */
-        .shop-btn {
-            width: 90px;
-            height: 35px;
-            padding: 5px 5px 5px 5px;
-            border: 1px solid #000;
-            font-family: 'Lato', sans-serif;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            display: inline-block;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        /* 매장찾기버튼 */
-        .btn-2 {
-            background: #000;
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-        .btn-2:hover {
-            box-shadow:
-            -7px -7px 20px 0px #fff9,
-            -4px -4px 5px 0px #fff9,
-            7px 7px 20px 0px #0002,
-            4px 4px 5px 0px #0001;
-        }
-        /* 전문보기 버튼 */
-        .alltext-btn {
-            text-align: center;
-            width: 90px;
-            height: 35px;
-            padding: 5px 5px 5px 5px;
-            border: 1px solid #000;
-            font-family: 'Lato', sans-serif;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            display: inline-block;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        /* 전문보기 */
-        .btn22{
-            text-align: center;
-        }
-        .btn-3 {
-            transition: all 0.3s ease;
-        }
-        /* 이전 버튼 */
-        .customm-btn {
-            text-align: center;
-            width: 200px;
-            height: 40px;
-            padding: 5px 5px 5px 5px;
-            border: 1px solid #000;
-            font-family: 'Lato', sans-serif;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            display: inline-block;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        /* 이전버튼 */
-        .btn22{
-            text-align: center;
-        }
-        .btn-5 {
-            transition: all 0.3s ease;
-        }
-        .btn-5:hover {
-            box-shadow:
-            -7px -7px 20px 0px #fff9,
-            -4px -4px 5px 0px #fff9,
-            7px 7px 20px 0px #0002,
-            4px 4px 5px 0px #0001;
-        }
-        /* 종료버튼 */
-        .customm2-btn {
-            width: 200px;
-            height: 40px;
-            padding: 5px 5px 5px 5px;
-            border: 1px solid #000;
-            font-family: 'Lato', sans-serif;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            display: inline-block;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        /* 종료버튼 */
-        .btn-6 {
-            background: #000;
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-        .btn-6:hover {
-            box-shadow:
-            -7px -7px 20px 0px #fff9,
-            -4px -4px 5px 0px #fff9,
-            7px 7px 20px 0px #0002,
-            4px 4px 5px 0px #0001;
-        }
-        .line_one{
-        	width: 60%;
-        }
-        /*푸터어어어*/
-		footer {width: 100%;height: 10px;bottom: 5px;  position: relative;border-top: 1px solid #c4c4c4; color: #808080;font-size: 11px; transform: translateY(-100%);}
-		footer a:visited {color: #808080;}
-		footer p {margin-top: 0;  margin-left: 10px;}
-		footer p span {display: inline-block;margin-left: 20px; margin-bottom: 5px;} 
-		#wrap{
-		    width: 100%;height: auto;
-		    min-height: 100%;
-		    margin-top: 10px;
-		}
-		#wrap_section{
-		    margin-top: 50px;
-		    margin-left: 0;
-		}
-		#footer_addr{float: left;}
-		.footer_div{margin-top: 20px;margin-right: 30px;float: right; margin-bottom: 10px;}
+    .header_left{ 
+    margin-top: 10px;
+    }
+    
+    #high_con,#con{ text-decoration: none;   /* a태그 밑줄제거 */
+          color: black;       /*메뉴 a태그 id*/
+    }
+    #high_con:hover{
+        font-weight: bold;
+    }
+
+    /* #con{
+        background-color: #a8a8a8;
+    } */
+    .BRAND_Second li,.WOMEN_Second li,.Man_Second li{
+        background-color: #a8a8a8; border: none; /*메뉴 하위메뉴 배경색상 지정*/
+    }
+    
+
+    #con:link{ color : black}
+    #con:hover{font-weight: bold; text-decoration: underline; }
+    input:-ms-input-placeholder{color:#a8a8a8;}
+    input::-webkit-input-placeholder{color:#a8a8a8;}
+    input::-moz-placeholder{color:#a8a8a8;}
+    #product_menu_list{font-size: 30px;display: inline-block; left: 15%;  } /* 메뉴 카테고리 좌우 이동*/
+    .first_hearder{ height: 40px; width: 400px; border: 1px solid #0b0c0e; background: #ffffff; }
+    #fisrst_search{ font-size: 16px; width: 325px; padding: 10px; border: 0px; outline: none; float: left; }
+    #button_search{ width: 50px; height: 100%; border: 0px; background: #020202; outline: none; float: right; color: #ffffff}
+    #header_gita li,.first_hearder{list-style-type: none;float: right; margin-right: 30px;}  /*로그인 장바구니 목록 설정*/
+    #sidelist{ margin-right: 0;}
+    .header_img{ width: 40px;}
+    #header_right_img{ 
+        float: left; width: 180px; height: 60px; margin-left: 20px;
+    }
+    #hearder_color{ background: #020202; background-color: #020202; width: 100%;height: 50px;margin-bottom: 30px;float: right;text-align: center;}
+    /* body{width: 0 auto;text-align: center;} */
+    /* ----------------------------------------- 헤더메뉴 ----------------------------------------- */
+    nav{  width: 100%; height: 220px;
+    background-color: rgb(255, 255, 255);}
+    /* ----------------------------------------- 메뉴 MEN ----------------------------------------- */
+    .header_menu_Man li{ float: left; padding: 0 50px; line-height: 36px; position: relative; }
+    .Man_Second{ margin-bottom: 20px; position:absolute;  top:100%; left: 0%; right: 200%; display: none;   /* 중분류 될 리스트를 숨김 */}
+    .Man_Second li{width: 250px; height: 30px; padding-bottom: 7px;  } /* 크기 및 이동조절*/
+    .header_menu_Man:hover .Man_Second{display: block;}
+    /* ----------------------------------------- MEN 끝 및 브랜드 시작 ----------------------------------------- */
+    .header_menu_BRAND li{ float: left; padding: 0 50px; line-height: 36px; position: relative;}
+    .BRAND_Second{ margin-bottom:20px; position: absolute; top:100%; left: 0; right: 400%; display: none; /* 중분류 될 리스트를 숨김 */}
+    .BRAND_Second li{ width: 250px; height: 30px; padding-bottom: 7px; }  /*중분류 리스트 사이즈*/
+    .header_menu_BRAND:hover .BRAND_Second{ display: block; }
+    /* ----------------------------------------- 브랜드 three ----------------------------------------- */
+    .BRAND_Three{  margin-bottom:10px; position:absolute; bottom: 100%; top: -1px; left: 71.5%;  /* right: 500px; */ display: none; /* 중분류 될 리스트를 숨김 */ }
+    .BRAND_Three li{ width: 300px; height: 30px; padding-bottom: 7px; }  /*중분류 리스트 사이즈*/
+    .Restock:hover .BRAND_Three{ display: block; }
+     /*------------------------------------ 안헷갈리게 ViewallBrands_Three------------------------------------------------------------------------------*/
+     .ViewallBrands_Three{ margin-bottom:10px; position:absolute; top: -1px;  left: 71.5%; /* right: 500px; */ display: none; /* 중분류 될 리스트를 숨김 */}
+    .ViewallBrands_Three li{ width: 300px; height: 30px; padding-bottom: 7px; }  /*중분류 리스트 사이즈*/
+    .ViewallBrands:hover .ViewallBrands_Three{ display: block; }
+    /* ----------------------------------------- 브랜드 끝 ----------------------------------------- */
+    /*------------------------------------ 안헷갈리게 MAN_Three 중분류들 ------------------------------------------------------------------------------*/
+    .OUTER_Second{  margin-bottom:10px; position:absolute; bottom: 100%; top: -1px;  left: 71.5%;  /* right: 500px; */ display: none; /* 중분류 될 리스트를 숨김 */ }
+    .OUTER_Second li{ width: 300px; height: 30px; padding-bottom: 7px; }  /*중분류 리스트 사이즈*/
+    .OUTER:hover .OUTER_Second{ display: block; }
+    .TOP_Second{  margin-bottom:10px; position:absolute; bottom: 100%; top: -1px;  left: 71.5%; /* right: 500px; */ display: none; /* 중분류 될 리스트를 숨김 */ }
+    .TOP_Second li{ width: 300px; height: 30px; padding-bottom: 7px; }  /*중분류 리스트 사이즈*/
+    .TOP:hover .TOP_Second{ display: block; }
+    
+    .LIFE_Second{  margin-bottom:10px; position:absolute; bottom: 100%; top: -1px;  left: 71.5%; /* right: 500px; */ display: none; /* 중분류 될 리스트를 숨김 */ }
+    .LIFE_Second li{ width: 300px; height: 30px; padding-bottom: 7px; }  /*중분류 리스트 사이즈*/
+    .LIFE:hover .LIFE_Second{ display: block; }
+    /*------------------------------------ 안헷갈리게 MAN_Three 끝 및 WOMEN_SECOND 시작------------------------------------------------------------------------------*/
+    .header_menu_WOMEN #product_menu_list{  float: left;  padding: 0 50px;  line-height: 36px; position: relative; }
+    .WOMEN_Second{ margin-bottom: 10px; position: absolute; top:95%; left: 0; right: 500%; display: none;    /* 중분류 될 리스트를 숨김 */ }
+    .WOMEN_Second #product_menu_list{ width: 300px; height: 30px; padding-bottom: 7px;  left: 18.6%; } /*우먼 2단계리스트 크기 좌우 조절*/
+    .header_menu_WOMEN:hover .WOMEN_Second{ display: block; }
+    /* ----------------------------------------- 세일----------------------------------------- */
+    .header_menu_SALE li{  float: left; padding: 0 50px; line-height: 36px; position: relative; }
+    .SALE_Second{ margin-bottom: 10px; position: absolute; top:140%; left: 0; right: 500%; display: none;    /* 중분류 될 리스트를 숨김 */}
+    .SALE_Second li{ width: 500px; height: 60px; padding-top: 15px; }
+    .header_menu_SALE:hover .SALE_Second{ display: block;}
+    /* ----------------------------------------- NEW ARRIVAL ----------------------------------------- */
+    .header_menu_NEWARRIVAL li{  float: left; padding: 0 50px; line-height: 36px; position: relative; }
+    .SALE_Second{ margin-bottom: 10px; position: absolute; top:140%; left: 0; right: 500%; display: none;    /* 중분류 될 리스트를 숨김 */}
+    .SALE_Second li{ width: 500px; height: 60px; padding-top: 15px; }
+    .header_menu_NEWARRIVAL:hover .SALE_Second{ display: block;}
+    /* ----------------------------------------- 유저리뷰 ----------------------------------------- */
+    .header_menu_Userrivw li{  float: left; padding: 0 50px; line-height: 36px; position: relative; }
+    .SALE_Second{ margin-bottom: 10px; position: absolute; top:140%; left: 0; right: 500%; display: none;    /* 중분류 될 리스트를 숨김 */}
+    .SALE_Second li{ width: 500px; height: 60px; padding-top: 15px; }
+    .header_menu_Userrivw:hover .SALE_Second{ display: block;}
+    .side_list{
+        background:url("../headerimg/목록.png");
+        border : 0;
+        outline: 0;
+        margin-right: 100px;
+    
+    }
+        /*사이드메뉴 추가 스타일*/
+        .sidebar{
+    width: 500px;
+    height: 100%;
+    background: rgb(63, 62, 62);
+    position: fixed;  /*고정 드래그하면 사이드메뉴도 드래그되어버려 fixed 고정*/
+    top: 0;
+    right: -500px;  /*화면밖으로 내보내기위해 -값*/
+    z-index: 1;   /*포지션값의 우선순위*/
+    transition: all .35s;
+    opacity: 0.5;
+    
+}
+
+#menuicon:checked+label+div{
+    right: 0;
+}
+ #menuicon{
+    float: right;
+    display: none;
+}
+#menuicon +label{
+    display: block;
+    width: 60px;
+    height: 50px;
+    position: relative;
+    right: 0;
+    top: calc(50% - 25px);
+    transition: all .0s;
+    cursor: pointer;
+} 
+#menuicon + label span{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 30px;
+    background: #000;
+    transition: all 1s;
+}
+
+input[id="menuicon"]:checked +label span:nth-child(1){
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+input[id="menuicon"]:checked +label span:nth-child(2){
+    opacity: 0;
+}
+input[id="menuicon"]:checked +label span:nth-child(3){
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+#menuicon + label span:nth-child(1){
+    top: 0;
+}
+#menuicon + label span:nth-child(2){
+    top: 50%;
+    transform: translateY(-50%);
+}
+#menuicon + label span:nth-child(3){
+    bottom: 0;
+}
+
+#menuicon:checked+label+div{
+    right: 0;
+}
+#menuicon:checked+label{
+    z-index: 2;
+    right: 500px;
+}
+.sidebar_ul{
+    margin-top: 30%;
+    
+}
+.sidebar_ul #sidebar_li{
+    margin-bottom: 10%;
+    font-size: 18px;
+    text-align: right;
+    margin-right: 70%;  
+    height: 30px;
+    line-height: 30px;
+    list-style:none;
+}
+
+#sidebar_li_a:hover{
+    font-weight: bold;
+}
+#sidebar_li:hover{
+    font-weight: bold;
+}
+
+#sidebar_li_a{
+    text-decoration:none
+}
+
+/* .every{
+    width: 100%;
+    margin: 0 auto; 
+    text-align: center;
+} */
+/*푸터어어어*/
+
+
+footer {width: 100%;height: 10px;bottom: 5px;  position: relative;border-top: 1px solid #c4c4c4; color: #808080;font-size: 11px; transform: translateY(-100%);}
+footer a:visited {color: #808080;}
+footer p {margin-top: 0;  margin-left: 10px;}
+footer p span {display: inline-block;margin-left: 20px; margin-bottom: 5px;} 
+#wrap{
+    width: 100%;height: auto;
+    min-height: 100%;
+    margin-top: 10px;
+}
+#wrap_section{
+    margin-top: px;
+}
+#footer_addr{float: left;}
+.footer_div{margin-top: 20px;margin-right: 30px;float: right; margin-bottom: 10px;}
+
+/* 여기서부터 은주 */
+	.map_1{
+		padding-top: 20%;
+		padding-bottom: 20%;
+		padding-left: 30%;
+	}
+
     </style>
-    <body>
-		<div class="h3">
-            <h3>gusinsa.com</h3>
+
+    <header>
+        <div class="header_left"><a href=#><img src="../resources/headerimg/GUSINSA.png" alt="" id="header_right_img"></a></div>
+        <div class="header_right">
+        <ul id="header_gita">
+            <li><input type="checkbox" class="side_list"  id="menuicon">
+                <label for="menuicon">
+                    <span id="menuicon_span"></span>
+                    <span id="menuicon_span"></span>
+                    <span id="menuicon_span"></span>
+                </label>
+                <div class="sidebar">
+                    <ul class="sidebar_ul">
+                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>주문/배송</b></a></li>
+                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>매장안내</b></a></li>
+                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>고객센터</b></a></li>
+                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>로그인</b></a></li>
+                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>회원가입</b></a></li>
+                    </ul>
+                </div></li>
+            <!-- <li><a href=#><img src="../headerimg/목록.png" style="margin-right: 80px;" alt="목록" class="header_img"></a></li> -->
+            <li><a href=#><img src="../resources/headerimg/장바구니.png" style="height: 47px;" alt="장바구니" class="header_img"></a></li>
+            <li><a href=""><img src="../resources/headerimg/로그인.png" style="height: 47px;" alt="로그인" class="header_img"></li></a>
+        </ul>
         </div>
-            <div class="h_2">
-                <div class="h2">
-                    <h2>회원가입</h2>
-                    <hr />
-                </div>
-            </div>
-    <div class="p1">
-        <div class="p2">
-            <p>회원정보입력</p>
+        <div class="first_hearder">
+            <input type="text" placeholder="검색어 입력" id="fisrst_search">
+            <button id="button_search">검색</button>
         </div>
-        <p>회원가입을 위해 회원정보를 입력하여 주시기 바랍니다.</p>
-    </div>
-    <table class="table_1">
-        <tbody class="t_body">
-            <tr>
-                <th>[회원기본정보]</th>
-                <td>
-                    <span>'<span class="red">*</span>' 표시된 정보는 필수입력 정보입니다.</span>
-                </td>
-            </tr>
-            <tr>
-                <th><span class="red">*</span>아이디</th>
-                
-                <td>
-                    <input type="email" name="mid" id="idemail" placeholder=" 이메일 주소를 입력해주세요." />
-                </td>
-            </tr>
-            <tr>
-                <th class="psps"><span class="red">*</span>비밀번호</th>
-                <td>
-                    <input type="password" name="mpw" id="pw" placeholder=" 비밀번호를 입력해주세요." />
-                    <p id="pwex">10~20자리</p>
-                    <p id="pwex">영소문자/숫자/특수문자 중 두가지 이상 조합</p>
-                    <p id="pwex">사용가능한 특수문자:~!@#$%^&*()_+ </p>
-                    <p id="pwex">연속된 숫자/문자 사용 불가 </p>
-                    <p id="pwex">비밀번호에 아이디 포함 불가</p>
-                </td>
-            </tr>
-            <tr>
-                <th><span class="red">*</span>비밀번호 확인</th>
-                <td>
-                    <input type="password" name="mpwc" id="pwcheck" placeholder=" 비밀번호를 다시 입력해주세요." />
-                </td>
-            </tr>
-            <tr>
-                <th><span class="red">*</span>이름</th>
-                <td>
-                    <input type="text" name="mname" id="name" placeholder=" 이름을 입력해주세요." />
-                </td>
-            </tr>
-            <tr>
-                <th><span class="red">*</span>생년월일/성별</th>
-                <td>
-                    <input type="tel" name="mgender" value="" id="bithdate" placeholder=" 생년월일을 입력해주세요." readonly="readonly"/>
-                    <input type="radio" name="gender" value="M" id="male" />남
-                    <input type="radio" name="gender" value="F" id="female" />여
-                </td>
-            </tr>
-            <tr>
-                <th><span class="red">*</span>휴대폰번호</th>
-                <td>
-                    <input type="tel" name="mphone" value="" id="tel" placeholder=" 휴대폰 번호를 입력해주세요." readonly="readonly"/>
-                </td>
-            </tr>
-            <tr>
-                <th class="mailmail"><span class="red">*</span>이메일</th>
-                <td>
-                    <input type="tel" name="memail" value="" id="email" placeholder=" 이메일 주소를 입력해주세요." /> <br />
-                    <input type="checkbox" /><span class="idsame">아이디로 사용할 이메일 주소와 동일합니다.</span>
-                </td>
-            </tr>
-            <tr>
-                <th><span class="red">*</span>주소 </th>
-                <td>
-                    <input type="text" name="maddr" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
-					<input type="text" name="maddr" id="sample6_address" placeholder="주소" readonly="readonly">
-					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="addr-btn btn-1"><br>
-					<input type="text" name="maddr" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly">
-					<input type="text" name="maddr" id="sample6_detailAddress" placeholder=" 상세 주소를 입력해주세요.">
-                    <div class="add-info">
-                        <p class="adep">구매하신 상품 등에 대한 배송 받으실 주소를 입력해 주시기 바랍니다.</p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>개인정보 유효기간</th>
-                <td>
-                    <span><input value="1" type="checkbox" name="psn" onclick="checkOne(this);"/>평생회원(탈퇴 시/동의 철회 시)</span>
-                    <span><input value="2" type="checkbox" name="psn" onclick="checkOne(this);"/>1년</span>
-                    <span><input value="3" type="checkbox" name="psn" onclick="checkOne(this);"/>3년</span>
-                    <span><input value="4" type="checkbox" name="psn" onclick="checkOne(this);"/>5년</span> <br />
-                    <div class="add-info">
-                        <p class="personal">개인정보 유효기간 경과 시, 개인정보를 분리 저장/관리 또는 파기합니다.</p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>[선택입력정보]</th>
-            </tr>
-            <tr>
-                <th>마케팅정보 활용동의</th>
-                <td>
-                    <p>마케팅정보 수신에 대한 약관을 확인하신 후 서비스 제공을 원하신다면 동의함 버튼을 눌러주시기 바랍니다.</p>
-                    <p class="mar">회원님께 구신사 에서 준비한 다양한 이벤트 소식 및 혜택/서비스를 제공하고자 마케팅 수신 동의를 받고 있습니다.
-                        구신사에서 제공하는 다양한 제품과 서비스, 인테리어 정보를 만나보실 수 있습니다. 단, 약관안내, 서비스 내용, 
-                        회사 주요 정책 변경에 따른 메시지는 수신 동의 여부와 상관없이 발송됩니다.</p>
-                    <span><button class="alltext-btn btn-3">전문보기</button></span>
-                    <span><input value="1" type="checkbox" name="marketing" onclick="checkTwo(this);" type="checkbox" />동의함</span>
-                    <span><input value="2" type="checkbox" name="marketing" onclick="checkTwo(this);" type="checkbox" />동의 안함</span>
-                </td>
-            </tr>
-            <tr>
-                <th>추천인</th>
-                <td>
-                    <input type="text" id="reperson" placeholder=" 추천인 코드를 입력해 주세요."/>
-                </td>
-            </tr>
-            <tr>
-                <th>주 이용매장</th>
-                <td>
-                    <input type="text" id="shop" value="" placeholder=" 이용 매장을 입력해주세요." readonly="readonly"/>
-                    <span><button class="shop-btn btn-2">매장찾기</button></span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <hr class="line_one"/>
-        <div class="mem-save">
-            <h4>구신사 회원가입을 완료하시겠습니까?</h4>
+        <div id="hearder_color"></div>
+    
+        <div id ="menu_list">
+            <nav>
+            <ul class="header_menu_NEWARRIVAL">
+                <li id="product_menu_list"><a href=# id="high_con">NEW ARRIVAL</a>
+    
+                </li>
+            </ul>
+            <ul class="header_menu_BRAND">
+                <li id="product_menu_list"><a href="" id="high_con">BRAND</a>
+                    <ul class="BRAND_Second">
+                        <li class ="ViewallBrands" id="product_menu_list"><a href="" id="con" >View all Brands</a>
+                            <ul class="ViewallBrands_Three">
+                                <li id="product_menu_list"><a href="" id="con">LLUD Exclusive</a></li>        
+                                <li id="product_menu_list"><a href="" id="con">AFTERPRAY</a></li>   
+                                <li id="product_menu_list"><a href="" id="con">MPQ</a></li>   
+                                <li id="product_menu_list"><a href="" id="con">SUJIPMIHAK</a></li>
+                                <li id="product_menu_list"><a href="" id="con">WHITEBOXHGALLERY</a></li>
+                            </ul>
+                            </li>
+    
+                        <li class="Restock"  id="product_menu_list"><a href="" id="con">Restock</a>
+                            <ul class="BRAND_Three">
+                                <li id="product_menu_list"><a href="" id="con">CURATED PARADE</a></li>        
+                                <li id="product_menu_list"><a href="" id="con">SANSAN GEAR</a></li>   
+                                <li id="product_menu_list"><a href="" id="con">Hatchingroom</a></li>   
+                                <li id="product_menu_list"><a href="" id="con">Saturday of us</a></li> 
+                            </ul>
+                            </li>
+    
+                       
+                    </ul>
+                </li>
+            </ul>
+                <ul class="header_menu_Man">
+                    <li id="product_menu_list"><a href=# id="high_con">MEN</a>
+                        <ul class="Man_Second">
+                            <li class="OUTER"  id="product_menu_list"><a href=# id="con">OUTER</a>
+                                <ul class="OUTER_Second">
+                                    <li id="product_menu_list"><a href="" id="con">JACKET</a></li>        
+                                    <li id="product_menu_list"><a href="" id="con">Coat</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Jumper</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Biazer</a></li> 
+                                </ul></li>
+                            <li class="TOP" id="product_menu_list"><a href=# id="con">TOP</a>
+                                <ul class="TOP_Second">
+                                    <li id="product_menu_list"><a href="" id="con">Shirts(LS)</a></li>        
+                                    <li id="product_menu_list"><a href="" id="con">Shirts(1/2)</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Tee(LS)</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Tee(1/2)</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Sleeveless</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Knit</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Vest</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Hoodie</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Sweatshirts</a></li> 
+                                </ul></li>
+                            <li id="product_menu_list"><a href=# id="con">BOTTOM</a></li>
+                            <li id="product_menu_list"><a href=# id="con">ACCESSORIES</a></li>
+                            <li class="LIFE" id="product_menu_list"><a href=# id="con">LIFE</a>
+                                <ul class="LIFE_Second">
+                                    <li id="product_menu_list"><a href="" id="con">HOME</a></li>        
+                                    <li id="product_menu_list"><a href="" id="con">Beauty</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Paper</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Digital</a></li> 
+                                </ul></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="header_menu_WOMEN">
+                    <li id="product_menu_list"><a href=# id="high_con">WOMEN</a>
+                        <ul class="WOMEN_Second">
+                            <li class="OUTER" id="product_menu_list"><a href=# id="con">OUTER</a>
+                                <ul class="OUTER_Second">
+                                    <li id="product_menu_list"><a href="" id="con">JACKET</a></li>        
+                                    <li id="product_menu_list"><a href="" id="con">Coat</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Jumper</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Biazer</a></li> 
+                                </ul></li>
+                            <li class="TOP" id="product_menu_list"><a href=# id="con">TOP</a>
+                                <ul class="TOP_Second">
+                                    <li id="product_menu_list"><a href="" id="con">Shirts(LS)</a></li>        
+                                    <li id="product_menu_list"><a href="" id="con">Shirts(1/2)</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Tee(LS)</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Tee(1/2)</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Sleeveless</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Knit</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Vest</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Hoodie</a></li> 
+                                    <li id="product_menu_list"><a href="" id="con">Sweatshirts</a></li> 
+                                </ul></li>
+                            <li id="product_menu_list"><a href=# id="con">BOTTOM</a></li>
+                            <li id="product_menu_list"><a href=# id="con">ACCESSORIES</a></li>
+                            <li class="LIFE"  id="product_menu_list"><a href=# id="con">LIFE</a>
+                                <ul class="LIFE_Second">
+                                    <li id="product_menu_list"><a href="" id="con">HOME</a></li>        
+                                    <li id="product_menu_list"><a href="" id="con">Beauty</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Paper</a></li>   
+                                    <li id="product_menu_list"><a href="" id="con">Digital</a></li> 
+                                </ul></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="header_menu_SALE">
+                    <li id="product_menu_list"><a href=# id="high_con">유저리뷰</a>    
+                        <ul class="SALE_Second"> 
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="header_menu_Userrivw">
+                    <li id="product_menu_list"><a href=# id="high_con">SALE</a>    
+                        <ul class="Userrivw_Second"> 
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <div class="btn22">
-            <button class="customm-btn btn-5" onclick="location.href='joinform3'">이전</button>
-            <button class="customm2-btn btn-6">다음</button>
-        </div>
-        <div id='wrap'>
+    </header>
+</head>
+<body>
+<div class="map_1">
+	<div  id="map" style="width:500px;height:400px;"></div>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcb4928a1fc827ef6cbbe798d1f33f12"></script>
+		<script>
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		    mapOption = { 
+		        center: new kakao.maps.LatLng(37.482, 126.8982), // 지도의 중심좌표
+		        level: 3 // 지도의 확대 레벨
+		    };
+		
+			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+			
+			// 마커가 표시될 위치입니다 
+			var markerPosition  = new kakao.maps.LatLng(37.482, 126.8982); 
+			
+			// 마커를 생성합니다
+			var marker = new kakao.maps.Marker({
+			    position: markerPosition
+			});
+			
+			// 마커가 지도 위에 표시되도록 설정합니다
+			marker.setMap(map);
+			
+			// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+			// marker.setMap(null); 
+		</script>
+</div>
+<div id='wrap'>
         <section id="wrap_section">
             
         </section>
@@ -576,5 +456,5 @@
           </div>
       </footer>
     </div>
-    </body>
-    </html>
+</body>
+</html>
