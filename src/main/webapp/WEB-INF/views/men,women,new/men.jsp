@@ -8,6 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>men</title>
+       <link rel="stylesheet" href="resources/css/men,women.css">
+</head>
+
+<body>
     <header>
         <div class="header_left"><a href=#><img src="resources/headerimg/GUSINSA.png" alt="" id="header_right_img"></a></div>
         <div class="header_right">
@@ -154,17 +158,7 @@
                 </ul>
             </nav>
         </div>
-    </header>
-</head>
-<style>
-     
-
-    
-    
-
-    
-</style>
-<body>
+    </header> 
     <table class="guide">
         <tr>
             <td><a href="">HOME</a>&nbsp;></td>
@@ -232,77 +226,32 @@
          </c:forEach>
     </table>
 
-    <table class="t2" >
-        <tr>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="../clothes/옷1.png" width="250" height="350"><p class="p1">제품명</p></a>
-                <a href="Salebuying.html"><p class="p1">가격</p></a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="../clothes/옷1.png" width="250" height="350"><p class="p1">제품명</p></a>
-                <a href="Salebuying.html"><p class="p1">가격</p></a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="../clothes/옷1.png" width="250" height="350"><p class="p1">제품명</p></a>
-                <a href="Salebuying.html"><p class="p1">가격</p></a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="../clothes/옷1.png" width="250" height="350"><p class="p1">제품명</p></a>
-                <a href="Salebuying.html"><p class="p1">가격</p></a>
-            </td>
-        </tr>
-    </table>
-    <table class="t2" >
-        <tr>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/clothes/옷1.png" width="250" height="350"><p class="p1">제품명</p></a>
-                <a href="Salebuying.html"><p class="p1">가격</p></a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/clothes/옷1.png" width="250" height="350"><p class="p1">제품명</p></a>
-                <a href="Salebuying.html"><p class="p1">가격</p></a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/clothes/옷1.png" width="250" height="350"><p class="p1">제품명</p></a>
-                <a href="Salebuying.html"><p class="p1">가격</p></a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/clothes/옷1.png" width="250" height="350"><p class="p1">제품명</p></a>
-                <a href="Salebuying.html"><p class="p1">가격</p></a>
-            </td>
-        </tr>
-    </table>
-    <h3>hype boy</h3>
-  <form action="men" method="post">
-	<c:if test="${searchVo.totPage>1 }">
-		<c:if test="${searchVo.page>1 }">
+   
+   <div class="paging" style="padding-left: 800px; padding-bottom: 50px;">
+    <form action="men" method="post">
+	<c:if test="${searchVO.totPage>1 }"> <!-- 토탈 페이지가 1보다 크면 -->
+		<c:if test="${searchVO.page>1 }">
 			<a href="men?page=1">[처음]</a>
-			<a href="men?page=${searchVo.page-1 }">[이전]</a>
+			<a href="men?page=${searchVO.page-1 }">[이전]</a>
 		</c:if>
-		<c:forEach begin="${searchVo.pageStart }" end="${searchVo.pageEnd }" var="i">
-			<c:choose>
-				<c:when test="${i eq searchVo.page }">
-					<span style="color: red; font-weight: bold;">${i }&nbsp;</span>
-				</c:when>
-				<c:otherwise>
-					<a href="list?page=${i }&sk=${resk}&btitle=${btitle==true?'btitle':'' }&bcontent=${bcontent==true?'bcontent':'' }" style="text-decoration: none">${i }</a>&nbsp;
-				</c:otherwise>
-			
-			</c:choose>
-		</c:forEach>
-		<c:if test="${searchVo.totPage>searchVo.page }">
-			<a href="list?page=${searchVo.page+1 }">[다음]</a>
-			<a href="list?page=${searchVo.totPage }">[마지막]</a>
+	
+	<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+		<c:choose>
+			<c:when test="${i eq searchVO.page }">  <!-- i eq searchVO.page 내가 클릭한 페이지가 같을 때 -->
+				<span style="color: red; font-weight: bold;">${i }&nbsp;</span>
+			</c:when>
+			 <c:otherwise>
+				<a href="men?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
+			</c:otherwise> 
+		
+		</c:choose>
+	</c:forEach>
+		<c:if test="${searchVO.totPage>searchVO.page }"> <!-- 마지막 페이지가 아닐때 -->
+			<a href="men?page=${searchVO.page+1 }">></a>
+			<a href="men?page=${searchVO.totPage }">>></a>
 		</c:if>
 	</c:if>
+    </div>
   
   
   
