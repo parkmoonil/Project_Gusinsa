@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/mainbody.css" />
-<title>Insert title here</title>
+<title>GUSINSA_Main</title>
 <header>
     
 </header>

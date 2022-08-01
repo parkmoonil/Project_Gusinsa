@@ -12,7 +12,7 @@
 <style>
     .search_page{
         width:100%;
-        padding-top:250px;
+       
         
         
     }
@@ -90,19 +90,58 @@
                             <img src="${list.p_img}" width="250" height="350" style="margin-right: 50px;"><p class="p1">${list.p_name }</p></a>
                         <a href="Salebuying.html"><p class="p1">${list.p_price }</p></a>
                     </td>
-                  
-            
      </c:forEach>
-    
      </tr>
-    
      </table>
-
-
+     
+     totCnt : ${totRowcnt } <br />
+    현재페이지/토탈페이지 : ${searchVo.page } / ${searchVo.totPage }
         </div>
 
+
+
+
+  <div class="paging" style="padding-left: 800px; padding-bottom: 50px;">
+    
+	<c:if test="${searchVO.totPage>1 }"> <!-- 토탈 페이지가 1보다 크면 -->
+		<c:if test="${searchVO.page>1 }">
+			<a href="search?page=1&keyword=${resk}">[처음]</a>
+			<a href="search?page=${searchVO.page-1 }&keyword=${resk}">[이전]</a>
+			<%-- 검색값 처음 이전 다음 마지막 누르면 검색값을 잃어버리기 때문에 컨트롤러에서 선언해준 keyword = ${resk }를 묶어준다 --%>
+		</c:if>
+	
+	<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+		<c:choose>
+			<c:when test="${i eq searchVO.page }">  <!-- i eq searchVO.page 내가 클릭한 페이지가 같을 때 -->
+				<span style="color: red; font-weight: bold;">${i }&nbsp;</span>
+			</c:when>
+			 <c:otherwise>
+				<a href="search?page=${i }&keyword=${resk}&pname=${pname==true?'pname':''}&pclass=${pclass==true?'pclass':''}" style="text-decoration: none">${i }</a>&nbsp;
+				<!-- a태그 경로 : 현재 서치페이지 i(1페이지)에  검색어, like문에 사용한 컬럼명들을 그대로 유지 -->
+			</c:otherwise> 
+		
+		</c:choose>
+	</c:forEach>
+		<c:if test="${searchVO.totPage>searchVO.page }"> <!-- 마지막 페이지가 아닐때 -->
+			<a href="search?page=${searchVO.page+1 }&keyword=${resk}">다음</a>
+			<a href="search?page=${searchVO.totPage }&keyword=${resk}">마지막</a>
+		</c:if>
+	</c:if>
     </div>
     </c:if>
+
+   
+   
+    
+
+
+
+
+
+
+
+
+
 
 
 

@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>gusinsa.login</title>
+
+
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
@@ -183,7 +185,7 @@ function kakaoLogout() {
             font-weight: bold;
         }
         .body_body{
-            padding-top: 15%;
+            /* padding-top: 15%; */
             padding-left: 20%;
         }
         .hr-sect {
@@ -324,9 +326,8 @@ function kakaoLogout() {
             }
         </style>
     <body>
-    <header>
-		<%@include file="../../../../resources/common/header.jsp" %>       
-	</header>
+
+<%@include file="../../../../../../resources/common/header.jsp" %>       
     <div class="body_body">
         <div class="main11">
             <h2 class="h_2">안녕하세요 고객님!</h2>
