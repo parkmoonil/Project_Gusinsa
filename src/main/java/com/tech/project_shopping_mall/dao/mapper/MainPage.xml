@@ -36,7 +36,7 @@ SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_CONTENT, P_IMG, DATA FROM (SELECT ROWNUM
 INSERT INTO SEARCH VALUES(#{param1},1)
 </insert>
 
-<select  id="selectBoardTotCount" resultType="Integer">
+<select  id="selectBoardTotCount_search" resultType="Integer">
 SELECT COUNT(*) FROM PINFO WHERE P_NAME LIKE '%'||#{param1}||'%' OR P_CLASS LIKE '%'||#{param1}||'%'
 </select>
 
