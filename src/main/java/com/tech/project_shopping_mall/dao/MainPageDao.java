@@ -17,9 +17,9 @@ public interface MainPageDao {
 	
 	
 	public void search_write(String search_word);
-	public void modify(String sbid,String bname,
+	public void modify_search(String sbid,String bname,
 			String btitle,String bcontent);
-	public int selectBoardTotCount(String keyword);
+	public int selectBoardTotCount_search(String keyword);
 
 
 

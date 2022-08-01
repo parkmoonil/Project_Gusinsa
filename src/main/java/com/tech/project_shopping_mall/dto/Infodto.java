@@ -15,7 +15,7 @@ private String p_img3;
 private String p_img4;
 private String p_img5; 
 private int buycount; 
-Timestamp data;
+private Timestamp data;
 
 public Infodto() {
 	// TODO Auto-generated constructor stub

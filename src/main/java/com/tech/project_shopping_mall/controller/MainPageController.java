@@ -118,7 +118,7 @@ public class MainPageController {
 		int page=Integer.parseInt(strPage);
 		searchVO.setPage(page);
 		
-		int total=dao.selectBoardTotCount(keyword); // 총 페이지 갯수 즉 검색하면 나오는 총 갯수   쿼리문에선 검색된 총 갯수만 필요하여 int값으로 선정
+		int total=dao.selectBoardTotCount_search(keyword); // 총 페이지 갯수 즉 검색하면 나오는 총 갯수   쿼리문에선 검색된 총 갯수만 필요하여 int값으로 선정
 		searchVO.pageCalculate(total); // 를 페이지의 총갯수로 지정하여 지정한 페이지를 몃개씩 나눌건지  calculate를 통해 선정
 		
 		System.out.println("total : " + total);
