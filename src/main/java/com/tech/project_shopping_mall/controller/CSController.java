@@ -102,7 +102,7 @@ public class CSController {
 		System.out.println("=====Inquiry=====");
 	
 		
-		return "inquiry/inquiry";
+		return "CS/inquiry/inquiry";
 	}
 	
 	@RequestMapping("/write")
