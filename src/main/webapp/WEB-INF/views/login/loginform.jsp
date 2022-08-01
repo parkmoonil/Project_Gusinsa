@@ -159,7 +159,7 @@ function kakaoLogout() {
         /*라디오버튼 숨김*/
           #tab1,#tab2{
               display: none;}
-        label {
+        .main label {
             display: inline-block;
             margin: 0 0 -1px;
             padding: 10px 100px;
@@ -167,7 +167,7 @@ function kakaoLogout() {
             text-align: center;
             color: #bbb;
             border: 1px solid transparent;}
-        label:hover {
+        .main label:hover {
             color: #555;
             cursor: pointer;}
         /*input 클릭시, label 스타일*/
@@ -327,7 +327,8 @@ function kakaoLogout() {
         </style>
     <body>
 
-<%@include file="../../../../../../resources/common/header.jsp" %>       
+<%-- <%@include file="../../../../../../resources/common/header.jsp" %>  --%>
+<jsp:include page = "../../../resources/common/header.jsp" />    
     <div class="body_body">
         <div class="main11">
             <h2 class="h_2">안녕하세요 고객님!</h2>
