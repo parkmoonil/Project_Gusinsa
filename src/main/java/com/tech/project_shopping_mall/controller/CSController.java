@@ -117,14 +117,14 @@ public class CSController {
 		IDao dao=sqlSession.getMapper(IDao.class);
 		dao.write(nname, ntitle, ncontent);
 		
-		return "/pmi/redirect:noticeboard";
+		return "/redirect:noticeboard";
 	}
 	
 	@RequestMapping("/write_view")
 	public String write_view() {
 		System.out.println("=====Write_View=====");
 		
-		return "/pmi/write_view";
+		return "/write_view";
 	}
 	
 	@RequestMapping("/content_view")
@@ -138,7 +138,7 @@ public class CSController {
 		NoticeDto dto=dao.contentView(snnum);
 		model.addAttribute("content_view",dto);
 		
-		return "/pmi/content_view";
+		return "/content_view";
 	}
 	
 	@RequestMapping("/content_update")
@@ -152,7 +152,7 @@ public class CSController {
 		NoticeDto dto=dao.contentView(snnum);
 		model.addAttribute("content_view",dto);
 		
-		return "/pmi/content_update";
+		return "/content_update";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value= "/modify")
@@ -167,7 +167,7 @@ public class CSController {
 		IDao dao=sqlSession.getMapper(IDao.class);
 		dao.modify(nnum, ntitle, ncontent);
 		
-		return "redirect:/pmi/noticeboard";
+		return "redirect:/noticeboard";
 	}
 	
 	@RequestMapping("/delete")
@@ -179,7 +179,7 @@ public class CSController {
 		IDao dao=sqlSession.getMapper(IDao.class);
 		dao.delete(snnum);
 		
-		return "redirect:/pmi/noticeboard";
+		return "redirect:/noticeboard";
 	}
 	
 	@RequestMapping("/communication")
