@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.tech.project_shopping_mall.dao.IDao">
+<mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
 	
 	<select id="noticeboardTotCount1" resultType="Integer">
 		SELECT COUNT(*) FROM NOTICEBOARD WHERE NTITLE LIKE '%' || #{param1} || '%'
@@ -20,14 +20,27 @@
 	
 	
 	
+	<select id="noticeboard2" resultType="com.tech.project_shopping_mall.dto.NoticeDto">
+		SELECT NNUM,NTITLE,NCONTENT,NDATE FROM NOTICEBOARD
+		ORDER BY NNUM DESC
+	</select>
+	
+	
 	<select id="noticeboard" resultType="com.tech.project_shopping_mall.dto.NoticeDto">
-	SELECT NNUM,NTITLE,NCONTENT,NDATE FROM NOTICEBOARD
-	ORDER BY NNUM DESC
+	<!-- 	SELECT NNUM,NTITLE,NCONTENT,NDATE FROM NOTICEBOARD
+		ORDER BY NNUM ASC -->
+		
+		SELECT NNUM,NTITLE,NCONTENT,NDATE FROM
+		(SELECT ROWNUM NUM,N.* FROM
+		(SELECT * FROM NOTICEBOARD ORDER BY NNUM DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+		
+		
 	</select>
 
 	<insert id="write">
 	INSERT INTO NOTICEBOARD VALUES(NOTICEBOARD_SEQ.NEXTVAL,
-	#{param2},#{param3},SYSDATE)
+	#{param1},#{param2},SYSDATE)
 	</insert>
 
 	<select id="contentView" resultType="com.tech.project_shopping_mall.dto.NoticeDto">

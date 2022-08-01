@@ -1,0 +1,103 @@
+
+.mbs_title {
+    background-color: black;
+    text-align: center;
+    padding: 40px 0px 40px 0px;
+  	margin-top: 82px;
+}
+
+.mbs_title1 {
+    font-size: 34px;
+    color: white;
+    font-style: bold;
+    margin-bottom: 10px;
+    
+}
+
+.mbs_title2 {
+    font-size: 15px;
+    color: lightgray;
+}
+.mbs_guide {
+    text-align: center;
+    padding-right: 600px;
+    padding-top: 30px;
+    border-bottom: 3px solid #000;
+    padding-bottom: 50px;
+}
+
+.mbs_guide1 {
+   font-size: 30px;
+   font-weight: 600;
+   margin-bottom: 10px;
+   padding-right: 68px; 
+}
+
+.mbs_guide2 {
+    font-size: 18px;
+    color: gray;
+    font-weight: 500;
+}
+
+.mbs_online {
+    text-align: center;
+    border-bottom: 3px solid #000;
+    padding-bottom: 50px;
+}
+
+.mbs_online1 {
+    padding-top: 130px;
+    font-size :30px;
+    font-weight: 600;
+}
+
+.mbs_online2 {
+    font-size :25px;
+    color:gray;
+    font-weight: 600; 
+    
+}
+
+.mbs_online_button {
+    background-color: #000;
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    width: 300px;
+    height: 70px;
+}
+.mbs_grade {
+    text-align: center;
+    padding-right: 600px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.mbs_grade1{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-right: 68px; 
+}
+
+.mbs_grade2{
+    font-size: 20px;
+    color:gray;
+    font-weight: 600;   
+    padding-left: 50px; 
+}
+
+.mbs_explain {
+   margin-left: 0px;
+}
+
+.mbs_explain_title{
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.mbs_explain li{
+    font-size: 18px;
+    padding-bottom: 10px;
+    color: grey;
+}

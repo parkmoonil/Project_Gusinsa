@@ -4,56 +4,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="resources/board.css" />
-<link rel="stylesheet" href="resources/main.css" />
+<link rel="stylesheet" href="resources/css/cs/board.css" />
+<link rel="stylesheet" href="resources/css/cs/main.css" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<%-- <header><%@include file="common/header.jsp" %></header> --%>
+<header>
+<%@include file="../../../../resources/common/header.jsp" %>
+</header>
 <div class="cs_main">
-    	<div class="cs_left_nav">
-	        <h2 class="cs_left_title"><a href="csmain">
-	            고객센터
-	        </a></h2>
-	        <ul>
-	            <li class="cs_left_list" ><a href="noticeboard">
-	                공지사항
-	            </a></li>
-	            <li class="cs_left_list"><a href="./faq.html">
-	                FAQ
-	            </a></li>
-	            <li class="cs_left_list"><a href="./inquiry.html">
-	                1:1 문의하기
-	            </a></li>
-	            <li class="cs_left_list"><a href="./communication.html">
-	                고객의 소리
-	            </a></li>
-	            <li class="cs_left_list"><a href="./enter.html">
-	                입점문의
-	            </a></li>
-	            <li class="cs_left_list"><a href="./membership.html">
-	                멤버쉽(클럽)안내
-	            </a></li>
-	        </ul>
-	
-	        <div class="cs_left_contact">
-	            <h4>고객센터</h4>
-	            <h3>1555-1234</h3>
-	            <h6>평일09:00 ~ 18:00</h6>
-	            <h6>주말 및 공휴일 휴무</h6>
-	       </div>
-	   </div> 
- 
-	 <div class="cs_main_board">
+<%@include file="../cs_nav/cs_left_nav.jsp" %>  
+	<div class="cs_main_board">
 	 	<div class="line">
-	 	
 	 	</div>
 	 	<table class="notice_search">
-    		<td><h2>공지사항</h2></td>
-    		<td class="search_textarea">
-    		<input type="textarea" value="검색어를 입력해주세요" />
+    		<td>
+    			<h2>공지사항</h2>
     		</td>
+    		<div>
+	    		<td class="search_textarea">
+	    			<input type="text" value="검색어를 입력해주세요" />
+	    		</td>
+    		</div>
     	</table>
   
 		<table>
@@ -61,10 +34,10 @@
 				<th class="noticeboard_title">제목</th>
 				<th class="noticeboard_date">작성일자</th>
 			</tr>
-			<c:forEach items="${noticeboard}" var="dto" begin="1" end="10">
+			<c:forEach items="${noticeboard}" var="dto" begin="0" end="10">
 				<tr>
 					<td>
-					<a href="content_view?nnum=${dto.nnum }">${dto.ntitle}</a>
+						<a href="content_view?nnum=${dto.nnum }">${dto.ntitle}</a>
 					</td>
 					<td class="noticeboard_td_date">${dto.ndate }</td>
 				</tr>
@@ -100,6 +73,6 @@
 totCnt : ${tot.totCnt}	<br />
 현재페이지/토탈페이지 : ${searchVo.page } / ${searchVo.totPage }
 
-<%-- <footer><%@include file="common/footer.jsp" %></footer> --%>
+<%@include file="../../../../resources/common/footer.jsp" %>
 </body>
 </html>

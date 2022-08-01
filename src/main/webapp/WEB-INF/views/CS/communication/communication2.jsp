@@ -7,49 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="resources/main.css" />
-    <link rel="stylesheet" href="resources/board.css" />
-    <link rel="stylesheet" href="resources/communication.css" />
+	<link rel="stylesheet" href="resources/css/cs/main.css" />
+	<link rel="stylesheet" href="resources/css/cs/board.css" />
+	<link rel="stylesheet" href="resources/css/cs/communication.css" />
 </head>
 <body>
-<%-- 	<header><%@include file="common/header.jsp" %></header> --%>
-    <div class="cs_main">
-        <div class="cs_left_nav">
-            <h2 class="cs_left_title"><a href="csmain">
-                고객센터
-            </a></h2>
-            <ul>
-                <li class="cs_left_list" ><a href="noticeboard">
-                    공지사항
-                </a></li>
-                <li class="cs_left_list"><a href="">
-                    FAQ
-                </a></li>
-                <li class="cs_left_list"><a href="inquiry">
-                    1:1 문의하기
-                </a></li>
-                <li class="cs_left_list"><a href="communication">
-                    고객의 소리
-                </a></li>
-                <li class="cs_left_list"><a href="">
-                    입점문의
-                </a></li>
-                <li class="cs_left_list"><a href="">
-                    멤버쉽(클럽)안내
-                </a></li>
-            </ul>
-    
-            <div class="cs_left_contact">
-                <h4>고객센터</h4>
-                <h3>1555-1234</h3>
-                <h6>평일09:00 ~ 18:00</h6>
-                <h6>주말 및 공휴일 휴무</h6>
-            </div>
-        </div>
-        <div class="cs_main_board">
-            <div class="line" ></div>
-            <h2>고객의 소리</h2>
-           
+<header>
+<%@include file="../../../../resources/common/header.jsp" %>
+</header>
+<div class="cs_main">
+<%@include file="../cs_nav/cs_left_nav.jsp" %>            
+	<div class="cs_main_board">
+		<div class="line" ></div>
+			<h2>고객의 소리</h2>
             <div class="step_progress_area">
             	<div class= "step_progress_status">
 	                <div class="step_progress_on">
@@ -171,8 +141,8 @@
             <div class="btn_next">
 	        	<a href="communication3" class="cs_communication_main_button">다음</a>
     		</div>
-        </div>
-    </div>
-   
+		</div>
+	</div>
+<%@include file="../../../../resources/common/footer.jsp" %>
 </body>
 </html>

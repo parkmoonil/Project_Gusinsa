@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.tech.project_shopping_mall.dao.IDao;
+import com.tech.project_shopping_mall.dao.CSDao;
 import com.tech.project_shopping_mall.dto.NoticeDto;
 import com.tech.project_shopping_mall.vopage.SearchVO;
 
@@ -25,21 +25,21 @@ public class CSController {
 	public String CSmain(Model model) {
 		System.out.println("======CSMAIN=======");
 		
-		IDao dao=sqlSession.getMapper(IDao.class);
+		CSDao dao=sqlSession.getMapper(CSDao.class);
 		
-		ArrayList<NoticeDto> noticeboard=dao.noticeboard(0, 0, null, null);
-		model.addAttribute("noticeboard",noticeboard);
+		ArrayList<NoticeDto> noticeboard2=dao.noticeboard2(0, null, null, null);
+		model.addAttribute("noticeboard2",noticeboard2);
 		
-	
-		return "/pmi/csmain";
+		return "/CS/csmain";
 		
 	}
 	
+//	redirect:noticeboard
 	@RequestMapping("/noticeboard")
 	public String notice(HttpServletRequest request,SearchVO searchVO,Model model) {
 		System.out.println("======NoticeBoard=======");
 			
-		IDao dao=sqlSession.getMapper(IDao.class);
+		CSDao dao=sqlSession.getMapper(CSDao.class);
 //		ArrayList<NoticeDto> noticeboard=dao.noticeboard();
 //		model.addAttribute("noticeboard",noticeboard);
 		
@@ -86,15 +86,15 @@ public class CSController {
 		}else if (ntitle.equals("") && ncontent.equals("ncontent")) {
 			model.addAttribute("noticeboard",dao.noticeboard(rowStart, rowEnd, searchKeyword, "2"));
 		}else if (ntitle.equals("ntitle") && ncontent.equals("ncontent")) {
-			model.addAttribute("noticeboard",dao.noticeboard(rowStart, rowEnd, searchKeyword, "2"));
+			model.addAttribute("noticeboard",dao.noticeboard(rowStart, rowEnd, searchKeyword, "3"));
 		}else if (ntitle.equals("") && ncontent.equals("")) {
-			model.addAttribute("noticeboard",dao.noticeboard(rowStart, rowEnd, searchKeyword, "2"));
+			model.addAttribute("noticeboard",dao.noticeboard(rowStart, rowEnd, searchKeyword, "4"));
 		}
 		
 		model.addAttribute("totRowcnt",total);
 		model.addAttribute("searchVo",searchVO);
 		
-		return "/pmi/noticeboard";
+		return "/CS/notice/noticeboard";
 	}
 	
 	@RequestMapping("/inquiry")
@@ -102,7 +102,7 @@ public class CSController {
 		System.out.println("=====Inquiry=====");
 	
 		
-		return "/pmi/inquiry";
+		return "inquiry/inquiry";
 	}
 	
 	@RequestMapping("/write")
@@ -110,21 +110,20 @@ public class CSController {
 			Model model) {
 		System.out.println("=======write======");
 		
-		String nname=request.getParameter("nname");
 		String ntitle=request.getParameter("ntitle");
 		String ncontent=request.getParameter("ncontent");
 		
-		IDao dao=sqlSession.getMapper(IDao.class);
-		dao.write(nname, ntitle, ncontent);
+		CSDao dao=sqlSession.getMapper(CSDao.class);
+		dao.write(ntitle, ncontent);
 		
-		return "/redirect:noticeboard";
+		return "redirect:noticeboard";
 	}
 	
 	@RequestMapping("/write_view")
 	public String write_view() {
 		System.out.println("=====Write_View=====");
 		
-		return "/write_view";
+		return "/CS/notice/write_view";
 	}
 	
 	@RequestMapping("/content_view")
@@ -132,13 +131,13 @@ public class CSController {
 			Model model) {
 		System.out.println("======content_view======");
 		
-		String snnum=request.getParameter("nnum");
-		IDao dao=sqlSession.getMapper(IDao.class);
+		int snnum=Integer.parseInt(request.getParameter("nnum"));
+		CSDao dao=sqlSession.getMapper(CSDao.class);
 		
 		NoticeDto dto=dao.contentView(snnum);
 		model.addAttribute("content_view",dto);
 		
-		return "/content_view";
+		return "/CS/notice/content_view";
 	}
 	
 	@RequestMapping("/content_update")
@@ -146,13 +145,13 @@ public class CSController {
 			Model model) {
 		System.out.println("======content_update======");
 		
-		String snnum=request.getParameter("nnum");
-		IDao dao=sqlSession.getMapper(IDao.class);
+		int snnum=Integer.parseInt(request.getParameter("nnum"));
+		CSDao dao=sqlSession.getMapper(CSDao.class);
 		
 		NoticeDto dto=dao.contentView(snnum);
 		model.addAttribute("content_view",dto);
 		
-		return "/content_update";
+		return "/CS/notice/content_update";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value= "/modify")
@@ -160,14 +159,14 @@ public class CSController {
 			Model model) {
 		System.out.println("======modify======");
 		
-		String nnum=request.getParameter("nnum");
+		int nnum=Integer.parseInt(request.getParameter("nnum"));
 		String ntitle=request.getParameter("ntitle");
 		String ncontent=request.getParameter("ncontent");
 		
-		IDao dao=sqlSession.getMapper(IDao.class);
+		CSDao dao=sqlSession.getMapper(CSDao.class);
 		dao.modify(nnum, ntitle, ncontent);
 		
-		return "redirect:/noticeboard";
+		return "redirect:noticeboard";
 	}
 	
 	@RequestMapping("/delete")
@@ -175,24 +174,38 @@ public class CSController {
 			Model model) {
 		System.out.println("======delete======");
 		
-		String snnum=request.getParameter("nnum");
-		IDao dao=sqlSession.getMapper(IDao.class);
+		int snnum=Integer.parseInt(request.getParameter("nnum"));
+		CSDao dao=sqlSession.getMapper(CSDao.class);
 		dao.delete(snnum);
 		
-		return "redirect:/noticeboard";
+		return "redirect:noticeboard";
 	}
 	
 	@RequestMapping("/communication")
 	public String communication() {
 		System.out.println("=====communication=====");
 		
-		return "/pmi/communication";
+		return "/CS/communication/communication";
 	}
 	
 	@RequestMapping("/communication2")
 	public String communication2() {
 		System.out.println("=====communication2=====");
 		
-		return "/pmi/communication2";
+		return "/CS/communication/communication2";
+	}
+	
+	@RequestMapping("/communication3")
+	public String communication3() {
+		System.out.println("=====communication3=====");
+		
+		return "/CS/communication/communication3";
+	}
+	
+	@RequestMapping("/membership")
+	public String membership() {
+		System.out.println("=====membership=====");
+		
+		return "/CS/mbs/membership";
 	}
 }

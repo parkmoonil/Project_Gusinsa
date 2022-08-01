@@ -1,0 +1,45 @@
+.step_progress:first-child::before{
+    content: none;
+}
+
+.step_progress_on:before{
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-top: 1px solid #b2b2b2;
+    border-right: 1px solid #b2b2b2;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.cs_communication_next_button{
+    display: inline-block;
+    width: 250px;
+    height: 60px;
+    background: #000;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    line-height: 60px;
+    margin : 0px 0 0 400px;
+    text-align: center;
+}
+
+.cs_communication_before_button{
+    display: inline-block;
+    width: 250px;
+    height: 60px;
+    background: #dedede;
+    color: #000;
+    font-size: 20px;
+    line-height: 60px;
+    margin : 0px 0 0 400px;
+    text-align: center;
+}
+
+.communication_btn {
+    margin: 60px auto 0 auto;
+    text-align: center;
+}
