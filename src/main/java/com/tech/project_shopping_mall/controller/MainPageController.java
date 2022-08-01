@@ -56,7 +56,7 @@ public class MainPageController {
 		String pname = "";
 		
 		
-		// 검색값 유지 시작
+		
 		String[] bp_class = request.getParameterValues("keyword");
 		String[] bp_name = request.getParameterValues("keyword");
 //		P_CLASS

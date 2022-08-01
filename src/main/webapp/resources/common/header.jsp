@@ -236,7 +236,7 @@
       
 <body>
  <header>															<!--../../../resources/common/header.jsp --> 
-        <div class="header_left"><a href="/project_shopping_mall"><img src="resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
+        <div class="header_left"><a href="/project_shopping_mall"><img src="${pageContext.request.contextPath }/resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
         <div class="header_right">
         <ul id="header_gita">
             <li><input type="checkbox" class="side_list"  id="menuicon">
@@ -249,15 +249,17 @@
                     <ul class="sidebar_ul">
                         <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>주문/배송</b></a></li>
                         <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>매장안내</b></a></li>
-                        <li id="sidebar_li"><a href="csmain" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>고객센터</b></a></li>
-                        <li id="sidebar_li"><a href="login/loginform" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>로그인</b></a></li>
-                        <li id="sidebar_li"><a href="join/joinform2" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>회원가입</b></a></li>
+                        <li id="sidebar_li"><a href="${pageContext.request.contextPath }/csmain" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>고객센터</b></a></li>
+                        <li id="sidebar_li"><a href="${pageContext.request.contextPath }/login/loginform" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>로그인</b></a></li>
+                        <li id="sidebar_li"><a href="${pageContext.request.contextPath }/join/joinform2" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>회원가입</b></a></li>
                     </ul>
                 </div></li>
                 <!-- /project_shopping_malltest/src/main/webapp/resources/headerimg -->
             <!-- <li><a href=#><img src="../headerimg/목록.png" style="margin-right: 80px;" alt="목록" class="header_img"></a></li> -->
-            <li><a href=#><img src="resources/headerimg/장바구니.png" style="height: 47px;" alt="장바구니" class="header_img"></a></li>
-            <li><a href="login/loginform"><img src="resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></a></li>
+            <li><a href=#><img src="${pageContext.request.contextPath }/resources/headerimg/장바구니.png" style="height: 47px;" alt="장바구니" class="header_img"></a></li>
+            <li><a href="${pageContext.request.contextPath }/login/loginform"><img src="${pageContext.request.contextPath }/resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></a></li>
+            <%-- <li><a href="${pageContext.request.contextPath }/login/loginform"><img src="${pageContext.request.contextPath }/resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></a></li> --%>
+             <!-- 로그인 안했을때 그림 로그인했을때 로그아웃 그림 필요 if문 써야함 -->
 
         </ul>
         </div>
@@ -277,12 +279,12 @@
                 </li>
             </ul>
             <ul class="header_menu_BRAND">
-                <li id="product_menu_list"><a href="brand" id="high_con">BRAND</a>
+                <li id="product_menu_list"><a href="${pageContext.request.contextPath }/brand" id="high_con">BRAND</a>
                     <ul class="BRAND_Second">
                         <li class ="ViewallBrands" id="product_menu_list"><a href="" id="con" >AFTER PRAY</a>
                             <ul class="ViewallBrands_Three">
                                 <li id="product_menu_list"><a href="" id="con">
-                                    <img src="resources/brandimg/brand_8.jpg"   alt="">
+                                    <img src="${pageContext.request.contextPath }/resources/brandimg/brand_8.jpg"   alt="">
                                 </a></li>        
                                 
                                 
@@ -291,42 +293,42 @@
     
                         <li class="Restock"  id="product_menu_list"><a href="" id="con">BROWNYARD</a>
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="resources/brandimg/brand_4.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_4.jpg" alt=""></a></li>        
                                 
                             </ul>
                             </li>
                         <li class="Restock"  id="product_menu_list"><a href="" id="con">EASTLOGUE PERMANENT</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="resources/brandimg/brand_9.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_9.jpg" alt=""></a></li>        
                                 
                             </ul>
                             </li>
                         <li class="Restock"  id="product_menu_list"><a href="" id="con">HOMEGROWN SVPPLY</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="resources/brandimg/brand_2.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_2.jpg" alt=""></a></li>        
                                 
                             </ul>
                             </li>
                         <li class="Restock"  id="product_menu_list"><a href="" id="con">LEARVE</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="resources/brandimg/brand_7.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_7.jpg" alt=""></a></li>        
                                 
                             </ul>
                             </li>
                         <li class="Restock"  id="product_menu_list"><a href="" id="con">NEITHERS</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="resources/brandimg/brand_3.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_3.jpg" alt=""></a></li>        
                                     
                             </ul>
                         </li>
                         <li class="Restock"  id="product_menu_list"><a href="" id="con">YOUTH</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="resources/brandimg/brand_1.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_1.jpg" alt=""></a></li>        
                                     
                             </ul>
                         </li>
@@ -338,7 +340,7 @@
                 </li>
             </ul>
                 <ul class="header_menu_Man">
-                    <li id="product_menu_list"><a href="men" id="high_con">MEN</a>
+                    <li id="product_menu_list"><a href="${pageContext.request.contextPath }/men" id="high_con">MEN</a>
                         <ul class="Man_Second">
                             <li class="OUTER"  id="product_menu_list"><a href=# id="con">OUTER</a>
                                 <ul class="OUTER_Second">
@@ -412,7 +414,7 @@
                     </li>
                 </ul>
                 <ul class="header_menu_Userrivw">
-                    <li id="product_menu_list"><a href="SaleMain" id="high_con">SALE</a>    
+                    <li id="product_menu_list"><a href="${pageContext.request.contextPath }/SaleMain" id="high_con">SALE</a>    
                         <ul class="Userrivw_Second"> 
                         </ul>
                     </li>

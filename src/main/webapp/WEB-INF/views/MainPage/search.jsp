@@ -6,13 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@include file="../../../../resources/common/header.jsp" %> 
+
 
 </head>
 <style>
     .search_page{
         width:100%;
-       
+        padding-top:50px;
         
         
     }
@@ -61,6 +61,7 @@
  </c:if> --%>
      <%-- ${keyword } --%>
 <body>
+<%@include file="../../../../resources/common/header.jsp" %> 
 <c:if test="${not empty product }">
     <div class="search_page">
         <div id="search_keyword">
@@ -72,7 +73,7 @@
                     <td><a href="" id="tb1">인기상품순</a>&nbsp;|&nbsp;</td>
                     <td><a href="" id="tb1">신상품순</a>&nbsp;|&nbsp;</td>  
                     <td><a href="" id="tb1">낮은가격순</a>&nbsp;|&nbsp;</td>  
-                    <td><a href="" id="tb1">높은가격순</a></td>  </span>
+                    <td><a href="" id="tb1">높은가격순</a></td>
                 </tr>
                 
             </table>
@@ -81,8 +82,8 @@
         <table class="product_search">
          <tr>
       <c:forEach items="${product }" var="list" varStatus ="status">
-          <c:if test="${status.index%4==0 }">
-          </tr><tr>
+          <c:if test="${status.index%4==0 }"> </tr><tr>
+          
           </c:if>  
                
                     <td class="td1">

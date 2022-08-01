@@ -22,5 +22,6 @@ public interface MainPageDao {
 	public int selectBoardTotCount(String keyword);
 
 
+
 	
 }
