@@ -274,7 +274,7 @@
 					    	<span>서비스 이용약관</span>
 					    	<span class="red">(필수)</span>
 					    </h3>
-					    <div class="terms-area">이 약관은 ㈜구신사에서 운영하는 까사미아 굳멤버스와 구신사닷컴(https://gusinsa.com) 에서 제공하는 인터넷 관련 서비스를 이용함에 있어 ㈜구신사와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</div>
+					    <div class="terms-area">이 약관은 ㈜구신사에서 운영하는 구신사닷컴(https://gusinsa.com) 에서 제공하는 인터넷 관련 서비스를 이용함에 있어 ㈜구신사와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</div>
 					    <div class="clear-fix">
 					        <button type="button" class="btn-popup" onclick="showTermDetail( $(this).attr(&#39;data-termType&#39;) )" data-termType="MEMBER">전문보기</button>
 					        <div class="agree-area" id="member">
@@ -332,8 +332,8 @@
 			
 
 	        <div class="btn-bottom-area type01">
-			 	<button type="button" class="white btn-prev">이전</button>
-	            <button type="button" class="basic btn-next">다음</button>
+			 	<button type="button" class="white btn-prev" onclick="location.href='joinform'">이전</button>
+	            <button type="button" class="basic btn-next" onclick="location.href='joinform3'">다음</button>
 	        </div>
 
 	    </div>

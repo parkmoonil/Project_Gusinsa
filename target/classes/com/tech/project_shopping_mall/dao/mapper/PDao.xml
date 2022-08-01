@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tech.project_shopping_mall.dao.PDao">
+
+<select id="men" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		<!-- FROM ( SELECT ~ 이 부분부터 추가하니 상품이 차례대로 잘 넘겨짐. 왜인지는 모르겠음... -->
+</select>
+<select id="selectBoardTotCount" resultType="integer">
+    SELECT
+        count(*)
+    FROM
+         PINFO
+	
+  </select>
+</mapper>
+<!-- ,jdbcType=VARCHAR -->
+

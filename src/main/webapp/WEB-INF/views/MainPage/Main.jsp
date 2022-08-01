@@ -6,13 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/mainbody.css" />
-<title>Insert title here</title>
+<title>GUSINSA_Main</title>
 <header>
-<%@include file="../../../../resources/common/header.jsp" %>       
+    
 </header>
 </head>
 
 <body>
+<%@include file="../../../../resources/common/header.jsp" %>   
  <!--메인포스터-->
      <div class="slidesposter">
         <div class="slideshow-container">

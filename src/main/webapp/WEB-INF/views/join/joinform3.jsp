@@ -413,6 +413,7 @@
         </div>
         <p>회원가입을 위해 회원정보를 입력하여 주시기 바랍니다.</p>
     </div>
+    <form action="join" method="post">
     <table class="table_1">
         <tbody class="t_body">
             <tr>
@@ -424,10 +425,9 @@
             <tr>
                 <th><span class="red">*</span>아이디</th>
                 
-                    <td>
-                        <input type="email" name="mid" id="idemail" placeholder=" 이메일 주소를 입력해주세요." />
-                    </td>
-                
+                <td>
+                    <input type="email" name="mid" id="idemail" placeholder=" 이메일 주소를 입력해주세요." />
+                </td>
             </tr>
             <tr>
                 <th class="psps"><span class="red">*</span>비밀번호</th>
@@ -455,15 +455,15 @@
             <tr>
                 <th><span class="red">*</span>생년월일/성별</th>
                 <td>
-                    <input type="tel" name="mgender" value="" id="bithdate" placeholder=" 생년월일을 입력해주세요." readonly="readonly"/>
-                    <input type="radio" name="gender" value="M" id="male" />남
-                    <input type="radio" name="gender" value="F" id="female" />여
+                    <input type="date" name="mbirth" value="" id="bithdate" placeholder=" 생년월일을 입력해주세요."/>
+                    <input type="radio" name="mgender" value="M" id="mgender" />남
+                    <input type="radio" name="mgender" value="F" id="mgender" />여
                 </td>
             </tr>
             <tr>
                 <th><span class="red">*</span>휴대폰번호</th>
                 <td>
-                    <input type="tel" name="mphone" value="" id="tel" placeholder=" 휴대폰 번호를 입력해주세요." readonly="readonly"/>
+                    <input type="tel" name="mphone" value="" id="tel" placeholder=" 휴대폰 번호를 입력해주세요."/>
                 </td>
             </tr>
             <tr>
@@ -533,9 +533,10 @@
             <h4>구신사 회원가입을 완료하시겠습니까?</h4>
         </div>
         <div class="btn22">
-            <button class="customm-btn btn-5">이전</button>
-            <button class="customm2-btn btn-6">다음</button>
+            <button class="customm-btn btn-5" onclick="location.href='home'">이전</button>
+            <button type="submit" class="customm2-btn btn-6">다음</button>
         </div>
+        </form>
         <div id='wrap'>
         <section id="wrap_section">
             

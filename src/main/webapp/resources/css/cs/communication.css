@@ -1,0 +1,291 @@
+.cs_communication_main{
+	color: #333;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+    padding-top: 70px;
+    color: gray;
+    margin-bottom: 100px;
+}
+
+.cs_communication_main_button{
+    display: inline-block;
+    width: 350px;
+    height: 60px;
+    background: #000;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    line-height: 60px;
+    margin : 0px 0 0 400px;
+    text-align: center;
+}
+
+.step_progress_area {
+    padding-top: 30px;
+    border-top: 1px solid #b2b2b2;
+    text-align: center;
+}
+.step_progress {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    text-align: center;
+}
+.step_progress_area .step_progress_on {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    font-size: 18px;
+   
+}
+.step_progress_area .step_progress em {
+    color: #666;
+  
+}
+
+.step_progress_area .step_progress:before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-top: 1px solid #b2b2b2;
+    border-right: 1px solid #b2b2b2;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.step_progress_area .step_progress {
+    color: #888;
+    font-size: 18px;
+   
+}
+
+.step_progress_status {
+	margin-bottom: 50px;
+}
+
+.step_progress_area p{
+    color: #777;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.communicaiton_table th {
+    padding: 8px 0;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: left;
+    width: 30%;
+    border-bottom: none;
+    height: 10px;
+    
+}
+
+.communicaiton_table td{
+    border-bottom: none;
+    font-size: 17px;
+}
+
+
+.input_tel {
+    min-width: 60px;
+}
+
+.tel_separator {
+    margin: 0 5px;
+    text-align: center;
+    padding: auto;
+}
+
+.btn_cert{
+    min-width: 20px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+
+.input_tel select {
+    font-size: 16px;
+    width: 90px;
+    height: 48px;
+    text-align: center;
+    color: #787878;
+}
+
+
+.phone_input {
+    height: 40px;
+    text-align: left;
+    font-size: 16px;
+    width: 110px;
+    padding-left: 13px;
+}
+
+.tel_separator{
+    flex: none;
+    margin: 0 4px;
+    text-align: center;
+    color: #787878;
+}
+
+.tel_separator:after{
+    content: "";
+    width: 9px;
+    height: 0;
+    margin: auto;
+    border-top: 1px solid #d2d2d2;    
+}
+
+.input_tel select {
+    border: 1px solid #d2d2d2;
+}
+.input_tel input {
+    border: 1px solid #d2d2d2;
+}
+
+.email_input{
+    height: 40px;
+    text-align: left;
+    font-size: 16px;
+    width: 150px;
+    padding-left: 13px;
+    border: 1px solid #d2d2d2;
+}
+
+
+.input_email select {
+	margin-left: 30px;
+    height: 45px;
+    width: 170px;
+    font-size: 17px;
+    display:inline;
+}
+
+.line2 {
+    font-size: 30px;
+    border-bottom: 3px solid #d2d2d2;
+    margin: 20px 0 0 0;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+.yeah {
+	display:flex;
+    height: 40px;
+    align-items: center;
+}
+
+.table_info {
+    margin-top: 70px;
+    padding-top: 5px;
+    font-size: 14px;
+    text-align: right;
+    border-bottom: 1px solid #b2b2b2;
+}
+
+.cs_opinion select {
+    font-size: 16px;
+    width: 150px;
+    height: 46px;
+    text-align: left;
+    color: #787878;
+    padding-left: 10px;
+    border: 1px solid #d2d2d2;
+}
+
+.radio_set {
+    padding-top: 5px;
+}
+
+.warning {
+    position: relative;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-left: 8px;
+    border-top: 1px solid #e5e5e5;
+    color: #999;
+    font-size: 13px;
+}
+
+div .radio_set {
+    margin-top: 40px;
+}
+
+.communication_table_box th {
+    width: 20%;
+    background-color: whitesmoke;
+    font-size: 17px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-left: 15px;
+}
+
+.communication_table_box_title {
+    vertical-align: top;
+}
+
+
+.communication_table_box_wrap {
+    display: flex;
+    border: 1px solid #d2d2d2;
+    padding-right: 53px;
+    height: 100%;
+}
+
+.box_input {
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    color: #000;
+    font-size: 17px;
+    box-sizing: border-box;
+}
+
+.box_content {
+    width: 100%;
+    height: 140px;
+    padding: 0 20px;
+    color: #000;
+    font-size: 17px;
+    box-sizing: border-box;
+}
+
+.byte-check {
+    display: flex;
+    width: 53px;
+    height: 40px;
+    padding-left: 6px;
+    /* line-height: 50px; */
+    color: #787878;
+    font-size: 12px;
+    font-family: "GillSansWGL", sans-serif;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.byte-check2 {
+    display: flex;
+    width: 53px;
+    height: 10px;
+    padding-left: 6px;
+    line-height: 100px;
+    color: #787878;
+    font-size: 12px;
+    font-family: "GillSansWGL", sans-serif;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.btn_add {
+    height: 60px;
+    width: 120px;
+    font-size: 15px;
+}
+
+.li_content {
+    padding-left: 7px;
+    color: #787878;
+    font-size: 13px;
+}
