@@ -187,7 +187,7 @@ public class ReviewController {
 		dao.review_write(r_starpoint, r_title, r_contents,fname);
 		
 		
-		return "redirect:review/review_list";
+		return "redirect:/review_list";
 	}
 
 
@@ -204,7 +204,7 @@ public class ReviewController {
  
  dao.review_upHit(sr_num);
  
- ReviewDto dto=dao.reviewView(sr_num); 
+ ReviewDto dto=dao.review_view(sr_num); 
  model.addAttribute("review_view",dto);
  
  return "review/review_view"; 
@@ -254,7 +254,7 @@ public class ReviewController {
   String sr_num=request.getParameter("r_num"); 
   ReviewDao dao=sqlSession.getMapper(ReviewDao.class);
   
-  ReviewDto dto=dao.reviewView(sr_num); 
+  ReviewDto dto=dao.review_view(sr_num); 
   model.addAttribute("review_view",dto);
     
   return "review/review_update"; }

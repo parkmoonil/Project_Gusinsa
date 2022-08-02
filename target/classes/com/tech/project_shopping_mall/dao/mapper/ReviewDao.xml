@@ -12,12 +12,12 @@
 	<insert id="review_write">
 		INSERT INTO REVIEW VALUES(REVIEW_SEQ.NEXTVAL,
 		0,#{param1},#{param2},#{param3},#{param4},
-		0,0,SYSDADE,0)
+		0,0,SYSDATE,0)
 	</insert>
 
 	<select id="review_view" resultType="com.tech.project_shopping_mall.dto.ReviewDto">
 		SELECT R_NUM,P_CODE,R_STARPOINT,R_TITLE,R_CONTENTS
-			,R_IMG,R_LIKEPOINT,MID,R_DATE
+			,R_IMG,R_LIKEPOINT,MID,R_DATE,R_HIT
 			FROM REVIEW WHERE R_NUM=#{param1}
 	</select>
 
