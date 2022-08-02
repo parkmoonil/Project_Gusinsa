@@ -247,11 +247,11 @@
                 </label>
                 <div class="sidebar">
                     <ul class="sidebar_ul">
-                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>주문/배송</b></a></li>
-                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>매장안내</b></a></li>
+                        
                         <li id="sidebar_li"><a href="${pageContext.request.contextPath }/csmain" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>고객센터</b></a></li>
                         <li id="sidebar_li"><a href="${pageContext.request.contextPath }/login/loginform" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>로그인</b></a></li>
                         <li id="sidebar_li"><a href="${pageContext.request.contextPath }/join/joinform2" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>회원가입</b></a></li>
+                        <li id="sidebar_li"><a href="${pageContext.request.contextPath }/mypage/mypage_orderlist" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>마이페이지</b></a></li>
                     </ul>
                 </div></li>
                 <!-- /project_shopping_malltest/src/main/webapp/resources/headerimg -->
