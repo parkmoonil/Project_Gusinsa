@@ -5,8 +5,29 @@
 
 <mapper namespace="com.tech.project_shopping_mall.dao.BrandDao">
 
-<select  id="brand" resultType = "com.tech.project_shopping_mall.dto.BrandDto">
-SELECT BRAND_NAME FROM BRAND
-</select>
+<select id="brand_ga" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+		SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(44032) AND NCHR(44619)
+	</select>
+	<select id="brand_gga" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+		SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(44620) AND NCHR(45207)
+	</select>
+	
+	<!-- <select id="brand" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+		SELECT BRAND_NAME FROM BRAND WHERE BRAND_NAME=#{param1 }
+	</select> -->
+
+	<select id="brand1" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_CONTENT, P_IMG, DATA FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	<select id="selectBoardTotCount" resultType="Integer">
+		SELECT COUNT(*) FROM PINFO
+	</select>
+	
+	<select id="findLike" resultType="int">
+		SELECT COUNT(*) FROM BRAND_LIKE
+		WHERE BRAND_NO = #{BRAND_NO} AND USER_NO = #{USER_NO}
+	</select>
 
 </mapper>
