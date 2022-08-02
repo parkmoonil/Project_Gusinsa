@@ -56,7 +56,7 @@ public class CommuController {
 		dao.Commu_write(cselect1, cselect2, cselect3, cselect4, ctitle, ccontent, cfile);
 		
 		
-		return "redirect:communication";
+		return "redirect:communication4";
 	}
 	
 	@RequestMapping("/communication3")
@@ -64,6 +64,13 @@ public class CommuController {
 		System.out.println("========write========");
 		
 		return "CS/communication/communication3";
+	}
+	
+	@RequestMapping("/communication4")
+	public String communication4(HttpServletRequest request) {
+		System.out.println("========write========");
+		
+		return "CS/communication/communication4";
 	}
 
 }

@@ -27,7 +27,7 @@
         	<!-- <img class="mbs_img" src="/resources/img/smart.png" alt="" /> -->
             <p class="mbs_online1">온라인 및 모바일</p>
             <p class="mbs_online2">본인 인증 후 멤버십에 가입하실 수 있습니다.</p>
-            <a href="csmain"><button class="mbs_online_button">회원 가입하기</button></a>
+            <a href="join/joinform2"><button class="mbs_online_button">회원 가입하기</button></a>
         </div>
         <div class="mbs_grade">
             <p class="mbs_grade1">멤버십 등급 안내</p>

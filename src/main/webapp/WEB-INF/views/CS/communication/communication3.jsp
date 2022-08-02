@@ -22,7 +22,7 @@
    <div class="line" ></div>
       <h2>고객의 소리</h2>
       	<div class="step_progress_area">
-            <div class= "step_progress_status">
+            <div class="step_progress_status">
 	              <div class="step_progress">
 	                  <em>01</em>
 	                  <strong>개인 정보 확인</strong>
