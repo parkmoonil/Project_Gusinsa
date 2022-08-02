@@ -378,9 +378,9 @@
     <div class="brand_name">
 	        <dl id="div1">ㄱ <br>
 	            <dt>
-			<c:forEach items="${brand }" var="dto">	
-	            <dd><a href="brand1">${dto.brand_name }</a></dd>
-			</c:forEach>
+				<c:forEach items="${brand_ga}" var="dto">	
+		            <dd><a href="brand1" data-value="${dto.brand_name }">${dto.brand_name }</a></dd>
+				</c:forEach>
 	            </dt>
 	        </dl> <br><br>
 	        <dl id="div2">ㄲ
