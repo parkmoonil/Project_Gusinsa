@@ -38,14 +38,14 @@
 		<td class="left">이미지</td>
 		<td> 
 			<a href="download?p=resources/upload/&f=${review_view.r_img }
-			&s_num=${review_view.r_num }">${review_view.r_img }</a>	<!-- 클릭하면 컨트롤러로 감 -->
+			&r_num=${review_view.r_num }">${review_view.r_img }</a>	<!-- 클릭하면 컨트롤러로 감 -->
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
 			<input type="submit" value="수정" /> &nbsp;&nbsp;
 			<a href="review_list">목록보기</a> &nbsp;&nbsp;
-			<a href="review_delete?r_num=${review_view.s_num }">삭제</a>  &nbsp;&nbsp;		
+			<a href="review_delete?r_num=${review_view.r_num }">삭제</a>  &nbsp;&nbsp;		
 		</td>
 	</tr>
 	

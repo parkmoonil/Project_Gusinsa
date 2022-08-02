@@ -27,12 +27,12 @@
             <div class="restar-box">
                 <div class="restar-total">4.7</div>
                     <div class="restar-total-content1">최고 5점</div>
-                        <div class="restar-total-content2">00개 평가</div>
+                        <div class="restar-total-content2">${totRowcnt }개 평가</div>
             </div>
 
 	<c:forEach items="${review_list }" var="dto">
 	<div>
-			<span><input type="hidden" name="mid" value="${dto.mid }"></span>	
+			<span>${dto.mid }</span>	
 			<span>${dto.r_num }</span>
 			<span>
 				<a href="review_view?r_num=${dto.r_num }">${dto.r_title }</a>
