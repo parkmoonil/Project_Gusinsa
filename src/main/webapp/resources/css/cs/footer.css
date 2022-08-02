@@ -1,0 +1,19 @@
+/*푸터어어어*/
+
+
+footer {width: 100%;height: 10px;bottom: 5px;  position: relative;border-top: 1px solid #c4c4c4; color: #808080;font-size: 11px; transform: translateY(-100%);}
+footer a:visited {color: #808080;}
+footer p {margin-top: 0;  margin-left: 10px;}
+footer p span {display: inline-block;margin-left: 20px; margin-bottom: 5px;} 
+#wrap{
+    width: 100%;height: auto;
+    min-height: 100%;
+    margin-top: 10px;
+}
+#wrap_section{
+    margin-top: px;
+}
+#footer_addr{float: left;}
+.footer_div{margin-top: 20px;margin-right: 30px;float: right; margin-bottom: 10px;}
+
+

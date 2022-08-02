@@ -5,7 +5,6 @@
 
 <mapper namespace="com.tech.project_shopping_mall.dao.MainPageDao">
 
-
 <select id="search" resultType = "com.tech.project_shopping_mall.dto.MainPageSearchDto">
 
 	 <!-- SELECT KEYWORD FROM (SELECT KEYWORD,SCORE,ROW_NUMBER() OVER (ORDER BY SCORE DESC) RANK FROM SEARCH) WHERE RANK <= 5  이러면 오류 -->
@@ -24,11 +23,21 @@
 	UPDATE SEARCH SET SCORE = SCORE + 1 WHERE  KEYWORD = #{param1}
 </update>
 
-<select  id="SearchProduct" resultType = "com.tech.project_shopping_mall.dto.MainPageSearch_ProductsDto">
-SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_CLASS, P_CONTENT, P_IMG, DATA FROM PINFO WHERE P_NAME LIKE '%'||#{param1}||'%' OR P_CLASS LIKE '%'||#{param1}||'%'
+<select  id="SearchProduct" resultType = "com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_CONTENT, P_IMG, DATA FROM (SELECT ROWNUM NUM,N.* FROM 
+      (SELECT * FROM PINFO ORDER BY DATA DESC) N
+      WHERE P_NAME LIKE '%'|| #{param3} || '%' OR P_CLASS LIKE '%'|| #{param3} || '%'
+      ) WHERE NUM BETWEEN #{param1} AND #{param2}
+
+
 </select>
 
 <insert id="search_write">
 INSERT INTO SEARCH VALUES(#{param1},1)
 </insert>
+
+<select  id="selectBoardTotCount_search" resultType="Integer">
+SELECT COUNT(*) FROM PINFO WHERE P_NAME LIKE '%'||#{param1}||'%' OR P_CLASS LIKE '%'||#{param1}||'%'
+</select>
+
 </mapper>

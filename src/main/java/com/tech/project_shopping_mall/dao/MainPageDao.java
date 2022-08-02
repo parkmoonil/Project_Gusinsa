@@ -11,9 +11,17 @@ public interface MainPageDao {
 	public ArrayList<MainPageSearchDto> search (String keyword);
 	public ArrayList<MainPageSearchDto> searchtest (String keyword);
 	public void  searchcount(String keyword);
-	public ArrayList<Infodto> SearchProduct(String keyword_product);
+	
+	
+	public ArrayList<Infodto> SearchProduct(int rowStart, int rowEnd,String keyword);
+	
+	
 	public void search_write(String search_word);
-	public void modify(String sbid,String bname,
+	public void modify_search(String sbid,String bname,
 			String btitle,String bcontent);
+	public int selectBoardTotCount_search(String keyword);
 
+
+
+	
 }

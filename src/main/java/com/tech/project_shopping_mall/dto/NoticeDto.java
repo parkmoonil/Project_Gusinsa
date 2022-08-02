@@ -1,10 +1,9 @@
 package com.tech.project_shopping_mall.dto;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class NoticeDto {
-	private String nnum;
+	private int nnum;
 	private String ntitle;
 	private String ncontent;
 	private Date ndate;
@@ -13,18 +12,18 @@ public class NoticeDto {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public NoticeDto(String nnum, String ntitle, String ncontent, Date ndate) {
+	public NoticeDto(int nnum, String ntitle, String ncontent, Date ndate) {
 		this.nnum=nnum;
 		this.ntitle=ntitle;
 		this.ncontent=ncontent;
 		this.ndate=ndate;		
 	}
 
-	public String getNnum() {
+	public int getNnum() {
 		return nnum;
 	}
 
-	public void setNnum(String nnum) {
+	public void setNnum(int nnum) {
 		this.nnum = nnum;
 	}
 
@@ -51,7 +50,5 @@ public class NoticeDto {
 	public void setNdate(Date ndate) {
 		this.ndate = ndate;
 	}
-
-	
 	
 }

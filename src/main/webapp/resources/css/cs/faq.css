@@ -1,0 +1,28 @@
+.faq_writeview th {
+	width: 20%;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.faq_writeview input {
+	width: 400px;
+	height: 30px;
+} 
+
+.faq_writeview textarea {
+	resize: none;
+}
+
+.faq_writeview_button {
+	text-align: right;
+	font-size: 18px;
+}
+
+.faqboard_header {
+	width: 17%;
+}
+
+.faqboard_button {
+	font-size: 18x;
+	margin-top:30px;
+	background-color: white;
+}
