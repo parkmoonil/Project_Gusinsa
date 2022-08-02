@@ -6,8 +6,15 @@
     padding-top: 70px;
     color: gray;
     margin-bottom: 100px;
+   
 }
 
+.commu_title p {
+	font-size: 25px;
+    margin: 50px 0px 0px 0;
+    padding-bottom: 30px;
+    font-weight: 600;
+}
 .cs_communication_main_button{
     display: inline-block;
     width: 350px;

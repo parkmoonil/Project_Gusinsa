@@ -24,6 +24,7 @@
     padding-top: 30px;
     border-bottom: 3px solid #000;
     padding-bottom: 50px;
+    margin:0 140px;
 }
 
 .mbs_guide1 {
@@ -43,10 +44,16 @@
     text-align: center;
     border-bottom: 3px solid #000;
     padding-bottom: 50px;
+    margin:0 140px;
 }
 
+
+.mbs_img {
+	width:300px;
+	background-color: blue;
+}
 .mbs_online1 {
-    padding-top: 130px;
+    padding-top: 0px;
     font-size :30px;
     font-weight: 600;
 }
@@ -71,6 +78,8 @@
     padding-right: 600px;
     padding-top: 30px;
     padding-bottom: 50px;
+    flex-direction:column;
+  
 }
 
 .mbs_grade1{
@@ -100,4 +109,24 @@
     font-size: 18px;
     padding-bottom: 10px;
     color: grey;
+}
+
+.mbs_grade table {
+	margin-left: 150px;
+	width: 900px;
+	height: 500px;
+	border-top: 3px solid #000;
+	border-bottom: 3px solid #000;
+}
+
+.mbs_grade th {
+	background:#dfdfdf;
+	text-align: center;
+	font-size: 19px;
+	
+}
+
+.mbs_grade td{
+	font-size: 17px;
+	font-weight: 600;
 }

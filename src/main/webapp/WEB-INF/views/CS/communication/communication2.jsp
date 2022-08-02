@@ -12,9 +12,7 @@
 	<link rel="stylesheet" href="resources/css/cs/communication.css" />
 </head>
 <body>
-<header>
 <%@include file="../../../../resources/common/header.jsp" %>
-</header>
 <div class="cs_main">
 <%@include file="../cs_nav/cs_left_nav.jsp" %>            
 	<div class="cs_main_board">
@@ -43,6 +41,7 @@
                 </p>      
             </div>
             <div class="line2"></div>
+       
             <table class="communicaiton_table">
                 <tr>
                     <th>
@@ -65,7 +64,7 @@
                     </th>
                     <td class="phone_cert">
                         <div class="input_tel">
-                            <select>
+                            <select name="">
                                 <option value="010">010</option>
                                 <option value="011">011</option>
                                 <option value="016">016</option>
@@ -86,7 +85,7 @@
                     </th>
                     <td class="group_cert">
                         <div class="input_tel">
-                            <select>
+                            <select name="">
                                 <option value="선택">선택</option>
                                 <option value="02">02</option>
                                 <option value="031">031</option>
@@ -138,9 +137,9 @@
                  </tr>
             </table>
             <div class="line2"></div>
-            <div class="btn_next">
+            <div class="btn_next" >
 	        	<a href="communication3" class="cs_communication_main_button">다음</a>
-    		</div>
+    		</div>	
 		</div>
 	</div>
 <%@include file="../../../../resources/common/footer.jsp" %>

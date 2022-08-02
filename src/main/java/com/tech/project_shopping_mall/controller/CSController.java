@@ -181,26 +181,6 @@ public class CSController {
 		return "redirect:noticeboard";
 	}
 	
-	@RequestMapping("/communication")
-	public String communication() {
-		System.out.println("=====communication=====");
-		
-		return "/CS/communication/communication";
-	}
-	
-	@RequestMapping("/communication2")
-	public String communication2() {
-		System.out.println("=====communication2=====");
-		
-		return "/CS/communication/communication2";
-	}
-	
-	@RequestMapping("/communication3")
-	public String communication3() {
-		System.out.println("=====communication3=====");
-		
-		return "/CS/communication/communication3";
-	}
 	
 	@RequestMapping("/membership")
 	public String membership() {

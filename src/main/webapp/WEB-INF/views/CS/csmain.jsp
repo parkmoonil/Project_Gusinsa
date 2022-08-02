@@ -10,9 +10,7 @@
 <link rel="stylesheet" href="resources/css/cses/board.css" />
 </head>
 <body>
-<header>
 <%@include file="../../../../resources/common/header.jsp" %>
-</header>
 <div class="cs_main">
 <%@include file="cs_nav/cs_left_nav.jsp" %>   
     <div class="cs_main_board">
@@ -63,9 +61,6 @@
     </div>
 </div>
 <a href="noticeboard">notice</a>
-
-<footer>
 <%@include file="../../../../resources/common/footer.jsp" %>
-</footer>
 </body>
 </html>

@@ -6,13 +6,12 @@
 <head>
 <link rel="stylesheet" href="resources/css/cs/board.css" />
 <link rel="stylesheet" href="resources/css/cs/main.css" />
+<link rel="stylesheet" href="resources/css/cs/notice_writeview.css" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<header>
 <%@include file="../../../../resources/common/header.jsp" %>
-</header>
 <div class="cs_main">
 <%@include file="../cs_nav/cs_left_nav.jsp" %>  
 	<div class="cs_main_board">
@@ -70,9 +69,6 @@
 		</form>
 	</div>
 </div>	
-totCnt : ${tot.totCnt}	<br />
-현재페이지/토탈페이지 : ${searchVo.page } / ${searchVo.totPage }
-
 <%@include file="../../../../resources/common/footer.jsp" %>
 </body>
 </html>

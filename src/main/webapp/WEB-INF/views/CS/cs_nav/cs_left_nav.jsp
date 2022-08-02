@@ -28,7 +28,7 @@
             <li class="cs_left_list"><a href="communication">
                 고객의 소리
             </a></li>
-            <li class="cs_left_list"><a href="">
+            <li class="cs_left_list"><a href="enter">
                 입점문의
             </a></li>
             <li class="cs_left_list"><a href="membership">

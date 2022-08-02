@@ -11,18 +11,16 @@
 <link rel="stylesheet" href="resources/css/cs/faq.css" />
 </head>
 <body>
-<header>
 <%@include file="../../../../resources/common/header.jsp" %>
-</header>
 <div class="cs_main">
 <%@include file="../cs_nav/cs_left_nav.jsp" %> 
- 	<div class=cs_main_board>
+<div class=cs_main_board>
 	    <div class="line"></div>
 	    <div class="faq_search">
 	        <h2>FAQ</h2>
 	    </div>
 	    
-	    <table>
+	    <table class="faq_view">
 	        <tr>
 	            <th class="faqboard_header">분류</th>
 	            <th class="faqboard_title">제목</th>
@@ -37,7 +35,7 @@
 	        </c:forEach>
 	    </table>
 	    <div class="write_button">
-	        <a href="faq_writeview">글쓰기</a>
+	        <a href="faq_writeview"><button class="faqboard_button">글쓰기</button></a>
 	    </div>
 	</div>
 </div>   

@@ -98,18 +98,6 @@ td{
     /* height: 60px; */
 }
 
-.cs_inquiry_main{
-    width: 600px;
-    padding: 20px;
-    
-}
-
-.cs_inquiry_title{
-    font-size: 22px;
-    border-bottom: 1px solid #e5e5e5;
-    margin: 50px 30px 40px 0;
-    padding-bottom: 30px;
-}
 
 .write_button {
 	text-align: right;
@@ -148,30 +136,7 @@ td{
 	margin-bottom: 40px;
 }
 
-.inquiry_button {
-	text-align: center;	
-	
-}
 
-.inquiry_button input {
-	width: 80px;
-	height: 45px;	
-	margin: 10px 10px 20px 0;
-	font-size: 15px;
-}
-
-.cs_inquiry_table{
-	margin-bottom: 60px;
-}
-
-.cancel_button{
-	background-color: white;
-	color: black;
-}
-.save_button{
-	background-color: black;
-	color: white;
-}
 .noitce_table_content_view td{
 	padding-left: 35px;
 }

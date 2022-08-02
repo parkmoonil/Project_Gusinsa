@@ -11,13 +11,11 @@
 <link rel="stylesheet" href="resources/css/cs/noticetable_content_update.css" />
 </head>
 <body>
-<header>
 <%@include file="../../../../resources/common/header.jsp" %>
-</header>
 <div class="cs_main">
 <%@include file="../cs_nav/cs_left_nav.jsp" %>  
-	<div class="cs_main_board">
-		<div class="line"></div>
+<div class="cs_main_board">
+	<div class="line"></div>
 		<form action="modify" method="post">
 			<input type="hidden" name="nnum" value="${content_view.nnum}"/>
 			<table class="notice_table_content_update">

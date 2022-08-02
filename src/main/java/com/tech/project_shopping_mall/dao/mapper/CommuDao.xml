@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
+
+	<insert id="Commu_write">
+	INSERT INTO COMMUBOARD(CNUM,CSELECT1,CSELECT2,CSELECT3,CSELECT4,CTITLE,CCONTENT,CFILE) 
+	VALUES(COMMUBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
+	</insert>
+
+</mapper>

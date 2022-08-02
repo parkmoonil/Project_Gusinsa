@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.tech.sprj0001.dao.CSDao">
+<mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
 	
 	<select id="faqboard" resultType="com.tech.project_shopping_mall.dto.FaqDto">
 		SELECT FNUM,FHEADER,FTITLE,FCONTENT,FDATE FROM FAQBOARD
