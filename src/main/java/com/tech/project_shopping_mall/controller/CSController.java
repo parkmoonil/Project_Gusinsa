@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tech.project_shopping_mall.dao.CSDao;
+import com.tech.project_shopping_mall.dto.FaqDto;
 import com.tech.project_shopping_mall.dto.NoticeDto;
 import com.tech.project_shopping_mall.vopage.SearchVO;
 
@@ -29,6 +30,9 @@ public class CSController {
 		
 		ArrayList<NoticeDto> noticeboard2=dao.noticeboard2(0, null, null, null);
 		model.addAttribute("noticeboard2",noticeboard2);
+		
+		ArrayList<FaqDto> faqboard=dao.faqboard();
+		model.addAttribute("faqboard",faqboard);
 		
 		return "/CS/csmain";
 		

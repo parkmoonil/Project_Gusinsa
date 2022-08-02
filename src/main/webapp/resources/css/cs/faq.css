@@ -18,7 +18,13 @@
 }
 
 .faqboard_header {
-	width: 17%;
+	width: 24%;
+	
+}
+
+.fheader {
+	color:red;
+	
 }
 
 .faqboard_button {
@@ -26,3 +32,4 @@
 	margin-top:30px;
 	background-color: white;
 }
+

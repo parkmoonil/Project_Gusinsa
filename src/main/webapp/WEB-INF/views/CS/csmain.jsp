@@ -7,41 +7,31 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/cs/main.css">
-<link rel="stylesheet" href="resources/css/cses/board.css" />
+<link rel="stylesheet" href="resources/css/cs/board.css" />
+<link rel="stylesheet" href="resources/css/cs/faq.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
 <div class="cs_main">
 <%@include file="cs_nav/cs_left_nav.jsp" %>   
     <div class="cs_main_board">
-        <div class="line"> </div>
-        <table class="cs_table_bestfaq">
-            <h3 class="cs_table_title">BEST FAQ</h3>
+       <div class="line"></div>
+       <h2>BEST FAQ</h2>
+       <table>
             <tr>
-                <th class="cs_table_row1">분류</th>
+                <th class="faqboard_header">분류</th>
                 <th>제목</th>
             </tr>
-            <tr>
-                <td>데이타베이스</td>
-                <td>일단적어봄</td>
-            </tr>
-            <tr>
-                <td>데이타베이스</td>
-                <td>일단적어봄</td>
-            </tr>
-            <tr>
-                <td>데이타베이스</td>
-                <td>일단적어봄</td>
-            </tr>
-            <tr>
-                <td>데이타베이스</td>
-                <td>일단적어봄</td>
-            </tr>
-            <tr>
-                <td>데이타베이스</td>
-                <td>일단적어봄</td>
-            </tr>
+            <c:forEach items="${faqboard}" var="dto" begin="0" end="5">
+				<tr>
+					<td class="fheader">
+						${dto.fheader}
+					</td>
+					<td>${dto.ftitle }</td>
+				</tr>
+			</c:forEach>
         </table>
+        <div class="line"></div>
     	<h2>공지사항</h2>
         <table>
 			<tr>
@@ -57,7 +47,6 @@
 				</tr>
 			</c:forEach>
 		</table>
-           
     </div>
 </div>
 <a href="noticeboard">notice</a>
