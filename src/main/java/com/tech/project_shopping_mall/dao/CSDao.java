@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.tech.project_shopping_mall.dto.CommuDto;
 import com.tech.project_shopping_mall.dto.FaqDto;
+import com.tech.project_shopping_mall.dto.InquiryDto;
 import com.tech.project_shopping_mall.dto.NoticeDto;
 
 public interface CSDao {
@@ -21,6 +22,9 @@ public interface CSDao {
 	
 	public ArrayList<CommuDto> Commuboard();
 	public void Commu_write(String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile);
+	
+	public ArrayList<InquiryDto> inquiryboard();
+	public void Inquiry_write(String iselect1,String ititle,String icontent,String ifile,String iselect2);
 	
 	public int noticeboardTotCount1(String searchKeyword);
 	public int noticeboardTotCount2(String searchKeyword);

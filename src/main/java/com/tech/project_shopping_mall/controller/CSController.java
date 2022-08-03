@@ -101,14 +101,6 @@ public class CSController {
 		return "/CS/notice/noticeboard";
 	}
 	
-	@RequestMapping("/inquiry")
-	public String inquiry() {
-		System.out.println("=====Inquiry=====");
-	
-		
-		return "CS/inquiry/inquiry";
-	}
-	
 	@RequestMapping("/write")
 	public String write(HttpServletRequest request,
 			Model model) {

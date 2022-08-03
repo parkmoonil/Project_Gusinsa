@@ -7,22 +7,21 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/cs/main.css" />
 <link rel="stylesheet" href="resources/css/cs/board.css" />
-<link rel="stylesheet" href="resources/css/cs/communication.css" />
+<link rel="stylesheet" href="resources/css/cs/inquiry.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
 <div class="cs_main">
-<%@include file="../cs_nav/cs_left_nav.jsp" %>          
+<%@include file="../cs_nav/cs_left_nav.jsp" %>        
 	<div class="cs_main_board">
 		<div class="line" ></div>
-			<h2>고객의 소리</h2>
-		<div class="commu_main">
-			<h2>칭찬/불만/개선 제안 등 고객님이 주신 다양한 의견에</h2>
-			<h2>보답해 드릴 수 있도록 최선을 다하는 구신사가 되겠습니다.</h2>
+		<h2>1:1 문의하기</h2>
+		<div class="inquiry2_main">
+		    
+				<h2>작성해 주신 문의가 정상적으로 접수되었습니다.</h2>
+				<h2>감사합니다.</h2>
+		
 		</div>
-        <div>
-            <a href="communication2" class="commu_main_btn">작성하기</a>
-        </div>
 	</div>
 </div>
 <%@include file="../../../../resources/common/footer.jsp" %>

@@ -17,7 +17,7 @@
 	<div class="cs_main_board">
 		<div class="line" ></div>
 		<h2>고객의 소리</h2>
-		<div class="cs_communication_main">
+		<div class="commu_main">
 			<div class="step_progress_area">
 				<div class="step_progress_status">
 			              <div class="step_progress">

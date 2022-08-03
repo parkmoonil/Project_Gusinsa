@@ -42,7 +42,7 @@
 	            </P> 
             </div>
             <form action="Commu_write" method="post">
-	            <table class="communicaiton_table">
+	            <table class="commu_table">
 	                <tr>
 	                    <th>
 	                        어떤유형의 의견이신가요?
@@ -130,13 +130,13 @@
 	                    </td>  
 	                </tr>
 	            </table>
-	            <table class="communication_table_box">
+	            <table class="commu_table_box">
 	                <tr>
 	                    <th scope="row">제목
 	                    <span class="point">*</span>
 	                    </th>
-	                    <td class="communication_table_box_title">
-	                        <div class="communication_table_box_wrap">
+	                    <td class="commu_table_box_title">
+	                        <div class="commu_table_box_wrap">
 	                            <input type="text" name="ctitle" class="box_input" placeholder="제목을 입력해주세요." maxlength="100">	                               
 	                        </div>
 	                    </td>
@@ -145,13 +145,9 @@
 	                    <th scope="row">내용
 	                    <span class="point">*</span>
 	                    </th>
-	                    <td class="communication_table_box_content">
-	                        <div class="communication_table_box_wrap">
+	                    <td class="commu_table_box_content">
+	                        <div class="commu_table_box_wrap">
 	                            <textarea class="box_content" name="ccontent"></textarea>     
-	                          <!--   <div class="byte-check2">
-	                                <em>0</em>
-	                                /1500
-	                            </div>  -->
 	                        </div>
 	                    </td>
 	                </tr>
@@ -162,9 +158,9 @@
 	                    </td>
 	                </tr>   
 	            </table>
-            <div class="communicaion_btn">
-	        	<input type="submit" value="작성완료"/></a>
-                <a href="communication2" class="cs_communication_before_button">이전</a>
+            <div class="commu_btn">
+	        	<input class="commu_next_btn" type="submit" value="작성완료" />
+           	 	<a href="communication2" class="commu_before_btn">이전</a>
     		</div>
     		</form>
         </div>
