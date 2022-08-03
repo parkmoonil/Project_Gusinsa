@@ -45,7 +45,7 @@ public class LoginController {
 			session.setAttribute("mpw", rtnDto.getMpw());
 		}
 		
-		return "redirect:/main";
+		return "redirect:../";
 	}
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request, Model model) {

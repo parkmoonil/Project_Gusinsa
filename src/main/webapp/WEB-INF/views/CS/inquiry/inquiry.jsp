@@ -13,15 +13,15 @@
 <%@include file="../../../../resources/common/header.jsp" %>
 <div class="cs_main">
 <%@include file="../cs_nav/cs_left_nav.jsp" %>           
-	<div class="cs_main_board">
+<div class="cs_main_board">
 	    <div class="line"> </div>
 	    <h3 class="inquiry_title">1:1 문의하기</h3>
-	    <form action="" method="post">
+	    <form action="Inquiry_write" method="post">
 		    <table class="inquiry_table">
 		        <tr>
 		            <th>문의 분류</th>
 		            <td>
-			            <select name="">
+			            <select name="iselect1">
 				            <option value="">문의선택</option>
 				            <option value="">주문결제</option>
 				            <option value="">배송문제</option>
@@ -37,7 +37,7 @@
 		            <th>제목</th>
 		            <td>
 			            <div class="title_input">
-			        	    <input type="text" title="제목입력" placeholder="제목을 입력해주세요." maxlength="100" cols="40" rows="2" />
+			        	    <input type="text" name="ititle" title="제목입력" placeholder="제목을 입력해주세요." maxlength="100" cols="40" rows="2" />
 			            </div>
 			       </td>
 		        </tr>
@@ -45,21 +45,21 @@
 		            <th>내용
 		           		<span class="point">*</span>
 		            </th>
-		            <td><textarea name="" id="" cols="53" rows="14"></textarea></td>
+		            <td><textarea name="icontent" id="" cols="53" rows="14"></textarea></td>
 		        </tr>
 		        <tr>
 		            <th>
 		            	첨부파일
 		            </th>
 		           <td>
-		      			<input type="button" value="첨부파일">
+		      			<input type="file" value="첨부파일" name="ifile" />
 		           </td>
 		        </tr>
 		        <tr>
 		            <th>답변수신</th>
 		            <td> 
-		                <input type="checkbox">SMS로 받기 
-		                <input type="checkbox">Email로 받기
+		                <input type="radio" name="iselect2" value="SMS로 받기" checked="checked">SMS로 받기
+		                <input type="radio" name="iselect2" value="Email로 받기">Email로 받기
 		            </td>
 		        </tr>
 		    </table>

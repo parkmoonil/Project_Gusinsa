@@ -146,20 +146,26 @@ public class MainPageController {
 //		model.addAttribute("list",list);
 		model.addAttribute("totRowcnt",total);
 		model.addAttribute("searchVO",searchVO);
-		
-		
-		
-		
-		return "MainPage/search";
-		
+	
+		return "MainPage/searchview";		
 }
-	@RequestMapping("/main")
-	public String main(HttpServletRequest request, Model model) {
-		System.out.println("main 이동!");
+	
+	@RequestMapping("/MainPage/searchview")
+	public String main(HttpServletRequest request, Model model,HttpSession session) {
+		System.out.println("search view로 이동!");
 		
 		
-		return "/MainPage/Main";
+		return "MainPage/searchview";
 	}
+//	@RequestMapping("/main")
+//	public String main(HttpServletRequest request, Model model,HttpSession session) {
+//		System.out.println("main 이동!");
+//		String mid = (String) session.getAttribute("mid");
+//		
+//		session.setAttribute("mid", mid);
+//		
+//		return "/MainPage/Main";
+//	}
 	
 
 	
