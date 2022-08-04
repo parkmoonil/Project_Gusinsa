@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <link rel="stylesheet" href="resources/css/Orderafterlogin.css">
   <%@include file="../../../../resources/common/header.jsp" %> 
    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="resources/css/Orderbeforelogin.css">
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#cbx_chkAll").click(function() {
@@ -31,6 +31,7 @@
         function showPopup2() { window.open("agreement2.html", "a", "width=400, height=300, left=100, top=50"); }
         function showPopup3() { window.open("08_2_popup.html", "a", "width=400, height=300, left=100, top=50"); }
 	</script>
+    
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         function sample6_execDaumPostcode() {
@@ -78,56 +79,55 @@
             }).open();
         }
     </script>
- 
+    
+   
 
+    <form action="Norderwrite" method="post">
     <div class="ship_top" style="float: left; margin-left: 100px;">
-     
+        <h2 class="infoput" >주문자 정보</h2> 
+	    <ul>
+	        <li id="customer_info">
+	           주문하시는 분 <input type="text" name="n_name" style="margin-left: 29px;" class="input__text name noMember_order_nm" placeholder="주문자명을 입력해 주세요">
+	        </li> 
+	        <li id="customer_info">
+	            휴대폰번호
+	            <input name="n_number" type="text" class="input__text phone noMember_order_hp_second" maxlength="20" onkeypress="infoinputController.fn.fnInNumber()" style="margin-left: 50px; width:380px" placeholder="휴대폰 번호를 입력해주세요">
+	        </li>
+	        <li id="customer_info"> <!--정규표현식 쓰기-->
+	            이메일 <input type="text" name="n_email" class="input__text mail noMemberEmailId" style="margin-left: 82px; width:380px" maxlength="100" placeholder="이메일 주소를 입력해 주세요" > 
+	         
+	        </li>
+	    </ul>
     <h2 class="infoput" >배송지정보 </h2> 
     <div class="fb__custom-checkbox">
+        <input type="checkbox" name="noMember_copy" id="noMember_copy"><label for="checker1" >주문자 정보와 동일</label>
         
     </div>
     <div>
         <ul>
-            <li id="customer_info"><strong class="userInfo__title vaT">이름 <span class="ask">*</span></strong>
-            <input type="text" style="margin-left: 90px;" class="input__text name noMember_shp_nm" placeholder="이름을 입력해주세요">
+            <li id="customer_info" ><strong class="userInfo__title vaT">이름 <span class="ask">*</span></strong>
+            <input type="text"  name="n_name" style="margin-left: 90px;" class="input__text name noMember_shp_nm" placeholder="이름을 입력해주세요">
             </li>
             <div class="userInfo__cont" id="customer_info" >
             <li><strong class="userInfo__title vaT">주소 <span class="ask">*</span></strong>
- <input type="text" style="margin-left: 89px;"  id="sample6_postcode" class="input__text addressNum noMember_recip_zip"  readonly="">
+            <input type="text"  name="n_addr" style="margin-left: 90px;" id="sample6_postcode" class="input__text addressNum noMember_recip_zip"  readonly="">
             <button type="button" class="btn__searchAddr daum_noMember_address" onclick="sample6_execDaumPostcode();">주소검색</button>
-            <input type="text" style="margin-left: 140px;" id="sample6_address" class="input__text address noMember_Address_1" readonly="">
-            <input type="text" style="margin-left: 140px;" id="sample6_extraAddress" class="input__text address noMember_Address_1">
-            <input type="text" style="margin-left: 140px;"  id="sample6_detailAddress" class="input__text address noMember_address_2" maxlength="30">        </div>
+            <input type="text"   name="n_addr" style="margin-left: 140px;" id="sample6_address" class="input__text address noMember_Address_1" readonly="">
+            <input type="text"  name="n_addr" style="margin-left: 140px;" id="sample6_extraAddress" class="input__text address noMember_Address_1" placeholder="참고항목">
+            <input type="text"  name="n_addr" style="margin-left: 140px;" id="sample6_detailAddress" class="input__text address noMember_address_2" maxlength="30">
+        </div>
         </li>
             <li id="customer_info"><strong class="userInfo__title vaT">휴대폰번호 <span class="ask">*</span></strong>
-                    <select name="noMember_order_hp_first" style="margin-left: 40px;"id="noMember_order_hp_first" class="fb__custom-select phone noMember_order_hp_first">
-                    <option value="">선택</option>
-                    <option value="010">010</option>
-                    <option value="011">011</option>
-                    <option value="016">016</option>
-                    <option value="017">017</option>
-                    <option value="018">018</option>
-                    <option value="019">019</option>
-                </select>
-                <input type="text" class="input__text phone noMember_order_hp_second" maxlength="4" onkeypress="infoinputController.fn.fnInNumber()">
-                <input type="text" class="input__text phone noMember_order_hp_second" maxlength="4" onkeypress="infoinputController.fn.fnInNumber()">
+                <input type="text"  name="n_number" class="input__text phone noMember_order_hp_second" maxlength="20" onkeypress="infoinputController.fn.fnInNumber()" style="margin-left: 42px; width:380px">
             </li>
             <li class="userInfo__list line">
                 <strong class="userInfo__title">배송요청사항</strong>
                 <div class="userInfo__cont">
                     <div class="dlvInfo">
                         <div class="select-area">
-                            <select name="noShippingMsgType" id="noShippingMsgType" class="fb__custom-select selectOption">
-                                <option value="">선택</option>
-                                <option value="부재시, 경비(관리)실에 맡겨주세요.">부재시, 경비(관리)실에 맡겨주세요.</option>
-                                <option value="부재시, 문앞에 놓아주세요.">부재시, 문앞에 놓아주세요.</option>
-                                <option value="부재시, 무인택배함 보관해주세요.">부재시, 무인택배함 보관해주세요.</option>
-                                <option value="직접 받겠습니다.">직접 받겠습니다.</option>
-                                <option value="배송전에 연락주세요.">배송전에 연락주세요.</option>
-                                <option value="" option="direct">직접입력</option>
-                            </select>
+                         
 
-                            <input type="text" id="noShippingMsg" class="userInput no_all_msg" placeholder="배송요청사항을 입력해 주세요. (최대 30자 이내)" maxlength="30" style="display: inline-block;">
+                            <input type="text" name="n_request" id="noShippingMsg" class="userInput no_all_msg" placeholder="배송요청사항을 입력해 주세요. (최대 30자 이내)" maxlength="30" style="display: inline-block; width:400px;">
                         </div>
                     </div>
                    
@@ -163,7 +163,7 @@
                     </div>
                 </td>            
             <td class="cart__table__count">
-                수량:1
+                수량:1 
             </td>
             <td class="cart__table__price">
                 10000원
@@ -172,8 +172,7 @@
 
     </table>
 
-   
-   <table>
+
    
     <!-- <tr>
         <td>신세계포인트</td>
@@ -186,17 +185,17 @@
         <td style="padding-left: 30px;"><input type="text"></td>
         <td><a href="">전환/조회</a></td>
     </tr> -->
-   </table>
    
-    <h2><class="infoput" >결제수단</h2> 
+   
+   <%--  <h2><class="infoput" >결제수단</h2> 
     <table>
         <tr>
             <td><input type="checkbox"><label for="checker3">신용카드로 결제</label></td>
             <td><input type="checkbox"><label for="checker4">다른결제 수단</label></td>
         </tr>
-    </table>
+    </table> --%>
 </div>
-</div>
+
 <div class="infoinput_right_inner">
     <h2 class="infoinput_sec_title" >결제정보</h2>
     <div id="dvPaymentInfo">
@@ -258,13 +257,16 @@
                
             </div>
             <div style="position: relative; right: 100px; top: 20px;" >
-                <a href="pay" class="btn btn-black2" id="payBtn" >결제하기</a>
+                <input type="submit" class="btn btn-black2" id="payBtn" value="결제하기">
             </div>
          </div>
          
     </div>
+            </form>
     
-      <!--   <div id='wrap'>
+    
+     
+<!--     <div id='wrap'>
         <section id="wrap_section">
             
         </section>
@@ -304,8 +306,6 @@
             </table>
           </div>
       </footer>
-    </div>   -->
-    
-    
+    </div> -->
 </body>
 </html>
