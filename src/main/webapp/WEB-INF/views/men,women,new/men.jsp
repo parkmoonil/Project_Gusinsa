@@ -55,9 +55,9 @@
         <tr>
      	<c:forEach items="${men }" var="dto">
             <td class="td1">
-                <a href="Salebuying.html">
+                <a href="SaleBuying">
                     <img src="${dto.p_img }" width="250" height="350"><p class="p1">${dto.p_name }</p></a>
-                <a href="Salebuying.html"><p class="p1">${dto.p_price }</p></a>
+                <a href="SaleBuying"><p class="p1">${dto.p_price }</p></a>
             </td>
          
             <td class="td1">

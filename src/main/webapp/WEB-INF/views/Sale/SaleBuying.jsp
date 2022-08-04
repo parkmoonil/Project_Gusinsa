@@ -224,7 +224,7 @@
             <br>
             <figcaption>
                 <button type="button" class="btn1"> <a href="./Salecart.html" class="Ja1">장바구니</a> </button>
-                <button type="button" class="btn2">구매하기</button>
+                <button type="button" class="btn2"><a href="Orderbeforelogin">구매하기</a></button>
             </figcaption>
         </figure>
     </div>
