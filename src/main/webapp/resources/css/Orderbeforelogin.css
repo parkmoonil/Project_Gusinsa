@@ -1,0 +1,375 @@
+
+
+
+/*주문상품정보*/
+.cart__table__count, .cart__table__price{
+    font-weight: bold;
+    padding-left: 100px;
+    padding-bottom: px;
+}
+.cart__table__option ul {
+    float: left;
+}
+.cart__table__option {
+    padding-left: 30px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #787878;
+}
+.cart__table__name {
+    max-height: 48px;
+    margin-bottom: 5px;
+    color: #000;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.03rem;
+    -webkit-box-orient: vertical;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    padding-left: 70px;
+
+   
+}
+.fb .cart_table_img {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.cart_table_img img {
+    width: 110px;
+    max-width: 110px;
+}
+.cart_table_link {
+    display: block;
+    width: 110px;
+    top: 0;
+    left: 0;
+}  
+/*결제정보 및 이용약관 동의,결제하기버튼*/
+.paymentAgree_top{
+    
+    padding-left: 30px;
+
+}
+#dvPaymentInfo{
+    padding-right: 30px;
+}
+.btn__contents {
+    display: block;
+    color: #323131;
+    line-height: 20px;
+    font-size: 12px;
+    letter-spacing: -0.02rem;
+}
+.paymentAgree__btm,.fb__custom-checkbox {
+    position: static;
+    font-size: 15px;
+    color: #787878;
+    padding-left: 30px;
+    letter-spacing: -0.02rem;
+}
+
+.fb, .fl-right {
+    float: right;
+}
+.fb, .fl-left {
+    float: left;
+}
+.paymentinfo_price{
+    font-size: 15px;
+    letter-spacing: -0.01rem;
+}
+.paymentinfo_list{
+
+padding-bottom: 40px;
+border-bottom: 1px solid #e5e5e5;
+}
+.paymentinfo_title{
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01rem;
+}
+.fb, .infoinput__sec__title {
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #000;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.03rem;
+}
+.infoinput_right_inner{
+    float: left;
+    padding-left: 10%;
+    width: 300px;
+    
+}
+ #customer_info{
+    padding-top: 20px;
+ }
+/*뭐하는앤지*/
+.fb {
+    box-sizing: border-box;
+}
+/*배송지 정보란*/
+.dlvInfo{
+    padding-left: 40px;
+}
+.fb, .infoinput, .userInfo__list {
+    display: table;
+    width: 100%;
+    margin-top: 25px;
+}
+.fb, .infoinput,  .select-area input {
+    display: none;
+    width: 100%;
+    height: 42px;
+    margin-top: 10px;
+    padding: 0 16px;
+    color: #000;
+}
+.fb, .infoinput, .select-area select {
+    height: 42px;
+    padding: 0 39px 0 16px;
+    color: #545151;
+}
+.fb, .infoinput, .userInfo__list.line {
+    padding-top: 25px;
+    border-top: 1px solid #d2d2d2;
+}
+
+.fb, .infoinput, .userInfo__title.vaT {
+    vertical-align: top;
+    padding-top: 10px;
+}
+/*주소란 세로로정렬 table-cell 이거 중요*/
+.fb, .infoinput, .userInfo__cont {
+    display: table-cell;
+    position: relative;
+    width: 725px;
+    vertical-align: middle;
+    font-size: 16px;
+    letter-spacing: -0.01rem;
+}
+.fb, .infoinput, .userInfo__list.noMember, .input__text.address {
+    width: 380px;
+    margin-top: 10px;
+}
+.fb, .infoinput, .userInfo__list.noMember, .btn__searchAddr {
+    width: 85px;
+    height: 42px;
+    margin-left: -1px;
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    background: #f7f7f7;
+    font-size: 14px;
+    color: #000;
+    letter-spacing: -0.01rem;
+    vertical-align: top;
+}
+.fb, .infoinput, .userInfo__list.noMember, .input__text.addressNum {
+    width: 296px;
+}
+        .fb, .infoinput, .userInfo__list.noMember, .input__text:read-only {
+    background: #f7f7f7;
+}
+.ask {
+    color: #ff3e2f;
+}
+        /*칸 사이에 간격*/
+.fb, .infoinput, .userInfo__list.noMember {
+    margin-top: 10px;
+}
+.fb, input {
+    border: 1px solid #d2d2d2;
+}
+.fb, select {
+    border: 1px solid #d2d2d2;
+}
+/*이메일 select 박스 사이즈*/
+.fb, .infoinput, .userInfo__list.noMember, .fb__custom-select.mail {
+    width: 170px;
+    height: 42px;
+    line-height: 40px;
+    margin-left: -1px;
+    vertical-align: top;
+    
+}
+/*이메일 input박스 사이즈*/
+.fb, .infoinput, .userInfo__list.noMember, .input__text.mail {
+    width: 170px;
+}
+.fb, .infoinput, .userInfo__list.noMember, .fb__custom-select.phone {
+    width: 80px;
+    height: 42px;
+    /* vertical-align: top; */
+}
+/*주문자,휴대폰번호 input박스*/
+.fb, .infoinput, .userInfo__list.noMember, .input__text, .discount_input {
+    height: 42px;
+    padding: 0 18px;  
+    font-size: 14px;
+    color: #000;
+    letter-spacing: -0.03rem;
+    box-sizing: border-box;
+}
+    /*휴대폰번호 칸*/
+.fb, .infoinput, .userInfo__list.noMember, .input__text.phone {
+    width: 140px;
+    margin-left: 10px;
+}
+/*주문자명*/
+.fb, .infoinput, .userInfo__list.noMember, .input__text.name {
+    width: 380px;
+    
+}
+/*할인정보 칸*/
+.fb, .infoinput, .discountInfo__cont, .coupon ul { /*할인선택, 쿠폰적용 옆으로 당기기*/
+    display: table-cell;
+    vertical-align: top;
+}
+    .fb, .infoinput, .discountInfo__cont, .coupon {
+    position: relative;
+    display: table;
+}
+    .fb, .infoinput, .discountInfo__cont__notice {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    font-size: 14px;
+    color: #787878;
+    letter-spacing: -0.03rem;
+}
+.fb, .infoinput, .discountInfo__list:first-child, .discountInfo__cont { /*할인정보 안쪽 칸 패딩*/
+    padding: 57px 0;
+}
+.fb, .infoinput, .discountInfo__title { /*할인선택 포인트 신세계포인트 기프트카드 해당*/
+    display: table-cell;
+    width: 150px;
+    vertical-align: middle;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.03rem;
+}
+.fb, .infoinput, .discountInfo__list {
+    display: table;
+    width: 100%;
+    min-height: 70px;
+    table-layout: fixed;
+    border-bottom: 1px solid #e5e5e5;
+}
+    
+        .blind {
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+}
+/*상품할인*/
+.fb, .infoinput, .discountInfo__cont, .coupon__list:first-child { /*변화없음*/
+    margin-top: 0;
+}
+
+.orderput{
+    padding-right: 10;
+}
+.discount_kind{
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+body {
+    font-family: "NotoSansCJKkr",sans-serif;
+}
+
+        .fb .infoinput .paymentAgree_btm ul li .btn_contents {
+    display: block;
+    line-height: 20px;
+    font-size: 12px;
+    letter-spacing: -0.02rem;
+}
+.fb, .infoinput, .discountInfo__cont, .coupon, .btn.big {
+    display: table-cell;
+    width: 100px;
+    height: 100%;
+    vertical-align: middle;
+}
+    .btn-black {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    background: #000;
+    text-align: center;
+    color: #fff;
+    box-sizing: border-box;
+    float: left;
+    width: 210px;
+    height: 42px;
+    margin-left: 50px;
+    font-size: 14px;
+    line-height: 42px;
+    
+}
+.btn-black2 {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    background: #000;
+    text-align: center;
+    color: #fff;
+    box-sizing: border-box;
+    float: left;
+    width: 210px;
+    height: 42px;
+    margin-left: 150px;
+    font-size: 14px;
+    line-height: 42px;
+    
+}
+      
+        ul{
+            list-style: none;
+        }
+        h2 a{
+            font-size: smaller;
+            margin-left: 300px;
+            color: black;
+        }
+        h2{   
+    border-bottom: 3px solid #000;
+
+    font-size: 22px;
+        }
+    a{
+        text-decoration: none;
+    }
+    
+ /*    ----푸터------------------------------------------------------------------------------------------------------------------------
+ .every{
+width: 100%;
+margin: 0 auto; 
+text-align: center;
+} 
+
+푸터어어어
+
+footer {width: 100%;height: 10px;bottom: 5px;  position: relative;border-top: 1px solid #c4c4c4; color: #808080;font-size: 11px; transform: translateY(-100%);}
+footer a:visited {color: #808080;}
+footer p {margin-top: 0;  margin-left: 10px;}
+footer p span {display: inline-block;margin-left: 20px; margin-bottom: 5px;} 
+#wrap{
+    width: 100%;height: auto;
+    min-height: 100%;
+    margin-top: 10px;
+}
+
+#footer_addr{float: left;}
+.footer_div{margin-top: 20px;margin-right: 30px;float: right; margin-bottom: 10px;}
+     */
