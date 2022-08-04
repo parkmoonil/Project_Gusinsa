@@ -5,12 +5,6 @@
 
 <mapper namespace="com.tech.project_shopping_mall.dao.PDao">
 
-<select id="men" resultType="com.tech.project_shopping_mall.dto.Infodto">
-SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
-		(SELECT * FROM PINFO ORDER BY DATA DESC) N)
-		WHERE NUM BETWEEN #{param1} AND #{param2} 
-		<!-- FROM ( SELECT ~ 이 부분부터 추가하니 상품이 차례대로 잘 넘겨짐. 왜인지는 모르겠음... -->
-</select>
 <select id="selectBoardTotCount" resultType="integer">
     SELECT
         count(*)
@@ -18,6 +12,251 @@ SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM
          PINFO
 	
   </select>
+<select id="men" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_GENDER='남자')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		<!-- FROM ( SELECT ~ 이 부분부터 추가하니 상품이 차례대로 잘 넘겨짐. 왜인지는 모르겠음... -->
+</select>
+    <select id="women" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_GENDER='여자')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		</select>
+  <select id="menbottom" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_CLASS='남자하의')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+  <select id="menwomenacc" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_CLASS='악세사리')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+ <select id="menwomenlife" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_CLASS='라이프')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+<select id="menwomenbeauty" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='뷰티')
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+		
+ </select>
+<select id="menwomendigital" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='디지털')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="menwomenhome" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='홈')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="menwomenpaper" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='페이퍼')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+ 
+  <select id="menouter" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_CLASS='아우터')
+		WHERE NUM BETWEEN #{param1} AND #{param2}  
+		
+</select>
+  <select id="mentop" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_CLASS='남자상의')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+
+ <select id="menjacket" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자자켓')
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+		
+</select>
+ <select id="mencoat" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자코트')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+ <select id="menblazer" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자블레이저')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+<select id="menjumper" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자점퍼')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+
+<select id="menshirtslong" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자셔츠LS')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="menshirtshort" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자셔츠SH')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="menteelong" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자티LS')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="menteeshort" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자티SH')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="menknit" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자니트')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="menvest" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자조끼')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="menhoodie" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자후디')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="mensweatshirts" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자스웻셔츠')
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+		
+ </select>
+<select id="mensleeveless" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='남자슬리브리스')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+ 
+ 
+ <!-- women -->
+ 
+ 
+   <select id="womenouter" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_CLASS='여자아우터' )
+		WHERE NUM BETWEEN #{param1} AND #{param2}  
+		
+</select>
+  <select id="womentop" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_CLASS='여자상의')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+
+ <select id="womenjacket" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자자켓')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+ <select id="womencoat" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자코트')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+ <select id="womenblazer" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자블레이저')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+</select>
+<select id="womenjumper" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자점퍼')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+
+<select id="womenshirtslong" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자셔츠LS')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="womenshirtshort" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자셔츠SH')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="womenteelong" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자티LS')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="womenteeshort" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자티SH')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="womenknit" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자니트')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="womenvest" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자조끼')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="womenhoodie" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자후디')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="womensweatshirts" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자스웻셔츠')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>
+<select id="womensleeveless" resultType="com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_CODE DESC) N WHERE P_CATEGORY='여자슬리브리스')
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+ </select>	
+		
+
 </mapper>
 <!-- ,jdbcType=VARCHAR -->
 
