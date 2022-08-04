@@ -255,7 +255,18 @@ SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM
 		WHERE NUM BETWEEN #{param1} AND #{param2} 
 		
  </select>	
-		
+ 
+	<!-- <insert id="Norderwrite" parameterType="com.tech.project_shopping_mall.dto.NorderinfoDto">
+			INSERT INTO NORDERINFO(N_NAME, N_NUMBER, N_EMAIL, N_ADDR, N_REQUEST) VALUES(#{n_name}, #{n_number}, #{n_email}, #{n_addr}, #{n_request})
+	</insert>
+	 -->
+	 <insert id="Norderwrite">
+			INSERT INTO NORDERINFO(N_NAME, N_NUMBER, N_EMAIL, N_ADDR, N_REQUEST) VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5})
+			
+			
+			
+	</insert>
+	
 
 </mapper>
 <!-- ,jdbcType=VARCHAR -->

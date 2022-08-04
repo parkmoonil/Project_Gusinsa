@@ -8,10 +8,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tech.project_shopping_mall.dao.PDao;
 import com.tech.project_shopping_mall.dto.Infodto;
+import com.tech.project_shopping_mall.dto.NorderinfoDto;
 import com.tech.project_shopping_mall.vopage.SearchVO;
 
 
@@ -143,6 +145,41 @@ public class CategoryController {
 	public String Orderafterlogin(HttpServletRequest request,Model model,SearchVO searchVO) {
 		PDao dao=sqlSession.getMapper(PDao.class);
 		return "men,women,new/Orderafterlogin";
+	}
+	@RequestMapping("/Orderbeforelogin")
+	public String Orderbeforelogin(HttpServletRequest request,Model model,SearchVO searchVO)  {
+		PDao dao=sqlSession.getMapper(PDao.class);
+		
+		
+		return "men,women,new/Orderbeforelogin";
+	}
+
+	
+	  @RequestMapping("/Norderwrite")
+	  public String Norderwrite(@ModelAttribute NorderinfoDto dto) {
+		  System.out.println("지나가기");
+			PDao dao=sqlSession.getMapper(PDao.class);
+			
+			dao.Norderwrite(dto.getN_name(), dto.getN_number(), dto.getN_email(), dto.getN_addr(), dto.getN_request());
+			/*
+			 * dao.Norderwrite(dto);
+			 */	  
+	  System.out.println("ddd "+dto);
+	  
+	  return "redirect:/pay"; 
+	  }
+	 
+	@RequestMapping("/agreement")
+	public String agreement(HttpServletRequest request,Model model,SearchVO searchVO) {
+		PDao dao=sqlSession.getMapper(PDao.class);
+		
+		return "men,women,new/agreement";
+	}
+	@RequestMapping("/agreement2")
+	public String agreement2(HttpServletRequest request,Model model,SearchVO searchVO) {
+		PDao dao=sqlSession.getMapper(PDao.class);
+		
+		return "men,women,new/agreement2";
 	}
 	
 }
