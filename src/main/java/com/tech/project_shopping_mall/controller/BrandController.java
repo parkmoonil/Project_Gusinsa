@@ -50,7 +50,7 @@ public class BrandController {
 		ArrayList<BrandDto> dto17=dao.brand_pa(brand_name);
 		ArrayList<BrandDto> dto18=dao.brand_ha(brand_name);
 		
-//		영어 처리      //
+//		영어 처리     //
 		ArrayList<BrandDto> dto19=dao.brand_a(brand_name);
 		ArrayList<BrandDto> dto20=dao.brand_b(brand_name);
 		ArrayList<BrandDto> dto21=dao.brand_c(brand_name);

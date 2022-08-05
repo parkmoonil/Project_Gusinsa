@@ -310,12 +310,12 @@
                 $('html').animate({ scrollTop: offset.top - 270 }, 450);
             });
         });
-        $(document).ready(function () {
+        /* $(document).ready(function () {
             $('#btn46').click(function () {
                 var offset = $('#div46').offset();
                 $('html').animate({ scrollTop: offset.top - 270 }, 450);
             });
-        });
+        }); */
         $(document).ready(function () {
             $('#back-to-top').click(function () {
                 var offset = $('#top').offset();
@@ -377,7 +377,7 @@
                 <td><a id="btn43">X</a></td>
                 <td><a id="btn44">Y</a></td>
                 <td><a id="btn45">Z</a></td>
-                <td><a id="btn46">0-9</a></td>
+                <!-- <td><a id="btn46">0-9</a></td> -->
             </tr>
         </table>
     </div>
@@ -386,14 +386,14 @@
         <dl id="div1">ㄱ <br>
             <dt>
 				<c:forEach items="${brand_ga}" var="dto">	
-		            <dd><a href="BrandPage/brand${dto.brand_id }">${dto.brand_name }</a></dd>
+		            <dd><a href="brand${dto.brand_id }">${dto.brand_name }</a></dd>
 				</c:forEach>
             </dt>
         </dl> <br><br>
         <dl id="div2">ㄲ 
             <dt>
 		        <c:forEach items="${brand_gga}" var="dto">	
-		            <dd><a href="BrandPage/brand${dto.brand_id }">${dto.brand_name }</a></dd>
+		            <dd><a href="brand${dto.brand_id }">${dto.brand_name }</a></dd>
 				</c:forEach>
             </dt>
         </dl> <br><br>
@@ -697,14 +697,14 @@
 		            <dd><a href="brand${dto.brand_id }">${dto.brand_name }</a></dd>
 				</c:forEach>
             </dt>
-        </dl> <br><br>
+        </dl> <br><br><br><br><br><br><br><br><br><br>
         <%-- <dl id="div46">0-9
             <dt>
 		        <c:forEach items="${brand_0_9}" var="dto">	
 		            <dd><a href="brand${dto.brand_id }">${dto.brand_name }</a></dd>
 				</c:forEach>
             </dt>
-        </dl> --%> <br><br><br><br><br><br><br><br><br><br>
+        </dl> <br><br><br><br><br><br><br><br><br><br> --%>
     </div>
     
     <a id="back-to-top" href="#">Top</a>
@@ -712,7 +712,7 @@
 
 <%@include file="../../../../resources/common/footer.jsp" %>
 
-<script>
+	<script>
 		/* - 문서의 높이를 계산 상단에서 얼마큼 떨어져 있는지 offset 값을 계산 */
 		var btt = document.getElementById('back-to-top'), docElem = document.documentElement, offset, scrollPos, docHeight;
 		// 문서 높이 계산하기

@@ -97,7 +97,7 @@
 	</div>
 
 	
-	<div class="paging" style="/* padding-left: 850px; */ text-align:center; padding-bottom: 50px;">
+	<div class="paging" style="text-align:center; padding-bottom: 50px;">
 		<form action="brand1" method="post">
 			<c:if test="${searchVO.totPage>1 }">
 				<!-- 토탈 페이지가 1보다 크면 -->
