@@ -237,6 +237,7 @@
 <body>
  <header>															<!--../../../resources/common/header.jsp --> 
         <div class="header_left"><a href="/project_shopping_mall"><img src="${pageContext.request.contextPath }/resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
+        <div class="header_left"><h2>로그인 ${mid }</h2></div>
         <div class="header_right">
         <ul id="header_gita">
             <li><input type="checkbox" class="side_list"  id="menuicon">
@@ -247,17 +248,27 @@
                 </label>
                 <div class="sidebar">
                     <ul class="sidebar_ul">
-                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>주문/배송</b></a></li>
-                        <li id="sidebar_li"><a href="#" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>매장안내</b></a></li>
+                        
                         <li id="sidebar_li"><a href="${pageContext.request.contextPath }/csmain" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>고객센터</b></a></li>
+                         <c:if test="${empty mid }"> 
                         <li id="sidebar_li"><a href="${pageContext.request.contextPath }/login/loginform" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>로그인</b></a></li>
+                         </c:if> 
                         <li id="sidebar_li"><a href="${pageContext.request.contextPath }/join/joinform2" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>회원가입</b></a></li>
+                         <c:if test="${not empty mid }"> 
+                        <li id="sidebar_li"><a href="${pageContext.request.contextPath }/mypage/mypage_orderlist" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>마이페이지</b></a></li>
+                         </c:if> 
+                        
                     </ul>
                 </div></li>
                 <!-- /project_shopping_malltest/src/main/webapp/resources/headerimg -->
             <!-- <li><a href=#><img src="../headerimg/목록.png" style="margin-right: 80px;" alt="목록" class="header_img"></a></li> -->
             <li><a href=#><img src="${pageContext.request.contextPath }/resources/headerimg/장바구니.png" style="height: 47px;" alt="장바구니" class="header_img"></a></li>
+            <c:if test="${empty mid }"> 
             <li><a href="${pageContext.request.contextPath }/login/loginform"><img src="${pageContext.request.contextPath }/resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></a></li>
+            </c:if>
+            <c:if test="${not empty mid }"> 
+            <li><a href="${pageContext.request.contextPath }/login/logout"><img src="${pageContext.request.contextPath }/resources/headerimg/logout.png" style="height: 47px;" alt="로그아웃" class="header_img"></a></li>
+            </c:if>
             <%-- <li><a href="${pageContext.request.contextPath }/login/loginform"><img src="${pageContext.request.contextPath }/resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></a></li> --%>
              <!-- 로그인 안했을때 그림 로그인했을때 로그아웃 그림 필요 if문 써야함 -->
 

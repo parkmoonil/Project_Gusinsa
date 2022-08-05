@@ -4,7 +4,11 @@
 <!DOCTYPE html>
 <html>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+
+	/* 주소 불러오기 */
     function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -49,6 +53,8 @@
             }
         }).open();
     }
+    
+    /* 개인정보 유지 기간 */
 	function checkOne(chk){
 	    var obj = document.getElementsByName("psn");
 	    for(var i=0; i<obj.length; i++){
@@ -65,6 +71,122 @@
 	        }
 	    }
 	}
+	
+	/* 비밀번호 & 비밀번호 확인 동일 체크 */
+	$(function() {
+	
+	    $("#alert-success").hide();
+	    $("#alert-danger").hide();
+	
+	    $('.pw').keyup(function() {
+	        var pwd1 = $("#pw_1").val();
+	        var pwd2 = $("#pwcheck").val();
+	
+	        if (pwd1 != "" || pwd2 != "") {
+	            if (pwd1 != pwd2) {
+	            	
+	                $("#alert-success").hide();
+	                $("#alert-danger").show();
+	
+	                $('#submit').click(function() {
+	                    $("#pw_1").focus();
+	                    return false;
+	                });
+					/* $("#pwcheck").focusout(function () {
+						alert("비밀번호가 일치하지 않습니다. 비밀번호를 재확인해주세요.");
+					}) */
+	            } else {
+	                $("#alert-success").show();
+	                $("#alert-danger").hide();
+	                return true;
+	            }
+	
+	        }
+	    });
+	
+	});
+	
+	/* 전화번호 */
+	var phone =document.getElementById('tel');
+	phone.onkeyup = function(event){
+	event = event || window.event;
+	var _val = this.value.trim();
+	this.value = autoHypenPhone(_val) ;
+	};
+	function autoHypenPhone(str) {
+	str = str.replace(/[^0-9]/g, '');
+	var tmp = '';
+	if (str.length < 4) {
+	   return str;
+	} else if (str.length < 7) {
+	   tmp += str.substr(0, 3);
+	   tmp += '-';
+	   tmp += str.substr(3);
+	   return tmp;
+	} else if (str.length < 11) {
+	   tmp += str.substr(0, 3);
+	   tmp += '-';
+	   tmp += str.substr(3, 3);
+	   tmp += '-';
+	   tmp += str.substr(6);
+	   return tmp;
+	} else {
+	   tmp += str.substr(0, 3);
+	   tmp += '-';
+	   tmp += str.substr(3, 4);
+	   tmp += '-';
+	   tmp += str.substr(7);
+	   return tmp;
+	}
+	return str;
+	}
+	
+	/* 비밀번호 유효성 검사 */
+	function checkPw() {
+        let id = $("#mid").val();
+        let pw = $("#pw_1").val();
+        let number = pw.search(/[0-9]/g);
+        let english = pw.search(/[a-z]/ig);
+        let spece = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+        let reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
+        if (pw.length < 10 || pw.length > 20) {
+            alert("10자리 ~ 20자리 이내로 입력해주세요.");
+            return false;
+
+        } else if (pw.search(/\s/) != -1) {
+            alert("비밀번호는 공백 없이 입력해주세요.");
+            return false;
+
+        } else if (number < 0 || english < 0 || spece < 0) {
+            alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
+            return false;
+
+        } else if ((number < 0 && english < 0) || (english < 0 && spece < 0) || (spece < 0 && number < 0)) {
+            alert("영문,숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요.");
+            return false;
+
+        } else if (/(\w)\1\1\1/.test(pw)) {
+            alert('연속된 숫자/문자 사용하실 수 없습니다.');
+            return false;
+
+        } else if (pw.search(id) > -1) {
+            alert("비밀번호에 아이디가 포함되었습니다.");
+            return false;
+        } else {
+            alert("비밀번호가 정상적으로 입력되었습니다.");
+            return true;
+        }
+
+        if (false === reg.test(pw)) {
+            alert('비밀번호는 10자 이상이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.');
+            return false;
+        } else {
+            alert("비밀번호가 정상적으로 입력되었습니다.");
+            return true;
+        }
+
+    }
 </script>
 <head>
 <meta charset="UTF-8">
@@ -109,12 +231,12 @@
             padding-right: 200px;
         }
         /* 아이디 */
-        #idemail{
+        #mid{
             width: 400px;
             height: 35px;
         }
         /* 비밀번호 & 확인 */
-        #pw{
+        #pw_1{
             width: 400px;
             height: 35px;
         }
@@ -377,8 +499,18 @@
             7px 7px 20px 0px #0002,
             4px 4px 5px 0px #0001;
         }
+        /* hr태그 */
         .line_one{
         	width: 60%;
+        }
+        /* 비밀번호 확인 */
+        .alert-success{
+        	color: green;
+        	font-weight: bold;
+        }
+        .alert-danger{
+        	color: red;
+        	font-weight: bold;
         }
         /*푸터어어어*/
 		footer {width: 100%;height: 10px;bottom: 5px;  position: relative;border-top: 1px solid #c4c4c4; color: #808080;font-size: 11px; transform: translateY(-100%);}
@@ -396,7 +528,51 @@
 		}
 		#footer_addr{float: left;}
 		.footer_div{margin-top: 20px;margin-right: 30px;float: right; margin-bottom: 10px;}
+		
+.id_ok{
+color:#008000;
+display: none;
+}
+
+.id_already{
+color:#6A82FB; 
+display: none;
+}
     </style>
+ <script>
+function check(){
+	id = $("#mid").val();
+	
+	$.ajax({
+	    url: 'ID_Check',
+	    type: 'POST',
+	    dataType: 'text', //서버로부터 내가 받는 데이터의 타입
+	    contentType : 'text/plain; charset=utf-8;',//내가 서버로 보내는 데이터의 타입
+	    data: id ,
+
+	    success: function(data){
+	         if(data == 0){
+	         console.log("아이디 없음");
+	         
+	         $('.id_ok').css("display","inline-block"); 
+             $('.id_already').css("display", "none");
+	         }else{
+	         	console.log("아이디 있음");
+	         	
+	         	$('.id_already').css("display","inline-block");
+                $('.id_ok').css("display", "none");
+                
+                $('#mid').val('');
+	         }
+	    },
+	    error: function (){        
+	                      
+	    }
+	  });
+
+
+}
+</script>
     <body>
 		<div class="h3">
             <h3>gusinsa.com</h3>
@@ -422,17 +598,25 @@
                     <span>'<span class="red">*</span>' 표시된 정보는 필수입력 정보입니다.</span>
                 </td>
             </tr>
+           <form name="join" method="post" action="join" autocomplete="off" encType="utf-8">  
             <tr>
                 <th><span class="red">*</span>아이디</th>
                 
                 <td>
-                    <input type="email" name="mid" id="idemail" placeholder=" 이메일 주소를 입력해주세요." />
+                    <input type="text" name="mid" id="mid" placeholder=" 이메일 주소를 입력해주세요." />
+                    <button id="duplicate_check" type="button" onclick="check();">중복체크</button>
+					<span class="id_ok">사용 가능한 아이디입니다.</span>
+					<span class="id_already">누군가 이 아이디를 사용하고 있어요.</span>
                 </td>
             </tr>
+          	</form>
+          
+          	
+
             <tr>
                 <th class="psps"><span class="red">*</span>비밀번호</th>
                 <td>
-                    <input type="password" name="mpw" id="pw" placeholder=" 비밀번호를 입력해주세요." />
+                    <input type="password" class="pw" id="pw_1" name="mpw" placeholder=" 비밀번호를 입력해주세요." required/>
                     <p id="pwex">10~20자리</p>
                     <p id="pwex">영소문자/숫자/특수문자 중 두가지 이상 조합</p>
                     <p id="pwex">사용가능한 특수문자:~!@#$%^&*()_+ </p>
@@ -443,7 +627,9 @@
             <tr>
                 <th><span class="red">*</span>비밀번호 확인</th>
                 <td>
-                    <input type="password" name="mpwc" id="pwcheck" placeholder=" 비밀번호를 다시 입력해주세요." />
+                    <input type="password" class="pw" name="mpwc" id="pwcheck" placeholder=" 비밀번호를 다시 입력해주세요." required/>
+                    <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+					<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지않습니다.</div>
                 </td>
             </tr>
             <tr>
@@ -476,11 +662,11 @@
             <tr>
                 <th><span class="red">*</span>주소 </th>
                 <td>
-                    <input type="text" name="maddr" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
-					<input type="text" name="maddr" id="sample6_address" placeholder="주소" readonly="readonly">
+                    <input type="text" name="maddr_one" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
+					<input type="text" name="maddr_two" id="sample6_address" placeholder="주소" readonly="readonly">
 					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="addr-btn btn-1"><br>
-					<input type="text" name="maddr" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly">
-					<input type="text" name="maddr" id="sample6_detailAddress" placeholder=" 상세 주소를 입력해주세요.">
+					<input type="text" name="maddr_three" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly">
+					<input type="text" name="maddr_four" id="sample6_detailAddress" placeholder=" 상세 주소를 입력해주세요.">
                     <div class="add-info">
                         <p class="adep">구매하신 상품 등에 대한 배송 받으실 주소를 입력해 주시기 바랍니다.</p>
                     </div>

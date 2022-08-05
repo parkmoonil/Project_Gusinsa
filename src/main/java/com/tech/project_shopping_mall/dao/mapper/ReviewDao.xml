@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tech.project_shopping_mall.dao.ReviewDao">
+
+	<select id="selectReviewTotCount" resultType="Integer">
+		SELECT COUNT(*) FROM REVIEW
+	</select>
+			
+	    
+	<insert id="review_write">
+		INSERT INTO REVIEW VALUES(REVIEW_SEQ.NEXTVAL,
+		0,#{param1},#{param2},#{param3},#{param4},
+		0,0,SYSDATE,0)
+	</insert>
+
+<!-- 	<select id="review_view" resultType="com.tech.project_shopping_mall.dto.ReviewDto">
+		SELECT R_NUM,P_CODE,R_STARPOINT,R_TITLE,R_CONTENTS
+			,R_IMG,R_LIKEPOINT,MID,R_DATE,R_HIT
+			FROM REVIEW WHERE R_NUM=#{param1}
+	</select> -->
+
+	<!-- <select id="review_view" resultType="com.tech.project_shopping_mall.dto.ReviewDto">
+	SELECT REVIEW.R_NUM,REVIEW.P_CODE,REVIEW.R_STARPOINT,REVIEW.R_TITLE,REVIEW.R_CONTENTS
+		,REVIEW.R_IMG,REVIEW.R_LIKEPOINT,MEMBERS.MID,REVIEW.R_DATE,REVIEW.R_HIT FROM MEMBERS INNER JOIN REVIEW ON MEMBERS.MID=REVIEW.MID
+        WHERE R_NUM=#{param1}
+    </select> -->
+
+	<select id="review_view" resultType="com.tech.project_shopping_mall.dto.ReviewDto">
+	SELECT REVIEW.R_NUM,PINFO.P_CODE,REVIEW.R_STARPOINT,REVIEW.R_TITLE,REVIEW.R_CONTENTS
+		,REVIEW.R_IMG,REVIEW.R_LIKEPOINT,MEMBERS.MID,REVIEW.R_DATE,REVIEW.R_HIT FROM REVEIW INNER JOIN MEMBERS ON REVIEW.MID=MEMBERS.MID INNER JOIN PINFO ON REVIEW.P_CODE=PINFO.P_CODE
+        WHERE R_NUM=#{param1}
+    </select>
+
+	<select id="review_list" resultType="com.tech.project_shopping_mall.dto.ReviewDto">
+		SELECT R_NUM,P_CODE,R_STARPOINT,R_TITLE,R_CONTENTS
+		,R_IMG,R_LIKEPOINT,MID,R_DATE,R_HIT
+		FROM (SELECT ROWNUM NUM, N.*FROM (SELECT * FROM REVIEW ORDER BY R_DATE DESC) N) 
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+	</select>
+		
+	<select id="my_review" resultType="com.tech.project_shopping_mall.dto.ReviewDto">
+		SELECT R_NUM,P_CODE,R_STARPOINT,R_TITLE,R_CONTENTS
+		,R_IMG,R_LIKEPOINT,MID,R_DATE,R_HIT
+		FROM (SELECT ROWNUM NUM, N.*FROM (SELECT * FROM REVIEW ORDER BY R_DATE DESC) N) 
+		WHERE MID=#{param1}
+	</select>
+
+ 	<update id="review_modify">
+		UPDATE REVIEW
+			SET R_STARPOINT=#{param2}, R_TITLE=#{param3},
+			R_CONTENTS=#{param4}	WHERE R_NUM=#{param1}
+	</update>
+	
+	<update id="review_upHit">
+		UPDATE REVIEW
+			SET R_HIT=R_HIT+1
+			WHERE R_NUM=#{param1}
+	</update>
+	<delete id="review_delete">
+		DELETE FROM REVIEW WHERE R_NUM=#{param1}
+	</delete>
+	 
+</mapper>

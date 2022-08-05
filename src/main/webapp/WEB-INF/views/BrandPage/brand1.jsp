@@ -59,51 +59,75 @@
 	<div class="products">
 		<h3>Product list</h3>
 
-		<div class="product-list">
-			<a href="#" class="product"> <img
-				src="resources/brandimg/youth_product_1.jpg" width="225">
-				<div class="product-name">22SS Net Crew-neck Knit_Black</div>
-				<div class="product-price">131,600</div>
-			</a> <a href="#" class="product"> <img
-				src="resources/brandimg/youth_product_2.jpg" width="225" height="225px">
-				<div class="product-name">22SS Net Crew-neck Knit_Ivory</div>
-				<div class="product-price">131,600</div>
-			</a> <a href="#" class="product"> <img
-				src="resources/brandimg/youth_product_3.jpg" width="225" height="225px">
-				<div class="product-name">22SS Layered 2-Tuck Denim
-					Pants_Washed Black</div>
-				<div class="product-price">208,000</div>
-			</a> <a href="#" class="product"> <img
-				src="resources/brandimg/youth_product_4.jpg" width="225" height="225px">
-				<div class="product-name">22SS Layered 2-Tuck Denim
-					Pants_Medium Blue</div>
-				<div class="product-price">208,000</div>
-			</a> <a href="#" class="product"> <img
-				src="resources/brandimg/youth_product_5.jpg" width="225" height="225px">
-				<div class="product-name">22SS Knit Collar Cardigan_Black</div>
-				<div class="product-price">218,000</div>
-			</a> <a href="#" class="product"> <img
-				src="resources/brandimg/youth_product_6.jpg" width="225" height="225px">
-				<div class="product-name">22SS Knit Collar Cardigan_Blue</div>
-				<div class="product-price">218,000</div>
-			</a> <a href="#" class="product"> <img
-				src="resources/brandimg/youth_product_7.jpg" width="225" height="225px">
-				<div class="product-name">22SS Straight Denim Pants_One Wash</div>
-				<div class="product-price">193,000</div>
-			</a> <a href="#" class="product"> <img
-				src="resources/brandimg/youth_product_8.jpg" width="225" height="225px">
-				<div class="product-name">Leather Airpods Case 3/Pro White</div>
-				<div class="product-price">48,000</div>
-			</a> <a href="#" class="product"> <img
-				src="resources/brandimg/youth_product_9.jpg" width="225" height="225px">
-				<div class="product-name">Leather Airpods Case 3/Pro Black</div>
-				<div class="product-price">48,000</div>
-			</a>
-			<div class="clearfix"></div>
-		</div>
+	    <div class="product-list">
 
-		<footer>
-			<%@include file="../../../../resources/common/footer.jsp"%>
-		</footer>
+	            <div>
+	            <a href="" class="product-list-style">인기상품순</a>
+	            <a href="" class="product-list-style">신상품순</a>
+	            <a href="" class="product-list-style">낮은가격순</a>
+	            <a href="" class="product-list-style">높은가격순</a>
+	            </div> 
+
+
+		<div class="product-list">
+			<c:forEach items="${brand1 }" var="dto">
+				<a href="#" class="product"> 
+					<img src="${dto.p_img }" width="225" height="250px">
+					<div class="product-name">${dto.p_name }</div>
+					<div class="product-price">${dto.p_price }</div>
+				</a>
+				<a href="#" class="product"> 
+					<img src="${dto.p_img }" width="225" height="250px">
+					<div class="product-name">${dto.p_name }</div>
+					<div class="product-price">${dto.p_price }</div>
+				</a>
+				<a href="#" class="product"> 
+					<img src="${dto.p_img }" width="225" height="250px">
+					<div class="product-name">${dto.p_name }</div>
+					<div class="product-price">${dto.p_price }</div>
+				</a>
+				<a href="#" class="product"> 
+					<img src="${dto.p_img }" width="225" height="250px">
+					<div class="product-name">${dto.p_name }</div>
+					<div class="product-price">${dto.p_price }</div>
+				</a>
+			</c:forEach>
+		</div>
+	<div class="clearfix"></div>
+	</div>
+
+	
+	<div class="paging" style="text-align:center; padding-bottom: 50px;">
+		<form action="brand1" method="post">
+			<c:if test="${searchVO.totPage>1 }">
+				<!-- 토탈 페이지가 1보다 크면 -->
+				<c:if test="${searchVO.page>1 }">
+					<a href="brand1?page=1">[처음]</a>
+					<a href="brand1?page=${searchVO.page-1 }">[이전]</a>
+				</c:if>
+
+				<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }"
+					var="i">
+					<c:choose>
+						<c:when test="${i eq searchVO.page }">
+							<!-- i eq searchVO.page 내가 클릭한 페이지가 같을 때 -->
+							<span style="color: red; font-weight: bold;">${i }&nbsp;</span>
+						</c:when>
+						<c:otherwise>
+							<a href="brand1?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
+			</c:otherwise>
+
+					</c:choose>
+				</c:forEach>
+				<c:if test="${searchVO.totPage>searchVO.page }">
+					<!-- 마지막 페이지가 아닐때 -->
+					<a href="brand1?page=${searchVO.page+1 }">[다음]</a>
+					<a href="brand1?page=${searchVO.totPage }">[마지막]</a>
+				</c:if>
+			</c:if>
+	</div>
+
+	<%@include file="../../../../resources/common/footer.jsp"%>
+
 </body>
 </html>

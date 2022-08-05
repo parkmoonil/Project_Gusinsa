@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.tech.project_shopping_mall.dao.IDao">
+	<insert id="insert" parameterType="com.tech.project_shopping_mall.dto.Cartdto">
+        INSERT INTO CART (CART_ID, MID, P_CODE, AMOUNT)
+        VALUES (SEQ_CART.NEXTVAL, #{MID}, #{P_CODE}, #{AMOUNT})
+    </insert>    
+
+    <select id="MyCart" resultType="com.tech.project_shopping_mall.dto.Cartdto">
+    SELECT CART_ID, P.P_CODE, C.MID, MNAME, P_NAME, AMOUNT, P_PRICE, (P_PRICE*AMOUNT) MONEY 
+    FROM MEMBERS M, CART C, PINFO P 
+    WHERE M.MID=C.MID AND C.P_CODE=P.P_CODE AND C.MID=#{mid} ORDER BY CART_ID
+    </select>
+    
+    <select id="SumMoney" resultType="Integer">
+        SELECT NVL(SUM(P_PRICE*AMOUNT),0) 
+        FROM CART C,PINFO P 
+        WHERE C.P_CODE=P.P_CODE AND MID=#{MID}
+    </select>
+    
+    <select id="SumAmount" resultType="int">
+    	SELECT SUM(AMOUNT) FROM CART C,PINFO P WHERE C.P_CODE=P.P_CODE AND MID=#{MID}
+
+    </select>
+    
+    <delete id="delete">
+        DELETE FROM CART WHERE CART_ID=#{CART_ID}
+    </delete>
+    
+    <!-- <delete id="deleteAll">
+        DELETE FROM CART WHERE MID=#{MID}
+    </delete> -->
+    
+    
+    </mapper>
