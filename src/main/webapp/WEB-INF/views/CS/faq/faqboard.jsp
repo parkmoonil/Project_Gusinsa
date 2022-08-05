@@ -11,6 +11,16 @@
 <link rel="stylesheet" href="resources/css/cs/faq.css" />
 </head>
 <body>
+<script>
+	function test(element) {
+		var test = element.nextElementSibling;
+		if (test.style.display == 'none') {
+			test.style = "display:table-row; *display:block";
+		} else {
+			test.style.display = 'none';
+		}
+	}
+</script>
 <%@include file="../../../../resources/common/header.jsp" %>
 <div class="cs_main">
 <%@include file="../cs_nav/cs_left_nav.jsp" %> 
@@ -24,13 +34,18 @@
 	        <tr>
 	            <th class="faqboard_header">분류</th>
 	            <th class="faqboard_title">제목</th>
+	            <th class="faqboard_date">날짜</th>
 	        </tr>
 	        <c:forEach items="${faqboard }" var="dto2" begin="0" end="10">
-	            <tr>
+	            <tr class="faqtoggle" onclick="test(this)" >
 	                <td class="fheader">
 	                   	${dto2.fheader }
 	                </td>
-	                <td>${dto2.ftitle }</td>
+	                <td>${dto2.ftitle }</td>    
+	                <td>${dto2.fdate }</td> 
+	            </tr>
+	            <tr class="faqcontent">
+	            	<td colspan="3" class="faqcontent2"><pre> ${dto2.fcontent }</pre></td>
 	            </tr>
 	        </c:forEach>
 	    </table>
@@ -41,4 +56,6 @@
 </div>   
 <%@include file="../../../../resources/common/footer.jsp" %>
 </body>
+
+
 </html>
