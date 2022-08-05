@@ -27,6 +27,28 @@
 		<td>${review_view.mid }</td>
 	</tr>
 	<tr>
+		<td class="left">별점</td>
+		<td>
+			<div class="star-rating">
+				<c:if test="${review_view.r_starpoint==1 }">
+				★☆☆☆☆
+				</c:if>
+				<c:if test="${review_view.r_starpoint==2 }">
+				★★☆☆☆
+				</c:if>
+				<c:if test="${review_view.r_starpoint==3 }">
+				★★★☆☆
+				</c:if>
+				<c:if test="${review_view.r_starpoint==4 }">
+				★★★★☆
+				</c:if>
+				<c:if test="${review_view.r_starpoint==5 }">
+				★★★★★
+				</c:if>
+			</div>
+		</td>
+	</tr>
+	<tr>
 		<td class="left">제목</td>
 		<td>${review_view.r_title }</td>
 	</tr>
@@ -58,12 +80,8 @@
 	<c:if test="${status.last }">
 		<c:choose>
 			<c:when test="${token eq 'jpg' || token eq 'png' || toaken eq 'bmp' }">
-				${filename }:::그림파일 jpg png bmp <br />
-				${status.last }
-				<div>
 					<img border="1" width="100" height="100" 
 					src="resources/upload/${review_view.r_img }" alt="" />	
-				</div>
 			</c:when> 
 		</c:choose>
 	</c:if>

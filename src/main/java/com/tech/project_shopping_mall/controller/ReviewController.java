@@ -3,6 +3,7 @@ package com.tech.project_shopping_mall.controller;
 import java.io.FileInputStream;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.tech.project_shopping_mall.dao.ReviewDao;
 import com.tech.project_shopping_mall.dto.ReviewDto;
 
-import com.tech.project_shopping_mall.vopage.SearchVO;
+import com.tech.project_shopping_mall.vopage.reSearchVO;
 
 @Controller
 public class ReviewController {
@@ -29,7 +30,7 @@ public class ReviewController {
 	private SqlSession sqlSession;
 
 	@RequestMapping("/review_list")
-	public String list(HttpServletRequest request, SearchVO searchVO, Model model) {
+	public String review_list(HttpServletRequest request, reSearchVO researchVO, Model model) {
 		System.out.println("======review_list()======");
 
 		ReviewDao dao = sqlSession.getMapper(ReviewDao.class);
@@ -73,13 +74,6 @@ public class ReviewController {
 			}
 		}
 
-		/* 검색키워드 받기 */
-		String searchKeyword = request.getParameter("sk");
-		if (searchKeyword == null)
-			searchKeyword = "";
-		model.addAttribute("resk", searchKeyword);
-		System.out.println("searchKeyword : " + searchKeyword);
-
 		/* paging */
 		String strPage = request.getParameter("page"); // HttpServletRequest request, 가져오기
 		System.out.println("pagggge1 :" + strPage);
@@ -88,7 +82,7 @@ public class ReviewController {
 			strPage = "1";
 		System.out.println("pagggge2 :" + strPage);
 		int page = Integer.parseInt(strPage);
-		searchVO.setPage(page);
+		researchVO.setPage(page);
 
 		// total 글의 갯수 구하기
 		int total=dao.selectReviewTotCount();
@@ -106,35 +100,25 @@ public class ReviewController {
 //			total = dao.selectReviewTotCount4(searchKeyword);
 //		}
 
-		searchVO.pageCalculate(total);
+		researchVO.pageCalculate(total);
 
 		// 계산된 내용 출력
 		System.out.println("totRow : " + total);
 		System.out.println("clickPage : " + strPage);
-		System.out.println("pageStart : " + searchVO.getPageStart());
-		System.out.println("pageEnd : " + searchVO.getPageEnd());
-		System.out.println("pageTot : " + searchVO.getTotPage());
-		System.out.println("rowStart : " + searchVO.getRowStart());
-		System.out.println("rowEnd : " + searchVO.getRowEnd());
+		System.out.println("pageStart : " + researchVO.getPageStart());
+		System.out.println("pageEnd : " + researchVO.getPageEnd());
+		System.out.println("pageTot : " + researchVO.getTotPage());
+		System.out.println("rowStart : " + researchVO.getRowStart());
+		System.out.println("rowEnd : " + researchVO.getRowEnd());
 
-		int rowStart = searchVO.getRowStart();
-		int rowEnd = searchVO.getRowEnd();
+		int rowStart = researchVO.getRowStart();
+		int rowEnd = researchVO.getRowEnd();
 
-		/* ArrayList<ReviewDto> list=dao.list(rowStart,rowEnd); */
+		ArrayList<ReviewDto> review_list=dao.review_list(rowStart,rowEnd);
 
-		if (r_title.equals("r_title") && r_contents.equals("")) {
-			model.addAttribute("review_list", dao.review_list(rowStart, rowEnd, searchKeyword, "1"));
-		} else if (r_title.equals("") && r_contents.equals("r_contents")) {
-			model.addAttribute("review_list", dao.review_list(rowStart, rowEnd, searchKeyword, "2"));
-		} else if (r_title.equals("rtitle") && r_contents.equals("r_contents")) {
-			model.addAttribute("review_list", dao.review_list(rowStart, rowEnd, searchKeyword, "3"));
-		} else if (r_title.equals("") && r_contents.equals("")) {
-			model.addAttribute("review_list", dao.review_list(rowStart, rowEnd, searchKeyword, "4"));
-		}
-
-/*		model.addAttribute("review_list",list);*/
+		model.addAttribute("review_list",review_list);
 		model.addAttribute("totRowcnt", total);
-		model.addAttribute("searchVO", searchVO);
+		model.addAttribute("researchVO", researchVO);
 
 		return "review/review_list";
 	}
@@ -199,12 +183,12 @@ public class ReviewController {
 // model.addAttribute("request",request); 
  // bServiceInter=new ReviewViewService(); 
  // bServiceInter.execute(model); 
- String sr_num=request.getParameter("r_num"); 
+ String r_num=request.getParameter("r_num"); 
  ReviewDao dao=sqlSession.getMapper(ReviewDao.class);
  
- dao.review_upHit(sr_num);
+ dao.review_upHit(r_num);
  
- ReviewDto dto=dao.review_view(sr_num); 
+ ReviewDto dto=dao.review_view(r_num); 
  model.addAttribute("review_view",dto);
  
  return "review/review_view"; 
@@ -257,7 +241,8 @@ public class ReviewController {
   ReviewDto dto=dao.review_view(sr_num); 
   model.addAttribute("review_view",dto);
     
-  return "review/review_update"; }
+  return "review/review_update"; 
+  }
   
   @RequestMapping(method = RequestMethod.POST,value = "/review_modify") 
   public String review_modify(HttpServletRequest request, Model model) {
@@ -267,14 +252,14 @@ public class ReviewController {
   // bServiceInter.execute(model);
   
   String sr_num=request.getParameter("r_num"); 
-  String mid=request.getParameter("mid"); 
+  String r_starpoint=request.getParameter("r_starpoint"); 
   String r_title=request.getParameter("r_title"); 
   String r_contents=request.getParameter("r_contents");
   
   ReviewDao dao=sqlSession.getMapper(ReviewDao.class); 
-  dao.review_modify(sr_num, mid, r_title, r_contents);
+  dao.review_modify(sr_num, r_starpoint, r_title, r_contents);
   
-  return "redirect:review/review_list"; 
+  return "redirect:/review_list"; 
   }
   
  
@@ -290,6 +275,6 @@ System.out.println("======review_delete()======"); // db에 데이터 삭제
   ReviewDao dao=sqlSession.getMapper(ReviewDao.class); 
   dao.review_delete(sr_num);
   
-  return "redirect:review/review_list";
+  return "redirect:/review_list";
   }
 }
