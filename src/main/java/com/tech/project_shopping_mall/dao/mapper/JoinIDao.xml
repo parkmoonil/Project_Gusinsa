@@ -14,8 +14,12 @@
 		   , MGENDER
 		   , MBIRTH
 		   , MPHONE
-		   , MADDR
+		   , MADDR_ONE
+		   , MADDR_TWO
+		   , MADDR_THREE
+		   , MADDR_FOUR
 		   , MEMAIL
+		   , MGRADE
 		   , KAKAOLOGIN
 		) VALUES (
 		     #{mid}
@@ -25,8 +29,12 @@
 		   , #{mgender}
 		   , SYSDATE
 		   , #{mphone}
-		   , #{maddr}
+		   , #{maddr_one}
+		   , #{maddr_two}
+		   , #{maddr_three}
+		   , #{maddr_four}
 		   , #{memail}
+		   , #{mgrade,jdbcType=VARCHAR}
 		   , #{kakaologin,jdbcType=VARCHAR}
 		)
 		</insert>

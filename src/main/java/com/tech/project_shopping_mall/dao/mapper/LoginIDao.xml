@@ -6,7 +6,7 @@
 <mapper namespace="com.tech.project_shopping_mall.dao.LoginIDao">
 
 		<select id="selectUserPassword" resultType="com.tech.project_shopping_mall.dto.MembersDto" parameterType="com.tech.project_shopping_mall.dto.MembersDto">
-			SELECT MID,MPW,MPWC,MNAME,MGENDER,MBIRTH,MPHONE,MADDR,MEMAIL,KAKAOLOGIN FROM MEMBERS WHERE MID=#{mid }
+			SELECT MID,MPW,MPWC,MNAME,MGENDER,MBIRTH,MPHONE,MADDR_ONE,MADDR_TWO,MADDR_THREE,MADDR_FOUR,MEMAIL,MGRADE,KAKAOLOGIN FROM MEMBERS WHERE MID=#{mid }
 		</select>
 
 </mapper>
