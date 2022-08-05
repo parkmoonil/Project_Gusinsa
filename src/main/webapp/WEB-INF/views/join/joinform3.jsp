@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 
 	/* 주소 불러오기 */
@@ -72,7 +73,7 @@
 	
 	/* 비밀번호 & 비밀번호 확인 동일 체크 */
 	$(function() {
-		
+	
 	    $("#alert-success").hide();
 	    $("#alert-danger").hide();
 	
@@ -234,7 +235,7 @@
             height: 35px;
         }
         /* 비밀번호 & 확인 */
-        #pw{
+        #pw_1{
             width: 400px;
             height: 35px;
         }
@@ -497,8 +498,18 @@
             7px 7px 20px 0px #0002,
             4px 4px 5px 0px #0001;
         }
+        /* hr태그 */
         .line_one{
         	width: 60%;
+        }
+        /* 비밀번호 확인 */
+        .alert-success{
+        	color: green;
+        	font-weight: bold;
+        }
+        .alert-danger{
+        	color: red;
+        	font-weight: bold;
         }
         /*푸터어어어*/
 		footer {width: 100%;height: 10px;bottom: 5px;  position: relative;border-top: 1px solid #c4c4c4; color: #808080;font-size: 11px; transform: translateY(-100%);}
@@ -546,13 +557,13 @@
                 <th><span class="red">*</span>아이디</th>
                 
                 <td>
-                    <input type="email" name="mid" id="mid" placeholder=" 이메일 주소를 입력해주세요." />
+                    <input type="text" name="mid" id="mid" placeholder=" 이메일 주소를 입력해주세요." />
                 </td>
             </tr>
             <tr>
                 <th class="psps"><span class="red">*</span>비밀번호</th>
                 <td>
-                    <input type="password" name="mpw" id="pw" placeholder=" 비밀번호를 입력해주세요." />
+                    <input type="password" class="pw" id="pw_1" name="mpw" placeholder=" 비밀번호를 입력해주세요." required/>
                     <p id="pwex">10~20자리</p>
                     <p id="pwex">영소문자/숫자/특수문자 중 두가지 이상 조합</p>
                     <p id="pwex">사용가능한 특수문자:~!@#$%^&*()_+ </p>
@@ -563,7 +574,9 @@
             <tr>
                 <th><span class="red">*</span>비밀번호 확인</th>
                 <td>
-                    <input type="password" name="mpwc" id="pwcheck" placeholder=" 비밀번호를 다시 입력해주세요." />
+                    <input type="password" class="pw" name="mpwc" id="pwcheck" placeholder=" 비밀번호를 다시 입력해주세요." required/>
+                    <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+					<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지않습니다.</div>
                 </td>
             </tr>
             <tr>
@@ -596,11 +609,11 @@
             <tr>
                 <th><span class="red">*</span>주소 </th>
                 <td>
-                    <input type="text" name="maddr" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
-					<input type="text" name="maddr" id="sample6_address" placeholder="주소" readonly="readonly">
+                    <input type="text" name="maddr_one" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
+					<input type="text" name="maddr_two" id="sample6_address" placeholder="주소" readonly="readonly">
 					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="addr-btn btn-1"><br>
-					<input type="text" name="maddr" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly">
-					<input type="text" name="maddr" id="sample6_detailAddress" placeholder=" 상세 주소를 입력해주세요.">
+					<input type="text" name="maddr_three" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly">
+					<input type="text" name="maddr_four" id="sample6_detailAddress" placeholder=" 상세 주소를 입력해주세요.">
                     <div class="add-info">
                         <p class="adep">구매하신 상품 등에 대한 배송 받으실 주소를 입력해 주시기 바랍니다.</p>
                     </div>
