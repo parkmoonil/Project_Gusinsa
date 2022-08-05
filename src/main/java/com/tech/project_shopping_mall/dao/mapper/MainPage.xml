@@ -24,9 +24,9 @@
 </update>
 
 <select  id="SearchProduct" resultType = "com.tech.project_shopping_mall.dto.Infodto">
-SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_CONTENT, P_IMG, DATA FROM (SELECT ROWNUM NUM,N.* FROM 
+SELECT * FROM (SELECT ROWNUM NUM,N.* FROM 
       (SELECT * FROM PINFO ORDER BY DATA DESC) N
-      WHERE P_NAME LIKE '%'|| #{param3} || '%' OR P_CLASS LIKE '%'|| #{param3} || '%'
+      WHERE P_NAME LIKE '%'|| #{param3} || '%' OR P_CLASS LIKE '%'|| #{param3} || '%' OR P_GENDER LIKE '%'|| #{param3} || '%'
       ) WHERE NUM BETWEEN #{param1} AND #{param2}
 
 

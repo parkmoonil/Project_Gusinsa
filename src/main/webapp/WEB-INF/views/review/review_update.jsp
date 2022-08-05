@@ -6,10 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/restyle.css" />
 <link rel="stylesheet" href="resources/css/nstyle.css" />
 </head>
 <body>
-<h3>content_update</h3>
+<h3>review_update</h3>
 <form action="review_modify" method="post">
 <input type="hidden" name="r_num" value="${review_view.r_num }" />
 <table>
@@ -24,6 +25,23 @@
 	<tr>
 		<td class="left">아이디</td>
 		<td>${review_view.mid }
+		</td>
+	</tr>
+	<tr>
+		<td class="left">별점</td>
+		<td>
+			<div class="star-rating">
+				  <input type="radio" id="5-stars" name="r_starpoint" value="5" />
+				  <label for="5-stars" class="star">&#9733;</label>
+				  <input type="radio" id="4-stars" name="r_starpoint" value="4" />
+				  <label for="4-stars" class="star">&#9733;</label>
+				  <input type="radio" id="3-stars" name="r_starpoint" value="3" />
+				  <label for="3-stars" class="star">&#9733;</label>
+				  <input type="radio" id="2-stars" name="r_starpoint" value="2" />
+				  <label for="2-stars" class="star">&#9733;</label>
+				  <input type="radio" id="1-star" name="r_starpoint" value="1" />
+				  <label for="1-star" class="star">&#9733;</label>
+			</div>
 		</td>
 	</tr>
 	<tr>

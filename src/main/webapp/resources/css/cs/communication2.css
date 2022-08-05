@@ -1,4 +1,8 @@
-.step_progress:first-child::before{
+.step_progress:first-child:before{
+    content: none;
+}
+
+.step_progress_on:first-child:before{
     content: none;
 }
 
@@ -14,32 +18,31 @@
     transform: translateY(-50%) rotate(45deg);
 }
 
-.cs_communication_next_button{
-    display: inline-block;
+.commu_next_btn{
     width: 250px;
     height: 60px;
     background: #000;
     border: none;
     color: #fff;
     font-size: 20px;
-    line-height: 60px;
-    margin : 0px 0 0 400px;
+   	line-height: 60px;
     text-align: center;
 }
 
-.cs_communication_before_button{
-    display: inline-block;
+.commu_before_btn{
     width: 250px;
     height: 60px;
     background: #dedede;
     color: #000;
     font-size: 20px;
-    line-height: 60px;
-    margin : 0px 0 0 400px;
+   	line-height: 60px;
     text-align: center;
 }
 
-.communication_btn {
-    margin: 60px auto 0 auto;
+.commu_btn {
+    margin: 60px 300px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

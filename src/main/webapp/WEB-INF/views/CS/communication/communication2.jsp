@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="resources/css/cs/main.css" />
 	<link rel="stylesheet" href="resources/css/cs/board.css" />
 	<link rel="stylesheet" href="resources/css/cs/communication.css" />
+	<link rel="stylesheet" href="resources/css/cs/communication2.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -40,105 +41,56 @@
                 정확한 성명과 연락처를 남겨주시면 원하는 방법으로 신속하게 답변드리겠습니다.
                 </p>      
             </div>
-            <div class="line2"></div>
-       
-            <table class="communicaiton_table">
-                <tr>
-                    <th>
-                        아이디
-                        <span class="point">*</span>
-                    </th>
-                    <td>{고객 아이디값}</td>
-                </tr>
-                <tr>
-                    <th>
-                        이름
-                        <span class="point">*</span>
-                    </th>
-                    <td>{고객 이름값}</td>
-                </tr>
-                <tr>
-                    <th>
-                        핸드폰 번호
-                        <span class="point">*</span>
-                    </th>
-                    <td class="phone_cert">
-                        <div class="input_tel">
-                            <select name="">
-                                <option value="010">010</option>
-                                <option value="011">011</option>
-                                <option value="016">016</option>
-                                <option value="017">017</option>
-                                <option value="018">018</option>
-                            </select>
-                            <span class="tel_separator"> - </span>
-                            <input type="text" maxlength="4" class="phone_input">
-                            <span class="tel_separator"> - </span>
-                            <input type="text" maxlength="4" class="phone_input">
-                            <button type="button" class="btn_cert">인증번호 전송</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        일반전화
-                    </th>
-                    <td class="group_cert">
-                        <div class="input_tel">
-                            <select name="">
-                                <option value="선택">선택</option>
-                                <option value="02">02</option>
-                                <option value="031">031</option>
-                                <option value="032">032</option>
-                                <option value="041">041</option>
-                                <option value="042">042</option>
-                                <option value="043">043</option>
-                                <option value="051">051</option>
-                                <option value="052">052</option>
-                                <option value="053">053</option>
-                                <option value="054">054</option>
-                                <option value="055">055</option>
-                                <option value="061">061</option>
-                                <option value="062">062</option>
-                                <option value="063">063</option>
-                                <option value="064">064</option>
-                                <option value="070">070</option>
-                                <option value="080">080</option>
-                                <option value="090">090</option>
-                            </select>
-                            <span class="tel_separator">-</span>
-                            <input type="text" maxlength="4" class="phone_input">
-                            <span class="tel_separator">-</span>
-                            <input type="text" maxlength="4" class="phone_input">
-                        </div>
-                    </td>  
-                </tr>
-                <tr>
-                    <th>
-                        이메일
-                        <span class="point">*</span>
-                    </th>
-                    <td class="yeah">
-                        <input type="text" class="email_input">
-                        <span class="tel_separator">@</span>
-                        <input type="text" class="email_input" maxlength="20">
-                        <div class="input_email">
-                            <select title="이메일 도메인 선택">
-                                <option value="">직접입력</option>
-                                <option value="naver.com">naver.com</option>
-                                <option value="gmail.com">gmail.com</option>
-                                <option value="daum.net">daum.net</option>
-                                <option value="nate.com">nate.com</option>
-                                <option value="hotmail.com">hotmail.com</option>
-                                <option value="hanmail.net">hanmail.net</option>
-                            </select>
-                        </div>
-                    <td>   
-                 </tr>
-            </table>
-            <div class="line2"></div>
-            <div class="btn_next" >
-	        	<a href="communication3" class="cs_communication_main_button">다음</a>
+       		<div class="commu_table">
+	            <table>
+	                <tr>
+	                    <th>
+	                        아이디
+	                        <span class="point">*</span>
+	                    </th>
+	                    <td>{고객 아이디값}</td>
+	                </tr>
+	                <tr>
+	                    <th>
+	                        이름
+	                        <span class="point">*</span>
+	                    </th>
+	                    <td>{고객 이름값}</td>
+	                </tr>
+	                <tr>
+	                    <th>
+	                        핸드폰 번호
+	                        <span class="point">*</span>
+	                    </th>
+	                    <td class="phone_cert">
+	                        <div class="input_tel">
+	                            <select name="">
+	                                <option value="010">010</option>
+	                                <option value="011">011</option>
+	                                <option value="016">016</option>
+	                                <option value="017">017</option>
+	                                <option value="018">018</option>
+	                            </select>
+	                            <span class="tel_separator"> - </span>
+	                            <input type="text" maxlength="4" class="phone_input">
+	                            <span class="tel_separator"> - </span>
+	                            <input type="text" maxlength="4" class="phone_input">
+	                        </div>
+	                    </td>
+	                </tr>       
+	                <tr>
+	                    <th>
+	                        이메일
+	                        <span class="point">*</span>
+	                    </th>
+	                    <td class="email_option">
+	                        <input type="text" class="email_input">
+	                    <td>   
+	                 </tr>
+	            </table>
+            </div>
+            <div class="commu_btn" >
+	        	<a href="communication3" class="commu_next_btn">다음</a>
     		</div>	
 		</div>
 	</div>

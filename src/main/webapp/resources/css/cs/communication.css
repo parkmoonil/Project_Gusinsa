@@ -1,12 +1,11 @@
-.cs_communication_main{
+.commu_main{
 	color: #333;
     font-size: 15px;
     line-height: 15px;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 55px;
     color: gray;
     margin-bottom: 100px;
-   
 }
 
 .commu_title p {
@@ -15,7 +14,7 @@
     padding-bottom: 30px;
     font-weight: 600;
 }
-.cs_communication_main_button{
+.commu_main_btn{
     display: inline-block;
     width: 350px;
     height: 60px;
@@ -29,9 +28,10 @@
 }
 
 .step_progress_area {
-    padding-top: 30px;
+    padding-top: 50px;
     border-top: 1px solid #b2b2b2;
     text-align: center;
+    margin-top: 50px;
 }
 .step_progress {
     position: relative;
@@ -80,7 +80,7 @@
     line-height: 30px;
 }
 
-.communicaiton_table th {
+.commu_table th {
     padding: 8px 0;
     font-size: 18px;
     font-weight: normal;
@@ -91,7 +91,7 @@
     
 }
 
-.communicaiton_table td{
+.commu_table td{
     border-bottom: none;
     font-size: 17px;
 }
@@ -157,7 +157,7 @@
     height: 40px;
     text-align: left;
     font-size: 16px;
-    width: 150px;
+    width: 300px;
     padding-left: 13px;
     border: 1px solid #d2d2d2;
 }
@@ -179,7 +179,7 @@
     margin-bottom: 30px;
 }
 
-.yeah {
+.email_option {
 	display:flex;
     height: 40px;
     align-items: center;
@@ -221,7 +221,7 @@ div .radio_set {
     margin-top: 40px;
 }
 
-.communication_table_box th {
+.commu_table_box th {
     width: 20%;
     background-color: whitesmoke;
     font-size: 17px;
@@ -229,12 +229,12 @@ div .radio_set {
     padding-left: 15px;
 }
 
-.communication_table_box_title {
+.commu_table_box_title {
     vertical-align: top;
 }
 
 
-.communication_table_box_wrap {
+.commu_table_box_wrap {
     display: flex;
     border: 1px solid #d2d2d2;
     padding-right: 53px;
@@ -253,36 +253,11 @@ div .radio_set {
 .box_content {
     width: 100%;
     height: 140px;
-    padding: 0 20px;
+    padding: 20px 20px;
     color: #000;
     font-size: 17px;
     box-sizing: border-box;
-}
-
-.byte-check {
-    display: flex;
-    width: 53px;
-    height: 40px;
-    padding-left: 6px;
-    /* line-height: 50px; */
-    color: #787878;
-    font-size: 12px;
-    font-family: "GillSansWGL", sans-serif;
-    box-sizing: border-box;
-    align-items: center;
-}
-
-.byte-check2 {
-    display: flex;
-    width: 53px;
-    height: 10px;
-    padding-left: 6px;
-    line-height: 100px;
-    color: #787878;
-    font-size: 12px;
-    font-family: "GillSansWGL", sans-serif;
-    box-sizing: border-box;
-    align-items: center;
+    resize: none;
 }
 
 .btn_add {

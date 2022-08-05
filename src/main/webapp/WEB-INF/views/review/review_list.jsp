@@ -31,51 +31,70 @@
             </div>
 
 	<c:forEach items="${review_list }" var="dto">
-	<div>
-			<span>${dto.mid }</span>	
-			<span>${dto.r_num }</span>
+		<div>
+			<span>${dto.mid }</span>
 			<span>
-				<a href="review_view?r_num=${dto.r_num }">${dto.r_title }</a>
-			</span>
+				<c:if test="${dto.r_starpoint==1 }">
+				★☆☆☆☆
+				</c:if>
+				<c:if test="${dto.r_starpoint==2 }">
+				★★☆☆☆
+				</c:if>
+				<c:if test="${dto.r_starpoint==3 }">
+				★★★☆☆
+				</c:if>
+				<c:if test="${dto.r_starpoint==4 }">
+				★★★★☆
+				</c:if>
+				<c:if test="${dto.r_starpoint==5 }">
+				★★★★★
+				</c:if>
+			</span>	
+			<span><input type="hidden" name="r_num" value="${dto.r_num}"></span>
 			<span style="float:right;"><fmt:formatDate value="${dto.r_date}" pattern = "yyyy.MM.dd"/></span>
-			<span>${review_view.r_contents }</span>
+		
 			<span><input type="hidden" name="r_hit" value="${dto.r_hit }"></span>
-	</div>
+			<div id=accordionrayout>
+				${dto.r_title }
+				<div>
+				${dto.r_contents }
+				</div>
+			</div>
+		</div>
 	</c:forEach>
-			<span><a href="review_write_view">리뷰쓰기</a></span>
-totCnt : ${totRowcnt }
-현재페이지/토탈페이지 : ${searchVO.page } / ${searchVO.totPage }
+			<span>
+ 				<c:if test="${mid ne null }">
+					<a href="review_write_view">리뷰쓰기</a></span>
+ 		 		</c:if>
+현재페이지/토탈페이지 : ${researchVO.page } / ${researchVO.totPage }
 
 
 <hr />
 
 
 <form action="review_list" method="post">
-	<c:if test="${searchVO.totPage>1 }"> <!-- 토탈 페이지가 1보다 크면 -->
-		<c:if test="${searchVO.page>1 }">
+	<c:if test="${researchVO.totPage>1 }"> <!-- 토탈 페이지가 1보다 크면 -->
+		<c:if test="${researchVO.page>1 }">
 			<a href="review_list?page=1">[처음]</a>
-			<a href="review_list?page=${searchVO.page-1 }">[이전]</a>
+			<a href="review_list?page=${researchVO.page-1 }">[이전]</a>
 		</c:if>
 	
-	<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+	<c:forEach begin="${researchVO.pageStart }" end="${researchVO.pageEnd }" var="i">
 		<c:choose>
-			<c:when test="${i eq searchVO.page }">  <!-- i eq searchVO.page 내가 클릭한 페이지가 같을 때 -->
+			<c:when test="${i eq researchVO.page }">  <!-- i eq searchVO.page 내가 클릭한 페이지가 같을 때 -->
 				<span style="color: red; font-weight: bold;">${i }&nbsp;</span>
 			</c:when>
 			<c:otherwise>
-				<a href="review_list?page=${i }$sk=${resk}&r_title=${r_title==true?'r_title':''}&r_contents=${r_contents==true?'r_contents':''}" style="text-decoration: none">${i }</a>&nbsp;
+				<a href="review_list?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
 			</c:otherwise>
-		
 		</c:choose>
 	</c:forEach>
-		<c:if test="${searchVO.totPage>searchVO.page }"> <!-- 마지막 페이지가 아닐때 -->
-			<a href="review_list?page=${searchVO.page+1 }">[다음]</a>
-			<a href="review_list?page=${searchVO.totPage }">[마지막]</a>
+		<c:if test="${researchVO.totPage>researchVO.page }"> <!-- 마지막 페이지가 아닐때 -->
+			<a href="review_list?page=${researchVO.page+1 }">[다음]</a>
+			<a href="review_list?page=${researchVO.totPage }">[마지막]</a>
 		</c:if>
 	</c:if>
 </form>
-	</div>
-
 	<!-- 검색을 가져감 -->
 
 </body>
