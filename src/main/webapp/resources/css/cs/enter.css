@@ -1,0 +1,78 @@
+.enter_form {
+    display: flex;
+    border-top: 3px solid #000;
+    margin: 28px 10px;
+    padding: 20px 0;
+}
+
+.enter_title {
+    width: 400px;
+    
+}
+
+.enter_title p {
+    color: gray;
+}
+
+.enter_form th {
+   border: none;
+   text-align: left;
+   vertical-align: top;
+   padding: 13px 50px 0 0;
+   margin-bottom: 15px;
+   width: 200px;
+   
+}
+
+.enter_table {
+    font-size: 18px;
+    border-spacing: 8px;
+}
+
+.enter_table tr {
+    height: 50px;
+   
+}
+
+.input_style {
+    width: 620px;   
+}
+
+.enter_table input {
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.enter_btn {
+    text-align: center;
+}
+
+.enter_btn input {
+    background-color: #000;
+    color: white;
+    width: 270px;
+    height: 50px;
+    font-size: 20px;
+    
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    align-content: space-around;
+   
+}
+
+.circle p {
+    margin-top: 10px;
+
+}

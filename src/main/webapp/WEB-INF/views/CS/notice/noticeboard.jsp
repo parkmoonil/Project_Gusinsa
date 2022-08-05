@@ -17,15 +17,12 @@
 	<div class="cs_main_board">
 	 	<div class="line">
 	 	</div>
+	 	
 	 	<table class="notice_search">
     		<td>
     			<h2>공지사항</h2>
     		</td>
-    		<div>
-	    		<td class="search_textarea">
-	    			<input type="text" value="검색어를 입력해주세요" />
-	    		</td>
-    		</div>
+    		
     	</table>
   
 		<table>
@@ -66,6 +63,29 @@
 					<a href="noticeboard?page=${searchVo.totPage }">[마지막]</a>
 				</c:if>
 			</c:if>
+			
+				<div>
+					<c:choose>
+						<c:when test="${ntitle }">
+							<input type="checkbox" name="searchType" value="ntitle" checked="checked" />				
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="searchType" value="ntitle" checked="checked"/>	
+						</c:otherwise>
+					</c:choose>
+					제목
+					<c:choose>
+						<c:when test="${ncontent }">
+							<input type="checkbox" name="searchType" value="ncontent" checked="checked" />	
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="searchType" value="ncontent" checked="checked"/>	
+						</c:otherwise>
+					</c:choose>
+					 내용
+					<input type="text" name="sk" style="width:150px;" maxlength="50" value="" />
+					<input type="submit" value="검색" />
+				</div>
 		</form>
 	</div>
 </div>	

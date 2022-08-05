@@ -4,6 +4,22 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
+	<sql id="includeList">
+		<choose>
+			<when test="param4==1">
+				WHERE NTITLE LIKE '%'|| #{param3} || '%'
+			</when>
+			<when test="param4==2">
+				WHERE NCONTENT LIKE '%'|| #{param3} || '%'
+			</when>
+			<when test="param4==3">
+				WHERE NTITLE LIKE '%'|| #{param3} || '%' OR NCONTENT LIKE '%'|| #{param3} || '%'
+			</when>
+			<otherwise>
+			
+			</otherwise>
+		</choose>
+	</sql>
 	
 	<select id="noticeboardTotCount1" resultType="Integer">
 		SELECT COUNT(*) FROM NOTICEBOARD WHERE NTITLE LIKE '%' || #{param1} || '%'
@@ -32,7 +48,8 @@
 		
 		SELECT NNUM,NTITLE,NCONTENT,NDATE FROM
 		(SELECT ROWNUM NUM,N.* FROM
-		(SELECT * FROM NOTICEBOARD ORDER BY NNUM DESC) N)
+		(SELECT * FROM NOTICEBOARD ORDER BY NNUM DESC) N
+		<include refid="includeList" />)
 		WHERE NUM BETWEEN #{param1} AND #{param2}
 		
 		

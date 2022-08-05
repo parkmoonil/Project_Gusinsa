@@ -5,9 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.tech.project_shopping_mall.dao.CSDao;
+import com.tech.project_shopping_mall.dao.JoinIDao;
+import com.tech.project_shopping_mall.dto.MembersDto;
 
 @Controller
 public class CommuController {
@@ -27,34 +32,41 @@ public class CommuController {
 		System.out.println("=====communication2=====");
 		
 		
+		
 		return "CS/communication/communication2";
 	}
 	
 	@RequestMapping("/Commu_write")
-	public String Commu_write(HttpServletRequest request) {
+	public String Commu_write(HttpServletRequest request) throws Exception {
 		System.out.println("=====Commu_write=====");
-		String cselect1=request.getParameter("cselect1"); 
-		String cselect2=request.getParameter("cselect2"); 
-		String cselect3=request.getParameter("cselect3"); 
-		String cselect4=request.getParameter("cselect4"); 
-		String ctitle=request.getParameter("ctitle"); 
-		String ccontent=request.getParameter("ccontent"); 
-		String cfile=request.getParameter("cfile");
 		
-	
+
 		String attachPath="resources\\upload\\";
 		String uploadPath=request.getSession().getServletContext().getRealPath("/");
 		System.out.println("uploadPath : "+uploadPath);
 		String path=uploadPath+attachPath;
 		
+		MultipartRequest req=
+				new MultipartRequest(request, path, 1024*1024*20, "utf-8",
+						new DefaultFileRenamePolicy());
+		
+		String cselect1=req.getParameter("cselect1"); 
+		String cselect2=req.getParameter("cselect2"); 
+		String cselect3=req.getParameter("cselect3"); 
+		String cselect4=req.getParameter("cselect4"); 
+		String ctitle=req.getParameter("ctitle"); 
+		String ccontent=req.getParameter("ccontent"); 
+		String cfile=req.getFilesystemName("cfile");
+		
 		System.out.println("filename : "+cfile);
-		if (cselect1==null) {
-			cselect1="";
+		if (cfile==null) {
+			cfile="";
 		}
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
+
 		dao.Commu_write(cselect1, cselect2, cselect3, cselect4, ctitle, ccontent, cfile);
-		
+
 		
 		return "redirect:communication4";
 	}

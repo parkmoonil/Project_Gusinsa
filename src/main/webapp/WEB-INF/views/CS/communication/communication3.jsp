@@ -41,7 +41,7 @@
 		            <span class="point">*</span>
 	            </P> 
             </div>
-            <form action="Commu_write" method="post">
+            <form action="Commu_write" method="post" enctype="multipart/form-data">
 	            <table class="commu_table">
 	                <tr>
 	                    <th>

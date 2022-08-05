@@ -27,7 +27,7 @@
 	        </tr>
 	        <c:forEach items="${faqboard }" var="dto2" begin="0" end="10">
 	            <tr>
-	                <td>
+	                <td class="fheader">
 	                   	${dto2.fheader }
 	                </td>
 	                <td>${dto2.ftitle }</td>

@@ -41,6 +41,7 @@
                 정확한 성명과 연락처를 남겨주시면 원하는 방법으로 신속하게 답변드리겠습니다.
                 </p>      
             </div>
+       		
        		<div class="commu_table">
 	            <table>
 	                <tr>
@@ -48,7 +49,9 @@
 	                        아이디
 	                        <span class="point">*</span>
 	                    </th>
-	                    <td>{고객 아이디값}</td>
+	                    <td>
+	                   		${dto6.mname }
+	                    </td>
 	                </tr>
 	                <tr>
 	                    <th>
@@ -90,8 +93,10 @@
 	            </table>
             </div>
             <div class="commu_btn" >
-	        	<a href="communication3" class="commu_next_btn">다음</a>
-    		</div>	
+            	<input type="submit" class="commu_next_btn" value="다음"/ >
+            	<a href="communication3">버튼</a>
+    		</div>
+    	
 		</div>
 	</div>
 <%@include file="../../../../resources/common/footer.jsp" %>
