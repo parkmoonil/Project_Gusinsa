@@ -42,7 +42,10 @@
 						<td>${dto3.iselect1}</td>
 						<td>${dto3.ititle}</td>
 						<td>${dto3.icontent}</td>
-						<td>${dto3.ifile}</td>
+						<td>
+							<a href="Inquirydownload?p=resources/upload/&i=${dto3.ifile}
+							">${dto3.ifile }</a>
+						</td>
 						<td>${dto3.iselect2}</td>
 					</tr>
 				</c:forEach>

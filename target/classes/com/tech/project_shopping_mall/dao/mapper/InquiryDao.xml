@@ -6,20 +6,34 @@
 <mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
 		
 	<insert id="Inquiry_write">
-	INSERT INTO INQUIRYBOARD(INUM,ISELECT1,ITITLE,ICONTENT,IFILE,ISELECT2) 
-	VALUES(INQUIRYBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5})	
+	INSERT INTO INQUIRYBOARD(INUM,ISELECT1,ITITLE,ICONTENT,IFILE,ISELECT2,FK_MID) 
+	VALUES(INQUIRYBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})	
 	</insert>
 	
 	<select id="InquiryMembers" resultType="com.tech.project_shopping_mall.dto.IMDto">
-	SELECT INUM,FK_MID,MNAME,MPHONE,MEMAIL,
+	SELECT INUM,MID,MNAME,MPHONE,MEMAIL,
 	ISELECT1,ITITLE,ICONTENT,IFILE,ISELECT2 FROM 
 	(SELECT ROWNUM NUM,N.* FROM
 	(SELECT * FROM INQUIRYMEMBERS ORDER BY INUM DESC) N)
 	WHERE NUM BETWEEN #{param1} AND #{param2}
 	</select>
 	
-	<select id="selectBoardTotCount" resultType="Integer">
+	<select id="InquiryBoardTotCount" resultType="Integer">
 		SELECT COUNT(*) FROM INQUIRYMEMBERS
+	</select>
+	
+	<select id="CSMembers2" resultType="com.tech.project_shopping_mall.dto.MembersDto">
+		SELECT MID,MNAME,MPHONE,MEMAIL FROM MEMBERS
+		WHERE MID=#{param1}
+	</select>
+	
+	
+	<select id="InquiryMembers2">
+	SELECT INUM,MID,MNAME,MPHONE,MEMAIL,
+	ISELECT1,ITITLE,ICONTENT,IFILE,ISELECT2 FROM
+	INQUIRYMEMBERS
+	WHERE MID=#{param1}
+	ORDER BY INUM DESC
 	</select>
 
 </mapper>

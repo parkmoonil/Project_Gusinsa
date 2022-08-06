@@ -49,7 +49,7 @@ public class ManagerController {
 		int page=Integer.parseInt(strPage);
 		searchVO.setPage(page);
 		
-		int total=dao.selectBoardTotCount();
+		int total=dao.InquiryBoardTotCount();
 		
 		System.out.println("totalrow : "+total);
 		searchVO.pageCalculate(total);
@@ -74,20 +74,20 @@ public class ManagerController {
 		return "CS/manager/manager_inquiry";
 	}
 	
-	@RequestMapping("/InquiryDownload")
-	public String InquiryDownload(HttpServletRequest request,
+	@RequestMapping("/Inquirydownload")
+	public String Inquirydownload(HttpServletRequest request,
 			HttpServletResponse response,Model model) throws Exception {
 		System.out.println("======download()======");
 		
 		String path=request.getParameter("p");
-		String fname=request.getParameter("f");	
+		String ifile=request.getParameter("i");	
 		String inum=request.getParameter("inum");
 		
 		response.setHeader("Content-Disposition",
-				"Attachment;filename="+URLEncoder.encode(fname,"utf-8"));
+				"Attachment;filename="+URLEncoder.encode(ifile,"utf-8"));
 		
 		String attachPath="resources\\upload\\";
-		String realPath=request.getSession().getServletContext().getRealPath(attachPath)+"\\"+fname;
+		String realPath=request.getSession().getServletContext().getRealPath(attachPath)+"\\"+ifile;
 		System.out.println("realPath : "+realPath);
 		
 		FileInputStream fin=new FileInputStream(realPath);
@@ -101,7 +101,7 @@ public class ManagerController {
 		fin.close();
 		sout.close();
 		
-		return "manager_inquiry?inum="+inum;
+		return "manager_inquiry?inum=";
 	}
 	
 	@RequestMapping("/manager_commu")

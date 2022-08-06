@@ -26,17 +26,21 @@ public interface CSDao {
 	public void faqdelete(int snnum);
 	
 	public ArrayList<CommuDto> Commuboard();
-	public void Commu_write(String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile);
+	public void Commu_write(String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile,String mid);
 	
 	public ArrayList<InquiryDto> inquiryboard(int start, int end, String sk, String selNum);
-	public void Inquiry_write(String iselect1,String ititle,String icontent,String ifile,String iselect2);
+	public void Inquiry_write(String iselect1,String ititle,String icontent,String ifile,String iselect2,String mid);
 	
-	public MembersDto Members(String mid);
+	public MembersDto CSMembers(String mid);
+	public MembersDto CSMembers2(String mid);
 	
 	public ArrayList<IMDto> InquiryMembers(int start, int end); 
+	public ArrayList<IMDto> InquiryMembers2(); 
 	public void Manager_Inquiry(String fk_mid);
 	
 	public ArrayList<CMDto> CommuMembers(int start, int end);
+	public ArrayList<CMDto> CommuMembers2();
+	
 	public void Manager_Commu(String fk_mid);
 	
 	
@@ -45,7 +49,7 @@ public interface CSDao {
 	public int noticeboardTotCount3(String searchKeyword);
 	public int noticeboardTotCount4(String searchKeyword);
 	
-	public int selectBoardTotCount();
+	public int InquiryBoardTotCount();
 	public int CommuMembersBoardTotCount();
 	public int selectBoardTotCount3();
 }

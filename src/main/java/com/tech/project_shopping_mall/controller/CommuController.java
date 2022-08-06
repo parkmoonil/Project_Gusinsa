@@ -37,7 +37,7 @@ public class CommuController {
 		System.out.println("mid : "+mid);
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
-		MembersDto dto = dao.Members(mid);
+		MembersDto dto = dao.CSMembers(mid);
 		model.addAttribute("Members",dto);
 		
 		return "CS/communication/communication2";
@@ -57,8 +57,9 @@ public class CommuController {
 				new MultipartRequest(request, path, 1024*1024*20, "utf-8",
 						new DefaultFileRenamePolicy());
 		
-		String mid=req.getParameter("mid");
-		System.out.println("mid : " + mid);
+		
+		HttpSession session = request.getSession();
+		String mid = (String)session.getAttribute("mid");
 		
 		String cselect1=req.getParameter("cselect1"); 
 		String cselect2=req.getParameter("cselect2"); 
@@ -68,6 +69,7 @@ public class CommuController {
 		String ccontent=req.getParameter("ccontent"); 
 		String cfile=req.getFilesystemName("cfile");
 		
+		
 		System.out.println("filename : "+cfile);
 		if (cfile==null) {
 			cfile="";
@@ -75,7 +77,7 @@ public class CommuController {
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 
-		dao.Commu_write(cselect1, cselect2, cselect3, cselect4, ctitle, ccontent, cfile);
+		dao.Commu_write(cselect1, cselect2, cselect3, cselect4, ctitle, ccontent, cfile,mid);
 
 		
 		return "redirect:communication4";
@@ -85,6 +87,10 @@ public class CommuController {
 	public String communication3(HttpServletRequest request) {
 		System.out.println("========write========");
 		
+		String mid=request.getParameter("mid");
+		
+		System.out.println("mid : " + mid);
+
 		return "CS/communication/communication3";
 	}
 	

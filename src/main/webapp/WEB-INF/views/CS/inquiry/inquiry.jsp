@@ -16,7 +16,7 @@
 <div class="cs_main_board">
 	    <div class="line"> </div>
 	    <h3 class="inquiry_title">1:1 문의하기</h3>
-	    <form action="Inquiry_write" method="post">
+	    <form action="Inquiry_write" method="post" enctype="multipart/form-data">
 		    <table class="inquiry_table">
 		        <tr>
 		            <th>문의 분류</th>
