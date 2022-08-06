@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tech.project_shopping_mall.dao.BrandDao;
 import com.tech.project_shopping_mall.dto.BrandDto;
 import com.tech.project_shopping_mall.dto.Infodto;
-import com.tech.project_shopping_mall.vopage.SearchVO_CS;
+import com.tech.project_shopping_mall.vopage.SearchVO;
 
 /**
  * Handles requests for the application home page.
@@ -128,7 +128,7 @@ public class BrandController {
 		return "/BrandPage/brand";
 	}
 	@RequestMapping("/brand1")
-	public String brand1(HttpServletRequest request, Model model,SearchVO_CS searchVO) {
+	public String brand1(HttpServletRequest request, Model model,SearchVO searchVO) {
 		
 		System.out.println("brand1Page");
 
