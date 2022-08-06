@@ -30,8 +30,8 @@ public class CommuController {
 	@RequestMapping("/communication2")
 	public String communication2(HttpServletRequest request,Model model) {
 		System.out.println("=====communication2=====");
-		HttpSession session = request.getSession();
 		
+		HttpSession session = request.getSession();
 		String mid = (String)session.getAttribute("mid");
 		
 		System.out.println("mid : "+mid);
