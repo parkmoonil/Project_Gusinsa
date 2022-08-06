@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tech.project_shopping_mall.dao.PDao;
-import com.tech.project_shopping_mall.vopage.SearchVO_CS;
+import com.tech.project_shopping_mall.vopage.SearchVO;
 
 @Controller
 public class PayController {
@@ -17,13 +17,13 @@ public class PayController {
 	private SqlSession sqlSession;
 	
 	@RequestMapping("/pay")
-	public String pay(HttpServletRequest request,Model model,SearchVO_CS searchVO) {
+	public String pay(HttpServletRequest request,Model model,SearchVO searchVO) {
 		PDao dao=sqlSession.getMapper(PDao.class);
 		
 		return "Pay/pay";
 	}
 	@RequestMapping("/afterpay")
-	public String afterpay(HttpServletRequest request,Model model,SearchVO_CS searchVO) {
+	public String afterpay(HttpServletRequest request,Model model,SearchVO searchVO) {
 		PDao dao=sqlSession.getMapper(PDao.class);
 		
 		return "Pay/afterpay";

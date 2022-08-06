@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tech.project_shopping_mall.dao.PDao;
 import com.tech.project_shopping_mall.dto.Infodto;
 import com.tech.project_shopping_mall.dto.NorderinfoDto;
-import com.tech.project_shopping_mall.vopage.SearchVO_CS;
+import com.tech.project_shopping_mall.vopage.SearchVO;
 
 
 
@@ -25,7 +25,7 @@ public class CategoryController {
 	private SqlSession sqlSession;
 	
 	@RequestMapping("/men")
-	public String Men(HttpServletRequest request,Model model,SearchVO_CS searchVO) {
+	public String Men(HttpServletRequest request,Model model,SearchVO searchVO) {
 		System.out.println("넘어왔따");
 		PDao dao=sqlSession.getMapper(PDao.class);
 		String p_name=request.getParameter("p_name");
@@ -84,7 +84,7 @@ public class CategoryController {
 		return "men,women,new/men";
 	}
 	@RequestMapping("/women")
-	public String women(HttpServletRequest request,Model model,SearchVO_CS searchVO) {
+	public String women(HttpServletRequest request,Model model,SearchVO searchVO) {
 		System.out.println("넘어왔따");
 		PDao dao=sqlSession.getMapper(PDao.class);
 		String p_name=request.getParameter("p_name");
@@ -142,12 +142,12 @@ public class CategoryController {
 		return "men,women,new/women";
 	}
 	@RequestMapping("/Orderafterlogin")
-	public String Orderafterlogin(HttpServletRequest request,Model model,SearchVO_CS searchVO) {
+	public String Orderafterlogin(HttpServletRequest request,Model model,SearchVO searchVO) {
 		PDao dao=sqlSession.getMapper(PDao.class);
 		return "men,women,new/Orderafterlogin";
 	}
 	@RequestMapping("/Orderbeforelogin")
-	public String Orderbeforelogin(HttpServletRequest request,Model model,SearchVO_CS searchVO)  {
+	public String Orderbeforelogin(HttpServletRequest request,Model model,SearchVO searchVO)  {
 		PDao dao=sqlSession.getMapper(PDao.class);
 		
 		
@@ -170,13 +170,13 @@ public class CategoryController {
 	  }
 	 
 	@RequestMapping("/agreement")
-	public String agreement(HttpServletRequest request,Model model,SearchVO_CS searchVO) {
+	public String agreement(HttpServletRequest request,Model model,SearchVO searchVO) {
 		PDao dao=sqlSession.getMapper(PDao.class);
 		
 		return "men,women,new/agreement";
 	}
 	@RequestMapping("/agreement2")
-	public String agreement2(HttpServletRequest request,Model model,SearchVO_CS searchVO) {
+	public String agreement2(HttpServletRequest request,Model model,SearchVO searchVO) {
 		PDao dao=sqlSession.getMapper(PDao.class);
 		
 		return "men,women,new/agreement2";

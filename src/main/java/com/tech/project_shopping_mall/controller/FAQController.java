@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tech.project_shopping_mall.dao.CSDao;
 import com.tech.project_shopping_mall.dto.FaqDto;
-import com.tech.project_shopping_mall.vopage.SearchVO_CS;
+import com.tech.project_shopping_mall.vopage.SearchVO;
 
 @Controller
 public class FAQController {
@@ -22,7 +22,7 @@ public class FAQController {
 	
 	@RequestMapping("/faqboard")
 	public String faqboard(HttpServletRequest request,Model model,
-			SearchVO_CS searchVO) {
+			SearchVO searchVO) {
 		System.out.println("=======FaqBoard=======");
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);

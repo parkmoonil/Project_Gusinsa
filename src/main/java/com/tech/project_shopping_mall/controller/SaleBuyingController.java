@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import com.tech.project_shopping_mall.vopage.SearchVO_CS;
+import com.tech.project_shopping_mall.vopage.SearchVO;
 
 @Controller
 public class SaleBuyingController {
