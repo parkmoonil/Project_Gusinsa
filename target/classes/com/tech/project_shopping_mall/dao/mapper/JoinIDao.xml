@@ -38,5 +38,7 @@
 		   , #{kakaologin,jdbcType=VARCHAR}
 		)
 		</insert>
-
+		<select parameterType="String" id="Id_Check" resultType="com.tech.project_shopping_mall.dto.MembersDto">
+			SELECT MID FROM MEMBERS WHERE MID = #{id}
+		</select>
 </mapper>

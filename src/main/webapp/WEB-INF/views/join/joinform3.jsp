@@ -5,6 +5,7 @@
 <html>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 
 	/* 주소 불러오기 */
@@ -527,7 +528,51 @@
 		}
 		#footer_addr{float: left;}
 		.footer_div{margin-top: 20px;margin-right: 30px;float: right; margin-bottom: 10px;}
+		
+.id_ok{
+color:#008000;
+display: none;
+}
+
+.id_already{
+color:#6A82FB; 
+display: none;
+}
     </style>
+ <script>
+function check(){
+	id = $("#mid").val();
+	
+	$.ajax({
+	    url: 'ID_Check',
+	    type: 'POST',
+	    dataType: 'text', //서버로부터 내가 받는 데이터의 타입
+	    contentType : 'text/plain; charset=utf-8;',//내가 서버로 보내는 데이터의 타입
+	    data: id ,
+
+	    success: function(data){
+	         if(data == 0){
+	         console.log("아이디 없음");
+	         
+	         $('.id_ok').css("display","inline-block"); 
+             $('.id_already').css("display", "none");
+	         }else{
+	         	console.log("아이디 있음");
+	         	
+	         	$('.id_already').css("display","inline-block");
+                $('.id_ok').css("display", "none");
+                
+                $('#mid').val('');
+	         }
+	    },
+	    error: function (){        
+	                      
+	    }
+	  });
+
+
+}
+</script>
     <body>
 		<div class="h3">
             <h3>gusinsa.com</h3>
@@ -553,13 +598,21 @@
                     <span>'<span class="red">*</span>' 표시된 정보는 필수입력 정보입니다.</span>
                 </td>
             </tr>
+           <form name="join" method="post" action="join" autocomplete="off" encType="utf-8">  
             <tr>
                 <th><span class="red">*</span>아이디</th>
                 
                 <td>
                     <input type="text" name="mid" id="mid" placeholder=" 이메일 주소를 입력해주세요." />
+                    <button id="duplicate_check" type="button" onclick="check();">중복체크</button>
+					<span class="id_ok">사용 가능한 아이디입니다.</span>
+					<span class="id_already">누군가 이 아이디를 사용하고 있어요.</span>
                 </td>
             </tr>
+          	</form>
+          
+          	
+
             <tr>
                 <th class="psps"><span class="red">*</span>비밀번호</th>
                 <td>
