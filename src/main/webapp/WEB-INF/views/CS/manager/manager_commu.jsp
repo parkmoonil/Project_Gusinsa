@@ -34,22 +34,22 @@
 					<th>첨부파일</th>
 				</tr>
 				
-				<c:forEach items="${CommuMembers}" var="dto4" begin="0" end="10">
+				<c:forEach items="${CommuMembers}" var="cm" begin="0" end="10">
 					<tr>
-						<td>${dto4.cnum}</td>
-						<td>${dto4.fk_mid}</td>
-						<td>${dto4.mname}</td>
-						<td>${dto4.mphone}</td>
-						<td>${dto4.memail}</td>
-						<td>${dto4.cselect1}</td>
-						<td>${dto4.cselect2}</td>
-						<td>${dto4.cselect3}</td>
-						<td>${dto4.cselect4}</td>
-						<td>${dto4.ctitle}</td>
-						<td>${dto4.ccontent}</td>
+						<td>${cm.cnum}</td>
+						<td>${cm.fk_mid}</td>
+						<td>${cm.mname}</td>
+						<td>${cm.mphone}</td>
+						<td>${cm.memail}</td>
+						<td>${cm.cselect1}</td>
+						<td>${cm.cselect2}</td>
+						<td>${cm.cselect3}</td>
+						<td>${cm.cselect4}</td>
+						<td>${cm.ctitle}</td>
+						<td>${cm.ccontent}</td>
 						<td>
-							<a href="Commudownload?p=resources/upload/&c=${dto4.cfile }
-							">${dto4.cfile }</a>
+							<a href="Commudownload?p=resources/upload/&c=${cm.cfile }
+							">${cm.cfile }</a>
 						</td>
 					</tr>
 				</c:forEach>

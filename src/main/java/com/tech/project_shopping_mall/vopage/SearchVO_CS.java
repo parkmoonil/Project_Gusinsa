@@ -1,7 +1,7 @@
 package com.tech.project_shopping_mall.vopage;
 
 
-public class SearchVO extends  PageVO  {
+public class SearchVO_CS extends  PageVO_CS  {
 
     private String bgno;                       // 게시판 그룹
     private String searchKeyword = "";         // 검색 키워드

@@ -33,7 +33,7 @@
                 <th class="faqboard_title">제목</th>
                 <th class="faqboard_date">날짜</th>
             </tr>
-            <c:forEach items="${faqboard}" var="dto" begin="0" end="5">
+            <c:forEach items="${faqboard2}" var="dto" begin="0" end="5">
 				<tr class="faqtoggle" onclick="test(this)" >
 					<td class="fheader">
 						${dto.fheader}

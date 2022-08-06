@@ -24,7 +24,7 @@ import com.tech.project_shopping_mall.dao.MainPageDao;
 import com.tech.project_shopping_mall.dto.Infodto;
 import com.tech.project_shopping_mall.dto.MainPageSearchDto;
 import com.tech.project_shopping_mall.dto.MainPageSearch_ProductsDto;
-import com.tech.project_shopping_mall.vopage.SearchVO;
+import com.tech.project_shopping_mall.vopage.SearchVO_CS;
 
 @Controller
 public class MainPageController {
@@ -36,7 +36,7 @@ public class MainPageController {
 	
 	
 	@RequestMapping("/search")
-	public String list(HttpServletRequest request,SearchVO searchVO,Model model) {
+	public String list(HttpServletRequest request,SearchVO_CS searchVO,Model model) {
 		System.out.println("search!!");
 		
 		// 검색한 단어를 keyword에 저장합니다

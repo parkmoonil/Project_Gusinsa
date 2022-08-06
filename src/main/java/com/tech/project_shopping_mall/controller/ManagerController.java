@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tech.project_shopping_mall.dao.CSDao;
 import com.tech.project_shopping_mall.dto.CMDto;
 import com.tech.project_shopping_mall.dto.IMDto;
-import com.tech.project_shopping_mall.vopage.SearchVO;
+
+import com.tech.project_shopping_mall.vopage.SearchVO_CS;
 
 @Controller
 public class ManagerController {
@@ -34,7 +35,7 @@ public class ManagerController {
 	
 	@RequestMapping("/manager_inquiry")
 	public String inquiryboard(HttpServletRequest request,
-			Model model,SearchVO searchVO) {
+			Model model,SearchVO_CS searchVO) {
 		System.out.println("inquiryboard");
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
@@ -48,10 +49,7 @@ public class ManagerController {
 		int page=Integer.parseInt(strPage);
 		searchVO.setPage(page);
 		
-		
 		int total=dao.selectBoardTotCount();
-		
-		
 		
 		System.out.println("totalrow : "+total);
 		searchVO.pageCalculate(total);
@@ -108,7 +106,7 @@ public class ManagerController {
 	
 	@RequestMapping("/manager_commu")
 	public String Commuboard(HttpServletRequest request,
-			Model model,SearchVO searchVO) {
+			Model model,SearchVO_CS searchVO) {
 		System.out.println("Commuboard");
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
@@ -122,7 +120,7 @@ public class ManagerController {
 		int page=Integer.parseInt(strPage);
 		searchVO.setPage(page);
 		
-		int total=dao.selectBoardTotCount2();
+		int total=dao.CommuMembersBoardTotCount();
 		
 		System.out.println("totalrow : "+total);
 		searchVO.pageCalculate(total);

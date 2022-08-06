@@ -42,6 +42,7 @@
                 </p>      
             </div>
        		
+      		<!-- <form action="Commu_write" method="post"> -->
        		<div class="commu_table">
 	            <table>
 	                <tr>
@@ -50,7 +51,7 @@
 	                        <span class="point">*</span>
 	                    </th>
 	                    <td>
-	                   		${dto6.mname }
+	                   	 	<input type="text" value="${Members.mid }" name="mid"/>
 	                    </td>
 	                </tr>
 	                <tr>
@@ -58,7 +59,7 @@
 	                        이름
 	                        <span class="point">*</span>
 	                    </th>
-	                    <td>{고객 이름값}</td>
+	                    <td><input type="text" value="${Members.mname }" name="mname"/></td>
 	                </tr>
 	                <tr>
 	                    <th>
@@ -67,17 +68,7 @@
 	                    </th>
 	                    <td class="phone_cert">
 	                        <div class="input_tel">
-	                            <select name="">
-	                                <option value="010">010</option>
-	                                <option value="011">011</option>
-	                                <option value="016">016</option>
-	                                <option value="017">017</option>
-	                                <option value="018">018</option>
-	                            </select>
-	                            <span class="tel_separator"> - </span>
-	                            <input type="text" maxlength="4" class="phone_input">
-	                            <span class="tel_separator"> - </span>
-	                            <input type="text" maxlength="4" class="phone_input">
+	                           <td><input type="text" value="${Members.mphone }" name="mphone"/></td>
 	                        </div>
 	                    </td>
 	                </tr>       
@@ -87,16 +78,16 @@
 	                        <span class="point">*</span>
 	                    </th>
 	                    <td class="email_option">
-	                        <input type="text" class="email_input">
+	                        <td><input type="text" value="${Members.memail }" name="memail"/></td>
 	                    <td>   
 	                 </tr>
 	            </table>
             </div>
             <div class="commu_btn" >
-            	<input type="submit" class="commu_next_btn" value="다음"/ >
+            	<input type="submit" class="commu_next_btn" value="다음" / >
             	<a href="communication3">버튼</a>
     		</div>
-    	
+    	<!-- </form> -->
 		</div>
 	</div>
 <%@include file="../../../../resources/common/footer.jsp" %>

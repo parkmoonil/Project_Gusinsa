@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.tech.project_shopping_mall.dao.CSDao;
 import com.tech.project_shopping_mall.dto.FaqDto;
 import com.tech.project_shopping_mall.dto.NoticeDto;
-import com.tech.project_shopping_mall.vopage.SearchVO;
+import com.tech.project_shopping_mall.vopage.SearchVO_CS;
 
 @Controller
 public class CSController {
@@ -31,8 +31,8 @@ public class CSController {
 		ArrayList<NoticeDto> noticeboard2=dao.noticeboard2(0, null, null, null);
 		model.addAttribute("noticeboard2",noticeboard2);
 		
-		ArrayList<FaqDto> faqboard=dao.faqboard();
-		model.addAttribute("faqboard",faqboard);
+		ArrayList<FaqDto> faqboard2=dao.faqboard2();
+		model.addAttribute("faqboard2",faqboard2);
 		
 		return "/CS/csmain";
 		
@@ -40,19 +40,58 @@ public class CSController {
 	
 //	redirect:noticeboard
 	@RequestMapping("/noticeboard")
-	public String notice(HttpServletRequest request,SearchVO searchVO,Model model) {
+	public String notice(HttpServletRequest request,SearchVO_CS searchVO,Model model) {
 		System.out.println("======NoticeBoard=======");
 			
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 //		ArrayList<NoticeDto> noticeboard=dao.noticeboard();
 //		model.addAttribute("noticeboard",noticeboard);
 		
-		String searchKeyword=request.getParameter("sk");
-		searchKeyword="";
-		
 		String ntitle="";
 		String ncontent="";
 		
+		String[] brdtitle=request.getParameterValues("searchType");
+		if(brdtitle!=null) {
+			for(int i=0;i<brdtitle.length;i++) {
+				System.out.println("brdtitle : "+brdtitle[i]);
+			}
+		}
+		
+		if (brdtitle!=null) {
+			for (String val : brdtitle) {
+				if (val.equals("ntitle")) {
+					model.addAttribute("ntitle","true");//검색체크유지
+					ntitle="ntitle";
+				}else if (val.equals("ncontent")) {
+					model.addAttribute("ncontent","true");//검색체크유지
+					ncontent="ncontent";
+				}
+			}
+		}	
+		
+		String bt=request.getParameter("ntitle");
+		String bc=request.getParameter("ncontent");
+		
+		if(bt!=null) {
+			if (bt.equals("ntitle")) {
+				ntitle=bt;
+				model.addAttribute("ntitle","true");//검색체크유지
+			}
+		}
+		if(bc!=null) {
+			if (bc.equals("ncontent")) {
+				ncontent=bc;
+				model.addAttribute("ncontent","true");//검색체크유지
+			}
+		}
+		
+		String searchKeyword=request.getParameter("sk");
+		if(searchKeyword==null)
+			searchKeyword="";
+		model.addAttribute("resk",searchKeyword);//***
+		System.out.println("searchkeyword : "+searchKeyword);
+		
+	
 		String strPage=request.getParameter("page");
 		
 		if(strPage==null)

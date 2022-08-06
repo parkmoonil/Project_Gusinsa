@@ -1,17 +1,17 @@
 package com.tech.project_shopping_mall.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.tech.project_shopping_mall.dao.CSDao;
-import com.tech.project_shopping_mall.dao.JoinIDao;
 import com.tech.project_shopping_mall.dto.MembersDto;
 
 @Controller
@@ -28,10 +28,17 @@ public class CommuController {
 	}
 	
 	@RequestMapping("/communication2")
-	public String communication2(HttpServletRequest request) {
+	public String communication2(HttpServletRequest request,Model model) {
 		System.out.println("=====communication2=====");
+		HttpSession session = request.getSession();
 		
+		String mid = (String)session.getAttribute("mid");
 		
+		System.out.println("mid : "+mid);
+		
+		CSDao dao=sqlSession.getMapper(CSDao.class);
+		MembersDto dto = dao.Members(mid);
+		model.addAttribute("Members",dto);
 		
 		return "CS/communication/communication2";
 	}
@@ -49,6 +56,9 @@ public class CommuController {
 		MultipartRequest req=
 				new MultipartRequest(request, path, 1024*1024*20, "utf-8",
 						new DefaultFileRenamePolicy());
+		
+		String mid=req.getParameter("mid");
+		System.out.println("mid : " + mid);
 		
 		String cselect1=req.getParameter("cselect1"); 
 		String cselect2=req.getParameter("cselect2"); 

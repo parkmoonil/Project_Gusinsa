@@ -42,6 +42,7 @@
 		<div class="write_button">
 			<a href="write_view">글쓰기</a>
 		</div>
+		
 		<form action="noticeboard" method="post" class="noticeboard_page">
 			<c:if test="${searchVo.totPage>1 }">
 				<c:if test="${searchVo.page>1 }">
