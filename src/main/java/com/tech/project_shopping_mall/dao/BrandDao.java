@@ -58,6 +58,6 @@ public interface BrandDao {
 	
 	public BrandDto brand(String brand_id);
 
-	public int selectBoardTotCount();
+	public int brandselectBoardTotCount();
 	public ArrayList<Infodto> brand1(int rowStart, int rowEnd, String p_img);
 }

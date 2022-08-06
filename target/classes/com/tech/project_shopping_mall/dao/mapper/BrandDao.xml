@@ -162,7 +162,7 @@
 		(SELECT * FROM PINFO ORDER BY DATA DESC) N)
 		WHERE NUM BETWEEN #{param1} AND #{param2} 
 	</select>
-	<select id="selectBoardTotCount" resultType="Integer">
+	<select id="brandselectBoardTotCount" resultType="Integer">
 		SELECT COUNT(*) FROM PINFO
 	</select>
 	
