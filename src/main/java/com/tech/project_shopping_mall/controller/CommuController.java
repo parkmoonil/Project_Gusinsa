@@ -31,16 +31,24 @@ public class CommuController {
 	public String communication2(HttpServletRequest request,Model model) {
 		System.out.println("=====communication2=====");
 		
+		
 		HttpSession session = request.getSession();
 		String mid = (String)session.getAttribute("mid");
 		
-		System.out.println("mid : "+mid);
-		
-		CSDao dao=sqlSession.getMapper(CSDao.class);
-		MembersDto dto = dao.CSMembers(mid);
-		model.addAttribute("Members",dto);
-		
-		return "CS/communication/communication2";
+		if (mid==null) {
+			
+			return "redirect:login/loginform";
+		} else {
+
+			System.out.println("mid : "+mid);
+			
+			CSDao dao=sqlSession.getMapper(CSDao.class);
+			MembersDto dto = dao.CSMembers(mid);
+			model.addAttribute("Members",dto);
+			
+			return "CS/communication/communication2";
+			
+		}
 	}
 	
 	@RequestMapping("/Commu_write")
@@ -87,7 +95,7 @@ public class CommuController {
 	public String communication3(HttpServletRequest request) {
 		System.out.println("========write========");
 		
-		String mid=request.getParameter("mid");
+		String mid=(String)request.getParameter("mid");
 		
 		System.out.println("mid : " + mid);
 

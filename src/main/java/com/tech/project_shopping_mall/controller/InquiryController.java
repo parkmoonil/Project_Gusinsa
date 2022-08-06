@@ -27,13 +27,19 @@ public class InquiryController {
 		HttpSession session = request.getSession();
 		String mid = (String)session.getAttribute("mid");
 		
-		System.out.println("mid : "+mid);
-		
-		CSDao dao=sqlSession.getMapper(CSDao.class);
-		MembersDto dto = dao.CSMembers2(mid);
-		model.addAttribute("Inquiry",dto);
-		
-		return "CS/inquiry/inquiry";
+		if (mid==null) {
+			
+			return "redirect:login/loginform";
+		} else {
+
+			System.out.println("mid : "+mid);
+			
+			CSDao dao=sqlSession.getMapper(CSDao.class);
+			MembersDto dto = dao.CSMembers2(mid);
+			model.addAttribute("Inquiry",dto);
+			
+			return "CS/inquiry/inquiry";
+		}
 	}
 	
 	@RequestMapping("/Inquiry_write")

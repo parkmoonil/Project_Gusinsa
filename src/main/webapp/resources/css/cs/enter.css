@@ -76,3 +76,25 @@
     margin-top: 10px;
 
 }
+
+.addr_btn {
+	background-color: black;
+	color: white;
+	height: 50px;
+}
+
+.postcode {
+	width:20%
+}
+
+.addr {
+	width: 50%
+}
+
+#sample6_extraAddress {
+	width: 35%
+}
+
+#sample6_detailAddress{
+	width: 45%	
+}

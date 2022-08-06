@@ -28,7 +28,7 @@
 		<table>
 			<tr>
 				<th class="noticeboard_title">제목</th>
-				<th class="noticeboard_date">작성일자</th>
+				<th class="noticeboard_date">작성일자 </th>
 			</tr>
 			<c:forEach items="${noticeboard}" var="dto" begin="0" end="10">
 				<tr>
@@ -39,8 +39,10 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<div class="write_button">
-			<a href="write_view">글쓰기</a>
+		<div class="write_button"> 
+			<c:if test="${ mid eq 'pmi0213' }"> 
+				<a href="write_view">글쓰기</a>
+			</c:if>
 		</div>
 		
 		<form action="noticeboard" method="post" class="noticeboard_page">
