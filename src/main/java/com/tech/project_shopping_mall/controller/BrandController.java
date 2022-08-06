@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tech.project_shopping_mall.dao.BrandDao;
 import com.tech.project_shopping_mall.dto.BrandDto;
 import com.tech.project_shopping_mall.dto.Infodto;
-import com.tech.project_shopping_mall.vopage.SearchVO;
+import com.tech.project_shopping_mall.vopage.SearchVO_brand;
 
 /**
  * Handles requests for the application home page.
@@ -128,7 +128,7 @@ public class BrandController {
 		return "/BrandPage/brand";
 	}
 	@RequestMapping("/brand1")
-	public String brand1(HttpServletRequest request, Model model,SearchVO searchVO) {
+	public String brand1(HttpServletRequest request, Model model,SearchVO_brand searchVO_brand) {
 		
 		System.out.println("brand1Page");
 
@@ -145,27 +145,27 @@ public class BrandController {
 			strPage="1";
 		System.out.println("pagggge2 :"+strPage);
 		int page=Integer.parseInt(strPage);
-		searchVO.setPage(page);
+		searchVO_brand.setPage(page);
 		
 		int total=dao.brandselectBoardTotCount();
-		searchVO.pageCalculate(total);
+		searchVO_brand.pageCalculate(total);
 		
 		//계산된 내용 출력
 		System.out.println("totRow : "+total);
 		System.out.println("clickPage : "+strPage);
-		System.out.println("pageStart : "+searchVO.getPageStart());
-		System.out.println("pageEnd : "+searchVO.getPageEnd());
-		System.out.println("pageTot : "+searchVO.getTotPage());
-		System.out.println("rowStart : "+searchVO.getRowStart());
-		System.out.println("rowEnd : "+searchVO.getRowEnd());
+		System.out.println("pageStart : "+searchVO_brand.getPageStart());
+		System.out.println("pageEnd : "+searchVO_brand.getPageEnd());
+		System.out.println("pageTot : "+searchVO_brand.getTotPage());
+		System.out.println("rowStart : "+searchVO_brand.getRowStart());
+		System.out.println("rowEnd : "+searchVO_brand.getRowEnd());
 		
-		int rowStart=searchVO.getRowStart();
-		int rowEnd=searchVO.getRowEnd();
+		int rowStart=searchVO_brand.getRowStart();
+		int rowEnd=searchVO_brand.getRowEnd();
 		
 		ArrayList<Infodto> dto=dao.brand1(rowStart, rowEnd,"1");
 //		model.addAttribute("list",list);
 		model.addAttribute("totRowcnt",total);
-		model.addAttribute("searchVO",searchVO);
+		model.addAttribute("searchVO",searchVO_brand);
         model.addAttribute("brand1",dto);
 		
 		return "/BrandPage/brand1";
