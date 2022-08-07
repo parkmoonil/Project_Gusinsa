@@ -86,6 +86,10 @@
 	
 }
 
-li {
+.enter_guide li {
 	list-style:disc;
+}
+
+.enter_fianl {
+	padding-top: 80px;
 }

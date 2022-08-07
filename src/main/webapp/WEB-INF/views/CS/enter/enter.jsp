@@ -8,6 +8,7 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="resources/css/cs/enter.css" />
 <link rel="stylesheet" href="resources/css/cs/main.css" />
+<link rel="stylesheet" href="resources/css/cs/board.css" />
 </head>
 <script>
 function sample6_execDaumPostcode() {
@@ -76,7 +77,7 @@ function sample6_execDaumPostcode() {
             </div>
         </div>
 
-
+	<form action="Enter_write" method="post">
         <div class="enter_form">
             <div class="enter_title">
                 <h2>기본정보</h2>
@@ -87,35 +88,35 @@ function sample6_execDaumPostcode() {
                     <th>
                         사업자 등록번호 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="ereginum"></td>
                 </tr>
                 <tr>
                     <th>
                         상호명 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="etradename"></td>
                 </tr>
                 <tr>
                     <th rowspan="2">
                         주소 <span class="point">*</span>
                     </th>
                     <td>
-	                    <input type="text" id="sample6_postcode" placeholder="우편번호" readonly="readonly" class="postcode">
-	                    <input type="text" name="" id="sample6_address" placeholder="주소" readonly="readonly" class="addr">
+	                    <input type="text" name="eaddr1" id="sample6_postcode" placeholder="우편번호" readonly="readonly" class="postcode">
+	                    <input type="text" name="eaddr2" id="sample6_address" placeholder="주소" readonly="readonly" class="addr">
 	                    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="addr_btn">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                    	<input type="text" name="" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly" >
-                    	<input type="text" name="" id="sample6_detailAddress" placeholder=" 상세 주소를 입력해주세요.">
+                    	<input type="text" name="eaddr3" id="sample6_extraAddress" placeholder="참고항목" readonly="readonly" >
+                    	<input type="text" name="eaddr4" id="sample6_detailAddress" placeholder=" 상세 주소를 입력해주세요.">
                     </td>
                 </tr>
                 <tr>
                     <th>
                         연매출 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="esales"></td>
                 </tr>
             </table>
         </div>
@@ -129,20 +130,20 @@ function sample6_execDaumPostcode() {
                     <th>
                         브랜드명 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="ebname"></td>
                 </tr>
                 <tr>
                     <th>
                         상품소개 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="ebintro"></td>
                 </tr>
 
                 <tr>
                     <th>
                         홈페이지 주소 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="ehomepage"></td>
                 </tr>
             </table>
         </div>
@@ -156,46 +157,45 @@ function sample6_execDaumPostcode() {
                     <th>
                         담당자명 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="econtactname"></td>
                 </tr>
                 <tr>
                     <th>
                         직급 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="eposition"></td>
                 </tr>
                 <tr>
                     <th>
                         전화번호 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="echargenum"></td>
                 </tr>
                 <tr>
                     <th>
                         팩스번호 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="efax"></td>
                 </tr>
                 <tr>
                     <th>
                         휴대폰번호 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="ephone"></td>
                 </tr>
                 <tr>
                     <th>
                         이메일 <span class="point">*</span>
                     </th>
-                    <td><input type="text" class="input_style"></td>
+                    <td><input type="text" class="input_style" name="eemail"></td>
                 </tr>
             </table>
-
-           
         </div>
         <div class="enter_btn">
             <input type="submit" value="작성완료">
         </div>   
-	</div>
+		</form>
+	</div>	
 </div>	
 </body>
 </html>

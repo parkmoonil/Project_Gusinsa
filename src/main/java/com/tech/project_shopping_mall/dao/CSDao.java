@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.tech.project_shopping_mall.dto.CMDto;
 import com.tech.project_shopping_mall.dto.CommuDto;
+import com.tech.project_shopping_mall.dto.EnterDto;
 import com.tech.project_shopping_mall.dto.FaqDto;
 import com.tech.project_shopping_mall.dto.IMDto;
 import com.tech.project_shopping_mall.dto.InquiryDto;
@@ -42,6 +43,23 @@ public interface CSDao {
 	public ArrayList<CMDto> CommuMembers2();
 	
 	public void Manager_Commu(String fk_mid);
+	
+	public void Enter_write(String ereginum,
+			String etradename,
+			String eaddr1,
+			String eaddr2,
+			String eaddr3,
+			String eaddr4,
+			String esales,
+			String ebname,
+			String ebintro,
+			String ehomepage,
+			String econtactname,
+			String eposition,
+			String echargenum,
+			String efax,
+			String ephone,
+			String eemail);
 	
 	
 	public int noticeboardTotCount1(String searchKeyword);
