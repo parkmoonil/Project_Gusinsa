@@ -19,25 +19,11 @@ public class EnterDto {
 	private String ephone;
 	private String eemail;
 	
-	
-	
-	public EnterDto(String enumber,
-			String ereginum,
-			String etradename,
-			String eaddr1,
-			String eaddr2,
-			String eaddr3,
-			String eaddr4,
-			String esales,
-			String ebname,
-			String ebintro,
-			String ehomepage,
-			String econtactname,
-			String eposition,
-			String echargenum,
-			String efax,
-			String ephone,
-			String eemail) {
+
+	public EnterDto(String enumber,String ereginum,String etradename,String eaddr1,
+			String eaddr2,String eaddr3,String eaddr4,String esales,String ebname,String ebintro,
+			String ehomepage,String econtactname,String eposition,String echargenum,String efax,
+			String ephone,String eemail) {
 		this.enumber=enumber;
 		this.ereginum=ereginum;
 		this.etradename=etradename;
@@ -58,11 +44,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEnumber() {
 		return enumber;
 	}
-
 
 
 	public void setEnumber(String enumber) {
@@ -70,11 +54,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEreginum() {
 		return ereginum;
 	}
-
 
 
 	public void setEreginum(String ereginum) {
@@ -82,11 +64,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEtradename() {
 		return etradename;
 	}
-
 
 
 	public void setEtradename(String etradename) {
@@ -94,11 +74,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEaddr1() {
 		return eaddr1;
 	}
-
 
 
 	public void setEaddr1(String eaddr1) {
@@ -106,11 +84,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEaddr2() {
 		return eaddr2;
 	}
-
 
 
 	public void setEaddr2(String eaddr2) {
@@ -118,11 +94,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEaddr3() {
 		return eaddr3;
 	}
-
 
 
 	public void setEaddr3(String eaddr3) {
@@ -130,11 +104,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEaddr4() {
 		return eaddr4;
 	}
-
 
 
 	public void setEaddr4(String eaddr4) {
@@ -142,11 +114,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEsales() {
 		return esales;
 	}
-
 
 
 	public void setEsales(String esales) {
@@ -154,11 +124,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEbname() {
 		return ebname;
 	}
-
 
 
 	public void setEbname(String ebname) {
@@ -166,11 +134,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEbintro() {
 		return ebintro;
 	}
-
 
 
 	public void setEbintro(String ebintro) {
@@ -178,11 +144,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEhomepage() {
 		return ehomepage;
 	}
-
 
 
 	public void setEhomepage(String ehomepage) {
@@ -190,11 +154,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEcontactname() {
 		return econtactname;
 	}
-
 
 
 	public void setEcontactname(String econtactname) {
@@ -202,11 +164,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEposition() {
 		return eposition;
 	}
-
 
 
 	public void setEposition(String eposition) {
@@ -214,11 +174,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEchargenum() {
 		return echargenum;
 	}
-
 
 
 	public void setEchargenum(String echargenum) {
@@ -226,11 +184,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEfax() {
 		return efax;
 	}
-
 
 
 	public void setEfax(String efax) {
@@ -238,11 +194,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEphone() {
 		return ephone;
 	}
-
 
 
 	public void setEphone(String ephone) {
@@ -250,11 +204,9 @@ public class EnterDto {
 	}
 
 
-
 	public String getEemail() {
 		return eemail;
 	}
-
 
 
 	public void setEemail(String eemail) {

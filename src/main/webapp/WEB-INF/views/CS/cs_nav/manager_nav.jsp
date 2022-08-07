@@ -15,12 +15,6 @@
 		<h2><a href="manager.html">Manager Page</a></h2>
 	</div>
 	<ul>
-		<li class="manager_left_list" ><a href="noticeboard">
-		공지사항
-		</a></li>
-		<li class="manager_left_list"><a href="faqboard">
-		FAQ
-		</a></li>
 		<li class="manager_left_list"><a href="manager_inquiry">
 		1:1 문의하기
 		</a></li>
@@ -28,13 +22,10 @@
 		고객의 소리
 		</a></li>
 		<li class="manager_left_list"><a href="manager_enter">
-		입점문의
+		입점 테이블 관리
 		</a></li>
 		<li class="manager_left_list"><a href="manager_customer">
 		회원 테이블 관리
-		</a></li>
-		<li class="manager_left_list"><a href="manager_shop">
-		 입점 테이블 관리
 		</a></li>
 	</ul>
 </div>          

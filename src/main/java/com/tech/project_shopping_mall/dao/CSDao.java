@@ -44,23 +44,11 @@ public interface CSDao {
 	
 	public void Manager_Commu(String fk_mid);
 	
-	public void Enter_write(String ereginum,
-			String etradename,
-			String eaddr1,
-			String eaddr2,
-			String eaddr3,
-			String eaddr4,
-			String esales,
-			String ebname,
-			String ebintro,
-			String ehomepage,
-			String econtactname,
-			String eposition,
-			String echargenum,
-			String efax,
-			String ephone,
-			String eemail);
-	
+	public ArrayList<EnterDto> EnterBoard(int start, int end);
+	public void Enter_write(String ereginum,String etradename,String eaddr1,String eaddr2,String eaddr3,String eaddr4,String esales,String ebname,String ebintro,String ehomepage,String econtactname,String eposition,
+			String echargenum,String efax,String ephone,String eemail);
+	public EnterDto enterdetails(String senumber);
+	public void enterdelete(String senumber);
 	
 	public int noticeboardTotCount1(String searchKeyword);
 	public int noticeboardTotCount2(String searchKeyword);
@@ -70,5 +58,6 @@ public interface CSDao {
 	public int InquiryBoardTotCount();
 	public int CommuMembersBoardTotCount();
 	public int selectBoardTotCount3();
+	public int EnterBoardTotCount();
 }
  

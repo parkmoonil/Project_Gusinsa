@@ -28,9 +28,11 @@
 						<td colspan="2"><pre>${content_view.ncontent }</pre></pre></td>
 					</tr>
 				</table>
-			<input type="submit" value="수정"/> &nbsp;&nbsp;
 			<a href="noticeboard">목록</a> &nbsp;&nbsp;
-			<a href="delete?nnum=${content_view.nnum}">삭제</a> &nbsp;&nbsp;
+			<c:if test="${ mid eq 'pmi0213' }"> 
+				<input type="submit" value="수정"/> &nbsp;&nbsp;
+				<a href="delete?nnum=${content_view.nnum}">삭제</a> &nbsp;&nbsp;
+			</c:if>
 		</form>
 	</div>
 </div>

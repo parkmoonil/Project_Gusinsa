@@ -8,7 +8,29 @@
 	INSERT INTO ENTERBOARD VALUES
 	(ENTERBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},
 	#{param8},#{param9},#{param10},
-	#{param11},#{param12},#{param13},#{param14},#{param15}.#{param16})
+	#{param11},#{param12},#{param13},#{param14},#{param15},#{param16})
 	</insert>
 
+	<select id="EnterBoardTotCount" resultType="Integer">
+		SELECT COUNT(*) FROM ENTERBOARD
+	</select>
+	
+	<select id="EnterBoard" resultType="com.tech.project_shopping_mall.dto.EnterDto">
+		SELECT ENUMBER,EREGINUM,ETRADENAME,EADDR1,EADDR2,EADDR3,EADDR4,ESALES,EBNAME,
+		EBINTRO,EHOMEPAGE,ECONTACTNAME,EPOSITION,ECHARGENUM,EFAX,EPHONE,EEMAIL FROM
+		(SELECT ROWNUM NUM,N.* FROM
+		(SELECT * FROM ENTERBOARD ORDER BY ENUMBER DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+	</select>
+	
+	<select id="enterdetails" resultType="com.tech.project_shopping_mall.dto.EnterDto">
+	SELECT ENUMBER,EREGINUM,ETRADENAME,EADDR1,EADDR2,EADDR3,EADDR4,ESALES,EBNAME,
+	EBINTRO,EHOMEPAGE,ECONTACTNAME,EPOSITION,ECHARGENUM,EFAX,EPHONE,EEMAIL
+	FROM ENTERBOARD WHERE ENUMBER=#{param1} 
+	</select>
+	
+	<delete id="enterdelete">
+		DELETE FROM ENTERBOARD WHERE ENUMBER=#{param1}
+	</delete>
+	
 </mapper>
