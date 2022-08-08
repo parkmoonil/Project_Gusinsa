@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tech.project_shopping_mall.dao.MyPageDao;
 import com.tech.project_shopping_mall.dto.Order_ProductDto;
+import com.tech.project_shopping_mall.dto.orderinfoDto;
 import com.tech.project_shopping_mall.vopage.SearchVO_product;
 
 @Controller
@@ -50,6 +51,14 @@ public class MyPageController {
 	@RequestMapping("/buylist")
 	public String buylist(HttpServletRequest request, Model model,SearchVO_product searchVO) {
 		System.out.println("day buy day");
+		
+		HttpSession session = request.getSession();
+		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
+		
+		String mid = (String )session.getAttribute("mid");
+		
+		ArrayList<orderinfoDto> odto = dao.orderlist(mid);
+		model.addAttribute("odto",odto);
 		
 		return "/mypage/mypage_buylist";
 	}
