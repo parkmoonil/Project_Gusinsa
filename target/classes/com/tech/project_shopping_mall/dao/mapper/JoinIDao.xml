@@ -3,13 +3,12 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.tech.project_shopping_mall.dao.JoinIDao">
+<mapper namespace="com.tech.project_shopping_mall.dao.JoinMapper">
 
 		<insert id="join" parameterType="com.tech.project_shopping_mall.dto.MembersDto">
 			INSERT INTO MEMBERS (
 		     MID
 		   , MPW
-		   , MPWC
 		   , MNAME
 		   , MGENDER
 		   , MBIRTH
@@ -20,11 +19,9 @@
 		   , MADDR_FOUR
 		   , MEMAIL
 		   , MGRADE
-		   , KAKAOLOGIN
 		) VALUES (
 		     #{mid}
 		   , #{mpw}
-		   , #{mpwc}
 		   , #{mname}
 		   , #{mgender}
 		   , SYSDATE
@@ -35,7 +32,6 @@
 		   , #{maddr_four}
 		   , #{memail}
 		   , #{mgrade,jdbcType=VARCHAR}
-		   , #{kakaologin,jdbcType=VARCHAR}
 		)
 		</insert>
 		<select parameterType="String" id="Id_Check" resultType="com.tech.project_shopping_mall.dto.MembersDto">

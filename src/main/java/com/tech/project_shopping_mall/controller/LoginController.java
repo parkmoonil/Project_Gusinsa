@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.tech.project_shopping_mall.dao.LoginIDao;
+import com.tech.project_shopping_mall.dao.LoginMapper;
 import com.tech.project_shopping_mall.dto.MembersDto;
 
 
@@ -33,7 +33,7 @@ public class LoginController {
 	public String login(@ModelAttribute MembersDto dto, HttpServletRequest request, Model model) {
 		System.out.println("=========pass by login()=============");
 		
-		LoginIDao dao=sqlSession.getMapper(LoginIDao.class);
+		LoginMapper dao=sqlSession.getMapper(LoginMapper.class);
 		MembersDto rtnDto = dao.selectUserPassword(dto);
 		
 		//아이디 기준으로 디비에서 가져온 패스워드를 입력한 디비와 비교해서 넣어줌
