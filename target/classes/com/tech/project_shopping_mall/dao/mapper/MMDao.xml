@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
+	
+	<select id="MMembers" resultType="com.tech.project_shopping_mall.dto.MembersDto">
+		SELECT MID,MPW,MNAME,MGENDER,MBIRTH,MPHONE,
+		MADDR_ONE,MADDR_TWO,MADDR_THREE,MADDR_FOUR,
+		MEMAIL,MGRADE FROM 
+		(SELECT ROWNUM NUM,N.* FROM
+		(SELECT * FROM MEMBERS ORDER BY MPW DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+		
+	<!-- 	테이블 변경되면
+		ORDER BY DESC 정렬부분 회원번호로 수정 및
+		+ 시간 추가 -->
+	</select>
+	
+	<select id="MembersBoardTotCount" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBERS
+	</select>
+
+
+
+
+</mapper>

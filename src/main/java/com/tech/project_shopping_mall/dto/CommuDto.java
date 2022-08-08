@@ -1,5 +1,7 @@
 package com.tech.project_shopping_mall.dto;
 
+import java.sql.Date;
+
 public class CommuDto {
 	private String cnum;
 	private String cselect1;
@@ -9,12 +11,13 @@ public class CommuDto {
 	private String ctitle;
 	private String ccontent;
 	private String cfile;
+	private Date cdate;
 	
 	public CommuDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CommuDto(String cnum,String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile) {
+	public CommuDto(String cnum,String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile,Date cdate) {
 		this.cnum=cnum;
 		this.cselect1=cselect1;
 		this.cselect2=cselect2;
@@ -23,6 +26,7 @@ public class CommuDto {
 		this.ctitle=ctitle;
 		this.ccontent=ccontent;
 		this.cfile=cfile;
+		this.cdate=cdate;
 	}
 
 	public String getCnum() {
@@ -89,5 +93,12 @@ public class CommuDto {
 		this.cfile = cfile;
 	}
 
-	
+	public Date getCdate() {
+		return cdate;
+	}
+
+	public void setCdate(Date cdate) {
+		this.cdate = cdate;
+	}
+
 }

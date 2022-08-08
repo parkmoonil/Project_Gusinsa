@@ -24,7 +24,7 @@
 		<li class="manager_left_list"><a href="manager_enter">
 		입점 테이블 관리
 		</a></li>
-		<li class="manager_left_list"><a href="manager_customer">
+		<li class="manager_left_list"><a href="manager_members">
 		회원 테이블 관리
 		</a></li>
 	</ul>

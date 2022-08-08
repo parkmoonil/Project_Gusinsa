@@ -22,14 +22,13 @@
 		            <th>문의 분류</th>
 		            <td>
 			            <select name="iselect1">
-				            <option value="">문의선택</option>
-				            <option value="">주문결제</option>
-				            <option value="">배송문제</option>
-				            <option value="">취소/교환/반품 문의</option>
-				            <option value="">쿠폰/마일리지/포인트 문의</option>         
-				            <option value="">이벤트/상품후기 문의</option>
-				            <option value="">회원/회원정보 문의</option>
-				            <option value="">시스템오류 문의</option>
+				            <option value="iselect1">주문결제</option>
+				            <option value="iselect1">배송문제</option>
+				            <option value="iselect1">취소/교환/반품 문의</option>
+				            <option value="iselect1">쿠폰/마일리지/포인트 문의</option>         
+				            <option value="iselect1">이벤트/상품후기 문의</option>
+				            <option value="iselect1">회원/회원정보 문의</option>
+				            <option value="iselect1">시스템오류 문의</option>
 			            </select>
 		            </td>
 		        </tr>

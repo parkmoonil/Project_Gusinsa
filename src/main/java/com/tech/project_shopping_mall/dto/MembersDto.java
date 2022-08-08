@@ -6,7 +6,6 @@ public class MembersDto {
 	
 	private String mid;
 	private String mpw;
-	private String mpwc;
 	private String mname;
 	private String mgender;
 	private Date mbirth;
@@ -17,7 +16,6 @@ public class MembersDto {
 	private String maddr_four;
 	private String memail;
 	private String mgrade;
-	private String kakaologin;
 	
 	public MembersDto() {
 		// TODO Auto-generated constructor stub
@@ -25,12 +23,11 @@ public class MembersDto {
 
 	
 	
-	public MembersDto(String mid, String mpw, String mpwc, String mname, String mgender, Date mbirth, String mphone,
-			String maddr_one, String maddr_two, String maddr_three, String maddr_four, String memail, String mgrade,
-			String kakaologin) {
+	public MembersDto(String mid, String mpw, String mname, String mgender, Date mbirth, String mphone,
+			String maddr_one, String maddr_two, String maddr_three, String maddr_four, String memail, String mgrade) {
 		this.mid = mid;
 		this.mpw = mpw;
-		this.mpwc = mpwc;
+	
 		this.mname = mname;
 		this.mgender = mgender;
 		this.mbirth = mbirth;
@@ -41,7 +38,7 @@ public class MembersDto {
 		this.maddr_four = maddr_four;
 		this.memail = memail;
 		this.mgrade = mgrade;
-		this.kakaologin = kakaologin;
+		
 	}
 
 
@@ -60,14 +57,6 @@ public class MembersDto {
 
 	public void setMpw(String mpw) {
 		this.mpw = mpw;
-	}
-
-	public String getMpwc() {
-		return mpwc;
-	}
-
-	public void setMpwc(String mpwc) {
-		this.mpwc = mpwc;
 	}
 
 	public String getMname() {
@@ -149,14 +138,5 @@ public class MembersDto {
 	public void setMgrade(String mgrade) {
 		this.mgrade = mgrade;
 	}
-
-	public String getKakaologin() {
-		return kakaologin;
-	}
-
-	public void setKakaologin(String kakaologin) {
-		this.kakaologin = kakaologin;
-	}
-
 	
 }

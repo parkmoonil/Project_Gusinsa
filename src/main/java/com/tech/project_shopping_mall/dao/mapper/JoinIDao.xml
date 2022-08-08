@@ -9,7 +9,6 @@
 			INSERT INTO MEMBERS (
 		     MID
 		   , MPW
-		   , MPWC
 		   , MNAME
 		   , MGENDER
 		   , MBIRTH
@@ -20,11 +19,9 @@
 		   , MADDR_FOUR
 		   , MEMAIL
 		   , MGRADE
-		   , KAKAOLOGIN
 		) VALUES (
 		     #{mid}
 		   , #{mpw}
-		   , #{mpwc}
 		   , #{mname}
 		   , #{mgender}
 		   , SYSDATE
@@ -35,7 +32,6 @@
 		   , #{maddr_four}
 		   , #{memail}
 		   , #{mgrade,jdbcType=VARCHAR}
-		   , #{kakaologin,jdbcType=VARCHAR}
 		)
 		</insert>
 		<select parameterType="String" id="Id_Check" resultType="com.tech.project_shopping_mall.dto.MembersDto">

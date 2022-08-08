@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="resources/css/cs/board.css" />
 </head>
 <script>
+//주소찾기
 function sample6_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -55,6 +56,19 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
+//null값 방지
+function checkSubmit(aa) {
+  var e = aa.elements;
+  for ( var i = 0; i < e.length; i++ ) {
+    if ( e[i].tagName == 'INPUT' && e[i].value == '') {
+      alert('내용을 모두 입력해주세요');
+      
+      return false;
+    }
+    
+  	return true;
+  }
+}
 </script>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -77,7 +91,7 @@ function sample6_execDaumPostcode() {
             </div>
         </div>
 
-	<form action="Enter_write" method="post">
+	<form action="Enter_write" method="post" onsubmit="return checkSubmit(this)">
         <div class="enter_form">
             <div class="enter_title">
                 <h2>기본정보</h2>

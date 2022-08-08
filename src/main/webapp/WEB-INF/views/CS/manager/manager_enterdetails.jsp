@@ -87,7 +87,9 @@
 	                    <th>
 	                        홈페이지 주소 <span class="point">*</span>
 	                    </th>
-	                    <td>${manager_enter.ehomepage}</td>
+	                    <td>
+	                    	<a href="${manager_enter.ehomepage}">${manager_enter.ehomepage}</a>	
+	                    </td>
 	                </tr>
 	            </table>
 	        </div>

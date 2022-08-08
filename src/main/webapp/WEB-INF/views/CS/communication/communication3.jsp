@@ -51,12 +51,12 @@
 	                    <td>
 	                        <div class="cs_opinion">
 	                            <select name="cselect1">
-	                                <option value="배송">배송</option>
-	                                <option value="매장">매장</option>
-	                                <option value="AS">AS</option>
-	                                <option value="고객센터">고객센터</option>
-	                                <option value="상품">상품</option>
-	                                <option value="기타">기타</option>
+	                                <option value="cselect1">배송</option>
+	                                <option value="cselect1">매장</option>
+	                                <option value="cselect1">AS</option>
+	                                <option value="cselect1">고객센터</option>
+	                                <option value="cselect1">상품</option>
+	                                <option value="cselect1">기타</option>
 	                            </select>
 	                        </div>
 	                    </td>
