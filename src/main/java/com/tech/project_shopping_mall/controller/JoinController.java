@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tech.finalpj.crypt.CryptoUtil;
 import com.tech.project_shopping_mall.dao.JoinMapper;
 import com.tech.project_shopping_mall.dto.MembersDto;
 
@@ -20,6 +21,8 @@ import com.tech.project_shopping_mall.dto.MembersDto;
 @Controller
 @RequestMapping("/join/*")
 public class JoinController {
+	
+	String key = "a1b2c3d4e5f6g7h8";
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -35,6 +38,19 @@ public class JoinController {
 		System.out.println("=========pass by join()=============");
 		
 		JoinMapper dao = sqlSession.getMapper(JoinMapper.class);
+		
+		//기존 비밀번호
+		String mpw = dto.getMpw();
+		key = CryptoUtil.sha512(mpw);
+		System.out.println("단방향key : " + key);
+		System.out.println("양방향 암호화");
+		String bcdpw = CryptoUtil.encryptAES256(mpw, key);//암호화처리
+		System.out.println("암호화되 값 : " + bcdpw);
+				
+		dto.setMpw(bcdpw);
+				
+		String decryptPwd = CryptoUtil.decryptAES256(dto.getMpw(),key);
+		
 		try {
 			dao.join(dto);
 		} catch (Exception e) {
