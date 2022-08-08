@@ -10,6 +10,7 @@ import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tech.project_shopping_mall.dao.IDao;
@@ -51,7 +52,38 @@ public class doitdoit {
 	      System.out.println("p_name : " +id);
 		    System.out.println("p_price : " +p_price);
 		    System.out.println("p_img : " +p_img);
+		    
 		return "count/MyCart";
 	}
+	
+	@RequestMapping("/superdelete")
+	public String delete(HttpServletRequest request, Model model) {
+		
+		System.out.println("들어와야할거다");
+		int p_code = Integer.parseInt(request.getParameter("p_code"));
+		HttpSession session=request.getSession();
+		String id = (String) session.getAttribute("mid");
+		System.out.println("p_code : "+p_code);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		dao.delete(p_code);
+		
+		String aa = request.getContextPath();
+		System.out.println("aa : " + aa);
+		
+		ArrayList<Cartdto> dto=dao.MyCart(id);
+		model.addAttribute("MyCart",dto);
+		
+		
+		
+		
+		//return "count/MyCart";
+		return "count/MyCart";
+		//return aa;
+	}
+	
+
+
+	
+	
 
 }

@@ -20,55 +20,25 @@
     </table>
     <br><br><br><br><br>
     <table class="t2" align="center">
-        </tr>
-        <tr class="tr1">
+    <tr>
+    <c:forEach items="${SaleMain }" var="dto" varStatus ="status">
+	    <c:if test="${status.index%4==0 }"></tr>             
+	        <tr class="tr1">
+	    </c:if>
+           
             <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/img/rengoku.jpg" width="300" height="350"><p class="p1">할인가격 및 할인율</p>
+                <a href="BuyPage?&p_code=${dto.p_code}">
+                    <img src="${dto.p_img }" width="300" height="350"><p class="p1">${dto.p_name } <br /> ${dto.p_price } </p>
                 </a>    
             </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/img/uzui.jpeg" width="300" height="350"><p class="p1">할인가격 및 할인율</p>
-                </a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/img/mitsuri.jpeg" width="300" height="350"><p class="p1">할인가격 및 할인율</p>
-                </a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/img/shinobu.jpeg" width="300" height="350"><p class="p1">할인가격 및 할인율</p>
-                </a>
-            </td>
+            
+         </c:forEach>
         </tr>
+       
     </table>
+       
 
-    <table class="t2" align="center">
-        <tr>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/img/tanjiro.png" width="300" height="350"><p class="p1">할인가격 및 할인율</p>
-                <a href="Salebuying.html"></a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/img/zenitsu.png" width="300" height="350"><p class="p1">할인가격 및 할인율</p>
-            </a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/img/inosuke.png" width="300" height="350"><p class="p1">할인가격 및 할인율</p>
-            </a>
-            </td>
-            <td class="td1">
-                <a href="Salebuying.html">
-                    <img src="resources/img/nezuko.png" width="300" height="350"><p class="p1">할인가격 및 할인율</p>
-            </a>
-            </td>
-        </tr>
-    </table>
+    
 <%@include file="../../../../resources/common/footer.jsp" %>
 </body>
 </html>
