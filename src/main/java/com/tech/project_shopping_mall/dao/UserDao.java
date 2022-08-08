@@ -9,7 +9,7 @@ import com.tech.project_shopping_mall.dto.MembersDto;
 
 
 
-public class UserDao implements JoinIDao{
+public class UserDao implements JoinMapper{
 
 	JdbcTemplate template;
 	

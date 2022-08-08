@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tech.project_shopping_mall.dao.JoinIDao;
+import com.tech.project_shopping_mall.dao.JoinMapper;
 import com.tech.project_shopping_mall.dto.MembersDto;
 
 
@@ -34,7 +34,7 @@ public class JoinController {
 	public String join(@ModelAttribute MembersDto dto) throws Exception {
 		System.out.println("=========pass by join()=============");
 		
-		JoinIDao dao = sqlSession.getMapper(JoinIDao.class);
+		JoinMapper dao = sqlSession.getMapper(JoinMapper.class);
 		try {
 			dao.join(dto);
 		} catch (Exception e) {
@@ -71,7 +71,7 @@ public class JoinController {
 			//클라이언트가 보낸 ID값
 			String ID = paramData.trim();
 			System.out.println(ID);
-			JoinIDao dao = sqlSession.getMapper(JoinIDao.class);
+			JoinMapper dao = sqlSession.getMapper(JoinMapper.class);
 			MembersDto dto = dao.Id_Check(ID);
 			
 			if(dto != null) {//결과 값이 있으면 아이디 존재	

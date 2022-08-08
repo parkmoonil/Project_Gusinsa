@@ -5,7 +5,7 @@ import java.util.Map;
 import com.tech.project_shopping_mall.dto.MembersDto;
 
 
-public interface JoinIDao {
+public interface JoinMapper {
 	
 	public void join(MembersDto dto);
 	
