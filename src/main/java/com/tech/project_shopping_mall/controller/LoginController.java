@@ -47,21 +47,26 @@ public class LoginController {
 		LoginMapper dao=sqlSession.getMapper(LoginMapper.class);
 		MembersDto rtnDto = dao.selectUserPassword(dto);
 		
+//		String decodeText = URLDecoder.decode(rtnDto.getMpw(), "UTF-8");
+		
 		String decryptPwd = CryptoUtil.decryptAES256(rtnDto.getMpw(),key);
-
+//		
+//		URLDecoder.decode(decryptPwd, "UTF-8");
+//
 		dto.setMpw(decryptPwd);
 		System.out.println("복호화된 값 : "+decryptPwd);
-
+//		
 		dao.selectUserPassword(dto);
-		
 		//아이디 기준으로 디비에서 가져온 패스워드를 입력한 디비와 비교해서 넣어줌
-		if(rtnDto.getMpw().equals(dto.getMpw())) {
+		if(decryptPwd.equals(dto.getMpw())) {
 			System.out.println("login success!!!");
 			//세션에 담기
 			HttpSession session=request.getSession();
+			
 			session.setAttribute("mid", rtnDto.getMid());
 			session.setAttribute("mpw", rtnDto.getMpw());
 		}
+		
 		return "redirect:../";
 	}
 	@RequestMapping("/logout")
