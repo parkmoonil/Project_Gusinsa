@@ -6,8 +6,33 @@
 <mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
 
 	<insert id="Commu_write">
-	INSERT INTO COMMUBOARD(CNUM,CSELECT1,CSELECT2,CSELECT3,CSELECT4,CTITLE,CCONTENT,CFILE) 
-	VALUES(COMMUBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
+		INSERT INTO COMMUBOARD(CNUM,CSELECT1,CSELECT2,CSELECT3,CSELECT4,CTITLE,CCONTENT,CFILE,FK_MID) 
+		VALUES(COMMUBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8})
 	</insert>
+	
+	<select id="CommuMembers" resultType="com.tech.project_shopping_mall.dto.CMDto">
+		SELECT CNUM,MID,MNAME,MPHONE,MEMAIL,CSELECT1,CSELECT2,
+		CSELECT3,CSELECT4,CTITLE,CCONTENT,CFILE FROM
+		(SELECT ROWNUM NUM,N.* FROM
+		(SELECT * FROM COMMUMEMBERS ORDER BY CNUM DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+	</select>
+	
+	<select id="CommuMembersBoardTotCount" resultType="Integer">
+		SELECT COUNT(*) FROM COMMUMEMBERS
+	</select>
+	
+	<select id="CSMembers" resultType="com.tech.project_shopping_mall.dto.MembersDto">
+		SELECT MID,MNAME,MPHONE,MEMAIL FROM MEMBERS
+		WHERE MID=#{param1}
+	
+	</select>
+	
+	<select id="CommuMembers2" resultType="com.tech.project_shopping_mall.dto.CMDto">
+		SELECT CNUM,MID,MNAME,MPHONE,MEMAIL,CSELECT1,CSELECT2,CSELECT3,CSELECT4,CTITLE,CCONTENT,CFILE
+		FROM COMMUMEMBERS
+		WHERE MID=#{param1}
+		ORDER BY CNUM DESC
+	</select>
 
 </mapper>

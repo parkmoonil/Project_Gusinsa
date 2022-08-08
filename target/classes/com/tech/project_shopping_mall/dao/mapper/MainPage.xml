@@ -40,4 +40,8 @@ INSERT INTO SEARCH VALUES(#{param1},1)
 SELECT COUNT(*) FROM PINFO WHERE P_NAME LIKE '%'||#{param1}||'%' OR P_CLASS LIKE '%'||#{param1}||'%'
 </select>
 
+<select  id="search_prouct_detail" resultType = "com.tech.project_shopping_mall.dto.Infodto">
+SELECT P_CODE, P_NAME, P_PRICE, P_CLASS, P_GENDER,P_IMG, DATA,P_IMG2,P_IMG3,P_IMG4,P_IMG5, BRAND, BUYNUMBER, P_CATEGORY FROM PINFO WHERE P_CODE = #{param1}
+</select>
+
 </mapper>

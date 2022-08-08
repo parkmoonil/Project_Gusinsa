@@ -6,14 +6,31 @@
 <mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
 	
 	<select id="faqboard" resultType="com.tech.project_shopping_mall.dto.FaqDto">
+		<!-- SELECT FNUM,FHEADER,FTITLE,FCONTENT,FDATE FROM FAQBOARD
+		ORDER BY FNUM DESC -->
+		SELECT FNUM,FHEADER,FTITLE,FCONTENT,FDATE FROM
+		(SELECT ROWNUM NUM,N.* FROM
+		(SELECT * FROM FAQBOARD ORDER BY FNUM DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+	</select>
+	
+	<insert id="faq_write">
+		INSERT INTO FAQBOARD(FNUM,FHEADER,FTITLE,FCONTENT,FDATE) 
+		VALUES(FAQBOARD_SEQ.NEXTVAL,
+		#{param1},#{param2},#{param3},SYSDATE)
+	</insert>
+	
+	<select id="selectBoardTotCount3" resultType="Integer">
+		SELECT COUNT(*) FROM FAQBOARD
+	</select>
+	
+	<select id="faqboard2" resultType="com.tech.project_shopping_mall.dto.FaqDto">
 		SELECT FNUM,FHEADER,FTITLE,FCONTENT,FDATE FROM FAQBOARD
 		ORDER BY FNUM DESC
 	</select>
 	
-	<insert id="faq_write">
-	INSERT INTO FAQBOARD(FNUM,FHEADER,FTITLE,FCONTENT,FDATE) 
-	VALUES(FAQBOARD_SEQ.NEXTVAL,
-	#{param1},#{param2},#{param3},SYSDATE)
-	</insert>
+	<delete id="faqdelete">
+		DELETE FROM FAQBOARD WHERE FNUM=#{param1}
+	</delete>
 
 </mapper>

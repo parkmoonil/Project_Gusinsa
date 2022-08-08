@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +41,8 @@
                 정확한 성명과 연락처를 남겨주시면 원하는 방법으로 신속하게 답변드리겠습니다.
                 </p>      
             </div>
+       		
+      		<form action="communication3" method="post">
        		<div class="commu_table">
 	            <table>
 	                <tr>
@@ -48,14 +50,16 @@
 	                        아이디
 	                        <span class="point">*</span>
 	                    </th>
-	                    <td>{고객 아이디값}</td>
+	                    <td>
+	                   	 	<input type="text" value="${Members.mid }" name="mid"/>
+	                    </td>
 	                </tr>
 	                <tr>
 	                    <th>
 	                        이름
 	                        <span class="point">*</span>
 	                    </th>
-	                    <td>{고객 이름값}</td>
+	                    <td><input type="text" value="${Members.mname }" name="mname"/></td>
 	                </tr>
 	                <tr>
 	                    <th>
@@ -64,17 +68,7 @@
 	                    </th>
 	                    <td class="phone_cert">
 	                        <div class="input_tel">
-	                            <select name="">
-	                                <option value="010">010</option>
-	                                <option value="011">011</option>
-	                                <option value="016">016</option>
-	                                <option value="017">017</option>
-	                                <option value="018">018</option>
-	                            </select>
-	                            <span class="tel_separator"> - </span>
-	                            <input type="text" maxlength="4" class="phone_input">
-	                            <span class="tel_separator"> - </span>
-	                            <input type="text" maxlength="4" class="phone_input">
+	                           <td><input type="text" value="${Members.mphone }" name="mphone"/></td>
 	                        </div>
 	                    </td>
 	                </tr>       
@@ -84,14 +78,16 @@
 	                        <span class="point">*</span>
 	                    </th>
 	                    <td class="email_option">
-	                        <input type="text" class="email_input">
+	                        <td><input type="text" value="${Members.memail }" name="memail"/></td>
 	                    <td>   
 	                 </tr>
 	            </table>
             </div>
             <div class="commu_btn" >
-	        	<a href="communication3" class="commu_next_btn">다음</a>
-    		</div>	
+            	<input type="submit" class="commu_next_btn" value="다음" / >
+            	<a href="communication3"></a>
+    		</div>
+    		</form>
 		</div>
 	</div>
 <%@include file="../../../../resources/common/footer.jsp" %>

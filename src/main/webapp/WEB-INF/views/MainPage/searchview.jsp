@@ -87,9 +87,9 @@
           </c:if>  
                
                     <td class="td1">
-                        <a href="Salebuying.html">
+                        <a href="BuyPage?p_code=${list.p_code }">
                             <img src="${list.p_img}" width="250" height="350" style="margin-right: 50px;"><p class="p1">${list.p_name }</p></a>
-                        <a href="Salebuying.html"><p class="p1">${list.p_price }</p></a>
+                        <a href="BuyPage?p_code=${list.p_code }"><p class="p1">${list.p_price }</p></a>
                     </td>
      </c:forEach>
      </tr>

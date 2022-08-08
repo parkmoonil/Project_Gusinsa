@@ -96,15 +96,15 @@ hr{
         <div class = "mypage_list">
             <h1>마이페이지</h1>
             <hr>
-            <h2>아이디님 안녕하세요!</h2>
+            <h2>${mid }님 안녕하세요!</h2>
             <hr>
-            <h2>나의 쇼핑내역</h2>
+            <h2>나의 쇼핑내역 ${mname }</h2>
             <a href="${pageContext.request.contextPath }/mypage/mypage_orderlist" id="mypage_list_a" style="color: rgb(145, 144, 144);">주문배송 조회</a> <br>
             <a href="${pageContext.request.contextPath }/mypage/mypage_orderlist_back" id="mypage_list_a" style="color: rgb(145, 144, 144);">취소반품 조회</a> <br>
             <a href="buylist" id="mypage_list_a" style="color: rgb(145, 144, 144);">구매내역</a> <br>
             <hr>
             <h2>나의 관심내역</h2>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">장바구니</a> <br>
+            <a href="../MyCart" id="mypage_list_a" style="color: rgb(145, 144, 144);">장바구니</a> <br>
             <hr>
             <h2>나의 커뮤니티</h2>
             <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">1대1 문의 내역</a> <br>

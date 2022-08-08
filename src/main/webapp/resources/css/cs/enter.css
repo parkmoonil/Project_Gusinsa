@@ -1,0 +1,95 @@
+.enter_form {
+    display: flex;
+    border-top: 3px solid #000;
+    margin: 28px 10px;
+    padding: 20px 0;
+}
+
+.enter_title {
+    width: 400px;
+    
+}
+
+.enter_title p {
+    color: gray;
+}
+
+.enter_form th {
+   border: none;
+   text-align: left;
+   vertical-align: top;
+   padding: 13px 50px 0 0;
+   margin-bottom: 15px;
+   width: 200px;
+   
+}
+
+.enter_table {
+    font-size: 18px;
+    border-spacing: 8px;
+}
+
+.enter_table tr {
+    height: 50px;
+   
+}
+
+.input_style {
+    width: 620px;   
+}
+
+.enter_table input {
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.enter_btn {
+    text-align: center;
+}
+
+.enter_btn input {
+    background-color: #000;
+    color: white;
+    width: 270px;
+    height: 50px;
+    font-size: 20px;
+    
+}
+
+.addr_btn {
+	background-color: black;
+	color: white;
+	height: 50px;
+}
+
+.postcode {
+	width:20%
+}
+
+.addr {
+	width: 50%
+}
+
+#sample6_extraAddress {
+	width: 35%
+}
+
+#sample6_detailAddress{
+	width: 45%	
+}
+
+.enter_guide {
+	color: #888;
+	font-size: 18px;
+	margin: 20px 0;
+	
+}
+
+.enter_guide li {
+	list-style:disc;
+}
+
+.enter_fianl {
+	padding-top: 80px;
+}

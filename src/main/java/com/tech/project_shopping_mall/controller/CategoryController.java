@@ -3,15 +3,21 @@ package com.tech.project_shopping_mall.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.tech.project_shopping_mall.dao.MainPageDao;
 import com.tech.project_shopping_mall.dao.PDao;
 import com.tech.project_shopping_mall.dto.Infodto;
+import com.tech.project_shopping_mall.dto.MembersDto;
+import com.tech.project_shopping_mall.dto.NorderinfoDto;
+
 import com.tech.project_shopping_mall.vopage.SearchVO;
 
 
@@ -82,5 +88,106 @@ public class CategoryController {
 		return "men,women,new/men";
 	}
 	
+	@RequestMapping("/Orderafterlogin")
+	public String Orderafterlogin(Model model, HttpServletRequest request) {
+		PDao dao=sqlSession.getMapper(PDao.class);
+		HttpSession session = request.getSession();
+		
+		String mid = (String )session.getAttribute("mid");
+		
+		
+		
+		MembersDto dto= dao.Orderafterlogin(mid); //
+		model.addAttribute("Orderafterlogin",dto);
+		
+		
+		int pcode = Integer.parseInt(request.getParameter("p_code"));
+//		
+		int sell_price = Integer.parseInt(request.getParameter("sell_price"));
+		int amount = Integer.parseInt(request.getParameter("amount"));
+//		System.out.println("pcode : "+pcode);
+//		System.out.println("amount : "+amount);
+//		System.out.println("sumprice : "+sell_price);
+		
+//		System.out.println("amount : "+amount);
+		MainPageDao Mdao = sqlSession.getMapper(MainPageDao.class);
+		Infodto indto = Mdao.search_prouct_detail(pcode);
+		// pcode를 통해 해당 상품조회
+		model.addAttribute("indto",indto);
+		model.addAttribute("amount",amount); // 상품의 수량 전달
+		model.addAttribute("sumprice",sell_price);
+		return "men,women,new/Orderafterlogin";
+	}
+	@RequestMapping("/Orderbeforelogin")
+	public String Orderbeforelogin(HttpServletRequest request,Model model,SearchVO searchVO)  {
+		PDao dao=sqlSession.getMapper(PDao.class);
+		
+		
+		return "men,women,new/Orderbeforelogin";
+	}
+
 	
+//	  @RequestMapping("/Norderwrite")
+//	  public String Norderwrite(@ModelAttribute NorderinfoDto dto) {
+//		  System.out.println("지나가기");
+//			PDao dao=sqlSession.getMapper(PDao.class);
+//			
+//			dao.Norderwrite(dto.getN_name(), dto.getN_number(), dto.getN_email(), dto.getN_addr(), dto.getN_request());
+//			/*
+//			 * dao.Norderwrite(dto);
+//			 */	  
+//	  System.out.println("ddd "+dto);
+//	  
+//	  return "redirect:/pay"; 
+//	  }
+//	  @RequestMapping("/Orderwrite")
+//	  public String Orderwrite(@ModelAttribute NorderinfoDto dto) {
+//		  System.out.println("지나가기2");
+//		  PDao dao=sqlSession.getMapper(PDao.class);
+//		  
+//		  dao.Norderwrite(dto.getN_name(), dto.getN_number(), dto.getN_email(), dto.getN_addr(), dto.getN_request());
+//		  /*
+//		   * dao.Norderwrite(dto);
+//		   */	  
+//		  System.out.println("ddd "+dto);
+//		  
+//		  return "redirect:/pay"; 
+//	  }
+	 
+	@RequestMapping("/agreement")
+	public String agreement(HttpServletRequest request,Model model,SearchVO searchVO) {
+		PDao dao=sqlSession.getMapper(PDao.class);
+		
+		return "men,women,new/agreement";
+	}
+	@RequestMapping("/agreement2")
+	public String agreement2(HttpServletRequest request,Model model,SearchVO searchVO) {
+		PDao dao=sqlSession.getMapper(PDao.class);
+		
+		return "men,women,new/agreement2";
+	}
+	
+//	@RequestMapping("/pay")
+//	public String pay(HttpServletRequest request,Model model,SearchVO searchVO) {
+//		
+//		 int sprice = Integer.parseInt(request.getParameter("sumprice"));
+//	     int amount = Integer.parseInt(request.getParameter("amount"));
+//	      String p_name = request.getParameter("p_name");
+//	      
+//	      System.out.println("sprice" + sprice);
+//	      System.out.println("amount" + amount);
+//	      System.out.println("p_name" + p_name);
+//	      System.out.println("sprice" + sprice);
+//	      System.out.println("sprice" + sprice);
+//	      System.out.println("sprice" + sprice);
+//	      System.out.println("sprice" + sprice);
+//	      
+//	      model.addAttribute("sprice",sprice);
+//	      model.addAttribute("amount",amount);
+//	      model.addAttribute("p_name",p_name);
+//		
+//		return "pay";
+//		
+//		
+//	}
 }

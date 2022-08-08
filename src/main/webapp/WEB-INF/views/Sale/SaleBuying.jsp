@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head> 
-<body>
+<body onload="init();">
 <%@include file="../../../../resources/common/header.jsp"%>
 <style>
     .a1{
@@ -173,15 +173,72 @@
     }
     
 </style>
+
+<script>
+
+</script>
+
+
+<script language="JavaScript">
+
+var sell_price;
+var amount;
+
+function init () {
+    sell_price = document.form.sell_price.value;
+    amount = document.form.amount.value;
+    document.form.sum.value = sell_price;
+    change();
+}
+
+function add () {
+    hm = document.form.amount;
+    hm.value ++ ;
+
+    var sum_ = parseInt(hm.value) * sell_price;
+document.getElementById("my_sum").innerHTML=sum_;
+}
+
+function del () {
+    hm = document.form.amount;
+        if (hm.value > 1) {
+            hm.value -- ;
+            var sum_ = parseInt(hm.value) * sell_price;
+document.getElementById("my_sum").innerHTML=sum_;
+        }
+}
+
+function change () {
+    hm = document.form.amount;
+
+        if (hm.value < 0) {
+            hm.value = 0;
+        }
+    var sum_ = parseInt(hm.value) * sell_price;
+document.getElementById("my_sum").innerHTML=sum_;
+} 
+
+function move() {
+	let amount = document.getElementById("amount").value;
+	let sell_price = document.getElementById("sell_price").value;
+	
+	let sum = sell_price * amount;
+
+	// 스페이스바 주의 null값 우려
+	location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum; 
+
+}	
+</script>
     <br>
     <hr>
     <br>
+    
     <div class="div1">
         <a href="" class="a1">수납/생활</a> > <a href="" class="a1">생활용품/문구</a> > <a href="" class="a1">원목선반/테이블/의자</a>
     </div>
     <div class="div2">
         <figure>
-            <h1>Rengoku Kyojuro</h1>
+            <h1>${indto.p_name }</h1>
         </figure>
     </div>
     <br>
@@ -195,10 +252,10 @@
     <div class="div4">
         <figure class="fig1">
             <h2 class="h2-1">41%</h2>
-            <figcaption class="figcap1"> 25,900원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;♡</figcaption> <br>
+            <figcaption class="figcap1"> ${indto.p_price } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;♡</figcaption> <br>
             <hr class="hr1"> <br>
             <figcaption class="figcap2">
-                제품번호 : 123456<br>
+                제품번호 : ${indto.p_code }<br>
                 배송정보 : 무료
             </figcaption> 
             <br> <br>
@@ -207,14 +264,16 @@
                     <tr>
                         <td class="td1">상품 옵션</td>
                     </tr>
+
                     <tr>
                         <td class="td2">단품 <br>
                            <form class="form1">47,900원</form>
-                            <form class="form2">&nbsp; 25,900원 &nbsp; </form>                       
-                            <form class="form3"> 
-                                <input type=button value="-" onClick="javascript:this.form.amount.value--;"> 
-                                <input type=text name=amount class="input1" value=1 style="text-align:center;" width=10%> 
-                                <input type=button value="+" onClick="javascript:this.form.amount.value++;"> 
+                            <form class="form2">금액 : <div id="my_sum" name = "my_sum"></div>원</form>                       
+                            <form class="form3" name = "form" method = "get"> 
+                                <input type="text" id = "amount" name="amount" value="1" size="3" onchange="change();"> 
+								<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
+								<input type="hidden" name="sum" size="11" readonly>
+								수량 : <input type=hidden id = "sell_price" name="sell_price" value="${indto.p_price }">
                             </form> 
                             <br>
                         </td>
@@ -222,9 +281,11 @@
                 </table>
             </figcaption>
             <br>
+            
+
             <figcaption>
-                <button type="button" class="btn1"> <a href="./Salecart.html" class="Ja1">장바구니</a> </button>
-                <button type="button" class="btn2">구매하기</button>
+                <button type="button" class="btn1"> <a href="SaleCart" class="Ja1">장바구니</a> </button>
+                <button type="button" class="btn2" onclick="move()" >구매하기</button>
             </figcaption>
         </figure>
     </div>
@@ -271,24 +332,25 @@
             <figcaption class="figcap3">제품정보</figcaption>
             <table border="" class="tb2">
                 <tr>
+                    <td class="td3">제품번호</td>
+                    <td>${indto.p_code }</td>
+                </tr>
+                <tr>
                     <td class="td3">품명 및 모델명</td>
-                    <td>원목스툴/hnh1287</td>
+                    <td>${indto.p_name }</td>
                 </tr>
                 <tr>
-                    <td class="td3">제조자(수입자)</td>
-                    <td>해당없음</td>
+                    <td class="td3">가격</td>
+                    <td>${indto.p_price }</td>
                 </tr>
                 <tr>
-                    <td class="td3">제조국</td>
-                    <td>우드</td>
-                </tr>
-                <tr>
-                    <td class="td3">AS책임자와 번화번호</td>
-                    <td>본품1</td>
+                    <td class="td3">분류</td>
+                    <td>${indto.p_class }</td>
                 </tr>
             </table>
         </figure>
     </div>
+    
     <hr>
     <%@include file="../../../../resources/common/footer.jsp" %>
     

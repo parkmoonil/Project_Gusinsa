@@ -41,7 +41,7 @@
 		            <span class="point">*</span>
 	            </P> 
             </div>
-            <form action="Commu_write" method="post">
+            <form action="Commu_write" method="post" enctype="multipart/form-data">
 	            <table class="commu_table">
 	                <tr>
 	                    <th>
@@ -156,7 +156,8 @@
 	                    <td>
 	                        <input type="file" name="cfile"/>
 	                    </td>
-	                </tr>   
+	                </tr> 
+	                 
 	            </table>
             <div class="commu_btn">
 	        	<input class="commu_next_btn" type="submit" value="작성완료" />

@@ -5,23 +5,164 @@
 
 <mapper namespace="com.tech.project_shopping_mall.dao.BrandDao">
 
-<select id="brand_ga" resultType="com.tech.project_shopping_mall.dto.BrandDto">
-		SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(44032) AND NCHR(44619)
+	<select id="brand_ga" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(44032) AND NCHR(44619)
 	</select>
 	<select id="brand_gga" resultType="com.tech.project_shopping_mall.dto.BrandDto">
-		SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(44620) AND NCHR(45207)
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(44620) AND NCHR(45207)
+	</select>
+	<select id="brand_na" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(45208) AND NCHR(45795)
+	</select>
+	<select id="brand_da" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(45796) AND NCHR(46383)
+	</select>
+	<select id="brand_dda" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(46384) AND NCHR(46971)
+	</select>
+	<select id="brand_la" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(46972) AND NCHR(47559)
+	</select>
+	<select id="brand_ma" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(47560) AND NCHR(48147)
+	</select>
+	<select id="brand_ba" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(48148) AND NCHR(48735)
+	</select>
+	<select id="brand_bba" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(48736) AND NCHR(49323)
+	</select>
+	<select id="brand_sa" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(49324) AND NCHR(49911)
+	</select>
+	<select id="brand_ssa" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(49912) AND NCHR(50499)
+	</select>
+	<select id="brand_aa" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(50500) AND NCHR(51087)
+	</select>
+	<select id="brand_ja" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(51088) AND NCHR(51675)
+	</select>
+	<select id="brand_jja" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(51676) AND NCHR(52263)
+	</select>
+	<select id="brand_cha" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(52264) AND NCHR(52851)
+	</select>
+	<select id="brand_ka" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(52852) AND NCHR(53439)
+	</select>
+	<select id="brand_ta" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(53440) AND NCHR(54027)
+	</select>
+	<select id="brand_pa" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(54028) AND NCHR(54615)
+	</select>
+	<select id="brand_ha" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(54616) AND NCHR(55203)
 	</select>
 	
-	<!-- <select id="brand" resultType="com.tech.project_shopping_mall.dto.BrandDto">
-		SELECT BRAND_NAME FROM BRAND WHERE BRAND_NAME=#{param1 }
-	</select> -->
+	<select id="brand_a" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(65) AND NCHR(66)
+	</select>
+	<select id="brand_b" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(66) AND NCHR(67)
+	</select>
+	<select id="brand_c" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(67) AND NCHR(68)
+	</select>
+	<select id="brand_d" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(68) AND NCHR(69)
+	</select>
+	<select id="brand_e" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(69) AND NCHR(70)
+	</select>
+	<select id="brand_f" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(70) AND NCHR(71)
+	</select>
+	<select id="brand_g" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(71) AND NCHR(72)
+	</select>
+	<select id="brand_h" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(72) AND NCHR(73)
+	</select>
+	<select id="brand_i" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(73) AND NCHR(74)
+	</select>
+	<select id="brand_j" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(74) AND NCHR(75)
+	</select>
+	<select id="brand_k" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(75) AND NCHR(76)
+	</select>
+	<select id="brand_l" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(76) AND NCHR(77)
+	</select>
+	<select id="brand_m" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(77) AND NCHR(78)
+	</select>
+	<select id="brand_n" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(78) AND NCHR(79)
+	</select>
+	<select id="brand_o" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(79) AND NCHR(80)
+	</select>
+	<select id="brand_p" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(80) AND NCHR(81)
+	</select>
+	<select id="brand_q" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(81) AND NCHR(82)
+	</select>
+	<select id="brand_r" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(82) AND NCHR(83)
+	</select>
+	<select id="brand_s" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(83) AND NCHR(84)
+	</select>
+	<select id="brand_t" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(84) AND NCHR(85)
+	</select>
+	<select id="brand_u" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(85) AND NCHR(86)
+	</select>
+	<select id="brand_v" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(86) AND NCHR(87)
+	</select>
+	<select id="brand_w" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(87) AND NCHR(88)
+	</select>
+	<select id="brand_x" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(88) AND NCHR(89)
+	</select>
+	<select id="brand_y" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(89) AND NCHR(90)
+	</select>
+	<select id="brand_z" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+	    SELECT * FROM BRAND WHERE BRAND_NAME BETWEEN NCHR(90) AND NCHR(91)
+	</select>
+	
+	<!-- <select id="brand_title" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+			SELECT 1 AS BRAND_ID,BRAND_TITLE AS BRAND_NAME 
+			FROM (
+			SELECT DISTINCT BRAND_NAME
+			, SUBSTR(BRAND_NAME, 1,1) AS BRAND_TITLE
+			FROM BRAND
+			) A
+			ORDER BY BRAND_TITLE
+		</select> -->
+	
+	<select id="brand" resultType="com.tech.project_shopping_mall.dto.BrandDto">
+		SELECT BRAND_NAME FROM BRAND WHERE BRAND_ID=#{param1 }
+	</select>
 
 	<select id="brand1" resultType="com.tech.project_shopping_mall.dto.Infodto">
-SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_CONTENT, P_IMG, DATA FROM 	(SELECT ROWNUM NUM,N.* FROM 
+		SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
 		(SELECT * FROM PINFO ORDER BY DATA DESC) N)
 		WHERE NUM BETWEEN #{param1} AND #{param2} 
 	</select>
-	<select id="selectBoardTotCount" resultType="Integer">
+	<select id="brandselectBoardTotCount" resultType="Integer">
 		SELECT COUNT(*) FROM PINFO
 	</select>
 	

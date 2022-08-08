@@ -103,7 +103,7 @@ hr{
             <a href="buylist" id="mypage_list_a" style="color: rgb(145, 144, 144);">구매내역</a> <br>
             <hr>
             <h2>나의 관심내역</h2>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">장바구니</a> <br>
+            <a href="../MyCart" id="mypage_list_a" style="color: rgb(145, 144, 144);">장바구니</a> <br>
             <hr>
             <h2>나의 커뮤니티</h2>
             <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">1대1 문의 내역</a> <br>

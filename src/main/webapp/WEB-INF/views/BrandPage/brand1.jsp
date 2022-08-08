@@ -56,28 +56,38 @@
 		</section>
 	</div>
 
-<div class="products">
+	<div class="products">
 		<h3>Product list</h3>
+
+	    <div class="product-list">
+
+	            <div>
+	            <a href="" class="product-list-style">인기상품순</a>
+	            <a href="" class="product-list-style">신상품순</a>
+	            <a href="" class="product-list-style">낮은가격순</a>
+	            <a href="" class="product-list-style">높은가격순</a>
+	            </div> 
+
 
 		<div class="product-list">
 			<c:forEach items="${brand1 }" var="dto">
 				<a href="#" class="product"> 
-					<img src="${dto.p_img }" width="225" height="225px">
+					<img src="${dto.p_img }" width="225" height="250px">
 					<div class="product-name">${dto.p_name }</div>
 					<div class="product-price">${dto.p_price }</div>
 				</a>
 				<a href="#" class="product"> 
-					<img src="${dto.p_img }" width="225" height="225px">
+					<img src="${dto.p_img }" width="225" height="250px">
 					<div class="product-name">${dto.p_name }</div>
 					<div class="product-price">${dto.p_price }</div>
 				</a>
 				<a href="#" class="product"> 
-					<img src="${dto.p_img }" width="225" height="225px">
+					<img src="${dto.p_img }" width="225" height="250px">
 					<div class="product-name">${dto.p_name }</div>
 					<div class="product-price">${dto.p_price }</div>
 				</a>
 				<a href="#" class="product"> 
-					<img src="${dto.p_img }" width="225" height="225px">
+					<img src="${dto.p_img }" width="225" height="250px">
 					<div class="product-name">${dto.p_name }</div>
 					<div class="product-price">${dto.p_price }</div>
 				</a>
@@ -87,7 +97,7 @@
 	</div>
 
 	
-	<div class="paging" style="padding-left: 800px; padding-bottom: 50px;">
+	<div class="paging" style="text-align:center; padding-bottom: 50px;">
 		<form action="brand1" method="post">
 			<c:if test="${searchVO.totPage>1 }">
 				<!-- 토탈 페이지가 1보다 크면 -->
@@ -117,8 +127,7 @@
 			</c:if>
 	</div>
 
-		<footer>
-			<%@include file="../../../../resources/common/footer.jsp"%>
-		</footer>
+	<%@include file="../../../../resources/common/footer.jsp"%>
+
 </body>
 </html>
