@@ -3,6 +3,7 @@ package com.tech.project_shopping_mall.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,10 +43,16 @@ public class CSController {
 	@RequestMapping("/noticeboard")
 	public String notice(HttpServletRequest request,SearchVO_CS searchVO,Model model) {
 		System.out.println("======NoticeBoard=======");
+		
+		HttpSession session = request.getSession();
+		String mid=(String)session.getAttribute("mid");
 			
-		CSDao dao=sqlSession.getMapper(CSDao.class);
 //		ArrayList<NoticeDto> noticeboard=dao.noticeboard();
 //		model.addAttribute("noticeboard",noticeboard);
+		
+		System.out.println("mid : " + mid);
+		
+		CSDao dao=sqlSession.getMapper(CSDao.class);
 		
 		String ntitle="";
 		String ncontent="";
@@ -147,6 +154,7 @@ public class CSController {
 		
 		String ntitle=request.getParameter("ntitle");
 		String ncontent=request.getParameter("ncontent");
+		
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 		dao.write(ntitle, ncontent);

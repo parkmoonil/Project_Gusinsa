@@ -9,4 +9,8 @@
 SELECT * FROM ORDER_INFO ORDER BY O_CODE DESC
 </select>
 
+
+<select  id="orderlist" resultType = "com.tech.project_shopping_mall.dto.orderinfoDto">
+			SELECT * FROM ORDERINFO WHERE MID = #{param1}
+</select>
 </mapper>

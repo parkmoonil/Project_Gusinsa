@@ -47,13 +47,17 @@
 	            </tr>
 	            <tr class="faqcontent">
 	            	<td colspan="3" class="faqcontent2"><pre> ${dto2.fcontent }</pre>
-
+						<c:if test="${ mid eq 'pmi0213' }">	
+							<a href="faqdelete?fnum=${dto2.fnum}">삭제</a>
+						</c:if>	
 	            	</td>
 	            </tr>
 	        </c:forEach>
 	    </table>
 	    <div class="write_button">
-	        <a href="faq_writeview"><button class="faqboard_button">글쓰기</button></a>
+	    	<c:if test="${ mid eq 'pmi0213' }">
+	        	<a href="faq_writeview"><button class="faqboard_button">글쓰기</button></a>
+	        </c:if>
 	    </div>
 	    
 	    <hr />

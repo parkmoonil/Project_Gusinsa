@@ -77,9 +77,22 @@
                 }
             }).open();
         }
+        
+function move() {
+      	let amount = document.getElementById("amount").value;
+       	let sumprice = document.getElementById("sumprice").value;
+       	
+       	let sum = sell_price * amount;
+        
+        	// 스페이스바 주의 null값 우려
+       	//location.href ="paying?p_name=${indto.p_name }"+"&amount="+ amount +"&sumprice="+sumprice;
+       	location.href ="paying";
+
+        }	
+        </script>
     </script>
  
-
+<form action="pay" method="post">
     <div class="ship_top" style="float: left; margin-left: 100px;">
      
     <h2 class="infoput" >배송지정보 </h2> 
@@ -89,28 +102,18 @@
     <div>
         <ul>
             <li id="customer_info"><strong class="userInfo__title vaT">이름 <span class="ask">*</span></strong>
-            <input type="text" style="margin-left: 90px;" class="input__text name noMember_shp_nm" placeholder="이름을 입력해주세요">
+            <input type="text" name="mname" style="margin-left: 90px;" class="input__text name noMember_shp_nm" value="${Orderafterlogin.mname }">
             </li>
             <div class="userInfo__cont" id="customer_info" >
             <li><strong class="userInfo__title vaT">주소 <span class="ask">*</span></strong>
- <input type="text" style="margin-left: 89px;"  id="sample6_postcode" class="input__text addressNum noMember_recip_zip"  readonly="">
+ <input type="text" name="maddr_one"style="margin-left: 89px;"  id="sample6_postcode" class="input__text addressNum noMember_recip_zip" value="${Orderafterlogin.maddr_one }" readonly="">
             <button type="button" class="btn__searchAddr daum_noMember_address" onclick="sample6_execDaumPostcode();">주소검색</button>
-            <input type="text" style="margin-left: 140px;" id="sample6_address" class="input__text address noMember_Address_1" readonly="">
-            <input type="text" style="margin-left: 140px;" id="sample6_extraAddress" class="input__text address noMember_Address_1">
-            <input type="text" style="margin-left: 140px;"  id="sample6_detailAddress" class="input__text address noMember_address_2" maxlength="30">        </div>
+            <input type="text" name="maddr_two" style="margin-left: 140px;" id="sample6_address" class="input__text address noMember_Address_1" value="${Orderafterlogin.maddr_two }" readonly="">
+            <input type="text" name="maddr_three" style="margin-left: 140px;" id="sample6_extraAddress" class="input__text address noMember_Address_1" value="${Orderafterlogin.maddr_three }" readonly="">
+            <input type="text" name="maddr_four" style="margin-left: 140px;"  id="sample6_detailAddress" class="input__text address noMember_address_2" value="${Orderafterlogin.maddr_four }" maxlength="30">        </div>
         </li>
             <li id="customer_info"><strong class="userInfo__title vaT">휴대폰번호 <span class="ask">*</span></strong>
-                    <select name="noMember_order_hp_first" style="margin-left: 40px;"id="noMember_order_hp_first" class="fb__custom-select phone noMember_order_hp_first">
-                    <option value="">선택</option>
-                    <option value="010">010</option>
-                    <option value="011">011</option>
-                    <option value="016">016</option>
-                    <option value="017">017</option>
-                    <option value="018">018</option>
-                    <option value="019">019</option>
-                </select>
-                <input type="text" class="input__text phone noMember_order_hp_second" maxlength="4" onkeypress="infoinputController.fn.fnInNumber()">
-                <input type="text" class="input__text phone noMember_order_hp_second" maxlength="4" onkeypress="infoinputController.fn.fnInNumber()">
+                   <input type="text" name="mphone" value="${Orderafterlogin.mphone }" class="input__text phone noMember_order_hp_second" maxlength="4" onkeypress="infoinputController.fn.fnInNumber()" style="width:300px ">
             </li>
             <li class="userInfo__list line">
                 <strong class="userInfo__title">배송요청사항</strong>
@@ -151,22 +154,22 @@
             </td>
                     <td>
                     <div class="cart__table__info">
-                        <p class="cart__table__name cart_item_name">
-                            파뜨가구 노아 로즈골드 대리석 소파테이블
+                        <p class="cart__table__name cart_item_name" id ="p_name" name = "p_name">
+                            ${indto.p_name }
                         </p>
                         <div class="cart__table__option">
                             <ul>
-                                <li>옵션 : 그레이마블</li>
+                                <li>${indto.p_class }</li>
                             </ul>
                         </div>
                        
                     </div>
                 </td>            
-            <td class="cart__table__count">
-                수량:1
+            <td class="cart__table__count" id = "amount" name = "amount">
+                           수량 : ${amount }
             </td>
-            <td class="cart__table__price">
-                10000원
+            <td class="cart__table__price" id = "sumprice" name = "sumprice">
+                           금액 : ${sumprice}
             </td>
         </tr>
 
@@ -204,7 +207,7 @@
         <li class="paymentinfo_list">
             <div>
                 <strong class="paymentinfo_title fl-left">총 상품금액</strong>
-                <span class="paymentinfo_price fl-right">0원</span>
+                <span class="paymentinfo_price fl-right">${sumprice}</span>
             </div>
         </li>
         <li class="paymentinfo_list">
@@ -258,11 +261,13 @@
                
             </div>
             <div style="position: relative; right: 100px; top: 20px;" >
-                <a href="pay" class="btn btn-black2" id="payBtn" >결제하기</a>
+                <a href="pay?p_name=${indto.p_name }&amount=${amount }&sumprice=${sumprice}" class="btn-black2" id = "payBtn">결제하기</a>
+                
             </div>
          </div>
          
     </div>
+    </form>
     
       <!--   <div id='wrap'>
         <section id="wrap_section">

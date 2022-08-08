@@ -76,15 +76,17 @@ hr{
                 <td>상태</td>
                 <td></td>
             </tr>
+            <c:forEach items="${odto }" var="list" varStatus ="status">
             <tr>
-                <td>2022-02-01</td>
-                <td>거적데기</td>
-                <td>1</td>
-                <td>500원</td>
+                <td>${list.o_date }</td>
+                <td>${list.p_name }</td>
+                <td>${list.o_count }</td>
+                <td>${list.p_price }</td>
                 <td>결제완료</td>
-                <td> <input type="button" value="review" > 리뷰쓰러가기</td>
+                <td> <a href="review?p_code=${list.p_code }">리뷰쓰러가기</a></td>
+                <%-- review?p_code=${list.p_code } --%>
             </tr>
-
+			</c:forEach>
            </table>
            
 

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +42,7 @@
                 </p>      
             </div>
        		
-      		<!-- <form action="Commu_write" method="post"> -->
+      		<form action="communication3" method="post">
        		<div class="commu_table">
 	            <table>
 	                <tr>
@@ -85,9 +85,9 @@
             </div>
             <div class="commu_btn" >
             	<input type="submit" class="commu_next_btn" value="다음" / >
-            	<a href="communication3">버튼</a>
+            	<a href="communication3"></a>
     		</div>
-    	<!-- </form> -->
+    		</form>
 		</div>
 	</div>
 <%@include file="../../../../resources/common/footer.jsp" %>

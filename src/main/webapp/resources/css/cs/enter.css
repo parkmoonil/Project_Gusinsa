@@ -57,22 +57,39 @@
     
 }
 
-.circle {
-    display: flex;
-    justify-content: center;
-    background-color: #000;
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    align-content: space-around;
-   
+.addr_btn {
+	background-color: black;
+	color: white;
+	height: 50px;
 }
 
-.circle p {
-    margin-top: 10px;
+.postcode {
+	width:20%
+}
 
+.addr {
+	width: 50%
+}
+
+#sample6_extraAddress {
+	width: 35%
+}
+
+#sample6_detailAddress{
+	width: 45%	
+}
+
+.enter_guide {
+	color: #888;
+	font-size: 18px;
+	margin: 20px 0;
+	
+}
+
+.enter_guide li {
+	list-style:disc;
+}
+
+.enter_fianl {
+	padding-top: 80px;
 }

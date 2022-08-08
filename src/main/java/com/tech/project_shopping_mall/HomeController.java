@@ -41,7 +41,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-
+   
 		// 추가한거
 		System.out.println("main!!");
 		MainPageDao mpDao = sqlSession.getMapper(MainPageDao.class);

@@ -38,7 +38,7 @@
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="ftitle" value="FAQ 제목"/></td>
+					<td><input type="text" name="ftitle" value="FAQ 제목을 입력하세요."/></td>
 				</tr>
 				<tr>
 					<th>내용</th>
