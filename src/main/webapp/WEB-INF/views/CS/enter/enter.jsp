@@ -59,70 +59,24 @@ function sample6_execDaumPostcode() {
 //null값 방지
 function checkSubmit(aa) {
   var e = aa.elements;
-  var ereginum = document.getElementsByName("ereginum");
-  var etradename = document.getElementsByName("etradename");
-  var eaddr1 = document.getElementsByName("eaddr1");
-  var eaddr2 = document.getElementsByName("eaddr2");
-  var eaddr4 = document.getElementsByName("eaddr4");
-  var esales = document.getElementsByName("esales");
-  var ebname = document.getElementsByName("ebname");
-  var ebintro = document.getElementsByName("ebintro");
-  var ehomepage = document.getElementsByName("ehomepage");
-  var econtactname = document.getElementsByName("econtactname");
-  var eposition = document.getElementsByName("eposition");
-  var echargenum = document.getElementsByName("echargenum");
-  var efax = document.getElementsByName("efax");
-  var ephone = document.getElementsByName("ephone");
-  var eemail = document.getElementsByName("eemail");
-  if (ereginum[0].value == ''){
-	  alert('사업자 등록번호를 입력해주세요.');
-	  return false;
+  var notBlank = 0;
+  var eaddr3 = document.getElementsByName('eaddr3');
+  
+  for (i =0; i < e.length; i++) {
+	  if (e[i].tagName == 'INPUT' && e[i].value != '') {
+		  notBlank += 1;
+	  }
+  }
+  if (eaddr3[0].value == '') {
+	  notBlank +=1;
+  }
+  if (notBlank == 18) {
+	  return true;
 	  
-  }	else if (etradename[0].value == ''){
-	  alert('상호명을 입력해주세요.');
-	  return false;
-  } else if (eaddr1[0].value == ''){
-	  alert('주소를 입력해주세요.');
-	  return false;
-  } else if (eaddr2[0].value == ''){
-	  alert('주소를 입력해주세요.');
-	  return false;
-  }	else if (eaddr4[0].value == ''){
-	  alert('상세주소를 입력해주세요.');
-	  return false;
-  }	else if (esales[0].value == ''){
-	  alert('매출을 입력해주세요.');
-	  return false;
-  }	else if (ebname[0].value == ''){
-	  alert('브랜드명을 입력해주세요.');
-	  return false;
-  }	else if (ebintro[0].value == ''){
-	  alert('브랜드소개를 입력해주세요.');
-	  return false;
-  }	else if (ehomepage[0].value == ''){
-	  alert('홈페이지를 입력해주세요.');
-	  return false;
-  }	else if (econtactname[0].value == ''){
-	  alert('담당자명을 입력해주세요.');
-	  return false;
-  }	else if (eposition[0].value == ''){
-	  alert('직급을 입력해주세요.');
-	  return false;
-  }	else if (echargenum[0].value == ''){
-	  alert('전화번호를 입력해주세요.');
-	  return false;
-  }	else if (efax[0].value == ''){
-	  alert('팩스번호를 입력해주세요.');
-	  return false;
-  }	else if (ephone[0].value == ''){
-	  alert('핸드폰번호를 입력해주세요.');
-	  return false;
-  } else if (eemail[0].value == ''){
-	  alert('메일을 입력해주세요.');
+  } else {
+	  alert('필수내용을 모두 입력해주세요');
 	  return false;
   }
-  
-  return true;
 }
 </script>
 <body>
