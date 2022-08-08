@@ -267,7 +267,9 @@ SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM
 			
 	</insert>
 	
-
+  <select id="Orderafterlogin" resultType="com.tech.project_shopping_mall.dto.MembersDto">
+	SELECT MNAME,MADDR_ONE,MADDR_TWO,MADDR_THREE,MADDR_FOUR,MPHONE FROM MEMBERS WHERE MID=#{MID,jdbcType=VARCHAR}
+	</select>
 </mapper>
 <!-- ,jdbcType=VARCHAR -->
 
