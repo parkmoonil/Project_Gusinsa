@@ -57,26 +57,36 @@ function sample6_execDaumPostcode() {
     }).open();
 }
 //null값 방지
-function checkSubmit(aa) {
-  var e = aa.elements;
-  var notBlank = 0;
-  var eaddr3 = document.getElementsByName('eaddr3');
+function checkSubmit() {
   
-  for (i =0; i < e.length; i++) {
-	  if (e[i].tagName == 'INPUT' && e[i].value != '') {
-		  notBlank += 1;
+  var tags = {
+		'ereginum' : '사업자 등록번호',
+  		'etradename' : '상호명',
+  		'eaddr1' : '주소',
+  		'eaddr2' : '주소',
+  		'eaddr4' : '상세주소',
+  		'esales' : '연매출',
+  		'ebname' : '브랜드명',
+  		'ebintro' : '브랜드소개',
+  		'ehomepage' : '홈페이지',
+  		'econtactname' : '담당자명',
+  		'eposition' : '직급',
+  		'echargenum' : '전화번호',
+  		'efax' : '팩스번호',
+  		'ephone' : '핸드폰번호',
+  		'eemail' : '이메일',
+  }
+  var keyso = Object.keys(tags);
+  console.log(keyso);
+  console.log(keyso[0]);
+  for (i = 0; i < keyso.length; i++ ) {
+	  var tag = document.getElementsByName(keyso[i]);
+	  if (tag[0].value == '') {
+		  alert(tags[keyso[i]] + "을(를) 입력해주세요.");
+		  return false;
 	  }
   }
-  if (eaddr3[0].value == '') {
-	  notBlank +=1;
-  }
-  if (notBlank == 18) {
-	  return true;
-	  
-  } else {
-	  alert('필수내용을 모두 입력해주세요');
-	  return false;
-  }
+  return true;
 }
 </script>
 <body>
