@@ -20,6 +20,10 @@ public interface MainPageDao {
 	public void modify_search(String sbid,String bname,
 			String btitle,String bcontent);
 	public int selectBoardTotCount_search(String keyword);
+	
+	
+	
+	public Infodto search_prouct_detail(int pcode);
 
 
 

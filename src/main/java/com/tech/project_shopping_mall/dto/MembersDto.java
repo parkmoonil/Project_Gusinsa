@@ -27,7 +27,10 @@ public class MembersDto {
 			String maddr_one, String maddr_two, String maddr_three, String maddr_four, String memail, String mgrade) {
 		this.mid = mid;
 		this.mpw = mpw;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 6e45ebb7484d70fa65fae82f97a103ddfef1f1d2
 		this.mname = mname;
 		this.mgender = mgender;
 		this.mbirth = mbirth;
@@ -38,7 +41,10 @@ public class MembersDto {
 		this.maddr_four = maddr_four;
 		this.memail = memail;
 		this.mgrade = mgrade;
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 6e45ebb7484d70fa65fae82f97a103ddfef1f1d2
 	}
 
 
@@ -138,5 +144,9 @@ public class MembersDto {
 	public void setMgrade(String mgrade) {
 		this.mgrade = mgrade;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e45ebb7484d70fa65fae82f97a103ddfef1f1d2
 	
 }

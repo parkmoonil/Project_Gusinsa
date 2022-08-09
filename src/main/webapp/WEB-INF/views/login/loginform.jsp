@@ -8,7 +8,7 @@
 <title>gusinsa.login</title>
 
 
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script> -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
 <script type="text/javascript">
@@ -39,7 +39,7 @@
 	</script>
 
 <script>
-// 카카오 초기화
+/* // 카카오 초기화
 Kakao.init('84f46626395e42bdc72cdb114b32c584');
 
 function kakaoLogin() {
@@ -122,7 +122,7 @@ function kakaoLogout() {
     Kakao.Auth.logout(function() {
       location.href = "/login/logout.go"; // 로그아웃 처리
 	})
-}
+} */
 </script>
 </head>
 <!-- <link rel="stylesheet" href="../headerimg/header.css"> -->
@@ -371,11 +371,11 @@ function kakaoLogout() {
                         <p class="joinus">아직 구신사의 회원이 아니신가요?      
                             <a href="../join/joinform2" class="sp1">회원가입</a></p>
         
-                    <div class="hr-sect">or</div>
-                    
-                    <tr>
+                   <!--  <div class="hr-sect">or</div>
+                     -->
+                    <!-- <tr>
                         <td><a href="javascript:kakaoLogin();"><img src="../resources/snsimg/카카오톡.png"/></a></td>
-                    </tr>
+                    </tr> -->
                 </div>
                 </section>
     

@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tech.project_shopping_mall.dao.JoinIDao;
+import com.tech.finalpj.crypt.CryptoUtil;
+import com.tech.project_shopping_mall.dao.JoinMapper;
 import com.tech.project_shopping_mall.dto.MembersDto;
 
 
 @Controller
 @RequestMapping("/join/*")
 public class JoinController {
+	
+	String key = "a1b2c3d4e5f6g7h8";
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -34,7 +37,16 @@ public class JoinController {
 	public String join(@ModelAttribute MembersDto dto) throws Exception {
 		System.out.println("=========pass by join()=============");
 		
-		JoinIDao dao = sqlSession.getMapper(JoinIDao.class);
+		JoinMapper dao = sqlSession.getMapper(JoinMapper.class);
+		
+		//기존 비밀번호
+		String mpw = dto.getMpw();
+		System.out.println("양방향 암호화");
+		String bcdpw = CryptoUtil.encryptAES256(mpw, key);//암호화처리
+		System.out.println("암호화되 값 : " + bcdpw);
+				
+		dto.setMpw(bcdpw);
+		
 		try {
 			dao.join(dto);
 		} catch (Exception e) {
@@ -71,7 +83,7 @@ public class JoinController {
 			//클라이언트가 보낸 ID값
 			String ID = paramData.trim();
 			System.out.println(ID);
-			JoinIDao dao = sqlSession.getMapper(JoinIDao.class);
+			JoinMapper dao = sqlSession.getMapper(JoinMapper.class);
 			MembersDto dto = dao.Id_Check(ID);
 			
 			if(dto != null) {//결과 값이 있으면 아이디 존재	
