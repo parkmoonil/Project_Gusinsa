@@ -15,7 +15,7 @@
     WHERE M.MID=C.MID AND C.P_CODE=P.P_CODE AND C.MID=#{mid} ORDER BY CART_ID
     </select>
     
-    <select id="SumMoney" resultType="Integer">
+    <!-- <select id="SumMoney" resultType="Integer">
         SELECT NVL(SUM(P_PRICE*AMOUNT),0) 
         FROM CART C,PINFO P 
         WHERE C.P_CODE=P.P_CODE AND MID=#{MID}
@@ -24,15 +24,17 @@
     <select id="SumAmount" resultType="int">
     	SELECT SUM(AMOUNT) FROM CART C,PINFO P WHERE C.P_CODE=P.P_CODE AND MID=#{MID}
 
-    </select>
+    </select> -->
     
-    <delete id="delete">
-        DELETE FROM CART WHERE CART_ID=#{CART_ID}
+    <delete id="delete" parameterType="com.tech.project_shopping_mall.dto.Cartdto">
+        
+		DELETE FROM CART A WHERE EXISTS (SELECT 1 FROM PINFO B WHERE A.P_CODE = B.P_CODE AND B.P_CODE = #{p_code}) 
+
     </delete>
     
-    <!-- <delete id="deleteAll">
+    <delete id="deleteAll" parameterType="com.tech.project_shopping_mall.dto.Cartdto">
         DELETE FROM CART WHERE MID=#{MID}
-    </delete> -->
+    </delete>
     
     
     </mapper>

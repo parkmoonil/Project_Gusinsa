@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Manager_Inquiry</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
 </head>
 <body>
@@ -22,31 +22,20 @@
 				<tr>
 					<th>번호</th>
 					<th>아이디</th>
-					<th>이름</th>
-					<th>핸드폰</th>
-					<th>이메일</th>
-					<th>문의분류</th>
+					<th>문의분류</th>					
 					<th>제목</th>
-					<th>내용</th>
-					<th>첨부파일</th>
-					<th>답변수신</th>
+					<th>날짜</th>
 				</tr>
 				
 				<c:forEach items="${InquiryMembers}" var="dto3" begin="0" end="10">
 					<tr>
 						<td>${dto3.inum}</td>
-						<td>${dto3.fk_mid}</td>
-						<td>${dto3.mname}</td>
-						<td>${dto3.mphone}</td>
-						<td>${dto3.memail}</td>
+						<td>${dto3.mid}</td>
 						<td>${dto3.iselect1}</td>
-						<td>${dto3.ititle}</td>
-						<td>${dto3.icontent}</td>
 						<td>
-							<a href="Inquirydownload?p=resources/upload/&i=${dto3.ifile}
-							">${dto3.ifile }</a>
+							<a href="manager_inquirydetails?inum=${dto3.inum}">${dto3.ititle}</a>	
 						</td>
-						<td>${dto3.iselect2}</td>
+						<td>${dto3.idate }</td>
 					</tr>
 				</c:forEach>
 			</table>

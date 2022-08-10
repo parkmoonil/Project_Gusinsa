@@ -13,13 +13,34 @@
 <link rel="stylesheet" href="resources/css/cs/board.css" />
 <link rel="stylesheet" href="resources/css/cs/faq.css" />
 </head>
+<script>
+function checkSubmit() {
+	  
+	  var tags = {
+			'ftitle' : '제목',
+			'fcontent' : '내용',
+	  		
+	  }
+	  var keyso = Object.keys(tags);
+	  console.log(keyso);
+	  console.log(keyso[0]);
+	  for (i = 0; i < keyso.length; i++ ) {
+		  var tag = document.getElementsByName(keyso[i]);
+		  if (tag[0].value == '') {
+			  alert(tags[keyso[i]] + "을(를) 입력해주세요.");
+			  return false;
+		  }
+	  }
+	  return true;
+	}
+</script>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
 <div class="cs_main">
 <%@include file="../cs_nav/cs_left_nav.jsp" %> 
 <div class="cs_main_board">
 	<div class=line ></div>
-		<form action="faq_write" method="post">
+		<form action="faq_write" method="post" onsubmit="return checkSubmit()">
 			<table class="faq_writeview">
 				<tr>
 					<th>분류</th>
@@ -38,11 +59,11 @@
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="ftitle" value="FAQ 제목을 입력하세요."/></td>
+					<td><input type="text" name="ftitle" placeholder="제목을 입력해주세요." /></td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea name="fcontent" cols="50" rows="30">내용 입력</textarea></td>
+					<td><textarea name="fcontent" cols="50" rows="30"  placeholder="내용을 입력해주세요." ></textarea></td>
 				</tr>
 				</table>
 					<div class="faq_writeview_button">

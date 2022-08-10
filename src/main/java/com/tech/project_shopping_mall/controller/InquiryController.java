@@ -65,6 +65,7 @@ public class InquiryController {
 		String ifile=req.getFilesystemName("ifile");
 		String iselect2=req.getParameter("iselect2");
 		
+		
 		System.out.println("filename : "+ifile);
 		if (ifile==null) {
 			ifile="";
@@ -83,5 +84,6 @@ public class InquiryController {
 	
 		return "CS/inquiry/inquiry2";
 	}
+	
 	
 }

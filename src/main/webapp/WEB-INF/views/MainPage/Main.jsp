@@ -72,7 +72,7 @@
             <h1>HOT WEEKLY KEYWORD</h1>
            <ul class="keyword_ul">
            		<c:forEach items="${search }" var="dto">
-                <li><a href="" style="color: black;">${dto.keyword }</a></li>
+                <li><a href="search?keyword=${dto.keyword }" style="color: black;">${dto.keyword }</a></li>
                 </c:forEach>
            </ul>
         </div>
@@ -82,64 +82,25 @@
 
 <div class="base_product" _sel="./(#3057)">
     <h1>RECENT PRODUCTS</h1>
+    
+    <c:forEach items="${recent }" var="dto">
     <!--옷 1-->
-    <a href="#" style="color: black;">
+    <a href="BuyPage?p_code=${dto.p_code }" style="color: black;">
         <div class="bp_inner">
             <div class="img">
-                <img class="don_lazy b-loaded" src="resources/headerimg/PRO1.png">
+                <img class="don_lazy b-loaded" src="${dto.p_img }" style="width: 250px; height: 300px;">
             </div>
             
         </div>
         <div class="spec" is-color-for-list="true" is-size-for-list="true">
             
-            <div class="name" ><span>[Dasoul] 베이직 기모 맨투맨</span></div>
+            <div class="name" ><span>${dto.p_name }</span></div>
             <div class="price_info" discount="true">
-                <div class="price o_price"><span class="line">37,900</span></div>
+                <div class="price o_price"><span class="line">${dto.p_price }</span></div>
             </div>
         </div>
     </a>
-            <!--옷 2-->
-    <a href="#" style="color: black;">
-        <div class="bp_inner">
-            <div class="img">
-                <img class="don_lazy b-loaded" src="resources/headerimg/PRO2.png">
-            </div>
-                    
-        </div>
-        <div class="spec" is-color-for-list="true" is-size-for-list="true">
-                    
-            <div class="name">[Dasoul] 그저그냥옷</div>
-            <div class="price_info" discount="true">
-                <div class="price o_price">37,900<span class="line"></span></div>
-            </div></div></a>
-            <!--옷 3-->
-    <a href="#" style="color: black;">
-        <div class="bp_inner">
-            <div class="img">
-                <img class="don_lazy b-loaded" src="resources/headerimg/PRO3.png">
-            </div>
-                            
-        </div>
-        <div class="spec" is-color-for-list="true" is-size-for-list="true">
-                            
-            <div class="name">[Dasoul] 거적데기</div>
-            <div class="price_info" discount="true">
-                <div class="price o_price">37,900<span class="line"></span></div>
-            </div></div></a>
-            <!--옷 4-->
-    <a href="#" style="color: black;">
-        <div class="bp_inner">
-            <div class="img">
-                <img class="don_lazy b-loaded" src="resources/headerimg/PRO4.png">
-            </div>
-                                        
-        </div>
-        <div class="spec" is-color-for-list="true" is-size-for-list="true">
-                                        
-            <div class="name">[Dasoul] 옷제목</div>
-            <div class="price_info" discount="true">
-                 <div class="price o_price">37,900<span class="line"></span></div>
-            </div></div></a>
+	</c:forEach>
 </div>
 
 <!--사진 갤러리   -->
@@ -258,11 +219,11 @@
       <article id="3685" class="location-listing">
   
         <a class="location-title" href="#">
-            UNIQLO           </a>
+            Youth           </a>
   
         <div class="location-image">
           <a href="#">
-              <img width="300" height="169" src="resources/headerimg/UNIQLO.png" alt="san francisco">    </a>
+              <img width="300" height="169" src="resources/brandimg/brand_1.jpg" alt="san francisco">    </a>
   
         </div>
   
@@ -271,11 +232,11 @@
       <article id="3688" class="location-listing">
   
         <a class="location-title" href="#">
-            ZARA            </a>
+           HOMEGROWN SVPPLY&CO           </a>
   
         <div class="location-image">
           <a href="#">
-              <img width="300" height="169" src="resources/headerimg/ZARA1.png" alt="london">  </a>
+              <img width="300" height="169" src="resources/brandimg/brand_2.jpg" alt="london">  </a>
   
         </div>
   
@@ -284,11 +245,11 @@
       <article id="3691" class="location-listing">
   
         <a class="location-title" href="#">
-          LOUIS VUITTON           </a>
+          NEITHERS      </a>
   
         <div class="location-image">
           <a href="#">
-              <img width="300" height="169" src="resources/headerimg/LOUISVUITTON.png" alt="new york">  </a>
+              <img width="300" height="169" src="resources/brandimg/brand_3.jpg" alt="new york">  </a>
   
         </div>
   
@@ -297,11 +258,11 @@
       <article id="3694" class="location-listing">
   
         <a class="location-title" href="#">
-          BARREL           </a>
+          BROWNYARD           </a>
   
         <div class="location-image">
           <a href="#">
-              <img width="300" height="169" src="resources/headerimg/BARREL.png" alt="cape town">  </a>
+              <img width="300" height="169" src="resources/brandimg/brand_4.jpg" alt="cape town">  </a>
   
         </div>
   
@@ -310,11 +271,11 @@
       <article id="3697" class="location-listing">
   
         <a class="location-title" href="#">
-            Beijing           </a>
+            FREITAG           </a>
   
         <div class="location-image">
           <a href="#">
-              <img width="300" height="169" src="resources/headerimg/PRO1.png" alt="beijing">    </a>
+              <img width="300" height="169" src="resources/brandimg/brand_5.jpg" alt="beijing">    </a>
   
         </div>
   
@@ -323,6 +284,9 @@
 
   
     </div>
+    <!-- end grid container -->
+  
+  </div>
     <!-- end grid container -->
   
   </div>

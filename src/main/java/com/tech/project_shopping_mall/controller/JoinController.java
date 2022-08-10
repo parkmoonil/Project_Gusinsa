@@ -41,15 +41,11 @@ public class JoinController {
 		
 		//기존 비밀번호
 		String mpw = dto.getMpw();
-		key = CryptoUtil.sha512(mpw);
-		System.out.println("단방향key : " + key);
 		System.out.println("양방향 암호화");
 		String bcdpw = CryptoUtil.encryptAES256(mpw, key);//암호화처리
 		System.out.println("암호화되 값 : " + bcdpw);
 				
 		dto.setMpw(bcdpw);
-				
-		String decryptPwd = CryptoUtil.decryptAES256(dto.getMpw(),key);
 		
 		try {
 			dao.join(dto);

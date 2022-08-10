@@ -6,12 +6,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>고객의 소리</title>
 	<link rel="stylesheet" href="resources/css/cs/main.css" />
-	<link rel="stylesheet" href="resources/css/cs/board.css" />
+<!-- 	<link rel="stylesheet" href="resources/css/cs/board.css" /> -->
 	<link rel="stylesheet" href="resources/css/cs/communication.css" />
 	<link rel="stylesheet" href="resources/css/cs/communication2.css" />
 </head>
+<script>
+function checkSubmit() {
+	var tags = {
+			'mphone' : '핸드폰 번호',
+			'memail' : '이메일',	
+	}	
+	var keyso = Object.keys(tags);
+	console.log(keyso);
+	console.log(keyso[0]);
+	 for (i = 0; i < keyso.length; i++ ) {
+		 var tag = document.getElementsByName(keyso[i]);
+		  if (tag[0].value == '') {
+			  alert(tags[keyso[i]] + "을(를) 입력해주세요.");
+			  return false;
+		  }
+	  }
+	return true;
+}
+</script>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
 <div class="cs_main">
@@ -42,49 +61,53 @@
                 </p>      
             </div>
        		
-      		<form action="communication3" method="post">
-       		<div class="commu_table">
-	            <table>
+      		<form action="communication3" method="post" onsubmit="return checkSubmit()">
+       		<div>
+	            <table class="commu_table">
 	                <tr>
 	                    <th>
 	                        아이디
 	                        <span class="point">*</span>
 	                    </th>
 	                    <td>
-	                   	 	<input type="text" value="${Members.mid }" name="mid"/>
-	                    </td>
+		                    <div class="insert_none" name="mname"  >
+			                   	${Members.mid }
+			                </div>
+		                </td>
 	                </tr>
 	                <tr>
 	                    <th>
 	                        이름
 	                        <span class="point">*</span>
 	                    </th>
-	                    <td><input type="text" value="${Members.mname }" name="mname"/></td>
+	                    <td>
+	                    	<div class="insert_none" name="mname"  >
+		                   		${Members.mname }
+		                    </div>
+	                    </td>
 	                </tr>
 	                <tr>
 	                    <th>
 	                        핸드폰 번호
 	                        <span class="point">*</span>
 	                    </th>
-	                    <td class="phone_cert">
-	                        <div class="input_tel">
-	                           <td><input type="text" value="${Members.mphone }" name="mphone"/></td>
-	                        </div>
-	                    </td>
+	                     <td>
+		                     <input type="text" value="${Members.mphone }" name="mphone"/>
+	                     </td>
 	                </tr>       
 	                <tr>
 	                    <th>
 	                        이메일
 	                        <span class="point">*</span>
 	                    </th>
-	                    <td class="email_option">
-	                        <td><input type="text" value="${Members.memail }" name="memail"/></td>
-	                    <td>   
+	                        <td>
+		                        <input type="text" value="${Members.memail }" name="memail" />
+	                        </td>
 	                 </tr>
 	            </table>
             </div>
             <div class="commu_btn" >
-            	<input type="submit" class="commu_next_btn" value="다음" / >
+            		<input type="submit" class="commu_next_btn" value="다음"  />
             	<a href="communication3"></a>
     		</div>
     		</form>

@@ -27,7 +27,9 @@
 				
 				<c:forEach items="${EnterBoard}" var="dto" begin="0" end="10">
 					<tr>
-						<td>${dto.enumber }</td>
+						<td>
+							<a href="manager_enterdetails?enumber=${dto.enumber }">${dto.enumber }</a>
+						</td>
 						<td>
 							<a href="manager_enterdetails?enumber=${dto.enumber }">${dto.etradename }</a>
 						</td>

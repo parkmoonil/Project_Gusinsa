@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="resources/css/cs/board.css" />
 </head>
 <script>
+//주소찾기
 function sample6_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -55,6 +56,38 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
+//null값 방지
+function checkSubmit() {
+  
+  var tags = {
+		'ereginum' : '사업자 등록번호',
+  		'etradename' : '상호명',
+  		'eaddr1' : '주소',
+  		'eaddr2' : '주소',
+  		'eaddr4' : '상세주소',
+  		'esales' : '연매출',
+  		'ebname' : '브랜드명',
+  		'ebintro' : '브랜드소개',
+  		'ehomepage' : '홈페이지',
+  		'econtactname' : '담당자명',
+  		'eposition' : '직급',
+  		'echargenum' : '전화번호',
+  		'efax' : '팩스번호',
+  		'ephone' : '핸드폰번호',
+  		'eemail' : '이메일',
+  }
+  var keyso = Object.keys(tags);
+  console.log(keyso);
+  console.log(keyso[0]);
+  for (i = 0; i < keyso.length; i++ ) {
+	  var tag = document.getElementsByName(keyso[i]);
+	  if (tag[0].value == '') {
+		  alert(tags[keyso[i]] + "을(를) 입력해주세요.");
+		  return false;
+	  }
+  }
+  return true;
+}
 </script>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -77,7 +110,7 @@ function sample6_execDaumPostcode() {
             </div>
         </div>
 
-	<form action="Enter_write" method="post">
+	<form action="Enter_write" method="post" onsubmit="return checkSubmit(this)">
         <div class="enter_form">
             <div class="enter_title">
                 <h2>기본정보</h2>

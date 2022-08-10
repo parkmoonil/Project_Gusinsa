@@ -3,137 +3,180 @@ package com.tech.project_shopping_mall.dto;
 import java.sql.Timestamp;
 
 public class Order_ProductDto {
-	private int O_CODE;
-	private String P_NAME;
-	private String P_COLOR;
-	private String P_SIZE;
-	private int O_COUNT;
-	private String MID;
-	private String MNAME;
-	private String MFENDER;
-	private int O_AGE;
-	private String O_PHONE;
-	private String O_ADD;
-	private String O_QUEST;
-	private int O_PRICE;
-	private Timestamp O_DATE;
-	private String O_STATE;
+	private int o_code;
+	private String p_name;
+	private String p_color;
+	private String p_size;
+	private int o_count;
+	private String mid;
+	private String mname;
+	private String mfender;
+	private int o_age;
+	private String o_phone;
+	private String o_add;
+	private String o_quest;
+	private int o_price;
+	private Timestamp o_date;
+	private String o_state;
 	
 	public Order_ProductDto() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Order_ProductDto(int O_CODE, String P_NAME, String P_COLOR,String P_SIZE
-			,int O_COUNT,String MID,String MNAME,String MFENDER,int O_AGE,String O_PHONE
-			,String O_ADD,String O_QUEST,int O_PRICE,Timestamp O_DATE,String O_STATE) {
-		this.O_CODE = O_CODE;
-		this.P_NAME = P_NAME;
-		this.P_COLOR = P_COLOR;
-		this.P_SIZE = P_SIZE;
-		this.O_COUNT = O_COUNT;
-		this.MID = MID;
-		this.MNAME = MNAME;
-		this.MFENDER =MFENDER;
-		this.O_AGE = O_AGE;
-		this.O_PHONE = O_PHONE;
-		this.O_ADD = O_ADD;
-		this.O_QUEST = O_QUEST;
-		this.O_PRICE = O_PRICE;
-		this.O_DATE = O_DATE;
-		this.O_STATE = O_STATE;
-	}
+
 	
 	
-	public int getO_CODE() {
-		return O_CODE;
+	
+	public Order_ProductDto(int o_code, String p_name, String p_color, String p_size, int o_count, String mid,
+			String mname, String mfender, int o_age, String o_phone, String o_add, String o_quest, int o_price,
+			Timestamp o_date, String o_state) {
+		super();
+		this.o_code = o_code;
+		this.p_name = p_name;
+		this.p_color = p_color;
+		this.p_size = p_size;
+		this.o_count = o_count;
+		this.mid = mid;
+		this.mname = mname;
+		this.mfender = mfender;
+		this.o_age = o_age;
+		this.o_phone = o_phone;
+		this.o_add = o_add;
+		this.o_quest = o_quest;
+		this.o_price = o_price;
+		this.o_date = o_date;
+		this.o_state = o_state;
 	}
-	public void setO_CODE(int o_CODE) {
-		O_CODE = o_CODE;
+
+
+
+
+	public int getO_code() {
+		return o_code;
 	}
-	public String getP_NAME() {
-		return P_NAME;
+
+	public void setO_code(int o_code) {
+		this.o_code = o_code;
 	}
-	public void setP_NAME(String p_NAME) {
-		P_NAME = p_NAME;
+
+	public String getP_name() {
+		return p_name;
 	}
-	public String getP_COLOR() {
-		return P_COLOR;
+
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
 	}
-	public void setP_COLOR(String p_COLOR) {
-		P_COLOR = p_COLOR;
+
+	public String getP_color() {
+		return p_color;
 	}
-	public String getP_SIZE() {
-		return P_SIZE;
+
+	public void setP_color(String p_color) {
+		this.p_color = p_color;
 	}
-	public void setP_SIZE(String p_SIZE) {
-		P_SIZE = p_SIZE;
+
+	public String getP_size() {
+		return p_size;
 	}
-	public int getO_COUNT() {
-		return O_COUNT;
+
+	public void setP_size(String p_size) {
+		this.p_size = p_size;
 	}
-	public void setO_COUNT(int o_COUNT) {
-		O_COUNT = o_COUNT;
+
+	public int getO_count() {
+		return o_count;
 	}
-	public String getMID() {
-		return MID;
+
+	public void setO_count(int o_count) {
+		this.o_count = o_count;
 	}
-	public void setMID(String mID) {
-		MID = mID;
+
+	public String getMid() {
+		return mid;
 	}
-	public String getMNAME() {
-		return MNAME;
+
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
-	public void setMNAME(String mNAME) {
-		MNAME = mNAME;
+
+	public String getMname() {
+		return mname;
 	}
-	public String getMFENDER() {
-		return MFENDER;
+
+	public void setMname(String mname) {
+		this.mname = mname;
 	}
-	public void setMFENDER(String mFENDER) {
-		MFENDER = mFENDER;
+
+	public String getMfender() {
+		return mfender;
 	}
-	public int getO_AGE() {
-		return O_AGE;
+
+	public void setMfender(String mfender) {
+		this.mfender = mfender;
 	}
-	public void setO_AGE(int o_AGE) {
-		O_AGE = o_AGE;
+
+	public int getO_age() {
+		return o_age;
 	}
-	public String getO_PHONE() {
-		return O_PHONE;
+
+	public void setO_age(int o_age) {
+		this.o_age = o_age;
 	}
-	public void setO_PHONE(String o_PHONE) {
-		O_PHONE = o_PHONE;
+
+	public String getO_phone() {
+		return o_phone;
 	}
-	public String getO_ADD() {
-		return O_ADD;
+
+	public void setO_phone(String o_phone) {
+		this.o_phone = o_phone;
 	}
-	public void setO_ADD(String o_ADD) {
-		O_ADD = o_ADD;
+
+	public String getO_add() {
+		return o_add;
 	}
-	public String getO_QUEST() {
-		return O_QUEST;
+
+	public void setO_add(String o_add) {
+		this.o_add = o_add;
 	}
-	public void setO_QUEST(String o_QUEST) {
-		O_QUEST = o_QUEST;
+
+	public String getO_quest() {
+		return o_quest;
 	}
-	public int getO_PRICE() {
-		return O_PRICE;
+
+	public void setO_quest(String o_quest) {
+		this.o_quest = o_quest;
 	}
-	public void setO_PRICE(int o_PRICE) {
-		O_PRICE = o_PRICE;
+
+	public int getO_price() {
+		return o_price;
 	}
-	public Timestamp getO_DATE() {
-		return O_DATE;
+
+	public void setO_price(int o_price) {
+		this.o_price = o_price;
 	}
-	public void setO_DATE(Timestamp o_DATE) {
-		O_DATE = o_DATE;
+
+	public Timestamp getO_date() {
+		return o_date;
 	}
-	public String getO_STATE() {
-		return O_STATE;
+
+	public void setO_date(Timestamp o_date) {
+		this.o_date = o_date;
 	}
-	public void setO_STATE(String o_STATE) {
-		O_STATE = o_STATE;
+
+	public String getO_state() {
+		return o_state;
 	}
+
+	public void setO_state(String o_state) {
+		this.o_state = o_state;
+	}
+	
+	
+	
+
+	
+	
+	
+	
 	
 	
 	

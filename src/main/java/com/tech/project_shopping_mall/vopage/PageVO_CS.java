@@ -2,7 +2,7 @@ package com.tech.project_shopping_mall.vopage;
 
 public class PageVO_CS {
     private Integer displayRowCount = 10;           // 출력할 데이터 개수
-    private Integer grpPageCnt=3;                   //// 페이지그룹에서 페이지갯수 수정*
+    private Integer grpPageCnt=5;                   //// 페이지그룹에서 페이지갯수 수정*
     private Integer rowStart;                       // 시작행번호
     private Integer rowEnd;                         // 종료행 번호
     private Integer totPage;                        // 전체 페이수

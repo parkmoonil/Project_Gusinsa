@@ -1,5 +1,7 @@
 package com.tech.project_shopping_mall.dto;
 
+import java.sql.Date;
+
 public class InquiryDto {
 	private String inum;
 	private String iselect1;
@@ -7,12 +9,13 @@ public class InquiryDto {
 	private String icontent;
 	private String ifile;
 	private String iselect2;
+	private Date idate;
 	
 	public InquiryDto() {
 
 	}
 	
-	public InquiryDto(String inum,String iselect1,String ititle,String icontent,String ifile,String iselect2) {
+	public InquiryDto(String inum,String iselect1,String ititle,String icontent,String ifile,String iselect2,Date idate) {
 		this.inum=inum;
 		this.iselect1=iselect1;
 		this.ititle=ititle;
@@ -67,6 +70,14 @@ public class InquiryDto {
 
 	public void setIselect2(String iselect2) {
 		this.iselect2 = iselect2;
+	}
+
+	public Date getIdate() {
+		return idate;
+	}
+
+	public void setIdate(Date idate) {
+		this.idate = idate;
 	}
 
 }

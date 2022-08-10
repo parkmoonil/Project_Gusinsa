@@ -230,7 +230,7 @@
         #header_color{
             background: rgb(255, 255, 255);
             width: 100%;
-            height: 196px;
+            height: 250px;
         }
     </style>
       
@@ -262,7 +262,7 @@
                 </div></li>
                 <!-- /project_shopping_malltest/src/main/webapp/resources/headerimg -->
             <!-- <li><a href=#><img src="../headerimg/목록.png" style="margin-right: 80px;" alt="목록" class="header_img"></a></li> -->
-            <li><a href=#><img src="${pageContext.request.contextPath }/resources/headerimg/장바구니.png" style="height: 47px;" alt="장바구니" class="header_img"></a></li>
+            <li><a href="${pageContext.request.contextPath }/MyCart"><img src="${pageContext.request.contextPath }/resources/headerimg/장바구니.png" style="height: 47px;" alt="장바구니" class="header_img"></a></li>
             <c:if test="${empty mid }"> 
             <li><a href="${pageContext.request.contextPath }/login/loginform"><img src="${pageContext.request.contextPath }/resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></a></li>
             </c:if>

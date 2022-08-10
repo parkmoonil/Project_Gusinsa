@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Manager_Commu</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
 </head>
 <body>
@@ -22,35 +22,20 @@
 				<tr>
 					<th>번호</th>
 					<th>아이디</th>
-					<th>이름</th>
-					<th>핸드폰</th>
-					<th>이메일</th>
 					<th>문의유형</th>
-					<th>구입처</th>
-					<th>답변방법</th>
-					<th>SMS수신여부</th>
 					<th>제목</th>
-					<th>내용</th>
-					<th>첨부파일</th>
+					<th>날짜</th>
 				</tr>
 				
 				<c:forEach items="${CommuMembers}" var="cm" begin="0" end="10">
 					<tr>
 						<td>${cm.cnum}</td>
-						<td>${cm.fk_mid}</td>
-						<td>${cm.mname}</td>
-						<td>${cm.mphone}</td>
-						<td>${cm.memail}</td>
+						<td>${cm.mid}</td>
 						<td>${cm.cselect1}</td>
-						<td>${cm.cselect2}</td>
-						<td>${cm.cselect3}</td>
-						<td>${cm.cselect4}</td>
-						<td>${cm.ctitle}</td>
-						<td>${cm.ccontent}</td>
 						<td>
-							<a href="Commudownload?p=resources/upload/&c=${cm.cfile }
-							">${cm.cfile }</a>
+							<a href="manager_commudetails?cnum=${cm.cnum}">${cm.ctitle}</a>	
 						</td>
+						<td>${cm.cdate}</td>
 					</tr>
 				</c:forEach>
 			</table>

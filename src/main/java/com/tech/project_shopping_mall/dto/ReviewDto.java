@@ -8,7 +8,7 @@ import lombok.Setter;
 public class ReviewDto {
 	
 	private int r_num;
-	private String p_code;
+	private int p_code;
 	private int r_starpoint;
 	private String r_title;
 	private String r_contents;
@@ -17,6 +17,7 @@ public class ReviewDto {
 	private String mid;
 	private Timestamp r_date;	
 	private int r_hit;
+	private int o_code;
 		
 	public ReviewDto() {
 		// TODO Auto-generated constructor stub
@@ -31,11 +32,11 @@ public class ReviewDto {
 		this.r_num = r_num;
 	}
 
-	public String getP_code() {
+	public int getP_code() {
 		return p_code;
 	}
 
-	public void setP_code(String p_code) {
+	public void setP_code(int p_code) {
 		this.p_code = p_code;
 	}
 
@@ -100,5 +101,12 @@ public class ReviewDto {
 
 	public void setR_hit(int r_hit) {
 		this.r_hit = r_hit;
+	}
+	public int getO_code() {
+		return o_code;
+	}
+
+	public void setO_code(int o_code) {
+		this.o_code = o_code;
 	}
 }

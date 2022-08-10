@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tech.project_shopping_mall.dao.MyPageDao;
+import com.tech.project_shopping_mall.dto.InquiryDto;
 import com.tech.project_shopping_mall.dto.Order_ProductDto;
 import com.tech.project_shopping_mall.dto.orderinfoDto;
 import com.tech.project_shopping_mall.vopage.SearchVO_product;
@@ -28,38 +29,43 @@ public class MyPageController {
 	public String mypage(HttpServletRequest request, Model model,SearchVO_product searchVO) {
 		System.out.println("mypage ㄱㄱ");
 		HttpSession session = request.getSession();
+		String mid = (String )session.getAttribute("mid");
+		
 		
 		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
 		
 		
-		ArrayList<Order_ProductDto> orderdto = dao.order_p();
+		ArrayList<Order_ProductDto> orderdto = dao.orderlist(mid);
 		
 		System.out.println("orderdto : " + orderdto);
+		
 		
 		model.addAttribute("order",orderdto);
 		
 		return "/mypage/mypage_orderlist";
 	}
 	
-	@RequestMapping("/mypage_orderlist_back")
-	public String mypage_back(HttpServletRequest request, Model model,SearchVO_product searchVO) {
+	@RequestMapping("/mypage_inquiry")
+	public String mypage_inquiry(HttpServletRequest request, Model model,SearchVO_product searchVO) {
 		System.out.println("mypage ㄱㄱ");
-		
-		return "/mypage/mypage_orderlist_back";
-	}
-	
-	@RequestMapping("/buylist")
-	public String buylist(HttpServletRequest request, Model model,SearchVO_product searchVO) {
-		System.out.println("day buy day");
-		
 		HttpSession session = request.getSession();
+		String mid = (String )session.getAttribute("mid");
+		// 문의내역 수정해야됌
+		
 		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
 		
-		String mid = (String )session.getAttribute("mid");
+		// 문의내역으로 조회되게 해야됌
+		ArrayList<InquiryDto> Inqdto = dao.Inqlist(mid);
 		
-		ArrayList<orderinfoDto> odto = dao.orderlist(mid);
-		model.addAttribute("odto",odto);
+		System.out.println("Inqdto : " + Inqdto);
 		
-		return "/mypage/mypage_buylist";
+		
+		model.addAttribute("inq",Inqdto);
+		
+		return "/mypage/mypage_inquiry";
 	}
+	
+
+	
+
 }
