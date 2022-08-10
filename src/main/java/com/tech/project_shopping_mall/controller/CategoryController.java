@@ -105,6 +105,8 @@ public class CategoryController {
 //		
 		int sell_price = Integer.parseInt(request.getParameter("sell_price"));
 		int amount = Integer.parseInt(request.getParameter("amount"));
+		int sping =Integer.parseInt(request.getParameter("sping"));
+		int sumsping =Integer.parseInt(request.getParameter("sumsping"));
 //		System.out.println("pcode : "+pcode);
 //		System.out.println("amount : "+amount);
 //		System.out.println("sumprice : "+sell_price);
@@ -112,7 +114,11 @@ public class CategoryController {
 //		System.out.println("amount : "+amount);
 		MainPageDao Mdao = sqlSession.getMapper(MainPageDao.class);
 		Infodto indto = Mdao.search_prouct_detail(pcode);
+		
 		// pcode를 통해 해당 상품조회
+		model.addAttribute("members",dto);
+		model.addAttribute("sumsping",sumsping);
+		model.addAttribute("sping",sping);
 		model.addAttribute("indto",indto);
 		model.addAttribute("amount",amount); // 상품의 수량 전달
 		model.addAttribute("sumprice",sell_price);

@@ -120,16 +120,7 @@ function move() {
                 <div class="userInfo__cont">
                     <div class="dlvInfo">
                         <div class="select-area">
-                            <select name="noShippingMsgType" id="noShippingMsgType" class="fb__custom-select selectOption">
-                                <option value="">선택</option>
-                                <option value="부재시, 경비(관리)실에 맡겨주세요.">부재시, 경비(관리)실에 맡겨주세요.</option>
-                                <option value="부재시, 문앞에 놓아주세요.">부재시, 문앞에 놓아주세요.</option>
-                                <option value="부재시, 무인택배함 보관해주세요.">부재시, 무인택배함 보관해주세요.</option>
-                                <option value="직접 받겠습니다.">직접 받겠습니다.</option>
-                                <option value="배송전에 연락주세요.">배송전에 연락주세요.</option>
-                                <option value="" option="direct">직접입력</option>
-                            </select>
-
+                          
                             <input type="text" id="noShippingMsg" class="userInput no_all_msg" placeholder="배송요청사항을 입력해 주세요. (최대 30자 이내)" maxlength="30" style="display: inline-block;">
                         </div>
                     </div>
@@ -147,7 +138,7 @@ function move() {
                 <div class="cart_table_goods">
                     <a href="#" class="cart_table_link">
                         <figure class="cart_table_img">
-                            <img src="../img/images/page6.gif" alt="" style="display: block;">
+                            <img src="${indto.p_img }" alt="" style="display: block;">
                         </figure>
                     </a>
                 </div>
@@ -191,13 +182,7 @@ function move() {
     </tr> -->
    </table>
    
-    <h2><class="infoput" >결제수단</h2> 
-    <table>
-        <tr>
-            <td><input type="checkbox"><label for="checker3">신용카드로 결제</label></td>
-            <td><input type="checkbox"><label for="checker4">다른결제 수단</label></td>
-        </tr>
-    </table>
+   
 </div>
 </div>
 <div class="infoinput_right_inner">
@@ -207,27 +192,22 @@ function move() {
         <li class="paymentinfo_list">
             <div>
                 <strong class="paymentinfo_title fl-left">총 상품금액</strong>
-                <span class="paymentinfo_price fl-right">${sumprice}</span>
+                <span class="paymentinfo_price fl-right">${sumprice} 원</span>
             </div>
         </li>
         <li class="paymentinfo_list">
             <div>
                 <strong class="paymentinfo_title fl-left">총 배송비</strong>
-                <span class="paymentinfo_price fl-right">0원</span>
+                <span class="paymentinfo_price fl-right">${sping }원</span>
             </div>
         </li>
-        <li class="paymentinfo_list">
-            <div>
-                <strong class="paymentinfo_title fl-left">총 할인금액</strong>
-                <span class="paymentinfo_price fl-right">0원</span>
-            </div>
-        </li>
+       
        </ul>
          
     
         <div class="paymentAree_btm" >
                 <strong class="fl-left" style="padding-left: 40px;">총 결제 금액</strong>
-                <span class="fl-right">1000원</span><br>
+                <span class="fl-right">${sumsping }원</span><br>
             </div>
            
         </div>
@@ -261,14 +241,19 @@ function move() {
                
             </div>
             <div style="position: relative; right: 100px; top: 20px;" >
-                <a href="pay?p_name=${indto.p_name }&amount=${amount }&sumprice=${sumprice}" class="btn-black2" id = "payBtn">결제하기</a>
+                <a href="pay?p_name=${indto.p_name }&p_code=${indto.p_code }&amount=${amount }&sumprice=${sumprice}&sumsping=${sumsping}&maddr_one=${members.maddr_one}&maddr_two=${members.maddr_two}&maddr_three=${members.maddr_three}&maddr_four=${members.maddr_four}&mphone=${members.mphone}&p_img=${indto.p_img }" class="btn-black2" id = "payBtn">결제하기</a>
                 
             </div>
          </div>
          
     </div>
     </form>
-    
+     <input type="hidden" name="sumprice" id="sumprice" size="11" value="${sumprice }" readonly>
+    <input type="hidden" name="sumsping" id="sumsping" size="11" value="${sumsping }" readonly>
+    <input type="hidden" name="amount" id="amount" size="11" value="${amount }" readonly>
+    <input type="hidden" name="p_name" id="p_name" size="11" value="${p_name }" readonly>
+   <%--  <input type="hidden" name="p_name" id="p_code" size="11" value="${p_code }" readonly>
+ --%>
       <!--   <div id='wrap'>
         <section id="wrap_section">
             

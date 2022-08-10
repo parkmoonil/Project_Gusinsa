@@ -28,7 +28,7 @@ public class BuyPageController {
 		//String pcode = request.getParameter("p_code");
 
         Infodto indto = dao.search_prouct_detail(pcode);
-		
+		System.out.println("indto : " + indto);
 
 		model.addAttribute("indto", indto);
 		return "/Sale/SaleBuying";
