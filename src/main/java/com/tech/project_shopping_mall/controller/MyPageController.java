@@ -36,6 +36,8 @@ public class MyPageController {
 		
 		System.out.println("orderdto : " + orderdto);
 		
+		System.out.println("orderdto : " + orderdto);
+		
 		model.addAttribute("order",orderdto);
 		
 		return "/mypage/mypage_orderlist";

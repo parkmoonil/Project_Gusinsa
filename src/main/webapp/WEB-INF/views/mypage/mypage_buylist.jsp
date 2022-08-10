@@ -5,121 +5,58 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>구매내역</title>
-<style>
-
-
-
-.Mypage{
-    width: 80%;
-    height: auto;
-    
-    text-align: center;
-    
-}
-.mypage_content{
-    width: 75%;
-    float: right;
-    height: auto;
-    margin-top: 20px;
-    margin-right: 40px;
-}
-.mypage_content hr{
-    float: left;
-}
-.mypage_list{
-    float: left;
-    width: 20%;
-    text-align: center;
-    
-    
-    height: 100%;
-    margin: auto;
-}
-hr{
-    width: 90%;
-}
-#mypage_list_a{
-    text-decoration: none;
-    padding-bottom: 10px;
-}
-#mypage_list_a:link{
-    color: rgb(197, 197, 197);
-}
-#mypage_list_a:hover{
-    color: rgb(78, 78, 78);
-}
-.mypage_content table{
-    width: 90%;
-    text-align: center;
-    
-}
-#table_head td{
-    font-size: 20px;
-    font-weight: bold;
-}
-</style>
+<title>주문배송 조회</title>
+<link rel="stylesheet" href="resources/css/cs/main.css">
+<link rel="stylesheet" href="resources/css/cs/board.css" />
+<link rel="stylesheet" href="resources/css/cs/faq.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
-    <div class="MyPage">
 
-        <div class="mypage_content">
-           <h1>나의 구매내역</h1>
-           <hr> <br>
-           <table>
-            <tr id="table_head">
-                <td>주문일자/주문번호</td>
-                <td>상품정보</td>
-                <td>수량</td>
-                <td>결제금액</td>
-                <td>상태</td>
-                <td></td>
-            </tr>
-            <c:forEach items="${odto }" var="list" varStatus ="status">
-            <tr>
-                <td>${list.o_date }</td>
-                <td>${list.p_name }</td>
-                <td>${list.o_count }</td>
-                <td>${list.p_price }</td>
-                <td>결제완료</td>
-                <td> <a href="review?p_code=${list.p_code }">리뷰쓰러가기</a></td>
-                <%-- review?p_code=${list.p_code } --%>
-            </tr>
-			</c:forEach>
-           </table>
-           
 
-        </div>
-        <div class = "mypage_list">
-            <h1>마이페이지</h1>
-            <hr>
-            <h2>아이디님 안녕하세요!</h2>
-            <hr>
-            <h2>나의 쇼핑내역</h2>
-            <a href="${pageContext.request.contextPath }/mypage/mypage_orderlist" id="mypage_list_a" style="color: rgb(145, 144, 144);">주문배송 조회</a> <br>
-            <a href="${pageContext.request.contextPath }/mypage/mypage_orderlist_back" id="mypage_list_a" style="color: rgb(145, 144, 144);">취소반품 조회</a> <br>
-            <a href="buylist" id="mypage_list_a" style="color: rgb(145, 144, 144);">구매내역</a> <br>
-            <hr>
-            <h2>나의 관심내역</h2>
-            <a href="../MyCart" id="mypage_list_a" style="color: rgb(145, 144, 144);">장바구니</a> <br>
-            <hr>
-            <h2>나의 커뮤니티</h2>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">1대1 문의 내역</a> <br>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">고객의 소리</a> <br>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">나의 상품 리뷰</a> <br>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">나의 상품 문의</a> <br>
-            <h2>회원정보관리</h2>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">회원정보 수정</a> <br>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">비밀번호 변경</a><br>
+<div class="cs_left_nav">
+        <h2 class="cs_left_title"><a href="csmain">
+            마이페이지
+        </a></h2>
+        <ul>
+            <li class="cs_left_list" ><a href="noticeboard">
+                주문배송 조회
+            </a></li>
+            <li class="cs_left_list"><a href="faqboard">
+                장바구니
+            </a></li>
+            <li class="cs_left_list"><a href="inquiry">
+                1:1 문의하기
+            </a></li>
+            <li class="cs_left_list"><a href="communication">
+                고객의 소리
+            </a></li>
 
-            
-            
-            
-       
+        </ul>
 
-        </div>
     </div>
+</body>
+</html>   
+    <div class="cs_main_board">
+       <div class="line"></div>
+       <h2>주문배송 조회</h2>
+       <table>
+            <tr>
+                <th class="faqboard_header">주문번호 / 주문일자</th>
+                <th class="faqboard_title">상품이름</th>
+                <th class="faqboard_title">사이즈</th>
+                <th class="faqboard_title">색상</th>
+                <th class="faqboard_date">수량</th>
+                <th class="faqboard_date">결제금액</th>
+                <th class="faqboard_date">상태</th>
+            </tr>
+            
+        </table>
+        
+    	
+
+    </div>
+</div>
 
 </body>
 </html>

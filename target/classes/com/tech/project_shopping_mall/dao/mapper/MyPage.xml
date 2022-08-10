@@ -6,7 +6,7 @@
 <mapper namespace="com.tech.project_shopping_mall.dao.MyPageDao">
 
 <select id="order_p" resultType = "com.tech.project_shopping_mall.dto.Order_ProductDto">
-SELECT * FROM ORDER_INFO ORDER BY O_CODE DESC
+SELECT * FROM ORDERINFO ORDER BY O_CODE DESC
 </select>
 
 
