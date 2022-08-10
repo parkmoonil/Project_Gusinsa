@@ -407,7 +407,10 @@ hr{
                     </div>
                     
                     <div class="subdiv">
-                        <div class="basketcmd"><a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">삭제</a></div>
+                        <div class="basketcmd">
+                        <a href="superdelete?p_code=${dto.p_code }" class="abutton" onclick="javascript:basket.delItem();">
+                        삭제
+                        </a></div>
                     </div> <br />
                    
                 </div>
@@ -416,17 +419,18 @@ hr{
  			
  			</div>
 				
-				
+
             <div class="right-align basketrowcmd">
-                <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delCheckedItem();">선택상품삭제</a>
+                <a href="superdelete?p_code=${dao.p_code }" class="abutton" onclick="javascript:basket.delCheckedItem();">선택상품삭제</a>
                 <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delAllItem();">장바구니비우기</a>
             </div>
-    
 		
-            <div class="bigtext right-align sumcount" id="sum_p_num">상품갯수: 개</div>
-     
-            <div class="bigtext right-align box blue summoney" id="sum_p_price">합계금액: 원</div>
+            <div class="bigtext right-align sumcount" id="sum_p_num">상품갯수: ${status.count}개</div>
       
+       
+		
+            <div class="bigtext right-align box blue summoney" id="sum_p_price">합계금액: ${dto.money }원</div>
+       
     
             <div id="goorder" class="">
                 <div class="clear"></div>

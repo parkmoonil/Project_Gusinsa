@@ -133,13 +133,15 @@ public class MainPageController {
 		
 		model.addAttribute("product",dao.SearchProduct(rowStart, rowEnd,keyword));
 		
-//		if(dto.size() > 0 && searchdto.size() > 0 ){
-//			// 상품도 있고 검색테이블에도 있으면 업데이트문
-//			dao.searchcount(keyword);
-//		}else if(dto.size() > 0 && searchdto.size() == 0) {
-//			// 상품은 있으나 검색테이블에 없으면 검색테이블 추가
-//			dao.search_write(keyword);	
-//		}
+		ArrayList<Infodto> pdto = dao.testSearchProduct(keyword);
+		
+		if(pdto.size() > 0 && searchdto.size() > 0 ){
+			// 상품도 있고 검색테이블에도 있으면 업데이트문
+			dao.searchcount(keyword);
+		}else if(pdto.size() > 0 && searchdto.size() == 0) {
+			// 상품은 있으나 검색테이블에 없으면 검색테이블 추가
+			dao.search_write(keyword);	
+		}
 		
 		System.out.println();
 		

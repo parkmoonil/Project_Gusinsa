@@ -13,8 +13,11 @@ public interface MainPageDao {
 	public void  searchcount(String keyword);
 	
 	
-	public ArrayList<Infodto> SearchProduct(int rowStart, int rowEnd,String keyword);
 	
+	public ArrayList<Infodto> recent_products();
+	
+	public ArrayList<Infodto> SearchProduct(int rowStart, int rowEnd,String keyword);
+	public ArrayList<Infodto> testSearchProduct(String keyword);
 	
 	public void search_write(String search_word);
 	public void modify_search(String sbid,String bname,

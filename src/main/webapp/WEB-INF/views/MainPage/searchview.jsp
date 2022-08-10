@@ -49,6 +49,16 @@
         width: 50%;
         float: left; 
     }
+    .paging{
+    width : 100%;
+    float:right;
+    margin-bottom : 50px;
+    
+	    }
+	#page{
+        padding-bottom: 50px;
+        text-align: center;
+    }
     </style>
     
 <%--     <c:if test="${mid eq null }">
@@ -95,14 +105,14 @@
      </tr>
      </table>
      
-     totCnt : ${totRowcnt } <br />
-    현재페이지/토탈페이지 : ${searchVo.page } / ${searchVo.totPage }
+     검색된 갯수 : ${totRowcnt } <br />
+    
         </div>
 
 
 
 
-  <div class="paging" style="padding-left: 800px; padding-bottom: 50px;">
+  <div class="paging" >
     
 	<c:if test="${searchVO.totPage>1 }"> <!-- 토탈 페이지가 1보다 크면 -->
 		<c:if test="${searchVO.page>1 }">
@@ -111,6 +121,8 @@
 			<%-- 검색값 처음 이전 다음 마지막 누르면 검색값을 잃어버리기 때문에 컨트롤러에서 선언해준 keyword = ${resk }를 묶어준다 --%>
 		</c:if>
 	
+	
+	 <div id = "page">
 	<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
 		<c:choose>
 			<c:when test="${i eq searchVO.page }">  <!-- i eq searchVO.page 내가 클릭한 페이지가 같을 때 -->
@@ -128,6 +140,9 @@
 			<a href="search?page=${searchVO.totPage }&keyword=${resk}">마지막</a>
 		</c:if>
 	</c:if>
+	
+	</div>
+	
     </div>
     </c:if>
 

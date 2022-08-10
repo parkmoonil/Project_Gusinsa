@@ -1,6 +1,7 @@
 package com.tech.project_shopping_mall;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tech.project_shopping_mall.dao.MainPageDao;
+import com.tech.project_shopping_mall.dto.Infodto;
 
 /**
  * Handles requests for the application home page.
@@ -46,11 +48,12 @@ public class HomeController {
 		System.out.println("main!!");
 		MainPageDao mpDao = sqlSession.getMapper(MainPageDao.class);
 		
+		ArrayList<Infodto> dto = mpDao.recent_products();
 		String keyword = request.getParameter("keyword");
 		
 //		int score = Integer.parseInt(request.getParameter("score"));
 		System.out.println("keyword : " +keyword);
-		
+		model.addAttribute("recent", dto);
 		model.addAttribute("search", mpDao.search(keyword));
 		
 		System.out.println("search : " + mpDao );
