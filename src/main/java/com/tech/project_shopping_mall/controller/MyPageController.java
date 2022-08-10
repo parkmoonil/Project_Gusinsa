@@ -12,9 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tech.project_shopping_mall.dao.MyPageDao;
+import com.tech.project_shopping_mall.dto.CMDto;
+import com.tech.project_shopping_mall.dto.IMDto;
 import com.tech.project_shopping_mall.dto.InquiryDto;
 import com.tech.project_shopping_mall.dto.Order_ProductDto;
 import com.tech.project_shopping_mall.dto.orderinfoDto;
+import com.tech.project_shopping_mall.vopage.SearchVO_CS;
 import com.tech.project_shopping_mall.vopage.SearchVO_product;
 
 @Controller
@@ -65,7 +68,97 @@ public class MyPageController {
 		return "/mypage/mypage_inquiry";
 	}
 	
+	@RequestMapping("/myinquiry")
+	public String myinquiry(HttpServletRequest request, 
+			Model model, SearchVO_CS searchVO) {
+		System.out.println("=====myinquiry====");
 
+		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
+		HttpSession session = request.getSession();
+		String mid = (String) session.getAttribute("mid");
+		System.out.println("mid : " + mid);
+	
+		String strPage=request.getParameter("page");
+		System.out.println("pagggge: "+strPage);
+		
+		if(strPage==null) 
+			strPage="1"; 
+		System.out.println("pagge2 : "+strPage); 
+		int page=Integer.parseInt(strPage); 
+		searchVO.setPage(page);
+		
+		int total=dao.MypageIMBoardTotCount(mid);
+	
+		System.out.println("totalrow : "+total); 
+		searchVO.pageCalculate(total);
+		
+		 
+		System.out.println("totPage : "+total);
+		System.out.println("pageStart : "+searchVO.getPageStart());
+		System.out.println("pageEnd : "+searchVO.getPageEnd());
+		System.out.println("pageTot : "+searchVO.getTotPage());
+		System.out.println("rowStart : "+searchVO.getRowStart());
+		System.out.println("rowEnd : "+searchVO.getRowEnd());
+		
+		int rowStart=searchVO.getRowStart(); 
+		int rowEnd=searchVO.getRowEnd();
+		
+		ArrayList<IMDto> MypageIM = dao.MypageIM(mid, rowStart, rowEnd);
+		
+		model.addAttribute("MypageIM",MypageIM); 
+		model.addAttribute("totRowcnt",total);
+		model.addAttribute("searchVO",searchVO);
+		 
+
+		return "/CS/myinquiry";
+	}
+
+	
+	 @RequestMapping("/mycommu") 
+	 public String mycommu(HttpServletRequest request,
+	 Model model,SearchVO_CS searchVO) { 
+		 System.out.println("=====mycommu====");
+	  
+	 MyPageDao dao=sqlSession.getMapper(MyPageDao.class); 
+	 
+	 HttpSession session =request.getSession(); 
+	 String mid = (String)session.getAttribute("mid");
+	 System.out.println("mid : "+mid);
+	
+	 String strPage=request.getParameter("page");
+	 System.out.println("pagggge: "+strPage);
+	
+	 if(strPage==null) 
+		 strPage="1"; 
+	 System.out.println("pagge2 : "+strPage); 
+	 int page=Integer.parseInt(strPage); 
+	 searchVO.setPage(page);
+	  
+	 int total=dao.MypageCMBoardTotCount(mid);
+	  
+	 System.out.println("totalrow : "+total); 
+	 searchVO.pageCalculate(total);
+	  
+	 System.out.println("totPage : "+total);
+	 System.out.println("clickpage : "+strPage);
+	 System.out.println("pageStart : "+searchVO.getPageStart());
+	 System.out.println("pageEnd : "+searchVO.getPageEnd());
+	 System.out.println("pageTot : "+searchVO.getTotPage());
+	 System.out.println("rowStart : "+searchVO.getRowStart());
+	 System.out.println("rowEnd : "+searchVO.getRowEnd());
+	 
+	 int rowStart=searchVO.getRowStart(); 
+	 int rowEnd=searchVO.getRowEnd();
+	 
+	 ArrayList<CMDto> MypageCM = dao.MypageCM(mid, rowStart, rowEnd);
+	 
+	 model.addAttribute("MypageCM",MypageCM);
+	 model.addAttribute("totRowcnt",total);
+	 model.addAttribute("searchVO",searchVO);
+	
+	 	return "/CS/mycommu"; 
+	 	
+	 }
 	
 
 }
