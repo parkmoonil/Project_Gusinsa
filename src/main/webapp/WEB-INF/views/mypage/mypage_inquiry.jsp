@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="resources/css/mypage/main.css">
-<link rel="stylesheet" href="resources/css/mypage/board.css" />
+
 <title>주문배송 조회</title>
 </head>
 <style>
@@ -162,7 +161,7 @@ td{
 .notice_view_date {
 	font-size: 15px;
 	background-color: #F7F7F7;
-	border-bottom: 1px solid #000;
+/* 	border-bottom: 1px solid #000; */
 	
 }
 .noticeboard_page{
@@ -198,11 +197,8 @@ th {
 	height: 50px;
 }
 
-  th:first{
-     border-bottom: 2px solid #000; 
-   }
 td {
-border-bottom: 1px solid #e5e5e5; 
+/* 	border-bottom: 1px solid #e5e5e5; */
 	height: 50px;
 }
 
@@ -221,7 +217,7 @@ a {
 }
 
 
-#mypage_orderlist{
+#mypage_inquiry{
 font-weight: bold;
 }
 
@@ -241,7 +237,7 @@ font-weight: bold;
             <li class="cs_left_list" ><a href="noticeboard">
                 회원정보 수정
             </a></li>
-            <li class="cs_left_list"><a href="mypage_orderlist" id = "mypage_orderlist">
+            <li class="cs_left_list"><a href="mypage_orderlist" >
                 주문 내역
             </a></li>
             <li class="cs_left_list"><a href="../MyCart">
@@ -250,7 +246,7 @@ font-weight: bold;
             <li class="cs_left_list"><a href="../inquiry">
                 1:1 문의하기
             </a></li>
-            <li class="cs_left_list"><a href="mypage_inquiry">
+            <li class="cs_left_list"><a href="mypage_inquiry" id = "mypage_inquiry">
                 문의내역
             </a></li>
             <li class="cs_left_list"><a href="../membership">
@@ -263,28 +259,22 @@ font-weight: bold;
 </html>   
     <div class="cs_main_board">
        <div class="line"></div>
-       <h2>주문 내역</h2>
+       <h2>문의 내역</h2>
        <table>
             <tr>
-                <th class="faqboard_header">주문번호</th>
-                <th class="faqboard_title">주문일자</th>
-                <th class="faqboard_date">상품이름</th>
-                <th class="faqboard_date">색상</th>
-                <th class="faqboard_date">사이즈</th>
-                <th class="faqboard_date">수량</th>
-                <th class="faqboard_date">결제 금액</th>
-                <th class="faqboard_date">배송상태</th>
+                <th class="faqboard_header">문의번호</th>
+                <th class="faqboard_title">제목</th>
+                <th class="faqboard_date">답변유형</th>
+                <th class="faqboard_date">일자</th>
+                
             </tr>
-            <c:forEach items="${order }" var="list" varStatus ="status">
+            <c:forEach items="${inq }" var="list" varStatus ="status">
             <tr>
-                <th>${list.o_code }</th>
-                <th>${list.o_date }</th>
-                <th>${list.p_name }</th>
-                <th>${list.p_color }</th>
-                <th>${list.p_size }</th>
-                <th>${list.o_count }</th>
-                <th>${list.o_price }</th>
-                <th>${list.o_state }</th>
+                <th>${list.inum }</th>
+                <th>${list.ititle }</th>
+                <th>${list.iselect2 }</th>
+                <th>${list.idate }</th>
+                
             </tr>
             </c:forEach>
         </table>

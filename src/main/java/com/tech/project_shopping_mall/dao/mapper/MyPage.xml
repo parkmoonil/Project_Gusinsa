@@ -13,4 +13,11 @@ SELECT * FROM ORDERINFO ORDER BY O_CODE DESC
 <select  id="orderlist" resultType = "com.tech.project_shopping_mall.dto.orderinfoDto">
 			SELECT * FROM ORDERINFO WHERE MID = #{param1}
 </select>
+
+
+<select  id="Inqlist" resultType = "com.tech.project_shopping_mall.dto.InquiryDto">
+		SELECT * FROM INQUIRYBOARD WHERE FK_MID = #{param1}
+</select>
+
+
 </mapper>
