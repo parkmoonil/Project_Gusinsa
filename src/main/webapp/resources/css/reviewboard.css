@@ -1,0 +1,10 @@
+        img.sample1 { width:300px; height:300px; margin-right: 20px;}
+        img.sample1.last { margin-right: 0px;}
+        div { position: relative; }
+        div#contents { top: 300px; bottom: 180px; width: 1200px; min-height:600px; margin: auto; }
+        div.re1 { border:0px solid green;width: 300px; height: 430px; float: left; margin-left: 50px; margin-right: 50px; top:30px;}
+        div.re2 { border:0px solid green; max-width:1200px; min-height: 430px; margin: auto; }
+        div.like1 { width:100px; height:30px; top: -40px; left: 120px; color: rgb(176, 176, 176); }
+        div.right-text {text-align: right; margin-right: 100px;}
+        div.blank-line {top:-30px}
+        div.paging {text-align: center;}
