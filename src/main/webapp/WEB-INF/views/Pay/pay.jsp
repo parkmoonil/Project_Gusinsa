@@ -23,7 +23,7 @@
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : '${p_name }',
-            amount : '${sprice }',
+            amount : 100,
             buyer_email : 'iamport@siot.do',
             buyer_name : '구매자이름',
             buyer_tel : '010-1234-5678',
@@ -37,9 +37,11 @@
                 msg += '상점 거래ID : ' + rsp.merchant_uid;
                 msg += '결제 금액 : ' + rsp.paid_amount;
                 msg += '카드 승인번호 : ' + rsp.apply_num;
+                location.href = "afterpay?p_name=${p_name }&p_code=${p_code }&sumsping=${sumsping }&sprice=${sprice }&amount=${amount }&maddr_one=${maddr_one}&maddr_two=${maddr_two}&maddr_three=${maddr_three}&maddr_four=${maddr_four}&mphone=${mphone}&p_img=${p_img}";
             }
             else {
                 var msg = '결제에 실패하였습니다. 에러내용 : ' + rsp.error_msg
+                location.href = "SaleBuying"
             }
             alert(msg);
         });
@@ -47,7 +49,21 @@
     </script>
     
      <input type="hidden" name="sprice" id="sprice" size="11" value = "${sprice }" readonly>
+     <input type="hidden" name="sumsping" id="sumsping" size="11" value="${sumsping }" readonly>
     <input type="hidden" name="amount" id="amount" size="11" value = "${amount }" readonly>
     <input type="hidden" name="p_name" id="p_name" size="11" value = "${p_name }" readonly>
+    <input type="hidden" name="p_code" id="p_code" size="11" value = "${p_code }" readonly>
+    <input type="hidden" name="maddr_one" id="maddr_one" size="11" value = "${maddr_one }" readonly>
+    <input type="hidden" name="maddr_two" id="maddr_two" size="11" value = "${maddr_two }" readonly>
+    <input type="hidden" name="maddr_three" id="maddr_three" size="11" value = "${maddr_three }" readonly>
+    <input type="hidden" name="maddr_four" id="maddr_four" size="11" value = "${maddr_four }" readonly>
+    
+    <input type="hidden" name="p_img" id="p_img" size="11" value = "${p_img }" readonly>
+    <input type="hidden" name="mphone" id="mphone" size="11" value = "${mphone }" readonly>
+    
+    
+    
+    
+    
 </body>
 </html>
