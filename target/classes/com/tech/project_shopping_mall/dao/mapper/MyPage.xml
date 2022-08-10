@@ -19,5 +19,31 @@ SELECT * FROM ORDERINFO ORDER BY O_CODE DESC
 		SELECT * FROM INQUIRYBOARD WHERE FK_MID = #{param1}
 </select>
 
+<select id="MypageIM" resultType="com.tech.project_shopping_mall.dto.IMDto">
+	SELECT * FROM
+	(SELECT ROWNUM NUM,N. * FROM
+	(SELECT * FROM INQUIRYMEMBERS WHERE MID=#{param1} ORDER BY INUM DESC) N)
+	WHERE NUM BETWEEN #{param2} AND #{param3}
+</select>
+
+<select id="MypageCM" resultType="com.tech.project_shopping_mall.dto.CMDto">
+	SELECT * FROM
+	(SELECT ROWNUM NUM,N. * FROM
+	(SELECT * FROM COMMUMEMBERS WHERE MID=#{param1} ORDER BY CNUM DESC) N)
+	WHERE NUM BETWEEN #{param2} AND #{param3}
+</select>
+
+<select id="MypageIMBoardTotCount" resultType="Integer">
+	SELECT COUNT(*) 
+	FROM INQUIRYMEMBERS
+	WHERE MID=#{param1}
+</select>
+
+<select id="MypageCMBoardTotCount" resultType="Integer">
+	SELECT COUNT(*)
+	 FROM COMMUMEMBERS
+	 WHERE MID=#{param1}
+</select>
+
 
 </mapper>
