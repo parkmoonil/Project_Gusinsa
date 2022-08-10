@@ -10,6 +10,8 @@
 
 .notice_writeview textarea {
 	resize: none;
+	width: 400px;
+	height: 500px;
 }
 
 .notice_writeview_button {

@@ -3,14 +3,14 @@
 }
 
 .inquiry_title{
-    font-size: 22px;
+    font-size: 18px;
     border-bottom: 3px solid #000;
     margin: 50px 0px 0px 0;
     padding-bottom: 30px;
 }
 
 .title_input input{
-  	font-size: 16px;
+  	font-size: 18px;
   	height: 30px;
   	width: 400px;
 }
@@ -20,9 +20,7 @@
 }	
 .inquiry_table textarea {
 	resize: none;
-}
-.inquiry_button {
-	text-align: center;		
+	font-size: 18px;
 }
 
 .save_button{
@@ -51,7 +49,3 @@
     margin-bottom: 100px;
    
 }
-
-
-
-

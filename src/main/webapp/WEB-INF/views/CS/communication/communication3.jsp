@@ -14,6 +14,26 @@
 	<link rel="stylesheet" href="resources/css/cs/communication.css" />
     <link rel="stylesheet" href="resources/css/cs/communication2.css" />
 </head>
+<script>
+function checkSubmit() {
+	var tags = {
+				
+			'ctitle' : '문의 제목',
+			'ccontent' : '문의 내용',
+	}	
+	var keyso = Object.keys(tags);
+	console.log(keyso);
+	console.log(keyso[0]);
+	 for (i = 0; i < keyso.length; i++ ) {
+		 var tag = document.getElementsByName(keyso[i]);
+		  if (tag[0].value == '') {
+			  alert(tags[keyso[i]] + "을(를) 입력해주세요.");
+			  return false;
+		  }
+	  }
+	return true;
+}
+</script>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
 <div class="cs_main">
@@ -41,7 +61,7 @@
 		            <span class="point">*</span>
 	            </P> 
             </div>
-            <form action="Commu_write" method="post" enctype="multipart/form-data">
+            <form action="Commu_write" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit()">
 	            <table class="commu_table">
 	                <tr>
 	                    <th>
@@ -133,7 +153,7 @@
 	            <table class="commu_table_box">
 	                <tr>
 	                    <th scope="row">제목
-	                    <span class="point">*</span>
+	                    	<span class="point">*</span>
 	                    </th>
 	                    <td class="commu_table_box_title">
 	                        <div class="commu_table_box_wrap">
@@ -143,11 +163,11 @@
 	                </tr>
 	                <tr>
 	                    <th scope="row">내용
-	                    <span class="point">*</span>
+	                    	<span class="point">*</span>
 	                    </th>
 	                    <td class="commu_table_box_content">
 	                        <div class="commu_table_box_wrap">
-	                            <textarea class="box_content" name="ccontent"></textarea>     
+	                            <textarea class="box_content" name="ccontent" placeholder="내용을 입력해주세요."></textarea>     
 	                        </div>
 	                    </td>
 	                </tr>
