@@ -1,8 +1,10 @@
 package com.tech.project_shopping_mall.dto;
 
+import java.sql.Date;
+
 public class CMDto {
 	private String cnum;
-	private String fk_mid;
+	private String mid;
 	private String mname;
 	private String mphone;
 	private String memail;
@@ -13,16 +15,17 @@ public class CMDto {
 	private String ctitle;
 	private String ccontent;
 	private String cfile;
+	private Date cdate;
 	
 	public CMDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CMDto(String cnum,String fk_mid,String mname,String mphone,
+	public CMDto(String cnum,String mid,String mname,String mphone,
 			String memail,String cselect1,String cselect2,String cselect3,
-			String cselect4,String ctitle,String ccontent,String cfile) {
+			String cselect4,String ctitle,String ccontent,String cfile,Date cdate) {
 		this.cnum=cnum;
-		this.fk_mid=fk_mid;
+		this.mid=mid;
 		this.mname=mname;
 		this.mphone=mphone;
 		this.memail=memail;
@@ -32,7 +35,8 @@ public class CMDto {
 		this.cselect4=cselect4;
 		this.ctitle=ctitle;
 		this.ccontent=ccontent;
-//		this.cfile=cfile;
+		this.cfile=cfile;
+		this.cdate=cdate;
 	}
 
 	public String getCnum() {
@@ -43,12 +47,12 @@ public class CMDto {
 		this.cnum = cnum;
 	}
 
-	public String getFk_mid() {
-		return fk_mid;
+	public String getMid() {
+		return mid;
 	}
 
-	public void setFk_mid(String fk_mid) {
-		this.fk_mid = fk_mid;
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
 
 	public String getMname() {
@@ -130,5 +134,13 @@ public class CMDto {
 	public void setCfile(String cfile) {
 		this.cfile = cfile;
 	}
-	
+
+	public Date getCdate() {
+		return cdate;
+	}
+
+	public void setCdate(Date cdate) {
+		this.cdate = cdate;
+	}
+
 }

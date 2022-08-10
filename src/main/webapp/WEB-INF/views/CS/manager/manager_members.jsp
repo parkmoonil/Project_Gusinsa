@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Manager_Inquiry</title>
+<title>Manager_Members Page</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
 </head>
 <body>
@@ -14,28 +14,26 @@
 <%@include file="../cs_nav/manager_nav.jsp" %>
 	<div class="manager_board">
 		<div class="manager_main_title">
-			<h3>Manager_Inquiry</h3>
+			<h3>Manager_Members Page</h3>
 		</div>
 		
 		<div>
 			<table>
 				<tr>
 					<th>번호</th>
-					<th>아이디</th>
-					<th>문의분류</th>					
-					<th>제목</th>
-					<th>날짜</th>
+					<th>상호명</th>
+					<th>브랜드명</th>
 				</tr>
 				
-				<c:forEach items="${InquiryMembers}" var="dto3" begin="0" end="10">
+				<c:forEach items="${MMembers}" var="dto" begin="0" end="10">
 					<tr>
-						<td>${dto3.inum}</td>
-						<td>${dto3.mid}</td>
-						<td>${dto3.iselect1}</td>
-						<td>
-							<a href="manager_inquirydetails?inum=${dto3.inum}">${dto3.ititle}</a>	
+						<td>${dto.mid }</td>
+						<%-- <td>
+							<a href="마이페이지?회원넘버">${dto.mid }</a>
 						</td>
-						<td>${dto3.idate }</td>
+						<td>
+							<a href="마이페이지?회원넘버">${dto.mid }</a>
+						</td> --%>
 					</tr>
 				</c:forEach>
 			</table>
@@ -43,11 +41,11 @@
 		
 			<hr />
 			${totRowcnt }
-			<form action="InquiryMembers" method="post">
+			<form action="manager_members" method="post">
 				<c:if test="${searchVO.totPage>1 }">
 			      <c:if test="${ searchVO.page>1}">
-			     	 <a href="manager_inquiry?page=1">[처음]</a>
-			     	 <a href="manager_inquiry?page=${searchVO.page-1 }">[이전]</a>
+			     	 <a href="manager_members?page=1">[처음]</a>
+			     	 <a href="manager_members?page=${searchVO.page-1 }">[이전]</a>
 			      </c:if>
       			<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
 			         <c:choose>
@@ -55,18 +53,16 @@
 			               <span style="color: red; font-weight: bold;">${i }&nbsp;</span>
 			            </c:when>
 			            <c:otherwise>
-			               <a href="manager_inquiry?page=${i }" style="text-decoration: none">${i }</a>  &nbsp;
+			               <a href="manager_members?page=${i }" style="text-decoration: none">${i }</a>  &nbsp;
 			      		</c:otherwise>
 			         </c:choose>
       			</c:forEach>
 					<c:if test="${ searchVO.totPage>searchVO.page}">
-				      <a href="manager_inquiry?page=${searchVO.page+1 }">[다음]</a>
-				      <a href="manager_inquiry?page=${searchVO.totPage }">[마지막]</a>
+				      <a href="manager_members?page=${searchVO.page+1 }">[다음]</a>
+				      <a href="manager_members?page=${searchVO.totPage }">[마지막]</a>
 				    </c:if>
    				</c:if>
 			</form>
-		
-  
 	</div>
 </div> 
 <%@include file="../../../../resources/common/footer.jsp" %>

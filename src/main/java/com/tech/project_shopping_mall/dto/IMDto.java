@@ -1,7 +1,9 @@
 package com.tech.project_shopping_mall.dto;
 
+import java.sql.Date;
+
 public class IMDto {
-	private String fk_mid;
+	private String mid;
 	private String mname;
 	private String mphone;
 	private String memail;
@@ -11,15 +13,16 @@ public class IMDto {
 	private String icontent;
 	private String ifile;
 	private String iselect2;
+	private Date idate;
 	
 	public IMDto() {
 		
 	}
 	
-	public IMDto(String fk_mid,String mname,String mphone,
+	public IMDto(String mid,String mname,String mphone,
 			String memail,String iselect1,String inum,String ititle
-			,String icontent,String ifile,String iselect2) {
-		this.fk_mid=fk_mid;
+			,String icontent,String ifile,String iselect2,Date idate) {
+		this.mid=mid;
 		this.mname=mname;
 		this.mphone=mphone;
 		this.memail=memail;
@@ -29,14 +32,15 @@ public class IMDto {
 		this.icontent=icontent;
 		this.ifile=ifile;
 		this.iselect2=iselect2;
+		this.idate=idate;
 	}
 
-	public String getFk_mid() {
-		return fk_mid;
+	public String getMid() {
+		return mid;
 	}
 
-	public void setFk_mid(String fk_mid) {
-		this.fk_mid = fk_mid;
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
 
 	public String getMname() {
@@ -110,5 +114,13 @@ public class IMDto {
 	public void setIselect2(String iselect2) {
 		this.iselect2 = iselect2;
 	}
-	
+
+	public Date getIdate() {
+		return idate;
+	}
+
+	public void setIdate(Date idate) {
+		this.idate = idate;
+	}
+
 }

@@ -9,6 +9,27 @@
 <link rel="stylesheet" href="resources/css/cs/board.css" />
 <link rel="stylesheet" href="resources/css/cs/inquiry.css" />
 </head>
+<script>
+function checkSubmit() {
+	  
+	  var tags = {
+			'ititle' : '제목',
+			'icontent' : '내용',
+	  		
+	  }
+	  var keyso = Object.keys(tags);
+	  console.log(keyso);
+	  console.log(keyso[0]);
+	  for (i = 0; i < keyso.length; i++ ) {
+		  var tag = document.getElementsByName(keyso[i]);
+		  if (tag[0].value == '') {
+			  alert(tags[keyso[i]] + "을(를) 입력해주세요.");
+			  return false;
+		  }
+	  }
+	  return true;
+	}
+</script>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
 <div class="cs_main">
@@ -16,20 +37,19 @@
 <div class="cs_main_board">
 	    <div class="line"> </div>
 	    <h3 class="inquiry_title">1:1 문의하기</h3>
-	    <form action="Inquiry_write" method="post" enctype="multipart/form-data">
+	    <form action="Inquiry_write" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit()">
 		    <table class="inquiry_table">
 		        <tr>
 		            <th>문의 분류</th>
 		            <td>
 			            <select name="iselect1">
-				            <option value="">문의선택</option>
-				            <option value="">주문결제</option>
-				            <option value="">배송문제</option>
-				            <option value="">취소/교환/반품 문의</option>
-				            <option value="">쿠폰/마일리지/포인트 문의</option>         
-				            <option value="">이벤트/상품후기 문의</option>
-				            <option value="">회원/회원정보 문의</option>
-				            <option value="">시스템오류 문의</option>
+				            <option value="iselect1">주문결제</option>
+				            <option value="iselect1">배송문제</option>
+				            <option value="iselect1">취소/교환/반품 문의</option>
+				            <option value="iselect1">쿠폰/마일리지/포인트 문의</option>         
+				            <option value="iselect1">이벤트/상품후기 문의</option>
+				            <option value="iselect1">회원/회원정보 문의</option>
+				            <option value="iselect1">시스템오류 문의</option>
 			            </select>
 		            </td>
 		        </tr>
@@ -37,7 +57,7 @@
 		            <th>제목</th>
 		            <td>
 			            <div class="title_input">
-			        	    <input type="text" name="ititle" title="제목입력" placeholder="제목을 입력해주세요." maxlength="100" cols="40" rows="2" />
+			        	    <input type="text" name="ititle" title="제목입력" cols="40" rows="2"  placeholder="제목을 입력해주세요." maxlength="100" />
 			            </div>
 			       </td>
 		        </tr>
@@ -45,7 +65,9 @@
 		            <th>내용
 		           		<span class="point">*</span>
 		            </th>
-		            <td><textarea name="icontent" id="" cols="53" rows="14"></textarea></td>
+		            <td>
+		            	<pre><textarea name="icontent" id="" cols="57" rows="14" placeholder="내용을 입력해주세요."></textarea></pre>
+		            </td>
 		        </tr>
 		        <tr>
 		            <th>
