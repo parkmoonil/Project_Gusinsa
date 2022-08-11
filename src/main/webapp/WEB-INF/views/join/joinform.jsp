@@ -144,6 +144,6 @@
 		</ul>
 		<p>본인인증 수단을 선택해 주시기 바랍니다.인증은 본인 명의의 휴대폰/신용카트로만 가능하며, 인증비용은 구신사에서 부담합니다.</p>
 	</div>
-	<input type="button" value="나이스확인버튼" onclick="location.href='joinform'"/>
+	<input type="button" value="나이스확인버튼" onclick="location.href='joinform2'"/>
 </body>
 </html>

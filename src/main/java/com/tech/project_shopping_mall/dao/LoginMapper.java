@@ -6,4 +6,6 @@ public interface LoginMapper {
 	
 	public MembersDto selectUserPassword(MembersDto dto);
 
+	public MembersDto findId(String mname, String mphone);
+
 }

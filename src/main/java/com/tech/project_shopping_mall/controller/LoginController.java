@@ -69,6 +69,7 @@ public class LoginController {
 		
 		return "redirect:../";
 	}
+	//로그아웃
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request, Model model) {
 		System.out.println("=========pass by logout()=============");
@@ -79,6 +80,37 @@ public class LoginController {
 		session.invalidate();
 		return "redirect:/login/loginform";
 	}
+	
+	//아이디 찾기 부분
+	@RequestMapping("idcheck")
+	public String idcheck(@ModelAttribute MembersDto dto, HttpServletRequest request) {
+		System.out.println("=========pass by loginform()=============");
+		
+		
+		
+		return "/login/idpw/idcheck";
+	}
+	@RequestMapping("idcheck2")
+	public String idcheck2(HttpServletRequest request, Model model) {
+		System.out.println("아이디 확인");		
+			
+		LoginMapper dao=sqlSession.getMapper(LoginMapper.class);
+		String mname = request.getParameter("mname");
+		String mphone = request.getParameter("mphone");
+		
+		System.out.println("mid 가져와야 할거다: " + mname);
+		System.out.println("mid 가져와야 할거다: " + mphone);
+		
+		MembersDto dto = dao.findId(mname, mphone);
+		
+		System.out.println("dto 가져와야 할거다: " + dto);
+		model.addAttribute("mid", dto);
+		
+		//model.addAttribute("user", dto);
+		
+		return "/login/idpw/idcheck2";
+	}
+
 }
 
 

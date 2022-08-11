@@ -222,13 +222,13 @@ function kakaoLogout() {
             width: 480px;
             height: 40px;
         }
-        #nid{
+        #nname{
             border: 1px solid #d2d2d2;
             margin-top:20px;
             width: 480px;
             height: 40px;
         }
-        #nno{
+        #nphone{
             border: 1px solid #d2d2d2;
             margin-top:20px;
             margin-bottom: 20px;
@@ -356,7 +356,7 @@ function kakaoLogout() {
                         </td>
                         <td>
                             <span class="che_2">
-                            <a class="a1" href="#">아아디 찾기</a>
+                            <a class="a1" href="idcheck">아아디 찾기</a>
                             |
                             <a class="a1" href="#">비밀번호 찾기</a> <br />
                             </span>
@@ -369,10 +369,10 @@ function kakaoLogout() {
                           </form>
                     </tr>
                         <p class="joinus">아직 구신사의 회원이 아니신가요?      
-                            <a href="../join/joinform2" class="sp1">회원가입</a></p>
+                            <a href="../join/joinform" class="sp1">회원가입</a></p>
         
-                   <!--  <div class="hr-sect">or</div>
-                     -->
+                    <div class="hr-sect">or</div>
+                    
                     <!-- <tr>
                         <td><a href="javascript:kakaoLogin();"><img src="../resources/snsimg/카카오톡.png"/></a></td>
                     </tr> -->
@@ -383,15 +383,11 @@ function kakaoLogout() {
                 <div class="login_two">
                     <tr>
                         <div class="no_lo">
-                        <td>
-                            <span><input type="checkbox" />주문자 이름+주문번호</span>
-                            <span id="no_no"><input type="checkbox" />주문자 이름+휴대폰번호</span> <br />
-                        </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" id="nid" placeholder=" 주문자명" /> <br />
-                            <input type="text" id="nno" placeholder=" 주문번호" /> <br />
+                            <input type="text" id="nname" placeholder=" 주문자명" /> <br />
+                            <input type="text" id="nphone" placeholder=" 주문자 전화번호" /> <br />
                         </td>
                     </tr>
                     <div class="btn22">
