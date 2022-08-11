@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 
-public class ReviewDto {
+public class ReviewBoardDto {
 	
 	private int r_num;
 	private int p_code;
@@ -19,7 +19,7 @@ public class ReviewDto {
 	private int r_hit;
 	private int o_code;
 		
-	public ReviewDto() {
+	public ReviewBoardDto() {
 		// TODO Auto-generated constructor stub
 		
 	}
@@ -109,4 +109,23 @@ public class ReviewDto {
 	public void setO_code(int o_code) {
 		this.o_code = o_code;
 	}
+
+	public ReviewBoardDto(int r_num, int p_code, int r_starpoint, String r_title, String r_contents, String r_img,
+			int r_likepoint, String mid, Timestamp r_date, int r_hit, int o_code) {
+		super();
+		this.r_num = r_num;
+		this.p_code = p_code;
+		this.r_starpoint = r_starpoint;
+		this.r_title = r_title;
+		this.r_contents = r_contents;
+		this.r_img = r_img;
+		this.r_likepoint = r_likepoint;
+		this.mid = mid;
+		this.r_date = r_date;
+		this.r_hit = r_hit;
+		this.o_code = o_code;
+	}
+	
+	
+	
 }

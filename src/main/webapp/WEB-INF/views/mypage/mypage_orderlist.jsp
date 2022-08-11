@@ -228,6 +228,18 @@ font-weight: bold;
 a:hover{
 font-weight: bold;
 }
+
+.paging{
+    width : 100%;
+    /* float:right; */
+    margin-bottom : 50px;
+     text-align: center;
+}
+#page{
+       padding-bottom: 50px;
+       text-align: center;
+}
+
 </style>
 
 <body>
@@ -275,7 +287,7 @@ font-weight: bold;
                 <th class="faqboard_date">결제 금액</th>
                 <th class="faqboard_date">배송상태</th>
             </tr>
-            <c:forEach items="${order }" var="list" varStatus ="status">
+            <c:forEach items="${order }" var="list" varStatus ="status" >
             <tr>
                 <th>${list.o_code }</th>
                 <th>${list.o_date }</th>
@@ -288,10 +300,42 @@ font-weight: bold;
             </tr>
             </c:forEach>
         </table>
+<div class="paging" >
+    
+	<c:if test="${searchVO.totPage>1 }"> <!-- 토탈 페이지가 1보다 크면 -->
+		
+	
+	
+	 <div id = "page"></div>
+	<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+		<c:choose>
+			<c:when test="${i eq searchVO.page }">  <!-- i eq searchVO.page 내가 클릭한 페이지가 같을 때 -->
+				<span style="color: red; font-weight: bold;">${i }&nbsp;</span>
+			</c:when>
+			 <c:otherwise>
+				
+				<a href="mypage_orderlist?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
+				<!-- a태그 경로 : 현재 서치페이지 i(1페이지)에  검색어, like문에 사용한 컬럼명들을 그대로 유지 -->
+			</c:otherwise> 
+		
+		</c:choose>
+	</c:forEach>
+		<c:if test="${searchVO.totPage>searchVO.page }"> <!-- 마지막 페이지가 아닐때 -->
+		    <a href="mypage_orderlist?page=${searchVO.page+1 }">다음</a>
+			<a href="mypage_orderlist?page=${searchVO.totPage }">마지막</a></c:if>
+		<c:if test="${searchVO.page>1 }">
+			<a href="mypage_orderlist?page=1">[처음]</a>
+			<a href="mypage_orderlist?page=${searchVO.page-1 }">[이전]</a>
+			<%-- 검색값 처음 이전 다음 마지막 누르면 검색값을 잃어버리기 때문에 컨트롤러에서 선언해준 keyword = ${resk }를 묶어준다 --%>
+		</c:if>
+	</c:if>
+	</div>
+</div>
+    
 
     
-    </div>
-</div>
-</div>
+    
+
+
 </body>
 </html>

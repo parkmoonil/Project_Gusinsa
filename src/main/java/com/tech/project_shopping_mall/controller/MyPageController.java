@@ -15,8 +15,8 @@ import com.tech.project_shopping_mall.dao.MyPageDao;
 import com.tech.project_shopping_mall.dto.CMDto;
 import com.tech.project_shopping_mall.dto.IMDto;
 import com.tech.project_shopping_mall.dto.InquiryDto;
-import com.tech.project_shopping_mall.dto.Order_ProductDto;
-import com.tech.project_shopping_mall.dto.orderinfoDto;
+
+import com.tech.project_shopping_mall.dto.OrderinfoDto;
 import com.tech.project_shopping_mall.vopage.SearchVO_CS;
 import com.tech.project_shopping_mall.vopage.SearchVO_product;
 
@@ -38,12 +38,38 @@ public class MyPageController {
 		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
 		
 		
-		ArrayList<Order_ProductDto> orderdto = dao.orderlist(mid);
 		
+		
+		
+		
+		// 페이징처리 제발
+		String strPage = request.getParameter("page");  // 페이징처리 값 넣는다
+		System.out.println("pageeeeeeeee1 : " +strPage);
+		
+		if (strPage==null) strPage ="1";   // 선언한 strPage가 1이 아닐경우 1을 넣는다
+		
+		int page = Integer.parseInt(strPage);
+		searchVO.setPage(page);      // int page 를 앞에 선언한 페이지 값을 넣고  계산식 선언한 searchVO으로 계산한다
+		
+		int total = dao.orderlistCount_total(mid);   // 로그인한 아이디로 쿼리 돌린 총 갯수 저장
+		searchVO.pageCalculate(total);  // 계산식 searchVO 에 토탈 갯수 저장
+		
+		System.out.println("total : " + total);  // 값 확인
+		
+		int rowStart = searchVO.getRowStart();  // 첫 페이지 계산
+		int rowEnd = searchVO.getRowEnd();  // 마지막 페이지 계산
+		
+		System.out.println("rowStart : " + rowStart);
+		System.out.println("rowEnd : " + rowEnd);
+		ArrayList<OrderinfoDto> orderdto = dao.orderlist(rowStart,rowEnd,mid);  // 첫페이지, 마지막 페이지  아이디 저장
 		System.out.println("orderdto : " + orderdto);
 		
 		
 		model.addAttribute("order",orderdto);
+		model.addAttribute("totRowCnt",total);
+		model.addAttribute("searchVO",searchVO);
+		String ocode = request.getParameter("o_code");
+		System.out.println("ocode : " + ocode);
 		
 		return "/mypage/mypage_orderlist";
 	}
@@ -55,15 +81,42 @@ public class MyPageController {
 		String mid = (String )session.getAttribute("mid");
 		// 문의내역 수정해야됌
 		
+		
+		
+		
 		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
+		// 가자가자 페이징처리
+		String strPage = request.getParameter("page");  // 페이징처리 값 넣는다
+		System.out.println("pageeeeeeeee1 : " +strPage);
 		
-		// 문의내역으로 조회되게 해야됌
-		ArrayList<InquiryDto> Inqdto = dao.Inqlist(mid);
+		if (strPage==null) strPage ="1";   // 선언한 strPage가 1이 아닐경우 1을 넣는다
 		
+		int page = Integer.parseInt(strPage);
+		searchVO.setPage(page);      // int page 를 앞에 선언한 페이지 값을 넣고  계산식 선언한 searchVO으로 계산한다
+		
+		int total = dao.Inqlist_Count_total(mid);   // 로그인한 아이디로 쿼리 돌린 총 갯수 저장
+		searchVO.pageCalculate(total); 
+
+		System.out.println("total : " + total);  // 값 확인
+		
+		int rowStart = searchVO.getRowStart();  // 첫 페이지 계산
+		int rowEnd = searchVO.getRowEnd();  // 마지막 페이지 계산
+		
+		System.out.println("rowStart : " + rowStart);
+		System.out.println("rowEnd : " + rowEnd);
+		System.out.println("rowStart : " + rowStart);
+		System.out.println("rowEnd : " + rowEnd);
+		
+		
+		ArrayList<InquiryDto> Inqdto = dao.Inqlist(rowStart,rowEnd,mid);  // 첫페이지, 마지막 페이지  아이디 저장
 		System.out.println("Inqdto : " + Inqdto);
 		
+		// 문의내역으로 조회되게 해야됌
 		
 		model.addAttribute("inq",Inqdto);
+		model.addAttribute("totRowCnt",total);
+		model.addAttribute("searchVO",searchVO);
+		System.out.println("Inqdto : " + Inqdto);
 		
 		return "/mypage/mypage_inquiry";
 	}

@@ -5,6 +5,7 @@
 
 <mapper namespace="com.tech.project_shopping_mall.dao.MyPageDao">
 
+<<<<<<< HEAD
 <select id="order_p" resultType = "com.tech.project_shopping_mall.dto.Order_ProductDto">
 	SELECT * FROM ORDERINFO ORDER BY O_CODE DESC
 </select>
@@ -12,12 +13,41 @@
 
 <select  id="orderlist" resultType = "com.tech.project_shopping_mall.dto.orderinfoDto">
 	SELECT * FROM ORDERINFO WHERE MID = #{param1}
+=======
+
+
+
+<select  id="orderlist" resultType = "com.tech.project_shopping_mall.dto.OrderinfoDto">
+			SELECT * FROM (SELECT ROWNUM NUM,N.* FROM 
+      (SELECT * FROM ORDERINFO ORDER BY O_DATE DESC) N
+      WHERE MID =#{param3}
+      ) WHERE NUM BETWEEN #{param1} AND #{param2}
+>>>>>>> 4cd782dbb3739589944a39be0da3e03ca2daa54a
 </select>
 
 
 <select  id="Inqlist" resultType = "com.tech.project_shopping_mall.dto.InquiryDto">
+<<<<<<< HEAD
 	SELECT * FROM INQUIRYBOARD WHERE FK_MID = #{param1}
+=======
+		SELECT * FROM (SELECT ROWNUM NUM,N.* FROM 
+      (SELECT * FROM INQUIRYBOARD ORDER BY IDATE DESC) N
+      WHERE FK_MID =#{param3}
+      ) WHERE NUM BETWEEN #{param1} AND #{param2}
+>>>>>>> 4cd782dbb3739589944a39be0da3e03ca2daa54a
 </select>
+
+<select  id="orderlistCount_total" resultType="Integer">
+		SELECT COUNT(*) FROM ORDERINFO WHERE MID = #{param1}
+</select>
+
+
+<select  id="Inqlist_Count_total" resultType="Integer">
+		SELECT COUNT(*) FROM INQUIRYBOARD WHERE FK_MID = #{param1}
+</select>
+
+
+
 
 <select id="MypageIM" resultType="com.tech.project_shopping_mall.dto.IMDto">
 	SELECT * FROM

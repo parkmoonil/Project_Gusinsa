@@ -11,6 +11,26 @@
 <body onload="init();">
 <%@include file="../../../../resources/common/header.jsp"%>
 <style>
+
+	
+
+	.option_color{
+	  position:relative;
+	  left:5px;
+	  width:  150px;
+	  height: 40px;
+	   position:relative;
+	   
+	   
+	}
+	.option_size{
+	  position:relative;
+	  left:15px;
+	  width:  150px;
+	  height: 40px;
+	}
+
+
     .a1{
         color:darkgray;
         
@@ -184,6 +204,7 @@
 var sell_price;
 var amount;
 
+
 function init () {
     sell_price = document.form.sell_price.value;
     amount = document.form.amount.value;
@@ -223,9 +244,14 @@ function move() {
 	let sell_price = document.getElementById("sell_price").value;
 	
 	let sum = sell_price * amount;
-
+    let sping = 2500;
+    
+    if (sum > 50000){
+    	sping = 0;
+    }
+    let sumsping= sum+sping;
 	// 스페이스바 주의 null값 우려
-	location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum; 
+	location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping; 
 
 }	
 </script>
@@ -244,7 +270,7 @@ function move() {
     <br>
     <div class="div3">
         <figure>
-            <img src="resources/img/rengoku.jpg" id="image1" 
+            <img src="${indto.p_img }" id="image1" 
             width="800" height="550" style="border: 1px solid #ccc;">
             <figcaption> </figcaption>
         </figure>
@@ -256,7 +282,7 @@ function move() {
             <hr class="hr1"> <br>
             <figcaption class="figcap2">
                 제품번호 : ${indto.p_code }<br>
-                배송정보 : 무료
+                배송정보 : 10만원 이상 구매시 무료
             </figcaption> 
             <br> <br>
             <figcaption class="">
@@ -265,6 +291,26 @@ function move() {
                         <td class="td1">상품 옵션</td>
                     </tr>
 
+					<tr id="option_color"> <!-- 맨위쪽에 css있어요 .option_color -->
+                    color  
+                     <select name="option_color" class="option_color">
+                    <option value="">선택</option>
+                    <option value="blue">blue</option>
+                    
+                </select>
+               <br />
+                    
+                    </tr>
+                    <trid="option_size" >
+                    size  <select name="option_size" class="option_size">
+                    <option value="">선택</option>
+                    <option value="free">free</option>
+                    
+                     </select>
+                    </tr>	
+					
+					
+					
                     <tr>
                         <td class="td2">단품 <br>
                            <form class="form1">47,900원</form>
@@ -276,8 +322,14 @@ function move() {
 								수량 : <input type=hidden id = "sell_price" name="sell_price" value="${indto.p_price }">
                             </form> 
                             <br>
+                            
+                          
                         </td>
+                        
                     </tr>
+           
+                    
+                    
                 </table>
             </figcaption>
             <br>

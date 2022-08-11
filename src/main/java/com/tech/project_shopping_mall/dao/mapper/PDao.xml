@@ -13,7 +13,7 @@
 	
   </select>
 <select id="men" resultType="com.tech.project_shopping_mall.dto.Infodto">
-SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
+SELECT P_CODE,P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM 
 		(SELECT * FROM PINFO ORDER BY DATA DESC) N WHERE P_GENDER='남자')
 		WHERE NUM BETWEEN #{param1} AND #{param2} 
 		<!-- FROM ( SELECT ~ 이 부분부터 추가하니 상품이 차례대로 잘 넘겨짐. 왜인지는 모르겠음... -->
@@ -270,6 +270,71 @@ SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM
   <select id="Orderafterlogin" resultType="com.tech.project_shopping_mall.dto.MembersDto">
 	SELECT MNAME,MADDR_ONE,MADDR_TWO,MADDR_THREE,MADDR_FOUR,MPHONE FROM MEMBERS WHERE MID=#{MID,jdbcType=VARCHAR}
 	</select>
+	<insert id="afterpay">
+<!-- 	INSERT INTO ORDERINFO
+	(
+  O_CODE
+, P_CODE
+, P_NAME
+, P_PRICE
+, P_IMG
+, P_COLOR
+, P_SIZE
+, O_COUNT
+, O_TOTPRICE
+, O_SHIPFEE
+, MADDR_ONE
+, MADDR_TWO
+, MADDR_THREE
+, MADDR_FOUR
+, MPHONE
+, MID
+, MNAME
+, MFENDER
+, M_BIRTH
+, O_PHONE
+, O_ADD
+, O_QUEST
+, O_PRICE
+, O_DATE
+, O_STATE
+	) VALUES(
+	  ORDERINFO_SEQ.NEXTVAL
+	, #{p_code,jdbcType=VARCHAR}, 
+	, #{p_name}, 
+	, #{p_price}, 
+	, #{p_img,jdbcType=VARCHAR}
+	, #{p_color,jdbcType=VARCHAR}
+	, #{p_size,jdbcType=VARCHAR}
+	, #{o_count}
+	, #{o_totprice}
+	, #{o_shipfee,jdbcType=VARCHAR}
+	, #{maddr_one,jdbcType=VARCHAR}
+	, #{maddr_two,jdbcType=VARCHAR}
+	, #{maddr_three,jdbcType=VARCHAR}
+	, #{maddr_four,jdbcType=VARCHAR}
+	, #{mphone,jdbcType=VARCHAR}
+	, #{mid}
+	, #{mname,jdbcType=VARCHAR}
+	, #{mfender,jdbcType=VARCHAR}
+	, #{m_birth,jdbcType=VARCHAR}
+	, #{O_PHONE,jdbcType=VARCHAR}
+	, #{O_ADD,jdbcType=VARCHAR}
+	, #{O_QUEST,jdbcType=VARCHAR}
+	, #{O_PRICE,jdbcType=VARCHAR}
+	, #{O_DATE,jdbcType=VARCHAR}
+	, #{O_STATE,jdbcType=VARCHAR}
+	) -->
+	
+	INSERT INTO ORDERINFO (O_CODE, P_CODE, P_NAME, P_PRICE, O_COUNT, O_TOTPRICE, MADDR_ONE, MADDR_TWO, MADDR_THREE, MADDR_FOUR, MID, MPHONE, P_IMG) 
+	VALUES(ORDERINFO_SEQ.NEXTVAL,#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11}, #{param12})
+	
+<!-- 	INSERT INTO ORDERINFO (O_CODE, P_CODE, P_NAME, P_PRICE, O_COUNT, O_TOTPRICE, MID
+	) VALUES(ORDERINFO_SEQ.NEXTVAL,#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
+	 -->
+	
+	
+	</insert>
 </mapper>
 <!-- ,jdbcType=VARCHAR -->
 

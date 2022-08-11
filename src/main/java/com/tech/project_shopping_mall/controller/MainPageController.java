@@ -38,7 +38,7 @@ public class MainPageController {
 	@RequestMapping("/search")
 	public String list(HttpServletRequest request,SearchVO_product searchVO,Model model) {
 		System.out.println("search!!");
-		
+		// 아니 이거 왜안됌?
 		// 검색한 단어를 keyword에 저장합니다
 		String keyword = request.getParameter("keyword");
 		System.out.println("키워드는 : " + keyword);
