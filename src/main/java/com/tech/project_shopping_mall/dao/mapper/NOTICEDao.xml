@@ -51,8 +51,6 @@
 		(SELECT * FROM NOTICEBOARD ORDER BY NNUM DESC) N
 		<include refid="includeList" />)
 		WHERE NUM BETWEEN #{param1} AND #{param2}
-		
-		
 	</select>
 
 	<insert id="write">

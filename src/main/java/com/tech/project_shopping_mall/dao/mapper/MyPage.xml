@@ -6,17 +6,17 @@
 <mapper namespace="com.tech.project_shopping_mall.dao.MyPageDao">
 
 <select id="order_p" resultType = "com.tech.project_shopping_mall.dto.Order_ProductDto">
-SELECT * FROM ORDERINFO ORDER BY O_CODE DESC
+	SELECT * FROM ORDERINFO ORDER BY O_CODE DESC
 </select>
 
 
 <select  id="orderlist" resultType = "com.tech.project_shopping_mall.dto.orderinfoDto">
-			SELECT * FROM ORDERINFO WHERE MID = #{param1}
+	SELECT * FROM ORDERINFO WHERE MID = #{param1}
 </select>
 
 
 <select  id="Inqlist" resultType = "com.tech.project_shopping_mall.dto.InquiryDto">
-		SELECT * FROM INQUIRYBOARD WHERE FK_MID = #{param1}
+	SELECT * FROM INQUIRYBOARD WHERE FK_MID = #{param1}
 </select>
 
 <select id="MypageIM" resultType="com.tech.project_shopping_mall.dto.IMDto">
@@ -41,9 +41,8 @@ SELECT * FROM ORDERINFO ORDER BY O_CODE DESC
 
 <select id="MypageCMBoardTotCount" resultType="Integer">
 	SELECT COUNT(*)
-	 FROM COMMUMEMBERS
-	 WHERE MID=#{param1}
+	FROM COMMUMEMBERS
+	WHERE MID=#{param1}
 </select>
-
 
 </mapper>

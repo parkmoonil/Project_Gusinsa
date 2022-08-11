@@ -1,0 +1,40 @@
+.manager_table {
+	text-align: center;
+}
+
+.m_num {
+	width: 10%;
+}
+
+.m_id {
+	width: 15%;
+}
+
+.m_select {
+	width: 15%;
+}
+
+.m_title {
+	width: 40%;
+	padding-left: 50px;
+}
+
+.m_date {
+	padding-left: 100px;
+}
+
+.manager_detail_table th {
+	width: 300px;
+	height: 40px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.manager_detail_table td {
+	width: 600px;
+	height: 40px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.page_align {
+	text-align: right;
+}
