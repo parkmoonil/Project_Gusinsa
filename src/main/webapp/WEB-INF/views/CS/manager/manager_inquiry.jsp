@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Manager_Inquiry</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
+<link rel="stylesheet" href="resources/css/cs/manager2.css" />
+<link rel="stylesheet" href="resources/css/cs/board.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -18,34 +20,30 @@
 		</div>
 		
 		<div>
-			<table>
+			<table class="manager_table">
 				<tr>
 					<th>번호</th>
-					<th>아이디</th>
-					<th>문의분류</th>					
-					<th>제목</th>
-					<th>날짜</th>
+					<th class="m_id">아이디</th>
+					<th class="m_select">문의분류</th>					
+					<th class="m_title">제목</th>
+					<th class="m_date">날짜</th>
 				</tr>
 				
 				<c:forEach items="${InquiryMembers}" var="dto3" begin="0" end="10">
-					<tr>
-						<td>${dto3.inum}</td>
+					<tr onClick="location.href='manager_inquirydetails?inum=${dto3.inum}'">
+						<td class="m_num">${dto3.inum}</td>
 						<td>${dto3.mid}</td>
 						<td>${dto3.iselect1}</td>
-						<td>
-							<a href="manager_inquirydetails?inum=${dto3.inum}">${dto3.ititle}</a>	
-						</td>
-						<td>${dto3.idate }</td>
+						<td class="m_title">${dto3.ititle}</td>
+						<td class="m_date">${dto3.idate }</td>
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
 		
-			<hr />
-			${totRowcnt }
-			<form action="InquiryMembers" method="post">
+			<form action="InquiryMembers" method="post" class="page_align">
 				<c:if test="${searchVO.totPage>1 }">
-			      <c:if test="${ searchVO.page>1}">
+			      <c:if test="${searchVO.page>1}">
 			     	 <a href="manager_inquiry?page=1">[처음]</a>
 			     	 <a href="manager_inquiry?page=${searchVO.page-1 }">[이전]</a>
 			      </c:if>
@@ -65,8 +63,6 @@
 				    </c:if>
    				</c:if>
 			</form>
-		
-  
 	</div>
 </div> 
 <%@include file="../../../../resources/common/footer.jsp" %>

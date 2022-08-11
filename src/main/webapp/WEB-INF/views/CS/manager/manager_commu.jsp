@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Manager_Commu</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
+<link rel="stylesheet" href="resources/css/cs/manager2.css" />
+<link rel="stylesheet" href="resources/css/cs/board.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -18,32 +20,28 @@
 		</div>
 		
 		<div>
-			<table>
+			<table class="manager_table">
 				<tr>
-					<th>번호</th>
-					<th>아이디</th>
-					<th>문의유형</th>
-					<th>제목</th>
-					<th>날짜</th>
+					<th class="m_num">번호</th>
+					<th class="m_id">아이디</th>
+					<th class="m_select">문의유형</th>
+					<th class="m_title">제목</th>
+					<th class="m_date">날짜</th>
 				</tr>
 				
 				<c:forEach items="${CommuMembers}" var="cm" begin="0" end="10">
-					<tr>
+					<tr onClick="location.href='manager_commudetails?cnum=${cm.cnum}'">
 						<td>${cm.cnum}</td>
 						<td>${cm.mid}</td>
 						<td>${cm.cselect1}</td>
-						<td>
-							<a href="manager_commudetails?cnum=${cm.cnum}">${cm.ctitle}</a>	
-						</td>
-						<td>${cm.cdate}</td>
+						<td class="m_title">${cm.ctitle}</td>
+						<td class="m_date">${cm.cdate}</td>
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
 		
-			<hr />
-			${totRowcnt }
-			<form action="CommuMembers" method="post">
+			<form action="CommuMembers" method="post" class="page_align">
 				<c:if test="${searchVO.totPage>1 }">
 			      <c:if test="${ searchVO.page>1}">
 			     	 <a href="manager_commu?page=1">[처음]</a>

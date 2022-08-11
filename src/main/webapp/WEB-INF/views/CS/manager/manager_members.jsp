@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Manager_Members Page</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
+<link rel="stylesheet" href="resources/css/cs/board.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -18,29 +19,35 @@
 		</div>
 		
 		<div>
-			<table>
+			<table class="manager_table">
 				<tr>
-					<th>번호</th>
-					<th>상호명</th>
-					<th>브랜드명</th>
-				</tr>
+					<th>회원번호</th>
+					<th>아이디</th>
 				
-				<c:forEach items="${MMembers}" var="dto" begin="0" end="10">
-					<tr>
-						<td>${dto.mid }</td>
-						<%-- <td>
-							<a href="마이페이지?회원넘버">${dto.mid }</a>
-						</td>
-						<td>
-							<a href="마이페이지?회원넘버">${dto.mid }</a>
-						</td> --%>
-					</tr>
-				</c:forEach>
+					<th>성별</th>
+					<th>생일</th>
+					<th>핸드폰번호</th>
+					
+					<th>이메일</th>
+					<th>회원등급</th>
+				</tr>
+				<tr>	
+					<c:forEach items="${MMembers }" var="dto">
+						<tr>
+							<td>${dto.mid }</td>
+							<td>${dto.mid }</td>
+						
+							<td>${dto.mgender }</td>
+							<td>${dto.mbirth }</td>
+							<td>${dto.mphone }</td>
+							
+							<td>${dto.memail }</td>
+							<td>${dto.mgrade }</td>
+						</tr>
+					</c:forEach>
+				</tr>
 			</table>
-		</div>
-		
-			<hr />
-			${totRowcnt }
+				
 			<form action="manager_members" method="post">
 				<c:if test="${searchVO.totPage>1 }">
 			      <c:if test="${ searchVO.page>1}">
@@ -63,8 +70,9 @@
 				    </c:if>
    				</c:if>
 			</form>
-	</div>
-</div> 
+		</div>
+	</div> 
+</div>
 <%@include file="../../../../resources/common/footer.jsp" %>
 </body>
 </html>

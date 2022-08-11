@@ -57,7 +57,7 @@ function checkSubmit() {
 		            <th>제목</th>
 		            <td>
 			            <div class="title_input">
-			        	    <input type="text" name="ititle" title="제목입력" cols="40" rows="2"  placeholder="제목을 입력해주세요." maxlength="100" />
+			        	    <input type="text" name="ititle" title="제목입력" cols="40" rows="2"  placeholder="제목을 입력해주세요." maxlength="50" />
 			            </div>
 			       </td>
 		        </tr>
