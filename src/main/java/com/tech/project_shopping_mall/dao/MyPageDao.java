@@ -5,15 +5,28 @@ import java.util.ArrayList;
 import com.tech.project_shopping_mall.dto.CMDto;
 import com.tech.project_shopping_mall.dto.IMDto;
 import com.tech.project_shopping_mall.dto.InquiryDto;
-import com.tech.project_shopping_mall.dto.Order_ProductDto;
+
+import com.tech.project_shopping_mall.dto.OrderinfoDto;
 
 public interface MyPageDao {
 	
-	public ArrayList<Order_ProductDto> order_p();
+	public ArrayList<OrderinfoDto> order_p();
 	
-	public ArrayList<Order_ProductDto> orderlist(String mid);
+	public ArrayList<OrderinfoDto> orderlist(int rowStart, int rowEnd, String mid);
+	public int orderlistCount_total(String mid);
 	
-	public ArrayList<InquiryDto> Inqlist(String mid);
+	public ArrayList<InquiryDto> Inqlist(int rowStart, int rowEnd, String mid);
+	public int Inqlist_Count_total(String mid);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public ArrayList<IMDto> MypageIM(String mid,int start, int end);
 	public ArrayList<CMDto> MypageCM(String mid,int start, int end);
