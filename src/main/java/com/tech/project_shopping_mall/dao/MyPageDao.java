@@ -10,7 +10,7 @@ import com.tech.project_shopping_mall.dto.OrderinfoDto;
 
 public interface MyPageDao {
 	
-	public ArrayList<OrderinfoDto> order_p();
+	
 	
 	public ArrayList<OrderinfoDto> orderlist(int rowStart, int rowEnd, String mid);
 	public int orderlistCount_total(String mid);
