@@ -31,7 +31,7 @@ public class BuyPageController {
 		System.out.println("indto : " + indto);
 
 		model.addAttribute("indto", indto);
-		return "/Sale/SaleBuying";
+		return "/Sale/SuperSale";
 		
 	}
 }

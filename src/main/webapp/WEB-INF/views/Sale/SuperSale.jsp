@@ -253,7 +253,20 @@ function move() {
 	// 스페이스바 주의 null값 우려
 	location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping; 
 
-}	
+}
+function cart() {
+	let amount = document.getElementById("amount").value;
+	let sell_price = document.getElementById("sell_price").value;
+	
+	let sum = sell_price * amount;
+
+
+	// 스페이스바 주의 null값 우려
+	location.href ="mypageinsert?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum; 
+
+}
+
+
 </script>
     <br>
     <hr>
@@ -315,19 +328,19 @@ function move() {
                         <td class="td2">단품 <br>
                            <form class="form1">47,900원</form>
                             <form class="form2">금액 : <div id="my_sum" name = "my_sum"></div>원</form>                       
-                            <form class="form3" name = "form" method = "get"> 
+                            <form class="form3" name = "form"  method = "post"> 
                                 <input type="text" id = "amount" name="amount" value="1" size="3" onchange="change();"> 
 								<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
 								<input type="hidden" name="sum" size="11" readonly>
+								<input type="hidden" name="p_code" id="p_code" value="${indto.p_code }" />
 								수량 : <input type=hidden id = "sell_price" name="sell_price" value="${indto.p_price }">
-                            </form> 
                             <br>
                             
-                          
+                         
                         </td>
                         
                     </tr>
-           
+           </form> 
                     
                     
                 </table>
@@ -336,7 +349,8 @@ function move() {
             
 
             <figcaption>
-                <button type="button" class="btn1"> <a href="SaleCart" class="Ja1">장바구니</a> </button>
+                <button type="button" class="btn1" onclick="cart()">장바구니 </button>
+                            
                 <button type="button" class="btn2" onclick="move()" >구매하기</button>
             </figcaption>
         </figure>

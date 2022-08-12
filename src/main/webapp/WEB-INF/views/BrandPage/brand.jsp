@@ -707,7 +707,7 @@
         </dl> <br><br><br><br><br><br><br><br><br><br> --%>
     </div>
     
-    <a id="back-to-top" href="#">Top</a>
+    <a id="back-to-top" href="#">⇧</a>
 
 
 <%@include file="../../../../resources/common/footer.jsp" %>
