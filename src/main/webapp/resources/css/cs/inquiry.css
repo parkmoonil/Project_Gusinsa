@@ -22,8 +22,11 @@
 	resize: none;
 	font-size: 18px;
 }
+.inquiry_btn {
+	text-align: center;
+}
 
-.save_button{
+.save_btn{
 	background-color: black;
 	color: white;
 	width: 150px;

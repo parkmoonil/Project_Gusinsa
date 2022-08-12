@@ -419,7 +419,7 @@
                     </li>
                 </ul>
                 <ul class="header_menu_SALE">
-                    <li id="product_menu_list"><a href=# id="high_con">유저리뷰</a>    
+                    <li id="product_menu_list"><a href="${pageContext.request.contextPath }/reviewboard_list" id="high_con">유저리뷰</a>    
                         <ul class="SALE_Second"> 
                         </ul>
                     </li>

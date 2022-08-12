@@ -5,18 +5,60 @@
 
 <mapper namespace="com.tech.project_shopping_mall.dao.MyPageDao">
 
-<select id="order_p" resultType = "com.tech.project_shopping_mall.dto.Order_ProductDto">
-SELECT * FROM ORDERINFO ORDER BY O_CODE DESC
-</select>
 
 
-<select  id="orderlist" resultType = "com.tech.project_shopping_mall.dto.orderinfoDto">
-			SELECT * FROM ORDERINFO WHERE MID = #{param1}
+
+<select  id="orderlist" resultType = "com.tech.project_shopping_mall.dto.OrderinfoDto">
+			SELECT * FROM (SELECT ROWNUM NUM,N.* FROM 
+      (SELECT * FROM ORDERINFO ORDER BY O_DATE DESC) N
+      WHERE MID =#{param3}
+      ) WHERE NUM BETWEEN #{param1} AND #{param2}
 </select>
 
 
 <select  id="Inqlist" resultType = "com.tech.project_shopping_mall.dto.InquiryDto">
-		SELECT * FROM INQUIRYBOARD WHERE FK_MID = #{param1}
+		SELECT * FROM (SELECT ROWNUM NUM,N.* FROM 
+      (SELECT * FROM INQUIRYBOARD ORDER BY IDATE DESC) N
+      WHERE FK_MID =#{param3}
+      ) WHERE NUM BETWEEN #{param1} AND #{param2}
+</select>
+
+<select  id="orderlistCount_total" resultType="Integer">
+		SELECT COUNT(*) FROM ORDERINFO WHERE MID = #{param1}
+</select>
+
+
+<select  id="Inqlist_Count_total" resultType="Integer">
+		SELECT COUNT(*) FROM INQUIRYBOARD WHERE FK_MID = #{param1}
+</select>
+
+
+
+
+<select id="MypageIM" resultType="com.tech.project_shopping_mall.dto.IMDto">
+	SELECT * FROM
+	(SELECT ROWNUM NUM,N. * FROM
+	(SELECT * FROM INQUIRYMEMBERS WHERE MID=#{param1} ORDER BY INUM DESC) N)
+	WHERE NUM BETWEEN #{param2} AND #{param3}
+</select>
+
+<select id="MypageCM" resultType="com.tech.project_shopping_mall.dto.CMDto">
+	SELECT * FROM
+	(SELECT ROWNUM NUM,N. * FROM
+	(SELECT * FROM COMMUMEMBERS WHERE MID=#{param1} ORDER BY CNUM DESC) N)
+	WHERE NUM BETWEEN #{param2} AND #{param3}
+</select>
+
+<select id="MypageIMBoardTotCount" resultType="Integer">
+	SELECT COUNT(*) 
+	FROM INQUIRYMEMBERS
+	WHERE MID=#{param1}
+</select>
+
+<select id="MypageCMBoardTotCount" resultType="Integer">
+	SELECT COUNT(*)
+	 FROM COMMUMEMBERS
+	 WHERE MID=#{param1}
 </select>
 
 
