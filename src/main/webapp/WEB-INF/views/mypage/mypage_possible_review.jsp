@@ -258,7 +258,7 @@ font-weight: bold;
             <li class="cs_left_list"><a href="../inquiry">
                 1:1 문의하기
             </a></li>
-            <li class="cs_left_list"><a href="mypage_inquiry" id = "mypage_inquiry">
+            <li class="cs_left_list"><a href="mypage_inquiry">
                 문의내역
             </a></li>
             <li class="cs_left_list"><a href="../membership">
@@ -269,7 +269,7 @@ font-weight: bold;
             상품 리뷰
         </a></h2>
         <ul>
-            <li class="cs_left_list" ><a href="mypage_possible_review">
+            <li class="cs_left_list" ><a href="mypage_possible_review" id = "mypage_orderlist">
                 작성 가능한 리뷰
             </a></li>
             <li class="cs_left_list"><a href="mypage_written_review">
@@ -282,22 +282,28 @@ font-weight: bold;
 </html>   
     <div class="cs_main_board">
        <div class="line"></div>
-       <h2>문의 내역</h2>
+       <h2>작성 가능한 리뷰</h2>
        <table>
             <tr>
-                <th class="faqboard_header">문의번호</th>
-                <th class="faqboard_title">제목</th>
-                <th class="faqboard_date">답변유형</th>
-                <th class="faqboard_date">일자</th>
-                
+                <th class="faqboard_header">주문번호</th>
+                <th class="faqboard_title">주문일자</th>
+                <th class="faqboard_date">상품이름</th>
+                <th class="faqboard_date">색상</th>
+                <th class="faqboard_date">사이즈</th>
+                <th class="faqboard_date">수량</th>
+                <th class="faqboard_date">결제 금액</th>
+                <th class="faqboard_date">리뷰상태</th>
             </tr>
-            <c:forEach items="${inq }" var="list" varStatus ="status">
+            <c:forEach items="${order }" var="list" varStatus ="status" >
             <tr>
-                <th>${list.inum }</th>
-                <th>${list.ititle }</th>
-                <th>${list.iselect2 }</th>
-                <th>${list.idate }</th>
-                
+                <th>${list.o_code }</th>
+                <th>${list.o_date }</th>
+                <th>${list.p_name }</th>
+                <th>${list.p_color }</th>
+                <th>${list.p_size }</th>
+                <th>${list.o_count }</th>
+                <th>${list.o_price }</th>
+                <th><a href="${pageContext.request.contextPath }/review_write_view?o_code=${list.o_code}">작성하기</a></th>
             </tr>
             </c:forEach>
         </table>
@@ -315,18 +321,18 @@ font-weight: bold;
 			</c:when>
 			 <c:otherwise>
 				
-				<a href="mypage_inquiry?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
+				<a href="mypage_possible_review?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
 				<!-- a태그 경로 : 현재 서치페이지 i(1페이지)에  검색어, like문에 사용한 컬럼명들을 그대로 유지 -->
 			</c:otherwise> 
 		
 		</c:choose>
 	</c:forEach>
 		<c:if test="${searchVO.totPage>searchVO.page }"> <!-- 마지막 페이지가 아닐때 -->
-		    <a href="mypage_inquiry?page=${searchVO.page+1 }">다음</a>
-			<a href="mypage_inquiry?page=${searchVO.totPage }">마지막</a></c:if>
+		    <a href="mypage_possible_review?page=${searchVO.page+1 }">다음</a>
+			<a href="mypage_possible_review?page=${searchVO.totPage }">마지막</a></c:if>
 		<c:if test="${searchVO.page>1 }">
-			<a href="mypage_inquiry?page=1">[처음]</a>
-			<a href="mypage_inquiry?page=${searchVO.page-1 }">[이전]</a>
+			<a href="mypage_possible_review?page=1">[처음]</a>
+			<a href="mypage_possible_review?page=${searchVO.page-1 }">[이전]</a>
 			<%-- 검색값 처음 이전 다음 마지막 누르면 검색값을 잃어버리기 때문에 컨트롤러에서 선언해준 keyword = ${resk }를 묶어준다 --%>
 		</c:if>
 	</c:if>
