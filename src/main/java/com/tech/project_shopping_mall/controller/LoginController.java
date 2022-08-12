@@ -22,6 +22,8 @@ import com.tech.finalpj.crypt.CryptoUtil;
 import com.tech.project_shopping_mall.dao.LoginMapper;
 import com.tech.project_shopping_mall.dto.MembersDto;
 
+import oracle.net.aso.r;
+
 
 @Controller
 @RequestMapping("/login/*")
@@ -41,30 +43,30 @@ public class LoginController {
 	}
 
 	@RequestMapping("/login")
-	public String login(@ModelAttribute MembersDto dto, HttpServletRequest request, Model model) throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+	public String login(HttpServletRequest request, Model model) throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
 		System.out.println("=========pass by login()=============");
 		
+		String mid = request.getParameter("mid");
+		String mpw = request.getParameter("mpw");
+		
 		LoginMapper dao=sqlSession.getMapper(LoginMapper.class);
-		MembersDto rtnDto = dao.selectUserPassword(dto);
-		
-//		String decodeText = URLDecoder.decode(rtnDto.getMpw(), "UTF-8");
-		
+		MembersDto rtnDto = dao.selectUserPassword(mid);
+
 		String decryptPwd = CryptoUtil.decryptAES256(rtnDto.getMpw(),key);
-//		
-//		URLDecoder.decode(decryptPwd, "UTF-8");
-//
-		dto.setMpw(decryptPwd);
-		System.out.println("복호화된 값 : "+decryptPwd);
-//		
-		dao.selectUserPassword(dto);
-		//아이디 기준으로 디비에서 가져온 패스워드를 입력한 디비와 비교해서 넣어줌
-		if(decryptPwd.equals(dto.getMpw())) {
-			System.out.println("login success!!!");
-			//세션에 담기
-			HttpSession session=request.getSession();
-			
-			session.setAttribute("mid", rtnDto.getMid());
-			session.setAttribute("mpw", rtnDto.getMpw());
+		try {
+			if(mpw.equals(decryptPwd)) {
+				System.out.println("login success!!!");
+				//세션에 담기
+				HttpSession session=request.getSession();
+				session.setAttribute("mid", rtnDto.getMid());
+				session.setAttribute("mpw", rtnDto.getMpw());
+				System.out.println("아이디와 비밀번호가 맞았습니다");
+			}else {
+				System.out.println("아이디와 비밀번호가 틀렸습니다");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return "redirect:../";

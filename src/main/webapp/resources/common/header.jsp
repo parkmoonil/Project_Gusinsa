@@ -237,7 +237,7 @@
 <body>
  <header>															<!--../../../resources/common/header.jsp --> 
         <div class="header_left"><a href="/project_shopping_mall"><img src="${pageContext.request.contextPath }/resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
-        <div class="header_left"><h2>로그인 ${mid }</h2></div>
+        <div class="header_left"><h2>로그인 ${mid } ${ereginum }</h2></div>
         <div class="header_right">
         <ul id="header_gita">
             <li><input type="checkbox" class="side_list"  id="menuicon">
