@@ -8,10 +8,16 @@
 	<insert id="insert" parameterType="com.tech.project_shopping_mall.dto.Cartdto">
         INSERT INTO CART (CART_ID, MID, P_CODE, AMOUNT)
         VALUES (SEQ_CART.NEXTVAL, #{MID}, #{P_CODE}, #{AMOUNT})
-    </insert>    
+    </insert>
+    
+    <insert id="mypageinsert">
+        INSERT INTO CART (CART_ID, MID, P_CODE, AMOUNT)
+        VALUES (SEQ_CART.NEXTVAL, #{param1}, #{param2}, #{param3})
+    </insert>
+        
 
     <select id="MyCart" resultType="com.tech.project_shopping_mall.dto.Cartdto">
-	    SELECT CART_ID, P.P_CODE, C.MID, MNAME, P_NAME, AMOUNT, P_IMG, P_PRICE, (P_PRICE*AMOUNT) MONEY 
+	    SELECT CART_ID, P.P_CODE, C.MID, MNAME, P_NAME, AMOUNT, P_IMG, P_PRICE,SPRICE, (P_PRICE*AMOUNT) MONEY ,(SPRICE*AMOUNT) SMONEY
 	    FROM MEMBERS M, CART C, PINFO P 
 	    WHERE M.MID=C.MID AND C.P_CODE=P.P_CODE AND C.MID=#{mid} ORDER BY CART_ID
     </select>

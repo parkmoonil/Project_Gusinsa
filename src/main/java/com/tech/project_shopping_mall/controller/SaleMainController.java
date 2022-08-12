@@ -31,6 +31,7 @@ public class SaleMainController {
       IDao dao=sqlSession.getMapper(IDao.class);
        String p_name=request.getParameter("p_name");
        String p_price=request.getParameter("p_price");      
+       String sprice=request.getParameter("sprice");      
        String p_img=request.getParameter("p_img");
        System.out.println("pname"+p_name);  
        System.out.println("pimg"+p_img);  
@@ -40,8 +41,9 @@ public class SaleMainController {
          session.setAttribute("p_name", p_name);
          session.setAttribute("p_img", p_img);
          session.setAttribute("p_pirce", p_price);  
+         session.setAttribute("sprice", sprice);  
 
-         ArrayList<Infodto> dto=dao.SaleMain(p_name,p_price,p_img);
+         ArrayList<Infodto> dto=dao.SaleMain();
          
        model.addAttribute("SaleMain",dto);
        
