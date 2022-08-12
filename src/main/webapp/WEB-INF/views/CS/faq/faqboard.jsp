@@ -56,7 +56,7 @@
 	    </table>
 	    <div class="write_button">
 	    	<c:if test="${ mid eq 'admin0001' }">
-	        	<a href="faq_writeview"><button class="faqboard_button">글쓰기</button></a>
+	        	<a href="faq_writeview">글쓰기</a>
 	        </c:if>
 	    </div>
 	    
