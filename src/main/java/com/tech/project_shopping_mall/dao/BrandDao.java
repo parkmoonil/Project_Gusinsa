@@ -57,7 +57,16 @@ public interface BrandDao {
 	/* public ArrayList<BrandDto> brand_title(String brand_name); */
 	
 	public BrandDto brand(String brand_id);
-
-	public int brandselectBoardTotCount();
+	
+	public int selectBoardTotCount();
 	public ArrayList<Infodto> brand1(int rowStart, int rowEnd, String p_img);
+	public ArrayList<Infodto> Pricelistdesc(int rowStart, int rowEnd, String p_img);
+	public ArrayList<Infodto> Pricelistasc(int rowStart, int rowEnd, String p_img);
+	public ArrayList<Infodto> datedesc(int rowStart, int rowEnd, String p_img);
+
+	public void product_enrollwrite(String p_name,int p_price,String p_class, String p_gender, 
+			String p_img,String p_img2,String p_img3,String p_img4,String p_img5, String brand, 
+			String p_category); 
+	
+	public void product_delete(String sp_code);
 }
