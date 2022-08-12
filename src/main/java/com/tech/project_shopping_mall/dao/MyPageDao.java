@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import com.tech.project_shopping_mall.dto.CMDto;
 import com.tech.project_shopping_mall.dto.IMDto;
 import com.tech.project_shopping_mall.dto.InquiryDto;
-
 import com.tech.project_shopping_mall.dto.OrderinfoDto;
-import com.tech.project_shopping_mall.dto.ReviewDto;
 import com.tech.project_shopping_mall.dto.Review_Written_Dto;
 
 public interface MyPageDao {
@@ -31,9 +29,7 @@ public interface MyPageDao {
 	public ArrayList<OrderinfoDto> mypage_possible_review(String mid);
 	
 	
-	
-	
-	
+	//마이페이지 - 1:1 문의하기, 고객의소리 내역
 	public ArrayList<IMDto> MypageIM(String mid,int start, int end);
 	public ArrayList<CMDto> MypageCM(String mid,int start, int end);
 
