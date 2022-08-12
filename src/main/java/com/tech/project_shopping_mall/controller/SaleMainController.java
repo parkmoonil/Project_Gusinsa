@@ -42,6 +42,7 @@ public class SaleMainController {
          session.setAttribute("p_pirce", p_price);  
 
          ArrayList<Infodto> dto=dao.SaleMain(p_name,p_price,p_img);
+         
        model.addAttribute("SaleMain",dto);
        
        

@@ -6,8 +6,20 @@
 <mapper namespace="com.tech.project_shopping_mall.dao.IDao">
 
 <select id="SaleMain" resultType="com.tech.project_shopping_mall.dto.Infodto">
-SELECT * FROM PINFO WHERE SYSDATE - 365 >= DATA
+	SELECT * FROM PINFO WHERE SYSDATE - 90 >= DATA
 </select>
+
+<update id="Saleupdate1">
+	UPDATE PINFO SET SPRICE = P_PRICE - (P_PRICE * 0.1) WHERE DATA BETWEEN ADD_MONTHS(SYSDATE, -6) AND  ADD_MONTHS(SYSDATE, -3)
+</update>
+<update id="Saleupdate2">
+	UPDATE PINFO SET SPRICE = P_PRICE - (P_PRICE * 0.2) WHERE DATA BETWEEN ADD_MONTHS(SYSDATE, -12) AND  ADD_MONTHS(SYSDATE, -6)
+</update>
+<update id="Saleupdate3">
+	UPDATE PINFO SET SPRICE = P_PRICE - (P_PRICE * 0.3) <![CDATA[WHERE DATA < ADD_MONTHS(SYSDATE, -12)]]>
+</update>
+
+
 
 
 </mapper>

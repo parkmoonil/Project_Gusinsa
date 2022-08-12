@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<link rel="stylesheet" href="resources/css/mypage/main.css">
+<link rel="stylesheet" href="resources/css/mypage/board.css" />
 <title>주문배송 조회</title>
 </head>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -93,8 +96,237 @@ let basket = {
 	    return nstr;
 	};
 </script>
-
 <style>
+.cs_left_title{
+    /* position: absolute;
+    top: 100px;
+    left: 70px; */
+    color: #000;
+    font-size: 30px;
+    white-space: nowrap;
+    font-weight: bold;
+    border-bottom: 3px solid #000;
+    width: 250px;
+    margin: 20px 22px 0 0;
+    padding-bottom: 20px;
+   
+}
+
+.cs_left_nav{
+    width: 250px;
+    grid-area: nav;
+    /* background-color: lightblue; */
+    
+}
+
+.cs_left_list{
+    border-bottom: 1px solid #e5e5e5;
+    height: 60px;
+    margin: 11px 0 0 0;
+    font-size: 15px;
+
+}
+
+.cs_left_contact{
+    line-height: 6%;
+}
+
+ul{
+    list-style: none;
+    -webkit-padding-start: 0;
+}
+
+.cs_main_board{
+    grid-area: board;
+}
+
+/* .cs_table_notice{
+    width: 70%;
+    border-collapse: collapse;
+   
+} */
+
+.cs_main{
+    display: grid;
+    grid-template-columns: 1fr 300px 1200px 1fr;
+    grid-template-areas: " . nav board . ";
+}
+
+.cs_table_title{
+    font-size: 22px;
+}
+
+.cs_table_bestfaq{
+    border-collapse: collapse;
+    display: block;
+    width: 100%;
+}
+
+.cs_table_row1{
+    width: 30%;
+}
+
+.cs_table_notice{
+    display: block;
+    width: 100%;
+}
+
+.line {
+    font-size: 30px;
+    border-bottom: 3px solid #000;
+    margin: 20px 0 0 0;
+    padding-bottom: 60px;
+    
+}
+
+.line2 {
+    font-size: 30px;
+    border-bottom: 1px solid #b2b2b2;
+    margin: 20px 0 0 0;
+    padding-bottom: 60px;
+    
+}
+
+th{
+    border-bottom: 2px solid #000;
+    text-align: left;
+}
+
+td{
+    margin: 11px 0 0 0;
+    font-size: 15px;
+    /* height: 60px; */
+}
+
+
+.write_button {
+	text-align: right;
+}
+
+.notice_search td {
+	border-bottom: none;
+}
+
+.noticeboard_date {
+	text-align: center;
+}
+.search_textarea {
+	text-align: right;
+}
+
+.notice_search input {
+	width: 300px;
+	height: 32px;
+	font-size: 15px;
+	border: 0;
+	border-radius: 15px;
+	outline: none;
+	padding-left: 10px;
+	background-color: rgb(233, 233, 233);
+}
+
+.notice_blank {
+	width: 100%;
+	height: 82px;
+	border-bottom: 3px solid #000;
+	
+}
+
+.notice_search {
+	margin-bottom: 40px;
+}
+
+
+.noitce_table_content_view td{
+	padding-left: 35px;
+}
+.noitce_table_content_view th{
+	font-size: 20px;
+	background-color: #F7F7F7;
+	padding-left: 35px;
+}
+.notice_view_date {
+	font-size: 15px;
+	background-color: #F7F7F7;
+	border-bottom: 1px solid #000;
+	
+}
+.noticeboard_page{
+	text-align: center;
+}
+
+.cs_main_board h3{
+	margin-bottom: 50px;
+}
+
+.point {
+    display: inline-block;
+    margin-left: 10px;
+    color: #ff3e2f;
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+@charset "UTF-8";
+
+table {
+	border-collapse: collapse;
+    width: 100%;
+	border: none;
+}
+
+tr, td, th {
+	border: none; 
+}
+
+th {
+	/* border-bottom: 2px solid #000;  */
+	height: 50px;
+}
+
+  th:first{
+     border-bottom: 2px solid #000; 
+   }
+td {
+border-bottom: 1px solid #e5e5e5; 
+	height: 50px;
+}
+
+.noticeboard_title {
+	width: 68%;
+	text-align: left;
+}
+
+.noticeboard_td_date {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+#mypage_orderlist{
+font-weight: bold;
+}
+
+a:hover{
+font-weight: bold;
+}
+
+.paging{
+    width : 100%;
+    /* float:right; */
+    margin-bottom : 50px;
+     text-align: center;
+}
+#page{
+       padding-bottom: 50px;
+       text-align: center;
+}
+
+/* 장바구니 */
 .Mypage{
     width: 80%;
     height: auto;
@@ -347,38 +579,67 @@ hr{
     width: 40px;
     font-size: 1em;
 }
+
 </style>
 
 <body>
 <%@include file="../../../../resources/common/header.jsp" %> 
-
-    <div id = "hing">
-
+<div class="cs_main">
+<div class="cs_left_nav">
+        <h2 class="cs_left_title"><a href="mypage_orderlist">
+            마이페이지
+        </a></h2>
+        <ul>
+            <li class="cs_left_list" ><a href="noticeboard">
+                회원정보 수정
+            </a></li>
+            <li class="cs_left_list"><a href="mypage_orderlist" id = "mypage_orderlist">
+                주문 내역
+            </a></li>
+            <li class="cs_left_list"><a href="../MyCart">
+                장바구니
+            </a></li>
+            <li class="cs_left_list"><a href="../inquiry">
+                1:1 문의하기
+            </a></li>
+            <li class="cs_left_list"><a href="mypage_inquiry">
+                문의내역
+            </a></li>
+            <li class="cs_left_list"><a href="../membership">
+                멤버쉽(클럽)안내
+            </a></li>
+        </ul>
+        
     </div>
-    <div class="MyPage">
+</body>
+</html>   
+    <div class="cs_main_board">
+       <div class="line"></div>
+       <h2>장바구니</h2>
+       <table>
+                <div class="MyPage">
 
         <div class="mypage_content">
          	<form name="orderform" id="orderform" method="post" class="orderform" action="/Page" onsubmit="return false;">
     
             <input type="hidden" name="cmd" value="order">
             <div class="basketdiv" id="basket">
-                <div class="row head">
-                    <div class="subdiv">
-                        <div class="check">선택</div>
-                        <div class="img">이미지</div>
-                        <div class="pname">상품명</div>
-                    </div>
-                    <div class="subdiv">
-                        <div class="basketprice">가격</div>
-                        <div class="num">수량</div>
-                        <div class="sum">합계</div>
-                    </div>
-                    <div class="subdiv">
-    
-                        <div class="basketcmd">삭제</div>
-                    </div>
-                    <div class="split"></div>
-                </div>
+						                <div class="row head">
+						                    <div class="subdiv">
+						                        <div class="check">선택</div>
+						                        <div class="img">이미지</div>
+						                        <div class="pname">상품명</div>
+						                    </div>
+						                    <div class="subdiv">
+						                        <div class="basketprice">가격</div>
+						                        <div class="num">수량</div>
+						                        <div class="sum">합계</div>
+						                    </div>
+						                    <div class="subdiv">
+						                        <div class="basketcmd">삭제</div>
+						                    </div>
+						                    <div class="split"></div>
+						                </div>
                 
                 
 				  <c:forEach items="${MyCart }" var="dto" varStatus = "status">
@@ -386,52 +647,58 @@ hr{
               
                     <div class="subdiv">
                         <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div>
-                        <div class="img"><img src="./img/basket1.jpg" width="60" alt=""></div>
+                        <div class="img"><img src=${dto.p_img } width="60" height="60" alt="" ></div>
                         <div class="pname">
                            <span>${dto.p_name }</span>
                         </div>
                     </div>
-					
+
                     <div class="subdiv">
                         <div class="basketprice"><input type="hidden" name="p_price" id="p_price<c:out value = "${status.count}"/>" class="p_price" value="${dto.p_price }">${dto.p_price }원</div>
+
                         <div class="num">
                             <div class="updown">
                            
-                                <input type="text" name="p_num<c:out value = "${status.count}"/>" id="p_num<c:out value = "${status.count}"/>" size="2" maxlength="4" class="p_num" value="1" onkeyup="javascript:basket.changePNum(1);">
+                                <input type="text" name="p_num<c:out value = "${status.count}"/>" id="p_num<c:out value = "${status.count}"/>" size="2" maxlength="4" class="p_num" value="${dto.amount}" onkeyup="javascript:basket.changePNum(1);">
                                 <span onclick="javascript:basket.changePNum(<c:out value = "${status.count}"/>);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
                                 <span onclick="javascript:basket.changePNum(<c:out value = "${status.count}"/>);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
                                
                             </div>
                         </div>
+
                         <div class="sum">${dto.money }원</div>
+                                       
                     </div>
-                    
+     
                     <div class="subdiv">
                         <div class="basketcmd">
                         <a href="superdelete?p_code=${dto.p_code }" class="abutton" onclick="javascript:basket.delItem();">
                         삭제
                         </a></div>
                     </div> <br />
-                   
+ 
                 </div>
-                
                 </c:forEach>
- 			
+		
  			</div>
-				
-
+ 			
+ 			
             <div class="right-align basketrowcmd">
                 <a href="superdelete?p_code=${dao.p_code }" class="abutton" onclick="javascript:basket.delCheckedItem();">선택상품삭제</a>
                 <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delAllItem();">장바구니비우기</a>
             </div>
 		
-            <div class="bigtext right-align sumcount" id="sum_p_num">상품갯수: ${status.count}개</div>
-      
+	
+            <div class="bigtext right-align sumcount" id="sum_p_num" >
+            <span value="${amount}">상품갯수: ${amount}개</span>
+            </div>
        
-		
-            <div class="bigtext right-align box blue summoney" id="sum_p_price">합계금액: ${dto.money }원</div>
+            <div class="bigtext right-align box blue summoney" id="sum_p_price">합계금액: ${sum }원</div>
        
     
+       
+       
+       
             <div id="goorder" class="">
                 <div class="clear"></div>
                 <div class="buttongroup center-align cmd">
@@ -442,29 +709,17 @@ hr{
            
 
         </div>
-        <div class = "mypage_list">
-            <h1>마이페이지</h1>
-            <hr>
-            <h2>아이디님 안녕하세요!</h2>
-            <hr>
-            <h2>나의 쇼핑내역</h2>
-            <a href="${pageContext.request.contextPath }/mypage/mypage_orderlist" id="mypage_list_a" style="color: rgb(145, 144, 144);">주문배송 조회</a> <br>
-            <a href="${pageContext.request.contextPath }/mypage/mypage_orderlist_back" id="mypage_list_a" style="color: rgb(145, 144, 144);">취소반품 조회</a> <br>
-            <a href="buylist" id="mypage_list_a" style="color: rgb(145, 144, 144);">구매내역</a> <br>
-            <hr>
-            <h2>나의 관심내역</h2>
-            <a href="../count" id="mypage_list_a" style="color: rgb(145, 144, 144);">장바구니</a> <br>
-            <hr>
-            <h2>나의 커뮤니티</h2>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">1대1 문의 내역</a> <br>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">고객의 소리</a> <br>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">나의 상품 리뷰</a> <br>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">나의 상품 문의</a> <br>
-            <h2>회원정보관리</h2>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">회원정보 수정</a> <br>
-            <a href="#" id="mypage_list_a" style="color: rgb(145, 144, 144);">비밀번호 변경</a><br>
 
-        </div>
     </div>
+            
+        </table>
+
+</div>
+    
+
+    
+    
+
+
 </body>
 </html>
