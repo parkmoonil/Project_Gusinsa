@@ -16,6 +16,7 @@ public class MembersDto {
 	private String maddr_four;
 	private String memail;
 	private String mgrade;
+	private String mno;
 	
 	public MembersDto() {
 		// TODO Auto-generated constructor stub
@@ -24,7 +25,7 @@ public class MembersDto {
 	
 	
 	public MembersDto(String mid, String mpw, String mname, String mgender, Date mbirth, String mphone,
-			String maddr_one, String maddr_two, String maddr_three, String maddr_four, String memail, String mgrade) {
+			String maddr_one, String maddr_two, String maddr_three, String maddr_four, String memail, String mgrade, String mno) {
 		this.mid = mid;
 		this.mpw = mpw;
 
@@ -38,7 +39,7 @@ public class MembersDto {
 		this.maddr_four = maddr_four;
 		this.memail = memail;
 		this.mgrade = mgrade;
-
+		this.mno = mno;
 	}
 
 
@@ -184,7 +185,13 @@ public class MembersDto {
 	public void setMgrade(String mgrade) {
 		this.mgrade = mgrade;
 	}
+	public String getMno() {
+		return mno;
+	}
 
+	public void setMno(String mno) {
+		this.mno = mno;
+	}
 
 	
 }

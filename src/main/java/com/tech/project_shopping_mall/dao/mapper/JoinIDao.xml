@@ -19,6 +19,7 @@
 		   , MADDR_FOUR
 		   , MEMAIL
 		   , MGRADE
+		   , MNO
 		) VALUES (
 		     #{mid}
 		   , #{mpw}
@@ -32,6 +33,7 @@
 		   , #{maddr_four}
 		   , #{memail}
 		   , #{mgrade,jdbcType=VARCHAR}
+		   , MEMBERS_SEQ.NEXTVAL
 		)
 		</insert>
 		<select parameterType="String" id="Id_Check" resultType="com.tech.project_shopping_mall.dto.MembersDto">
