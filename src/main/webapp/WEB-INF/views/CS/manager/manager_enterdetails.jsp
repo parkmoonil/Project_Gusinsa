@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="resources/css/cs/main.css" />
 <link rel="stylesheet" href="resources/css/cs/board.css" />
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
+<link rel="stylesheet" href="resources/css/cs/manager2.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>

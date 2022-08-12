@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Manager_Members Page</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
+<link rel="stylesheet" href="resources/css/cs/manager2.css" />
 <link rel="stylesheet" href="resources/css/cs/board.css" />
 </head>
 <body>
@@ -33,8 +34,8 @@
 				</tr>
 				<tr>	
 					<c:forEach items="${MMembers }" var="dto">
-						<tr>
-							<td>${dto.mid }</td>
+						<tr onClick="location.href='manager_membersdetails?mno=${dto.mno}'">
+							<td>${dto.mno }</td>
 							<td>${dto.mid }</td>
 						
 							<td>${dto.mgender }</td>

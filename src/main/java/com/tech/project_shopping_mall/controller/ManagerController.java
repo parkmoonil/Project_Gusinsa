@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tech.project_shopping_mall.dao.CSDao;
 import com.tech.project_shopping_mall.dto.CMDto;
@@ -336,5 +337,47 @@ public class ManagerController {
 
 		return "CS/manager/manager_members";
 	}
+	
+	@RequestMapping("manager_membersdetails") 
+	 public String manager_membersdetails(HttpServletRequest request,
+			 Model model) { 
+		System.out.println("=====manager_membersdetails====");
+	  
+		String smno=request.getParameter("mno");
+		CSDao dao = sqlSession.getMapper(CSDao.class);
+		
+		MembersDto dto = dao.membersdetails(smno);
+		model.addAttribute("manager_members",dto );
+		
+		return "CS/manager/manager_membersdetails"; 
+	 	
+	 }
+	 
+	 @RequestMapping(method = RequestMethod.POST, value= "/mgrade")
+	 public String mgrade(HttpServletRequest request,
+			 Model model) {
+		 System.out.println("====mgrade====");
+		 
+		 String mno=request.getParameter("mno");
+		 String mgrade=request.getParameter("mgrade");
+		 System.out.println("mno  :"+mno);
+		 System.out.println("mgrade  :"+mgrade);
+		 
+		 CSDao dao = sqlSession.getMapper(CSDao.class);
+		 dao.mgrade(mno, mgrade);
+	
+		 return "redirect:manager_members";
+	 }
+	 
+	 @RequestMapping("membersdelete")
+		public String membersdelete(HttpServletRequest request, Model model) {
+			System.out.println("=====manager_delete====");
+
+			String smno = request.getParameter("mno");
+			CSDao dao = sqlSession.getMapper(CSDao.class);
+			dao.membersdelete(smno);
+			
+			return "redirect:manager_members";
+		}
 	
 }

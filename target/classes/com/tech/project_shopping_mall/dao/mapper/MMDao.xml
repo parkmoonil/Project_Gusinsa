@@ -8,9 +8,9 @@
 	<select id="MMembers" resultType="com.tech.project_shopping_mall.dto.MembersDto">
 		SELECT MID,MPW,MNAME,MGENDER,MBIRTH,MPHONE,
 		MADDR_ONE,MADDR_TWO,MADDR_THREE,MADDR_FOUR,
-		MEMAIL,MGRADE FROM 
+		MEMAIL,MGRADE,MNO FROM 
 		(SELECT ROWNUM NUM,N.* FROM
-		(SELECT * FROM MEMBERS ORDER BY MPW DESC) N)
+		(SELECT * FROM MEMBERS ORDER BY MNO DESC) N)
 		WHERE NUM BETWEEN #{param1} AND #{param2}
 		
 	<!-- 	테이블 변경되면
@@ -21,8 +21,21 @@
 	<select id="MembersBoardTotCount" resultType="Integer">
 		SELECT COUNT(*) FROM MEMBERS
 	</select>
+	
+	<select id="membersdetails" resultType="com.tech.project_shopping_mall.dto.MembersDto">
+		SELECT MID,MPW,MNAME,MGENDER,MBIRTH,MPHONE,
+		MADDR_ONE,MADDR_TWO,MADDR_THREE,MADDR_FOUR,
+		MEMAIL,MGRADE,MNO FROM MEMBERS
+		WHERE MNO=#{param1}
+	</select>
+	
+	<select id="membersdelete" resultType="com.tech.project_shopping_mall.dto.MembersDto">
+		DELETE FROM MEMBERS WHERE MNO=#{param1}
+	</select>
 
-
-
+	<update id="mgrade">
+		UPDATE MEMBERS SET MGRADE=#{param2}
+		WHERE MNO=#{param1}
+	</update>
 
 </mapper>
