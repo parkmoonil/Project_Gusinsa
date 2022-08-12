@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Manager_Inquirydetails</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
+<link rel="stylesheet" href="resources/css/cs/manager2.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -14,11 +15,11 @@
 <%@include file="../cs_nav/manager_nav.jsp" %>
 	<div class="manager_board">
 		<div class="manager_main_title">
-			<h3>Manager_Inquirydetails</h3>
+			<h3>1:1 문의하기 상세</h3>
 		</div>
 		
 		<div>
-			<table>
+			<table class="manager_detail_table">
 				<tr>
 					<th>번호</th>
 					<td>${manager_inquiry.inum}</td>
@@ -56,14 +57,11 @@
 					<td><a href="Inquirydownload?p=resources/upload/&i=${manager_inquiry.ifile}
 							">${manager_inquiry.ifile}</a></td>
 				</tr>
-				<tr>
-					<td colspan="2">
-						<!-- <input type="submit" value="수정" /> &nbsp;&nbsp; -->
-						<a href="manager_inquiry">목록보기</a> &nbsp;&nbsp;
-						<a href="inquirydelete?inum=${manager_inquiry.inum }">삭제</a>
-					</td>
-				</tr>
 			</table>
+			<div class="page_align">
+				<a href="manager_inquiry">목록보기</a> &nbsp;&nbsp;
+				<a href="inquirydelete?inum=${manager_inquiry.inum }">삭제</a>
+			<div>
 		</div>
 	</div>
 </div> 

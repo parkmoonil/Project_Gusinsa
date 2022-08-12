@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Manager_Commu</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
+<link rel="stylesheet" href="resources/css/cs/manager2.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -14,11 +15,11 @@
 <%@include file="../cs_nav/manager_nav.jsp" %>  
 	<div class="manager_board">
 		<div class="manager_main_title">
-			<h3>Manager_Commu</h3>
+			<h3>고객의 소리 상세</h3>
 		</div>
 		
 		<div>
-					<table>
+			<table class="manager_detail_table">
 				<tr>
 					<th>번호</th>
 					<td>${manager_commu.cnum}</td>
@@ -68,14 +69,11 @@
 					<td><a href="Commudownload?p=resources/upload/&c=${manager_commu.cfile}
 							">${manager_commu.cfile}</a></td>
 				</tr>
-				<tr>
-					<td colspan="2">
-						<!-- <input type="submit" value="수정" /> &nbsp;&nbsp; -->
-						<a href="manager_commu">목록보기</a> &nbsp;&nbsp;
-						<a href="commudelete?cnum=${manager_commu.cnum }">삭제</a>
-					</td>
-				</tr>
 			</table>
+				<div class="page_align">
+					<a href="manager_commu">목록보기</a> &nbsp;&nbsp;
+					<a href="commudelete?cnum=${manager_commu.cnum }">삭제</a>
+				<div>
 		</div>
 	</div>
 </div> 

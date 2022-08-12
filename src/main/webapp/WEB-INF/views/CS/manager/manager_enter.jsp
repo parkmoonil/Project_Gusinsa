@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Manager_Enter Page</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
+<link rel="stylesheet" href="resources/css/cs/manager2.css" />
+<link rel="stylesheet" href="resources/css/cs/board.css" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -18,7 +20,7 @@
 		</div>
 		
 		<div>
-			<table>
+			<table class="manager_table">
 				<tr>
 					<th>번호</th>
 					<th>상호명</th>
@@ -26,23 +28,15 @@
 				</tr>
 				
 				<c:forEach items="${EnterBoard}" var="dto" begin="0" end="10">
-					<tr>
-						<td>
-							<a href="manager_enterdetails?enumber=${dto.enumber }">${dto.enumber }</a>
-						</td>
-						<td>
-							<a href="manager_enterdetails?enumber=${dto.enumber }">${dto.etradename }</a>
-						</td>
-						<td>
-							<a href="manager_enterdetails?enumber=${dto.enumber }">${dto.ebname }</a>
-						</td>
+					<tr onClick="location.href='manager_enterdetails?enumber=${dto.enumber }'">
+						<td>${dto.enumber }</td>
+						<td>${dto.etradename }</td>
+						<td>${dto.ebname }</td>
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
 		
-			<hr />
-			${totRowcnt }
 			<form action="EnterBoard" method="post">
 				<c:if test="${searchVO.totPage>1 }">
 			      <c:if test="${ searchVO.page>1}">
