@@ -17,6 +17,8 @@ import com.tech.project_shopping_mall.dto.IMDto;
 import com.tech.project_shopping_mall.dto.InquiryDto;
 
 import com.tech.project_shopping_mall.dto.OrderinfoDto;
+import com.tech.project_shopping_mall.dto.ReviewDto;
+import com.tech.project_shopping_mall.dto.Review_Written_Dto;
 import com.tech.project_shopping_mall.vopage.SearchVO_CS;
 import com.tech.project_shopping_mall.vopage.SearchVO_product;
 
@@ -30,24 +32,20 @@ public class MyPageController {
 	
 	@RequestMapping("/mypage_orderlist")
 	public String mypage(HttpServletRequest request, Model model,SearchVO_product searchVO) {
-		System.out.println("mypage ㄱㄱ");
+		System.out.println("주문내역 ㄱㄱ");
 		HttpSession session = request.getSession();
 		String mid = (String )session.getAttribute("mid");
 		
 		
 		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
-		
-		
-		
-		
-		
+
 		
 		// 페이징처리 제발
 		String strPage = request.getParameter("page");  // 페이징처리 값 넣는다
 		System.out.println("pageeeeeeeee1 : " +strPage);
 		
-		if (strPage==null) strPage ="1";   // 선언한 strPage가 1이 아닐경우 1을 넣는다
-		
+		if (strPage==null)  strPage ="1";   // 선언한 strPage가 1이 아닐경우 1을 넣는다
+		System.out.println("pageeeeeeeee1 : " +strPage);
 		int page = Integer.parseInt(strPage);
 		searchVO.setPage(page);      // int page 를 앞에 선언한 페이지 값을 넣고  계산식 선언한 searchVO으로 계산한다
 		
@@ -59,17 +57,15 @@ public class MyPageController {
 		int rowStart = searchVO.getRowStart();  // 첫 페이지 계산
 		int rowEnd = searchVO.getRowEnd();  // 마지막 페이지 계산
 		
-		System.out.println("rowStart : " + rowStart);
-		System.out.println("rowEnd : " + rowEnd);
+		
 		ArrayList<OrderinfoDto> orderdto = dao.orderlist(rowStart,rowEnd,mid);  // 첫페이지, 마지막 페이지  아이디 저장
-		System.out.println("orderdto : " + orderdto);
+		
 		
 		
 		model.addAttribute("order",orderdto);
 		model.addAttribute("totRowCnt",total);
 		model.addAttribute("searchVO",searchVO);
-		String ocode = request.getParameter("o_code");
-		System.out.println("ocode : " + ocode);
+
 		
 		return "/mypage/mypage_orderlist";
 	}
@@ -212,6 +208,97 @@ public class MyPageController {
 	 	return "/CS/mycommu"; 
 	 	
 	 }
+	 
+	 // 작성가능한 리뷰
+	 @RequestMapping("/mypage_possible_review")
+		public String mypage_possible_review(HttpServletRequest request, Model model,SearchVO_CS searchVO) {
+		 System.out.println("내가 작성가능한 리뷰");
+			HttpSession session = request.getSession();
+			String mid = (String )session.getAttribute("mid");
+			
+			
+			MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
+
+			 //작성가능한리뷰 띄우기 해야함 일단 보류
+			// 페이징처리 제발
+			String strPage = request.getParameter("page");  // 페이징처리 값 넣는다
+			System.out.println("pageeeeeeeee1 : " +strPage);
+			
+			if (strPage==null) strPage ="1";   // 선언한 strPage가 1이 아닐경우 1을 넣는다
+			
+			int page = Integer.parseInt(strPage);
+			searchVO.setPage(page);      // int page 를 앞에 선언한 페이지 값을 넣고  계산식 선언한 searchVO으로 계산한다
+			
+			int total = dao.mypage_possible_review_total(mid);   // 로그인한 아이디로 쿼리 돌린 총 갯수 저장
+			searchVO.pageCalculate(total);  // 계산식 searchVO 에 토탈 갯수 저장
+			
+			System.out.println("total : " + total);  // 값 확인
+			
+			int rowStart = searchVO.getRowStart();  // 첫 페이지 계산
+			int rowEnd = searchVO.getRowEnd();  // 마지막 페이지 계산
+			
+			System.out.println("rowStart : " + rowStart);
+			System.out.println("rowEnd : " + rowEnd);
+			ArrayList<OrderinfoDto> orderdto = dao.mypage_possible_review(rowStart,rowEnd,mid);
+			
+			//System.out.println("이렇게 가져옴?" + orderdto.);
+			// 첫페이지, 마지막 페이지  아이디 저장
+			System.out.println("orderdto : " + orderdto);
+			
+			
+			model.addAttribute("order",orderdto);
+			model.addAttribute("totRowCnt",total);
+			model.addAttribute("searchVO",searchVO);
+			String ocode = request.getParameter("o_code");
+			System.out.println("ocode : " + ocode);
+			
+			return "/mypage/mypage_possible_review";
+		}
+	 
+	 
+	 @RequestMapping("/mypage_written_review")
+		public String mypage_written_review(HttpServletRequest request, Model model,SearchVO_CS searchVO) {
+		 System.out.println("내가 작성한 리뷰");
+		 	HttpSession session = request.getSession();
+			String mid = (String )session.getAttribute("mid");
+			
+			
+			MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
+
+			
+			// 페이징처리 제발
+			String strPage = request.getParameter("page");  // 페이징처리 값 넣는다
+			System.out.println("pageeeeeeeee1 : " +strPage);
+			
+			if (strPage==null) 
+				strPage ="1";   // 선언한 strPage가 1이 아닐경우 1을 넣는다
+			System.out.println("넣어졌나 페이지" + strPage);
+			int page = Integer.parseInt(strPage);
+			searchVO.setPage(page);      // int page 를 앞에 선언한 페이지 값을 넣고  계산식 선언한 searchVO으로 계산한다
+			
+			int total = dao.mypage_written_review_total(mid); //로그인한 아이디로 쿼리 돌린 총 갯수 저장
+			
+			System.out.println("너의 페이지 갯수 : " + dao.mypage_written_review_total(mid));
+			searchVO.pageCalculate(total);  // 계산식 searchVO 에 토탈 갯수 저장
+			
+			System.out.println("total : " + total);  // 값 확인
+			
+			int rowStart = searchVO.getRowStart();  // 첫 페이지 계산
+			int rowEnd = searchVO.getRowEnd();  // 마지막 페이지 계산
+			
+			System.out.println("rowStart : " + rowStart);
+			System.out.println("rowEnd : " + rowEnd);
+			
+			ArrayList<Review_Written_Dto> redto = dao.mypage_written_review(rowStart,rowEnd,mid);  // 첫페이지, 마지막 페이지  아이디 저장
+			
+
+			model.addAttribute("redto",redto);
+			model.addAttribute("totRowCnt",total);
+			model.addAttribute("searchVO",searchVO);
+			
+			
+			return "/mypage/mypage_written_review";
+		}
 	
 
 }

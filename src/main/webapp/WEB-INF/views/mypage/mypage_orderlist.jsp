@@ -269,6 +269,21 @@ font-weight: bold;
                 멤버쉽(클럽)안내
             </a></li>
         </ul>
+        <h2 class="cs_left_title"><a href="mypage_orderlist">
+            상품 리뷰
+        </a></h2>
+        <ul>
+            <li class="cs_left_list" ><a href="mypage_possible_review">
+                작성 가능한 리뷰
+            </a></li>
+            <li class="cs_left_list"><a href="mypage_written_review">
+                내가 작성한 리뷰
+            </a></li>
+            
+            
+            
+           
+        </ul>
         
     </div>
 </body>

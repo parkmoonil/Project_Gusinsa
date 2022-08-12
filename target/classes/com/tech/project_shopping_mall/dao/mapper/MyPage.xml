@@ -7,6 +7,34 @@
 
 
 
+
+<select  id="orderlist" resultType = "com.tech.project_shopping_mall.dto.OrderinfoDto">
+			SELECT * FROM (SELECT ROWNUM NUM,N.* FROM 
+      (SELECT * FROM ORDERINFO ORDER BY O_DATE DESC) N
+      WHERE MID =#{param3}
+      ) WHERE NUM BETWEEN #{param1} AND #{param2}
+</select>
+
+
+<select  id="Inqlist" resultType = "com.tech.project_shopping_mall.dto.InquiryDto">
+		SELECT * FROM (SELECT ROWNUM NUM,N.* FROM 
+      (SELECT * FROM INQUIRYBOARD ORDER BY IDATE DESC) N
+      WHERE FK_MID =#{param3}
+      ) WHERE NUM BETWEEN #{param1} AND #{param2}
+</select>
+
+<select  id="orderlistCount_total" resultType="Integer">
+		SELECT COUNT(*) FROM ORDERINFO WHERE MID = #{param1}
+</select>
+
+
+<select  id="Inqlist_Count_total" resultType="Integer">
+		SELECT COUNT(*) FROM INQUIRYBOARD WHERE FK_MID = #{param1}
+</select>
+
+
+
+
 <select id="MypageIM" resultType="com.tech.project_shopping_mall.dto.IMDto">
 	SELECT * FROM
 	(SELECT ROWNUM NUM,N. * FROM
@@ -27,10 +55,34 @@
 	WHERE MID=#{param1}
 </select>
 
-<select id="MypageCMBoardTotCount" resultType="Integer">
-	SELECT COUNT(*)
-	 FROM COMMUMEMBERS
-	 WHERE MID=#{param1}
+
+<select id="mypage_possible_review" resultType="com.tech.project_shopping_mall.dto.OrderinfoDto_my">
+	SELECT * FROM (SELECT ROWNUM NUM, O_CODE,O_DATE,P_NAME,P_COLOR,P_SIZE,O_COUNT,O_PRICE FROM ORDERINFO  WHERE MID=#{param3} AND NOT O_CODE IN(SELECT R.O_CODE FROM MEMBERS M , REVIEW R WHERE R.MID=M.MID) ORDER BY O_CODE ASC) WHERE NUM BETWEEN #{param1} AND #{param2} 
 </select>
+<select id="mypage_possible_review_total" resultType="Integer">
+	SELECT COUNT(*) FROM (SELECT ROWNUM NUM, O_CODE FROM ORDERINFO WHERE MID=#{param1} AND NOT O_CODE IN(SELECT R.O_CODE FROM MEMBERS M , REVIEW R WHERE R.MID=M.MID) ORDER BY O_CODE ASC) 
+</select>
+
+
+
+<select id="mypage_written_review_total" resultType="Integer">
+	SELECT COUNT(*) FROM REVIEW WHERE MID=#{param1}
+</select>
+
+
+
+<select id="mypage_written_review" resultType="com.tech.project_shopping_mall.dto.Review_Written_Dto">
+    <!--  SELECT * FROM 
+     (SELECT R.R_NUM, R.P_CODE, P.P_NAME, R.R_TITLE, R.MID, R.R_STARPOINT, R.O_CODE, R.R_DATE, R.R_HIT FROM REVIEW R, PINFO P WHERE R.MID = #{param3} and p.p_code = R.P_CODE ORDER BY R.R_DATE DESC) 
+     WHERE ROWNUM BETWEEN #{param1} AND #{param2} -->
+     
+	SELECT * FROM 
+	(SELECT ROWNUM NUM,N. * FROM
+	(SELECT R.R_NUM, R.P_CODE, P.P_NAME, R.R_TITLE, R.MID, R.R_STARPOINT, R.O_CODE, R.R_DATE, R.R_HIT FROM REVIEW R, PINFO P WHERE R.MID = #{param3} AND P.P_CODE = R.P_CODE ORDER BY R.R_DATE DESC) N)
+	WHERE NUM BETWEEN #{param1} AND #{param2}
+</select>
+
+
+
 
 </mapper>

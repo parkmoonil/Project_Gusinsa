@@ -272,7 +272,7 @@ font-weight: bold;
             <li class="cs_left_list" ><a href="mypage_possible_review">
                 작성 가능한 리뷰
             </a></li>
-            <li class="cs_left_list"><a href="mypage_written_review">
+            <li class="cs_left_list"><a href="mypage_written_review" id = "mypage_orderlist">
                 내가 작성한 리뷰
             </a></li>
             </ul>
@@ -282,21 +282,27 @@ font-weight: bold;
 </html>   
     <div class="cs_main_board">
        <div class="line"></div>
-       <h2>문의 내역</h2>
+       <h2>내가 작성한 리뷰</h2>
        <table>
             <tr>
-                <th class="faqboard_header">문의번호</th>
+                <th class="faqboard_header">리뷰번호</th>
                 <th class="faqboard_title">제목</th>
-                <th class="faqboard_date">답변유형</th>
-                <th class="faqboard_date">일자</th>
+                <th class="faqboard_title">상품 이름</th>
+                <th class="faqboard_date">평점</th>
+                <th class="faqboard_date">날짜</th>
+                <th class="faqboard_date"></th>
                 
             </tr>
-            <c:forEach items="${inq }" var="list" varStatus ="status">
-            <tr>
-                <th>${list.inum }</th>
-                <th>${list.ititle }</th>
-                <th>${list.iselect2 }</th>
-                <th>${list.idate }</th>
+            <c:forEach items="${redto }" var="list" varStatus ="status">
+            <tr onClick="location.href='mypage_written_review?inum=${dto3.inum}'">
+                <th>${list.r_num }</th>
+                <th>${list.r_title }</th>
+                <th>${list.p_name }</th>
+                <th>${list.r_starpoint }</th>
+                <th>${list.r_date }</th>
+                <th><a href="">수정</a></th>
+               
+                
                 
             </tr>
             </c:forEach>
@@ -315,18 +321,18 @@ font-weight: bold;
 			</c:when>
 			 <c:otherwise>
 				
-				<a href="mypage_inquiry?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
+				<a href="mypage_written_review?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
 				<!-- a태그 경로 : 현재 서치페이지 i(1페이지)에  검색어, like문에 사용한 컬럼명들을 그대로 유지 -->
 			</c:otherwise> 
 		
 		</c:choose>
 	</c:forEach>
 		<c:if test="${searchVO.totPage>searchVO.page }"> <!-- 마지막 페이지가 아닐때 -->
-		    <a href="mypage_inquiry?page=${searchVO.page+1 }">다음</a>
-			<a href="mypage_inquiry?page=${searchVO.totPage }">마지막</a></c:if>
+		    <a href="mypage_written_review?page=${searchVO.page+1 }">다음</a>
+			<a href="mypage_written_review?page=${searchVO.totPage }">마지막</a></c:if>
 		<c:if test="${searchVO.page>1 }">
-			<a href="mypage_inquiry?page=1">[처음]</a>
-			<a href="mypage_inquiry?page=${searchVO.page-1 }">[이전]</a>
+			<a href="mypage_written_review?page=1">[처음]</a>
+			<a href="mypage_written_review?page=${searchVO.page-1 }">[이전]</a>
 			<%-- 검색값 처음 이전 다음 마지막 누르면 검색값을 잃어버리기 때문에 컨트롤러에서 선언해준 keyword = ${resk }를 묶어준다 --%>
 		</c:if>
 	</c:if>

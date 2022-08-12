@@ -19,6 +19,9 @@ public class EnterDto {
 	private String ephone;
 	private String eemail;
 	
+	public EnterDto() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public EnterDto(String enumber,String ereginum,String etradename,String eaddr1,
 			String eaddr2,String eaddr3,String eaddr4,String esales,String ebname,String ebintro,
