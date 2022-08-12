@@ -331,35 +331,24 @@ function kakaoLogout() {
 <jsp:include page = "../../../resources/common/header.jsp" />    
     <div class="body_body">
         <div class="main11">
-            <h2 class="h_2">안녕하세요 고객님!</h2>
-            <p>구신사의 회원이 되시면 더 많은 혜택을 누리실 수 있습니다</p>
+            <h2 class="h_2">안녕하세요 사업자 고객님!</h2>
         </div>
-        <form action="login" method="post">
+        <form action="login2" method="post">
         <div class="main">
                 <input id="tab1" type="radio" name="tabs" checked> 
-                <label for="tab1">회원</label>
-            
-                <input id="tab2" type="radio" name="tabs">
-                <label for="tab2">비회원</label>
+                <label for="tab1">사업자 회원</label>
     
                 <section id="content1">
                 <div class="login_one">
                     <tr>
                         <td>
-                            <input type="text" id="mid" name="mid" placeholder=" 아이디"/> <br />
-                            <input type="text" id="mpw" name="mpw" placeholder=" 비밀번호"/> <br />
+                            <input type="text" id="mid" name="ereginum" placeholder=" 사업자 번호"/> <br />
+                            <input type="text" id="mpw" name="ephone" placeholder=" 휴대폰 번호"/> <br />
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span class="che_1"><input type="checkbox" class="ck_1"/>아이디 저장</span>
-                        </td>
-                        <td>
-                            <span class="che_2">
-                            <a class="a1" href="idcheck">아아디 찾기</a>
-                            |
-                            <a class="a1" href="#">비밀번호 찾기</a> <br />
-                            </span>
                         </td>
                     </tr>
                     <tr>
@@ -368,34 +357,7 @@ function kakaoLogout() {
                           </div>
                           </form>
                     </tr>
-                        <p class="joinus">아직 구신사의 회원이 아니신가요?      
-                            <a href="../join/joinform" class="sp1">회원가입</a></p>
-        
-                    <div class="hr-sect">or</div>
-                    
-                    <!-- <tr>
-                        <td><a href="javascript:kakaoLogin();"><img src="../resources/snsimg/카카오톡.png"/></a></td>
-                    </tr> -->
                 </div>
-                	<a href="../login2/loginform2" class="sp1">사업자 로그인</a></p>
-                </section>
-    
-                <section id="content2" class="content2">
-                <div class="login_two">
-                    <tr>
-                        <div class="no_lo">
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" id="nname" placeholder=" 주문자명" /> <br />
-                            <input type="text" id="nphone" placeholder=" 주문자 전화번호" /> <br />
-                        </td>
-                    </tr>
-                    <div class="btn22">
-                                <button class="customm3-btn btn-2">비회원 주문조회</button>
-                    </div> 
-                </div>
-                </section>
         </div>
     </div>
     </body>
