@@ -10,18 +10,20 @@ public class InquiryDto {
 	private String ifile;
 	private String iselect2;
 	private Date idate;
+	private String istate;
 	
 	public InquiryDto() {
 
 	}
 	
-	public InquiryDto(String inum,String iselect1,String ititle,String icontent,String ifile,String iselect2,Date idate) {
+	public InquiryDto(String inum,String iselect1,String ititle,String icontent,String ifile,String iselect2,Date idate,String istate) {
 		this.inum=inum;
 		this.iselect1=iselect1;
 		this.ititle=ititle;
 		this.icontent=icontent;
 		this.ifile=ifile;
 		this.iselect2=iselect2;
+		this.istate=istate;
 	}
 
 	public String getInum() {
@@ -80,4 +82,12 @@ public class InquiryDto {
 		this.idate = idate;
 	}
 
+	public String getIstate() {
+		return istate;
+	}
+
+	public void setIstate(String istate) {
+		this.istate = istate;
+	}
+	
 }

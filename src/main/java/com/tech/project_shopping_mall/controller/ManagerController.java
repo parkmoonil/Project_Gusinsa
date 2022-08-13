@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tech.project_shopping_mall.dao.CSDao;
 import com.tech.project_shopping_mall.dto.CMDto;
@@ -303,24 +304,73 @@ public class ManagerController {
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 		
+		String mid="";
+		String mname="";
+		
+		String[] brdtitle=request.getParameterValues("searchType");
+		if(brdtitle!=null) {
+			for(int i=0;i<brdtitle.length;i++) {
+				System.out.println("brdtitle : "+brdtitle[i]);
+			}
+		}
+		
+		if (brdtitle!=null) {
+			for (String val : brdtitle) {
+				if (val.equals("mid")) {
+					model.addAttribute("smid","true");//검색체크유지
+					mid="mid";
+				}else if (val.equals("mname")) {
+					model.addAttribute("mname","true");//검색체크유지
+					mname="mname";
+				}
+			}
+		}	
+		
+		String si=request.getParameter("mid");
+		String sn=request.getParameter("mname");
+		
+		if(si!=null) {
+			if (si.equals("mid")) {
+				mid=si;
+				model.addAttribute("mid","true");//검색체크유지
+			}
+		}
+		if(sn!=null) {
+			if (sn.equals("mid")) {
+				mname=sn;
+				model.addAttribute("mname","true");//검색체크유지
+			}
+		}
+		
+		String searchKeyword=request.getParameter("sk");
+		if(searchKeyword==null)
+			searchKeyword="";
+		model.addAttribute("resk",searchKeyword);//***
+		System.out.println("searchkeyword : "+searchKeyword);
+		
+	
 		String strPage=request.getParameter("page");
-		System.out.println("pagggge: "+strPage);
 		
 		if(strPage==null)
 			strPage="1";
-		System.out.println("pagge2 : "+strPage);
+		
 		int page=Integer.parseInt(strPage);
 		searchVO.setPage(page);
 		
-		int total=dao.MembersBoardTotCount();
+		int total=0;
+		if (mid.equals("mid") && mname.equals("")) {
+			total=dao.MembersBoardTotCount1(searchKeyword);
+		}else if (mid.equals("") && mname.equals("mname")) {
+			total=dao.MembersBoardTotCount2(searchKeyword);
+		}else if (mid.equals("mid") && mname.equals("mname")) {
+			total=dao.MembersBoardTotCount3(searchKeyword);
+		}else if (mid.equals("") && mname.equals("")) {
+			total=dao.MembersBoardTotCount4(searchKeyword);
+		}
 		
-		System.out.println("totalrow : "+total);
 		searchVO.pageCalculate(total);
 		
-		int rowStart=searchVO.getRowStart();
-		int rowEnd=searchVO.getRowEnd();
-		
-		System.out.println("totPage : "+total);
+		System.out.println("totRow : "+total);
 		System.out.println("clickpage : "+strPage);
 		System.out.println("pageStart : "+searchVO.getPageStart());
 		System.out.println("pageEnd : "+searchVO.getPageEnd());
@@ -328,13 +378,65 @@ public class ManagerController {
 		System.out.println("rowStart : "+searchVO.getRowStart());
 		System.out.println("rowEnd : "+searchVO.getRowEnd());
 		
-		ArrayList<MembersDto> MMembers=dao.MMembers(rowStart, rowEnd);
-	
-		model.addAttribute("MMembers",MMembers);
+		int rowStart=searchVO.getRowStart();
+		int rowEnd=searchVO.getRowEnd();
+		
+		if (mid.equals("mid") && mname.equals("")) {
+			model.addAttribute("MMembers",dao.MMembers(rowStart,rowEnd,searchKeyword,"1")); 
+		}else if (mid.equals("") && mname.equals("mname")) {
+			model.addAttribute("MMembers",dao.MMembers(rowStart, rowEnd, searchKeyword, "2"));
+		}else if (mid.equals("mid") && mname.equals("mname")) {
+			model.addAttribute("MMembers",dao.MMembers(rowStart, rowEnd, searchKeyword, "3"));
+		}else if (mid.equals("") && mname.equals("")) {
+			model.addAttribute("MMembers",dao.MMembers(rowStart, rowEnd, searchKeyword, "4"));
+		}
+		
 		model.addAttribute("totRowcnt",total);
-		model.addAttribute("searchVO",searchVO);
-
+		model.addAttribute("searchVo",searchVO);
+		
 		return "CS/manager/manager_members";
 	}
+	
+	@RequestMapping("manager_membersdetails") 
+	 public String manager_membersdetails(HttpServletRequest request,
+			 Model model) { 
+		System.out.println("=====manager_membersdetails====");
+	  
+		String smno=request.getParameter("mno");
+		CSDao dao = sqlSession.getMapper(CSDao.class);
+		
+		MembersDto dto = dao.membersdetails(smno);
+		model.addAttribute("manager_members",dto );
+		
+		return "CS/manager/manager_membersdetails"; 
+	 	
+	 }
+	 
+	 @RequestMapping(method = RequestMethod.POST, value= "/mgrade")
+	 public String mgrade(HttpServletRequest request,
+			 Model model) {
+		 System.out.println("====mgrade====");
+		 
+		 String mno=request.getParameter("mno");
+		 String mgrade=request.getParameter("mgrade");
+		 System.out.println("mno  :"+mno);
+		 System.out.println("mgrade  :"+mgrade);
+		 
+		 CSDao dao = sqlSession.getMapper(CSDao.class);
+		 dao.mgrade(mno, mgrade);
+	
+		 return "redirect:manager_members";
+	 }
+	 
+	 @RequestMapping("membersdelete")
+		public String membersdelete(HttpServletRequest request, Model model) {
+			System.out.println("=====manager_delete====");
+
+			String smno = request.getParameter("mno");
+			CSDao dao = sqlSession.getMapper(CSDao.class);
+			dao.membersdelete(smno);
+			
+			return "redirect:manager_members";
+		}
 	
 }

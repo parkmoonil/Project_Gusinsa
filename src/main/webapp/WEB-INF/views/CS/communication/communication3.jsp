@@ -62,6 +62,7 @@ function checkSubmit() {
 	            </P> 
             </div>
             <form action="Commu_write" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit()">
+	            <input type="hidden" name="cstate" value="확인중" />
 	            <table class="commu_table">
 	                <tr>
 	                    <th>
@@ -183,6 +184,7 @@ function checkSubmit() {
 	        	<input class="commu_next_btn" type="submit" value="작성완료" />
            	 	<a href="communication2" class="commu_before_btn">이전</a>
     		</div>
+    		
     		</form>
         </div>
 </div>

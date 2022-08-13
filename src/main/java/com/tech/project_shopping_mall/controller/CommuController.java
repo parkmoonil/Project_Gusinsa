@@ -76,6 +76,7 @@ public class CommuController {
 		String ctitle=req.getParameter("ctitle"); 
 		String ccontent=req.getParameter("ccontent"); 
 		String cfile=req.getFilesystemName("cfile");
+		String cstate=req.getParameter("cstate");
 		
 		
 		System.out.println("filename : "+cfile);
@@ -85,7 +86,7 @@ public class CommuController {
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 
-		dao.Commu_write(cselect1, cselect2, cselect3, cselect4, ctitle, ccontent, cfile,mid);
+		dao.Commu_write(cselect1, cselect2, cselect3, cselect4, ctitle, ccontent, cfile, mid, cstate);
 
 		
 		return "redirect:communication4";

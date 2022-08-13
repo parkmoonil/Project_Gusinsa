@@ -12,12 +12,13 @@ public class CommuDto {
 	private String ccontent;
 	private String cfile;
 	private Date cdate;
+	private String cstate;
 	
 	public CommuDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CommuDto(String cnum,String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile,Date cdate) {
+	public CommuDto(String cnum,String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile,Date cdate,String cstate) {
 		this.cnum=cnum;
 		this.cselect1=cselect1;
 		this.cselect2=cselect2;
@@ -27,6 +28,7 @@ public class CommuDto {
 		this.ccontent=ccontent;
 		this.cfile=cfile;
 		this.cdate=cdate;
+		this.cstate=cstate;
 	}
 
 	public String getCnum() {
@@ -99,6 +101,14 @@ public class CommuDto {
 
 	public void setCdate(Date cdate) {
 		this.cdate = cdate;
+	}
+
+	public String getCstate() {
+		return cstate;
+	}
+
+	public void setCstate(String cstate) {
+		this.cstate = cstate;
 	}
 
 }

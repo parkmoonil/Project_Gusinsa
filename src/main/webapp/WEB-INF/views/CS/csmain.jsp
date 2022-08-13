@@ -64,7 +64,6 @@
 		</table>
     </div>
 </div>
-<a href="noticeboard">notice</a>
 <%@include file="../../../../resources/common/footer.jsp" %>
 </body>
 </html>

@@ -27,30 +27,37 @@
     <div class="cs_main_board">
         <div class="line"></div>
     	<h2>고객의 소리 문의내역</h2>
-        <table>
-			<tr>
-				<th class="mypagecs_header">분류</th>
-				<th class="mypagecs_title">제목</th>
-				<th>작성일자</th>
-			</tr>
-			<c:forEach items="${MypageCM}" var="dto2">
-						<tr class="Mytoggle" onclick="test(this)">
-					<td>
-						${dto2.cselect1}
-					</td>
-					<td>
-						${dto2.ctitle }
-					</td>
-					<td>
-						${dto2.cdate }
-					</td>
+       
+       <div>
+	       <table>
+				<tr>
+					<th class="mypagecs_header">분류</th>
+					<th class="mypagecs_title">제목</th>
+					<th class="mypagecs_state">문의상태</th>
+					<th>작성일자</th>
 				</tr>
-			 	<tr class="mypagecs_content" >
-	            	<td colspan="3"><pre>${dto2.ccontent }</pre></td>
-	            </tr>
-			</c:forEach>
-        </table>
-        	${totRowcnt }	
+				<c:forEach items="${MypageCM}" var="dto">
+							<tr class="Mytoggle" onclick="test(this)">
+						<td>
+							${dto.cselect1}
+						</td>
+						<td>
+							${dto.ctitle }
+						</td>
+						<td>
+							${dto.cstate }
+						</td>
+						<td>
+							${dto.cdate }
+						</td>
+					</tr>
+				 	<tr class="mypagecs_content" >
+		            	<td colspan="3"><pre>${dto.ccontent }</pre></td>
+		            </tr>
+				</c:forEach>
+	        </table>
+        </div>
+       	
 		<form action="MypageCM" method="post">
 			<c:if test="${searchVO.totPage>1 }">
 		     
