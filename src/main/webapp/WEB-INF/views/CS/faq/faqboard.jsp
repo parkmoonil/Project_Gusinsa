@@ -12,12 +12,12 @@
 </head>
 <body>
 <script>
-	function test(element) {
-		var test = element.nextElementSibling;
-		if (test.style.display == 'none') {
-			test.style = "display:table-row; *display:block";
+	function toggleswitch(element) {
+		var toggleswitch = element.nextElementSibling;
+		if (toggleswitch.style.display == 'none') {
+			toggleswitch.style = "display:table-row; *display:block"; // tr태그가 가지고 있는 display 속성의 기본 값이 table-row이다.
 		} else {
-			test.style.display = 'none';
+			toggleswitch.style.display = 'none';
 		}
 	}
 </script>
@@ -36,32 +36,30 @@
 	            <th class="faqboard_title">제목</th>
 	            <th class="faqboard_date">날짜</th>
 	        </tr>
-	        <c:forEach items="${faqboard }" var="dto2" begin="0" end="10">
+	        <c:forEach items="${faqboard }" var="dto" begin="0" end="10">
 	        
-	            <tr class="faqtoggle" onclick="test(this)" >
+	            <tr class="faqtoggle" onclick="toggleswitch(this)" >
 	                <td class="fheader">
-	                   	${dto2.fheader }
+	                   	${dto.fheader }
 	                </td>
-	                <td>${dto2.ftitle }</td>    
-	                <td>${dto2.fdate }</td> 
+	                <td>${dto.ftitle }</td>    
+	                <td>${dto.fdate }</td> 
 	            </tr>
 	            <tr class="faqcontent">
-	            	<td colspan="3" class="faqcontent2"><pre> ${dto2.fcontent }</pre>
-						<c:if test="${ mid eq 'pmi0213' }">	
-							<a href="faqdelete?fnum=${dto2.fnum}">삭제</a>
+	            	<td colspan="3" class="faqcontent2"><pre> ${dto.fcontent }</pre>
+						<c:if test="${ mid eq 'admin0001' }">	
+							<a href="faqdelete?fnum=${dto.fnum}">삭제</a>
 						</c:if>	
 	            	</td>
 	            </tr>
 	        </c:forEach>
 	    </table>
 	    <div class="write_button">
-	    	<c:if test="${ mid eq 'pmi0213' }">
-	        	<a href="faq_writeview"><button class="faqboard_button">글쓰기</button></a>
+	    	<c:if test="${ mid eq 'admin0001' }">
+	        	<a href="faq_writeview">글쓰기</a>
 	        </c:if>
 	    </div>
 	    
-	    <hr />
-		${totRowcnt }	
 		<form action="faqboard" method="post">
 			<c:if test="${searchVO.totPage>1 }">
 		      <c:if test="${searchVO.page>1}">

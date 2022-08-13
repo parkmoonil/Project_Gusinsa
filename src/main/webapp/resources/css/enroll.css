@@ -1,0 +1,31 @@
+.enroll_title {
+	border-bottom: 3px solid #000;
+	padding-bottom: 30px;
+	
+}
+
+.enrollwrite th {
+	width: 40%;
+	height: 40px;
+	border-bottom: none;
+}
+
+.enrollwrite td {
+	height: 40px;
+}
+
+.enroll_btn {
+	text-align: right;
+}
+
+enrollwrite input {
+	border-color: #e5e5e5;	
+	font-size: 18px;	
+	padding-left: 8px;
+	width: 200px;
+	height: 60px;
+}
+.enroll_class{
+	height: 21px;
+	width: 90px;
+}

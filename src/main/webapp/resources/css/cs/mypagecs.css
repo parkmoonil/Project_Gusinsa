@@ -1,0 +1,27 @@
+.Mytoggle:hover{
+	background-color: #f5f5f5;
+	font-weight: bold;
+}
+.mypagecs_header {
+	width: 17%;
+	
+}
+.mypagecs_title {
+	width: 50%
+}
+.mypagecs_content {
+	/* padding-left: 200px; */
+	display:none;
+}
+
+.mypagecs_state {
+	width: 20%
+}
+
+pre { 
+/* white-space: -moz-pre-wrap;   */
+/* white-space: -pre-wrap; Opera  */
+/* white-space: -o-pre-wrap Opera  */
+white-space: pre-wrap;  
+word-wrap: break-word; /* IE 5.5+ */ 
+}

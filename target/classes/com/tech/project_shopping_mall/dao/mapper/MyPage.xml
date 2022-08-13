@@ -27,13 +27,9 @@
 		SELECT COUNT(*) FROM ORDERINFO WHERE MID = #{param1}
 </select>
 
-
 <select  id="Inqlist_Count_total" resultType="Integer">
 		SELECT COUNT(*) FROM INQUIRYBOARD WHERE FK_MID = #{param1}
 </select>
-
-
-
 
 <select id="MypageIM" resultType="com.tech.project_shopping_mall.dto.IMDto">
 	SELECT * FROM
@@ -53,6 +49,12 @@
 	SELECT COUNT(*) 
 	FROM INQUIRYMEMBERS
 	WHERE MID=#{param1}
+</select>
+
+<select id="MypageCMBoardTotCount" resultType="Integer">
+	SELECT COUNT(*)
+	 FROM COMMUMEMBERS
+	 WHERE MID=#{param1}
 </select>
 
 

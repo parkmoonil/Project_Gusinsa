@@ -33,6 +33,14 @@
 					<td>${manager_commu.mname}</td>
 				</tr>
 				<tr>
+					<th>제목</th>
+					<td>${manager_commu.ctitle}</td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td>${manager_commu.ccontent}</td>
+				</tr>
+				<tr>
 					<th>핸드폰</th>
 					<td>${manager_commu.mphone}</td>
 				</tr>
@@ -57,18 +65,23 @@
 					<td>${manager_commu.cselect4}</td>
 				</tr>
 				<tr>
-					<th>제목</th>
-					<td>${manager_commu.ctitle}</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td>${manager_commu.ccontent}</td>
-				</tr>
-				<tr>
 					<th>첨부파일</th>
 					<td><a href="Commudownload?p=resources/upload/&c=${manager_commu.cfile}
 							">${manager_commu.cfile}</a></td>
 				</tr>
+				<tr>
+					<th>상태</th>
+					<td>
+						<form action="cstate" method="post">
+							<input type="hidden" name="cnum" value="${manager_commu.cnum}"/>
+								<select name="cstate">
+									<option value="확인중">확인중</option>
+									<option value="답변완료">답변완료</option>
+								</select>
+							<input type="submit" value="저장" />
+						</form>
+					</td>	
+				</tr>		
 			</table>
 				<div class="page_align">
 					<a href="manager_commu">목록보기</a> &nbsp;&nbsp;

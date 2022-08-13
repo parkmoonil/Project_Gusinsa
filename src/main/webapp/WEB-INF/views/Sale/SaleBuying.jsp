@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +104,7 @@
         margin: 0 0 20px;
         line-height: 1.5;}
     .main {
-        min-width: 320px;
+        min-width: 500px;
         max-width: 800px;
         padding: 50px;
         background: #ffffff;
@@ -140,15 +142,11 @@
         display: block;}
     .content2{
         font-weight: bold;
-        font-size: 500%;
+        font-size: 100%;
     }
     .content3{
         font-weight: bold;
-        font-size: 500%;
-    }
-    .content4{
-        font-weight: bold;
-        font-size: 500%;
+        font-size: 100%;
     }
     .btn1{
         color: black;
@@ -258,10 +256,10 @@ function move() {
     <br>
     <hr>
     <br>
-    
+<!--     
     <div class="div1">
         <a href="" class="a1">수납/생활</a> > <a href="" class="a1">생활용품/문구</a> > <a href="" class="a1">원목선반/테이블/의자</a>
-    </div>
+    </div> -->
     <div class="div2">
         <figure>
             <h1>${indto.p_name }</h1>
@@ -308,9 +306,7 @@ function move() {
                     
                      </select>
                     </tr>	
-					
-					
-					
+				
                     <tr>
                         <td class="td2">단품 <br>
                            <form class="form1">47,900원</form>
@@ -322,20 +318,12 @@ function move() {
 								수량 : <input type=hidden id = "sell_price" name="sell_price" value="${indto.p_price }">
                             </form> 
                             <br>
-                            
-                          
                         </td>
-                        
                     </tr>
-           
-                    
-                    
-                </table>
+            </table>
             </figcaption>
             <br>
-            
-
-            <figcaption>
+          <figcaption>
                 <button type="button" class="btn1"> <a href="SaleCart" class="Ja1">장바구니</a> </button>
                 <button type="button" class="btn2" onclick="move()" >구매하기</button>
             </figcaption>
@@ -350,10 +338,7 @@ function move() {
         <label for="tab2">상품리뷰</label>
     
         <input id="tab3" type="radio" name="tabs">
-        <label for="tab3">Q&A</label>
-    
-        <input id="tab4" type="radio" name="tabs">
-        <label for="tab4">배송/교환/환불안내</label>
+        <label for="tab3">배송/교환/환불안내</label>
     
         <section id="content1">
             <p>
@@ -364,23 +349,176 @@ function move() {
         </section>
     
         <section id="content2" class="content2">
-            <p>코코로오 오모야세 !</p>
+        
+        <!-- 여기서 부터 리뷰 붙여봄  -->
+        <style>	
+        
+        .star-rating {
+  position:relative;
+  left:300px;
+  border:solid 1px #ccc;
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0.2em;
+  text-align:center;
+  width:2em;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
+}
+        div.restar-box{
+			width:300px;
+			height: 80px;
+			border: 2px solid gray;
+			text-align: center;
+			}
+		
+		div.restar-total{
+			font-size: 30px;
+			font-wight: bold;
+			}
+		        
+        
+        .header{border:solid 0px orange; 
+   				background-color:white; 
+   				color:black; 
+   				font-weight:bold; 
+   				text-align:center;
+   				width:160px;}	
+   		.content{border:solid 0px aqua; 
+    				background-color:white; 
+    				color:black;  
+    				text-align:center;
+    				width:800px; 
+    				height:120px; 
+    				padding:5 5 5 5;	
+    				display:none;	}
+    </style>
+    <script src='http://code.jquery.com/jquery.js'></script>
+    <script type="text/javascript">	
+    
+    $(document).ready(function(){
+    	/** 초기화 처리*/
+    	// 첫 번재 항목이 펼쳐져 있도록 처리
+	    $("#acco1:eq(0)").addClass("selected"); //첫번째 항목만 selected 클래스를 적용
+	    $("#acco1").not(":eq(0)").find(".content").hide();//첫번째 항목 이외의 content를 숨김
+	    /** 링크에 대한 클릭 이벤트 처리 */    
+	    $("#acco1 .header").click(function(){	
+			    $(this).toggleClass("selected");
+			  //클릭된 나 자신을 제외한 나머리 링크들은 slected 클래스를 무조건 제거
+			    $("#acco1 .header").not(this).removeClass("selected"); 
+			 // 펼칠 내용 영역 선택
+			var target = $(this).parents("#acco1").find(".content");
+		 // 나머지 내용 영역을 선택
+		var other = $("#acco1 .header").not(this)
+					.parents("#acco1").find(".content");
+		  // 애니메이션으로 열고 닫기 처리 	
+		target.slideToggle(300);
+	     	other.slideUp(300);
+	        // 링크 페이지 이동 중지
+	     	return false;
+		    });
+		});
+	    	
+	</script>
+	
+	
+<!-- 	    <h4>상품리뷰</h4> -->
+            <div class="restar-box">
+                <div class="restar-total">${avg }</div>
+                    <div class="restar-total-content1">최고 5점</div>
+                        <div class="restar-total-content2">${totRowcnt }개 평가</div>
+            </div>
+
+	<c:forEach items="${review_list }" var="dto">
+		<div>
+			<span>${dto.mid }   
+			</span>
+			<span>
+				<c:if test="${dto.r_starpoint==1 }">
+				★☆☆☆☆
+				</c:if>
+				<c:if test="${dto.r_starpoint==2 }">
+				★★☆☆☆
+				</c:if>
+				<c:if test="${dto.r_starpoint==3 }">
+				★★★☆☆
+				</c:if>
+				<c:if test="${dto.r_starpoint==4 }">
+				★★★★☆
+				</c:if>
+				<c:if test="${dto.r_starpoint==5 }">
+				★★★★★
+				</c:if>
+			</span>	
+			<span><input type="hidden" name="r_num" value="${dto.r_num}"></span>
+			<span style="float:right;"><fmt:formatDate value="${dto.r_date}" pattern = "yyyy.MM.dd"/></span>
+		
+			<span><input type="hidden" name="r_hit" value="${dto.r_hit }"></span>
+			<div id='acco1'>
+				<div class="header">${dto.r_title }</div>
+				<div class="content">${dto.r_contents } <br/>
+</div>
+			</div>
+			<span><input type="hidden" name="o_code" value="${dto.o_code}"></span>
+		</div>
+	</c:forEach>
+			
+
+<div style="text-align:center" >
+<form action="review_list" method="post">
+	<c:if test="${researchVO.totPage>1 }"> <!-- 토탈 페이지가 1보다 크면 -->
+		<c:if test="${researchVO.page>1 }">
+			<a href="review_list?page=1">&lt;&lt;</a>
+			<a href="review_list?page=${researchVO.page-1 }">&lt;</a>
+		</c:if>
+	<c:forEach begin="${researchVO.pageStart }" end="${researchVO.pageEnd }" var="i">
+		<c:choose>
+			<c:when test="${i eq researchVO.page }">  <!-- i eq searchVO.page 내가 클릭한 페이지가 같을 때 -->
+				<span style="color: black; font-weight: bold;">${i }&nbsp;</span>
+			</c:when>
+			<c:otherwise>
+				<a href="review_list?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+		<c:if test="${researchVO.totPage>researchVO.page }"> <!-- 마지막 페이지가 아닐때 -->
+			<a href="review_list?page=${researchVO.page+1 }">&gt;</a>
+			<a href="review_list?page=${researchVO.totPage }">&gt;&gt;</a>
+		</c:if>
+	</c:if>
+
+</form>
+</div>
         </section>
     
         <section id="content3" class="content3">
-            <p>Q: 제품이름 <br>
-                A: 렌고쿠
+            <p>
+            	<img src="resources/img/deli.png" alt="배송정보" width="800" height="400" /><br>
+                <img src="resources/img/exc.png" alt="교환환불" width="800" height="800" />
             </p>
         </section>
+      </div>
     
-        <section id="content4" class="content4">
-            <p>젠이츠로 바꿔주세요~</p>
-        </section>
-    
-    </div>
-    
-    <div class="div5">
-        <figure>
+    <!-- <div class="div5"> -->
+<%--         <figure>
             <figcaption class="figcap3">제품정보</figcaption>
             <table border="" class="tb2">
                 <tr>
@@ -400,8 +538,8 @@ function move() {
                     <td>${indto.p_class }</td>
                 </tr>
             </table>
-        </figure>
-    </div>
+        </figure> --%>
+    <!-- </div> -->
     
     <hr>
     <%@include file="../../../../resources/common/footer.jsp" %>

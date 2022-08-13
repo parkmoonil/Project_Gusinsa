@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Manager_Members Page</title>
 <link rel="stylesheet" href="resources/css/cs/manager.css" />
+<link rel="stylesheet" href="resources/css/cs/manager2.css" />
 <link rel="stylesheet" href="resources/css/cs/board.css" />
 </head>
 <body>
@@ -33,8 +34,8 @@
 				</tr>
 				<tr>	
 					<c:forEach items="${MMembers }" var="dto">
-						<tr>
-							<td>${dto.mid }</td>
+						<tr onClick="location.href='manager_membersdetails?mno=${dto.mno}'">
+							<td>${dto.mno }</td>
 							<td>${dto.mid }</td>
 						
 							<td>${dto.mgender }</td>
@@ -69,6 +70,29 @@
 				      <a href="manager_members?page=${searchVO.totPage }">[마지막]</a>
 				    </c:if>
    				</c:if>
+   				
+   				<div>
+					<c:choose>
+						<c:when test="${mid }">
+							<input type="checkbox" name="searchType" value="mid" checked="checked" />				
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="searchType" value="mid" checked="checked"/>	
+						</c:otherwise>
+					</c:choose>
+					아이디
+					<c:choose>
+						<c:when test="${mname }">
+							<input type="checkbox" name="searchType" value="mname" checked="checked" />	
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="searchType" value="mname" checked="checked"/>	
+						</c:otherwise>
+					</c:choose>
+					 이름
+					<input type="text" name="sk" style="width:150px;" maxlength="50" value="" />
+					<input type="submit" value="검색" />
+				</div>
 			</form>
 		</div>
 	</div> 

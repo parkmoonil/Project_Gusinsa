@@ -29,7 +29,7 @@
 					</tr>
 				</table>
 			<a href="noticeboard">목록</a> &nbsp;&nbsp;
-			<c:if test="${ mid eq 'pmi0213' }"> 
+			<c:if test="${ mid eq 'admin0001' }"> 
 				<input type="submit" value="수정"/> &nbsp;&nbsp;
 				<a href="delete?nnum=${content_view.nnum}">삭제</a> &nbsp;&nbsp;
 			</c:if>

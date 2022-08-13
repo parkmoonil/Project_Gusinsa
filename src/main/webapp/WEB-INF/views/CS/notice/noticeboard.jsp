@@ -40,7 +40,7 @@
 			</c:forEach>
 		</table>
 		<div class="write_button"> 
-			<c:if test="${ mid eq 'pmi0213' }"> 
+			<c:if test="${ mid eq 'admin0001' }"> 
 				<a href="write_view">글쓰기</a>
 			</c:if>
 		</div>

@@ -12,6 +12,7 @@ public class Cartdto{
 	private int p_price;
 	private int money;
 	private int amount;
+	private String p_img;
 
 	
 	public int getCart_id() {
@@ -61,6 +62,12 @@ public class Cartdto{
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	public String getP_img() {
+		return p_img;
+	}
+	public void setP_img(String p_img) {
+		this.p_img = p_img;
 	}
 	
 	

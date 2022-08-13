@@ -49,7 +49,9 @@ SELECT COUNT(*) FROM PINFO WHERE P_NAME LIKE '%'||#{param1}||'%' OR P_CLASS LIKE
 <select  id="search_prouct_detail" resultType = "com.tech.project_shopping_mall.dto.Infodto">
 SELECT P_CODE, P_NAME, P_PRICE, P_CLASS, P_GENDER,P_IMG, DATA,P_IMG2,P_IMG3,P_IMG4,P_IMG5, BRAND, BUYCOUNT, P_CATEGORY FROM PINFO WHERE P_CODE = #{param1}
 </select>
-
+<select  id="storage" resultType = "com.tech.project_shopping_mall.dto.StorageDto">
+SELECT P_CODE, P_SIZE, P_COLOR FROM STORAGE WHERE P_CODE = #{param1}
+</select>
 <select  id="recent_products" resultType = "com.tech.project_shopping_mall.dto.Infodto">
 SELECT  * FROM  ( SELECT *  FROM PINFO ORDER BY DATA DESC ) <![CDATA[WHERE ROWNUM <= 4]]>
 </select>

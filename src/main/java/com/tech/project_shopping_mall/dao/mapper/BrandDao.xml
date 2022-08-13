@@ -152,23 +152,71 @@
 			ORDER BY BRAND_TITLE
 		</select> -->
 	
+	<select id="Pricelistdesc" resultType="com.tech.project_shopping_mall.dto.Infodto">	
+		<!-- SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_PRICE DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2}  -->
+		
+		SELECT P_CODE, P_NAME,P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_PRICE DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		
+		<!-- SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_PRICE DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2}  --> 
+		<!-- //높은 가격순 -->
+	</select>
+	<select id="Pricelistasc" resultType="com.tech.project_shopping_mall.dto.Infodto">	
+		<!-- SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_PRICE ASC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} -->
+		
+		SELECT P_CODE, P_NAME,P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY P_PRICE ASC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2}
+		 <!-- //낮은 가격순 -->
+	</select>
+	<select id="datedesc" resultType="com.tech.project_shopping_mall.dto.Infodto">	
+		<!-- SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} --> 
+		
+		SELECT P_CODE, P_NAME,P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+		 <!-- //신상품순 -->
+	</select>
+
 	<select id="brand" resultType="com.tech.project_shopping_mall.dto.BrandDto">
 		SELECT BRAND_NAME FROM BRAND WHERE BRAND_ID=#{param1 }
 	</select>
 
 	<select id="brand1" resultType="com.tech.project_shopping_mall.dto.Infodto">
-		SELECT P_CODE, OCODE, P_NAME,P_PRICE, P_GENDER, P_IMG, DATA FROM 
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
 		(SELECT ROWNUM NUM,N.* FROM 
 		(SELECT * FROM PINFO ORDER BY DATA DESC) N)
 		WHERE NUM BETWEEN #{param1} AND #{param2} 
 	</select>
-	<select id="brandselectBoardTotCount" resultType="Integer">
+	<select id="selectBoardTotCount" resultType="Integer">
 		SELECT COUNT(*) FROM PINFO
 	</select>
 	
-	<select id="findLike" resultType="int">
-		SELECT COUNT(*) FROM BRAND_LIKE
-		WHERE BRAND_NO = #{BRAND_NO} AND USER_NO = #{USER_NO}
-	</select>
+	<insert id="product_enrollwrite">
+	 	INSERT INTO PINFO(P_CODE, P_NAME, P_PRICE, P_CLASS, P_GENDER, P_IMG, DATA, P_IMG2, P_IMG3, P_IMG4, P_IMG5, BRAND, P_CATEGORY)
+	 	VALUES(PINFO_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4},
+	 	#{param5}, SYSDATE, #{param6}, #{param7}, #{param8}, #{param9},
+	 	#{param10}, #{param11})
+	</insert>
+		
+	<delete id="product_delete">
+		DELETE FROM PINFO WHERE P_CODE=#{param1}
+	</delete>
 
 </mapper>

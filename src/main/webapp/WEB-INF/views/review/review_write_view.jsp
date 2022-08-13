@@ -12,7 +12,8 @@
     
 </head>
 <body>
-<h3>리뷰 폼</h3>
+<%@include file="../../../../resources/common/header.jsp" %> 
+<h3>리뷰 작성하기</h3>
 <form action="review_write" method="post" enctype="multipart/form-data">
 
 <table>
@@ -57,11 +58,13 @@
 		<input type="hidden" name="o_code" id="o_code" value="${o_code }"/></td>
 		<td colspan="2">
 			<input type="submit" value="리뷰등록" />
-			<a href="review_list">리뷰목록</a>
 		</td>
 	</tr>
 </table>
 </form>
+<footer>
+<%@include file="../../../../resources/common/footer.jsp" %>
+</footer>
 
 </body>
 </html>

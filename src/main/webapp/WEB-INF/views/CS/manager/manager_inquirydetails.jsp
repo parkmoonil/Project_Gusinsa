@@ -32,6 +32,14 @@
 					<th>이름</th>
 					<td>${manager_inquiry.mname}</td>
 				</tr>
+					<tr>
+					<th>제목</th>
+					<td>${manager_inquiry.ititle}</td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td>${manager_inquiry.icontent}</td>
+				</tr>
 				<tr>
 					<th>핸드폰</th>
 					<td>${manager_inquiry.mphone}</td>
@@ -45,17 +53,22 @@
 					<td>${manager_inquiry.iselect1}</td>
 				</tr>
 				<tr>
-					<th>제목</th>
-					<td>${manager_inquiry.ititle}</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td>${manager_inquiry.icontent}</td>
-				</tr>
-				<tr>
 					<th>첨부파일</th>
 					<td><a href="Inquirydownload?p=resources/upload/&i=${manager_inquiry.ifile}
 							">${manager_inquiry.ifile}</a></td>
+				</tr>
+					<tr>
+					<th>상태</th>
+					<td>
+						<form action="istate" method="post">
+							<input type="hidden" name="inum" value="${manager_inquiry.inum}"/>
+								<select name="istate">
+									<option value="확인중">확인중</option>
+									<option value="답변완료">답변완료</option>
+								</select>
+							<input type="submit" value="저장" />
+						</form>
+					</td>	
 				</tr>
 			</table>
 			<div class="page_align">

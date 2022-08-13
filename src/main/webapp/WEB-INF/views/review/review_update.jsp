@@ -10,21 +10,23 @@
 <link rel="stylesheet" href="resources/css/nstyle.css" />
 </head>
 <body>
-<h3>review_update</h3>
-<form action="review_modify" method="post">
-<input type="hidden" name="r_num" value="${review_view.r_num }" />
+<%@include file="../../../../resources/common/header.jsp" %> 
+<h3>리뷰 수정하기</h3>
+<form action="review_modify" method="post" enctype="multipart/form-data">
+<input type="hidden" name="o_code" value="${o_code }" />
+
 <table>
-	<tr>
-		<td class="left">번호</td>
-		<td>${review_view.r_num }</td>
+ 	<tr>
+		<td class="left">리뷰번호</td>
+		<td><input type="number" name="r_num" id="r_num" value="${r_num }" /></td>
 	</tr>
-	<tr>
-		<td class="left">히트</td>
-		<td>${review_view.r_hit }</td>
+ 	<tr>
+		<td class="left">상품</td>
+		<td><input type="number" name="pcode" id="pcode" value="${p_code }" /></td>
 	</tr>
 	<tr>
 		<td class="left">아이디</td>
-		<td>${review_view.mid }
+		<td><input type="text" name="mid" id ="mid" value="${mid }" />
 		</td>
 	</tr>
 	<tr>
@@ -45,26 +47,27 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="left">제목</td>
-		<td>
-			<input type="text" name="r_title" size="30" value="${review_view.r_title }" />
-		</td>
+		<td class="left">리뷰제목</td>
+		<td><input type="text" name="r_title" id="r_title" value="${r_title }" /></td>
 	</tr>
 	<tr>
-		<td class="left">내용</td>
-		<td>
-			<textarea type="text" name="r_contents" rows="10" cols="50">${review_view.r_contents }</textarea>
-		</td>
+		<td class="left">리뷰내용</td>
+		<td><textarea type="text" name="r_contents" id="r_contents" rows="10" >${r_contents }</textarea></td>
 	</tr>
+		<tr>
+		<td class="left">사진</td>
+		<td><input type="file" name="r_img" value="${fname }"  /></td>
 	<tr>
 		<td colspan="2">
-			<input type="submit" value="review_modify" /> &nbsp;&nbsp;
-			<a href="review_list">목록보기</a> &nbsp;&nbsp;	
+			<input type="submit" value="modify" /> &nbsp;&nbsp;
+			<a href="mypage/mypage_written_review">목록보기</a> &nbsp;&nbsp;	
 		</td>
 	</tr>
-	
 </table>
 </form>
+<footer>
+<%@include file="../../../../resources/common/footer.jsp" %>
+</footer>
 
 </body>
 </html>
