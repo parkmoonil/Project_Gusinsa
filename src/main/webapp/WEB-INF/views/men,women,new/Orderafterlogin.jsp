@@ -6,30 +6,61 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+  <link rel="stylesheet" href="resources/css/Orderafterlogin.css">
 </head>
 <body>
-  <link rel="stylesheet" href="resources/css/Orderafterlogin.css">
   <%@include file="../../../../resources/common/header.jsp" %> 
    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#cbx_chkAll").click(function() {
-				if($("#cbx_chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
-				else $("input[name=chk]").prop("checked", false);
-			});
-			
-			$("input[name=chk]").click(function() {
-				var total = $("input[name=chk]").length;
-				var checked = $("input[name=chk]:checked").length;
-				
-				if(total != checked) $("#cbx_chkAll").prop("checked", false);
-				else $("#cbx_chkAll").prop("checked", true); 
-			});
-		});
+	 function selectAll(selectAll)  {
+	        const checkboxes 
+	             = document.getElementsByName('chk');
+	        
+	        checkboxes.forEach((checkbox) => {
+	          checkbox.checked = selectAll.checked;
+	        })
+	      };
 
         function showPopup() { window.open("agreement.html", "a", "width=400, height=300, left=100, top=50"); }
         function showPopup2() { window.open("agreement2.html", "a", "width=400, height=300, left=100, top=50"); }
         function showPopup3() { window.open("08_2_popup.html", "a", "width=400, height=300, left=100, top=50"); }
+        
+        function essential() {
+        	let mname = document.getElementById("mname").value;
+        	let mphone = document.getElementById("mphone").value;
+        	let n_addr1 = document.getElementById("sample6_postcode").value;
+        	let n_addr4 = document.getElementById("sample6_detailAddress").value;
+        	
+        	
+
+        	if (mname=="") {
+				/* alert('이름을 입력해주세요');  */
+				console.log("이름 없음");
+				document.getElementById("mname").focus();
+				 return false;
+			} else if(mphone==""){
+				/* alert('이름을 입력해주세요');  */
+				console.log("번호1 없음");
+				document.getElementById("mphone").focus();
+				 return false;
+        
+			}
+			 else if(n_addr1==""){
+				   
+				console.log("주소1 없음");
+				document.getElementById("sample6_postcode").focus();
+				 return false;
+			}
+			 else if(n_addr4==""){
+				   
+				console.log("주소4 없음");
+				document.getElementById("sample6_detailAddress").focus();
+				 return false;
+			}
+        	else {
+				return true;
+			}
+        }
 	</script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
@@ -81,7 +112,7 @@
 function move() {
       	let amount = document.getElementById("amount").value;
        	let sumprice = document.getElementById("sumprice").value;
-       	
+       	/* let o_quest = document.getElementById("o_quest").value; */
        	let sum = sell_price * amount;
         
         	// 스페이스바 주의 null값 우려
@@ -92,7 +123,7 @@ function move() {
         </script>
     </script>
  
-<form action="pay" method="post">
+<form action="pay" method="post"  onsubmit="return essential();">
     <div class="ship_top" style="float: left; margin-left: 100px;">
      
     <h2 class="infoput" >배송지정보 </h2> 
@@ -102,7 +133,7 @@ function move() {
     <div>
         <ul>
             <li id="customer_info"><strong class="userInfo__title vaT">이름 <span class="ask">*</span></strong>
-            <input type="text" name="mname" style="margin-left: 90px;" class="input__text name noMember_shp_nm" value="${Orderafterlogin.mname }">
+            <input type="text" name="mname" id="mname" style="margin-left: 90px;" class="input__text name noMember_shp_nm" value="${Orderafterlogin.mname }">
             </li>
             <div class="userInfo__cont" id="customer_info" >
             <li><strong class="userInfo__title vaT">주소 <span class="ask">*</span></strong>
@@ -113,7 +144,7 @@ function move() {
             <input type="text" name="maddr_four" style="margin-left: 140px;"  id="sample6_detailAddress" class="input__text address noMember_address_2" value="${Orderafterlogin.maddr_four }" maxlength="30">        </div>
         </li>
             <li id="customer_info"><strong class="userInfo__title vaT">휴대폰번호 <span class="ask">*</span></strong>
-                   <input type="text" name="mphone" value="${Orderafterlogin.mphone }" class="input__text phone noMember_order_hp_second" maxlength="4" onkeypress="infoinputController.fn.fnInNumber()" style="width:300px ">
+                   <input type="text" name="mphone" id="mphone" value="${Orderafterlogin.mphone }" class="input__text phone noMember_order_hp_second" maxlength="4" onkeypress="infoinputController.fn.fnInNumber()" style="width:300px ">
             </li>
             <li class="userInfo__list line">
                 <strong class="userInfo__title">배송요청사항</strong>
@@ -121,7 +152,7 @@ function move() {
                     <div class="dlvInfo">
                         <div class="select-area">
                           
-                            <input type="text" id="noShippingMsg" class="userInput no_all_msg" placeholder="배송요청사항을 입력해 주세요. (최대 30자 이내)" maxlength="30" style="display: inline-block;">
+                            <input type="text"  name="o_quest"  id="o_quest" class="userInput no_all_msg" placeholder="배송요청사항을 입력해 주세요. (최대 30자 이내)" maxlength="30" value="cj" style="display: inline-block;"/>
                         </div>
                     </div>
                    
@@ -150,7 +181,8 @@ function move() {
                         </p>
                         <div class="cart__table__option">
                             <ul>
-                                <li>${indto.p_class }</li>
+                                <li>색상 : ${strgdto.p_color }</li>
+                                <li>사이즈 : ${strgdto.p_size }</li>
                             </ul>
                         </div>
                        
@@ -211,47 +243,52 @@ function move() {
             </div>
            
         </div>
-         <div class="paymentAgree" style="display: block;">
-            <div class="paymentAgree_top">
-                <p>구매동의 및 결제대행 서비스 이용약관 등에 모두 동의 하십니까?</p>
-                <table>
-                        <tr>
-                            <th><input type="checkbox" id="cbx_chkAll" /><label for="checker5"></label></th>
-                            <th class="fb__custom-checkbox" style="color: black;">모든 약관 동의</th>
-                        </tr>	
-                  
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="chk"><label for="checker6"></label></td>
-                            <td class="fb__custom-checkbox">전자금융거래 약관</td>
-                            <th><a href="" class="btn__contents" onclick="showPopup();">내용보기</a></th>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="chk"><label for="checker7"></label></td>
-                            <td class="fb__custom-checkbox">개인정보 수집, 이용동의</td>
-                            <th><a href="" class="btn__contents " onclick="showPopup2();">내용보기</a></th>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="chk"><label for="checker8"></label></td>
-                            <td class="fb__custom-checkbox">개인정보 위탁동의</td>
-                            <th><a href="" class="btn__contents" onclick="showPopup3();">내용보기</a></th>
-                        </tr>
-                    </tbody>
-                </table>
-               
-            </div>
-            <div style="position: relative; right: 100px; top: 20px;" >
-                <a href="pay?p_name=${indto.p_name }&p_code=${indto.p_code }&amount=${amount }&sumprice=${sumprice}&sumsping=${sumsping}&maddr_one=${members.maddr_one}&maddr_two=${members.maddr_two}&maddr_three=${members.maddr_three}&maddr_four=${members.maddr_four}&mphone=${members.mphone}&p_img=${indto.p_img }" class="btn-black2" id = "payBtn">결제하기</a>
-                
+        <div class="paymentAgree" style="display: block;">
+        <div class="paymentAgree_top">
+            <p>구매동의 및 결제대행 서비스 이용약관 등에 모두 동의 하십니까?</p>
+            <table>
+                    <tr>
+                        <th><input type="checkbox" id="cbx_chkAll" value='selectall'  name="chk" onclick="selectAll(this)"/><label for="checker5"></label></th>
+                        <th class="fb__custom-checkbox" style="color: black;">모든 약관 동의</th>
+                    </tr>	
+              
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" name="chk"><label for="checker6"></label></td>
+                        <td class="fb__custom-checkbox">전자금융거래 약관</td>
+                        <th><a href="" class="btn__contents" onclick="showPopup();">내용보기</a></th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="chk"><label for="checker7"></label></td>
+                        <td class="fb__custom-checkbox">개인정보 수집, 이용동의</td>
+                        <th><a href="" class="btn__contents " onclick="showPopup2();">내용보기</a></th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="chk"><label for="checker8"></label></td>
+                        <td class="fb__custom-checkbox">개인정보 위탁동의</td>
+                        <th><a href="" class="btn__contents" onclick="showPopup3();">내용보기</a></th>
+                    </tr>
+                </tbody>
+            </table>
+           
+        </div>
+            <div style="position: relative; right: 100px; top: 20px;"  >
+
+               <input type="submit" value="결제" onclick="essential()"  class="btn-black2"  id = "payBtn"/>
             </div>
          </div>
          
     </div>
-    </form>
      <input type="hidden" name="sumprice" id="sumprice" size="11" value="${sumprice }" readonly>
     <input type="hidden" name="sumsping" id="sumsping" size="11" value="${sumsping }" readonly>
     <input type="hidden" name="amount" id="amount" size="11" value="${amount }" readonly>
-    <input type="hidden" name="p_name" id="p_name" size="11" value="${p_name }" readonly>
+    <input type="hidden" name="p_name" id="p_name" size="11" value="${indto.p_name }" readonly>
+    <input type="hidden" name="p_code" id="p_code" size="11" value="${indto.p_code }" readonly>
+    <input type="hidden" name="p_img" id="p_img" size="11" value="${indto.p_img }" readonly>
+    <input type="hidden" name="p_color" id="p_color" size="11" value=" ${strgdto.p_color }" readonly>
+    <input type="hidden" name="p_size" id="p_size" size="11" value=" ${strgdto.p_size }" readonly>
+    
+    </form>
    <%--  <input type="hidden" name="p_name" id="p_code" size="11" value="${p_code }" readonly>
  --%>
       <!--   <div id='wrap'>

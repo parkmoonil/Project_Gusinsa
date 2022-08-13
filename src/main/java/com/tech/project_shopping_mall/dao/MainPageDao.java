@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.tech.project_shopping_mall.dto.Infodto;
 import com.tech.project_shopping_mall.dto.MainPageSearchDto;
 import com.tech.project_shopping_mall.dto.MainPageSearch_ProductsDto;
+import com.tech.project_shopping_mall.dto.StorageDto;
 
 public interface MainPageDao {
 	// 검색해서 다시 받아오는게 2개 이상이라 리스트 형태로 받아야함
@@ -27,7 +28,7 @@ public interface MainPageDao {
 	
 	
 	public Infodto search_prouct_detail(int pcode);
-
+	public StorageDto storage(int pcode);
 
 
 	

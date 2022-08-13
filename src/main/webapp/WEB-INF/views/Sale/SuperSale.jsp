@@ -242,15 +242,29 @@ document.getElementById("my_sum").innerHTML=sum_;
 function move() {
 	let amount = document.getElementById("amount").value;
 	let sell_price = document.getElementById("sell_price").value;
-	
+	let mid = '<%=(String)session.getAttribute("mid")%>';
 	let sum = sell_price * amount;
     let sping = 2500;
     
     if (sum > 50000){
     	sping = 0;
     }
+    
     let sumsping= sum+sping;
+    
+    
+   if (mid=='null') {
+		location.href ="Orderbeforelogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping; 
+	}  
+	else{
+		location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping;	
+	}
+    
+    
+    
+    
 	// 스페이스바 주의 null값 우려
+<<<<<<< HEAD:src/main/webapp/WEB-INF/views/Sale/SuperSale.jsp
 	location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping; 
 
 }
@@ -267,6 +281,11 @@ function cart() {
 }
 
 
+=======
+	 
+	
+}	
+>>>>>>> 293c7006d117e00b603f506924509cf765592859:src/main/webapp/WEB-INF/views/Sale/SaleBuying.jsp
 </script>
     <br>
     <hr>
@@ -284,11 +303,11 @@ function cart() {
     <div class="div3">
         <figure>
             <img src="${indto.p_img }" id="image1" 
-            width="800" height="550" style="border: 1px solid #ccc;">
+            width="600" height="550" style="border: 1px solid #ccc;">
             <figcaption> </figcaption>
         </figure>
     </div>
-    <div class="div4">
+    <div class="div4" style="position: relative; left: 200px">
         <figure class="fig1">
             <h2 class="h2-1">41%</h2>
             <figcaption class="figcap1"> ${indto.p_price } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;♡</figcaption> <br>
@@ -308,7 +327,7 @@ function cart() {
                     color  
                      <select name="option_color" class="option_color">
                     <option value="">선택</option>
-                    <option value="blue">blue</option>
+                    <option value="컬러">${strgdto.p_color }</option>
                     
                 </select>
                <br />
@@ -317,8 +336,7 @@ function cart() {
                     <trid="option_size" >
                     size  <select name="option_size" class="option_size">
                     <option value="">선택</option>
-                    <option value="free">free</option>
-                    
+                    <option value="사이즈">${strgdto.p_size }</option>
                      </select>
                     </tr>	
 					
@@ -356,7 +374,7 @@ function cart() {
         </figure>
     </div>
     <br> <br>
-    <div class="main">
+    <div class="main" >
         <input id="tab1" type="radio" name="tabs" checked> 
         <label for="tab1">상품정보</label>
     
