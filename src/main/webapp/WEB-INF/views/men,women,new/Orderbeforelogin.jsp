@@ -1,36 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+    <link rel="stylesheet" href="resources/css/Orderbeforelogin.css">
 </head>
 <body>
-  <link rel="stylesheet" href="resources/css/Orderafterlogin.css">
   <%@include file="../../../../resources/common/header.jsp" %> 
    <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#cbx_chkAll").click(function() {
-				if($("#cbx_chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
-				else $("input[name=chk]").prop("checked", false);
-			});
-			
-			$("input[name=chk]").click(function() {
-				var total = $("input[name=chk]").length;
-				var checked = $("input[name=chk]:checked").length;
-				
-				if(total != checked) $("#cbx_chkAll").prop("checked", false);
-				else $("#cbx_chkAll").prop("checked", true); 
-			});
-		});
+	 function selectAll(selectAll)  {
+	        const checkboxes 
+	             = document.getElementsByName('chk');
+	        
+	        checkboxes.forEach((checkbox) => {
+	          checkbox.checked = selectAll.checked;
+	        })
+	      };
 
-        function showPopup() { window.open("agreement.html", "a", "width=400, height=300, left=100, top=50"); }
-        function showPopup2() { window.open("agreement2.html", "a", "width=400, height=300, left=100, top=50"); }
-        function showPopup3() { window.open("08_2_popup.html", "a", "width=400, height=300, left=100, top=50"); }
+    function showPopup() { window.open("agreement.html", "a", "width=400, height=300, left=100, top=50"); }
+    function showPopup2() { window.open("agreement2.html", "a", "width=400, height=300, left=100, top=50"); }
+    function showPopup3() { window.open("08_2_popup.html", "a", "width=400, height=300, left=100, top=50"); }
+
+        
+        function essential() {
+        	let n_name = document.getElementById("n_name").value;
+        	let n_number1 = document.getElementById("n_number1").value;
+        	let n_number2 = document.getElementById("n_number2").value;
+        	let n_email = document.getElementById("n_email").value;
+        	let n_addr1 = document.getElementById("sample6_postcode").value;
+        	let n_addr4 = document.getElementById("sample6_detailAddress").value;
+        	
+        	
+
+        	if (n_name=="") {
+				/* alert('이름을 입력해주세요');  */
+				console.log("이름 없음");
+				document.getElementById("n_name").focus();
+				 return false;
+			} else if(n_number1==""){
+				/* alert('이름을 입력해주세요');  */
+				console.log("번호1 없음");
+				document.getElementById("n_number1").focus();
+				 return false;
+        
+			} else if(n_number2==""){
+				/* alert('이름을 입력해주세요');  */
+				console.log("번호2 없음");
+				document.getElementById("n_number2").focus();
+				 return false;
+			}
+			 else if(n_email==""){
+				/* alert('이름을 입력해주세요');  */
+				console.log("이메일 없음");
+				document.getElementById("n_email").focus();
+				 return false;
+				 }
+			 else if(n_addr1==""){
+				   
+				console.log("주소1 없음");
+				document.getElementById("sample6_postcode").focus();
+				 return false;
+			}
+			 else if(n_addr4==""){
+				   
+				console.log("주소4 없음");
+				document.getElementById("sample6_detailAddress").focus();
+				 return false;
+			}
+        	else {
+				return true;
+			}
+        	
+        	
+        	
+        	
+		
+		}
+		
+        
+        function sameinfo() {
+			if(document.getElementById("noMember_copy").checked){
+				document.getElementById("n_name").value = document.getElementById("n_ordername").value;
+				document.getElementById("n_number2").value = document.getElementById("n_number1").value;
+				
+			}
+        	
+		}
+		
 	</script>
+    
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         function sample6_execDaumPostcode() {
@@ -77,60 +139,57 @@
                 }
             }).open();
         }
-        
-function move() {
-      	let amount = document.getElementById("amount").value;
-       	let sumprice = document.getElementById("sumprice").value;
-       	
-       	let sum = sell_price * amount;
-        
-        	// 스페이스바 주의 null값 우려
-       	//location.href ="paying?p_name=${indto.p_name }"+"&amount="+ amount +"&sumprice="+sumprice;
-       	location.href ="paying";
-
-        }	
-        </script>
     </script>
- 
-<form action="pay" method="post">
+    
+   
+
+    <form action="Nomemberpay" method="post"  onsubmit="return essential();">
     <div class="ship_top" style="float: left; margin-left: 100px;">
-     
+        <h2 class="infoput" >주문자 정보</h2> 
+	    <ul>
+	        <li id="customer_info">
+	           주문하시는 분  <span class="ask">*</span><input type="text" id="n_ordername" name="n_ordername" style="margin-left: 29px;" class="input__text name noMember_order_nm" placeholder="주문자명을 입력해 주세요">
+	        </li> 
+	        <li id="customer_info">
+	            휴대폰번호 <span class="ask">*</span>
+	            <input name="n_number1" type="text" id="n_number1" class="input__text phone noMember_order_hp_second" maxlength="20" onkeypress="infoinputController.fn.fnInNumber()" style="margin-left: 50px; width:380px" placeholder="휴대폰 번호를 입력해주세요">
+	        </li>
+	        <li id="customer_info"> <!--정규표현식 쓰기-->
+	            이메일  <span class="ask">*</span><input type="text" id="n_email" name="n_email" class="input__text mail noMemberEmailId" style="margin-left: 82px; width:380px" maxlength="100" placeholder="이메일 주소를 입력해 주세요" > 
+	         
+	        </li>
+	    </ul>
     <h2 class="infoput" >배송지정보 </h2> 
     <div class="fb__custom-checkbox">
+        <input type="checkbox" name="noMember_copy" id="noMember_copy" onclick="sameinfo()"><label for="checker1" >주문자 정보와 동일</label>
         
     </div>
     <div>
         <ul>
-            <li id="customer_info"><strong class="userInfo__title vaT">이름 <span class="ask">*</span></strong>
-            <input type="text" name="mname" style="margin-left: 90px;" class="input__text name noMember_shp_nm" value="${Orderafterlogin.mname }">
+            <li id="customer_info" ><strong class="userInfo__title vaT">이름 <span class="ask">*</span></strong>
+            <input type="text"  name="n_name" id = "n_name" style="margin-left: 90px;" class="input__text name noMember_shp_nm" placeholder="이름을 입력해주세요">
+            
             </li>
             <div class="userInfo__cont" id="customer_info" >
             <li><strong class="userInfo__title vaT">주소 <span class="ask">*</span></strong>
- <input type="text" name="maddr_one"style="margin-left: 89px;"  id="sample6_postcode" class="input__text addressNum noMember_recip_zip" value="${Orderafterlogin.maddr_one }" readonly="">
+            <input type="text"  name="n_addr1"   style="margin-left: 90px;" id="sample6_postcode" class="input__text addressNum noMember_recip_zip"  readonly="">
             <button type="button" class="btn__searchAddr daum_noMember_address" onclick="sample6_execDaumPostcode();">주소검색</button>
-            <input type="text" name="maddr_two" style="margin-left: 140px;" id="sample6_address" class="input__text address noMember_Address_1" value="${Orderafterlogin.maddr_two }" readonly="">
-            <input type="text" name="maddr_three" style="margin-left: 140px;" id="sample6_extraAddress" class="input__text address noMember_Address_1" value="${Orderafterlogin.maddr_three }" readonly="">
-            <input type="text" name="maddr_four" style="margin-left: 140px;"  id="sample6_detailAddress" class="input__text address noMember_address_2" value="${Orderafterlogin.maddr_four }" maxlength="30">        </div>
+            <input type="text"   name="n_addr2"  style="margin-left: 140px;" id="sample6_address" class="input__text address noMember_Address_1" readonly="">
+            <input type="text"  name="n_addr3"  style="margin-left: 140px;" id="sample6_extraAddress" class="input__text address noMember_Address_1" placeholder="참고항목">
+            <input type="text"  name="n_addr4"  style="margin-left: 140px;" id="sample6_detailAddress" class="input__text address noMember_address_2" maxlength="30">
+        </div>
         </li>
             <li id="customer_info"><strong class="userInfo__title vaT">휴대폰번호 <span class="ask">*</span></strong>
-                   <input type="text" name="mphone" value="${Orderafterlogin.mphone }" class="input__text phone noMember_order_hp_second" maxlength="4" onkeypress="infoinputController.fn.fnInNumber()" style="width:300px ">
+                <input type="text"  name="n_number2" id="n_number2" class="input__text phone noMember_order_hp_second" maxlength="20" onkeypress="infoinputController.fn.fnInNumber()" style="margin-left: 42px; width:380px">
             </li>
             <li class="userInfo__list line">
                 <strong class="userInfo__title">배송요청사항</strong>
                 <div class="userInfo__cont">
                     <div class="dlvInfo">
                         <div class="select-area">
-                            <select name="noShippingMsgType" id="noShippingMsgType" class="fb__custom-select selectOption">
-                                <option value="">선택</option>
-                                <option value="부재시, 경비(관리)실에 맡겨주세요.">부재시, 경비(관리)실에 맡겨주세요.</option>
-                                <option value="부재시, 문앞에 놓아주세요.">부재시, 문앞에 놓아주세요.</option>
-                                <option value="부재시, 무인택배함 보관해주세요.">부재시, 무인택배함 보관해주세요.</option>
-                                <option value="직접 받겠습니다.">직접 받겠습니다.</option>
-                                <option value="배송전에 연락주세요.">배송전에 연락주세요.</option>
-                                <option value="" option="direct">직접입력</option>
-                            </select>
+                         
 
-                            <input type="text" id="noShippingMsg" class="userInput no_all_msg" placeholder="배송요청사항을 입력해 주세요. (최대 30자 이내)" maxlength="30" style="display: inline-block;">
+                            <input type="text" name="n_request" id="noShippingMsg" class="userInput no_all_msg" placeholder="배송요청사항을 입력해 주세요. (최대 30자 이내)" maxlength="30" style="display: inline-block; width:400px;">
                         </div>
                     </div>
                    
@@ -147,36 +206,36 @@ function move() {
                 <div class="cart_table_goods">
                     <a href="#" class="cart_table_link">
                         <figure class="cart_table_img">
-                            <img src="../img/images/page6.gif" alt="" style="display: block;">
+                            <img src="${indto.p_img }" alt="" style="display: block;">
                         </figure>
                     </a>
                 </div>
             </td>
                     <td>
                     <div class="cart__table__info">
-                        <p class="cart__table__name cart_item_name" id ="p_name" name = "p_name">
-                            ${indto.p_name }
+                        <p class="cart__table__name cart_item_name" >
+                           ${indto.p_name }
                         </p>
                         <div class="cart__table__option">
                             <ul>
-                                <li>${indto.p_class }</li>
+                                <li>색상 : ${strgdto.p_color }</li>
+                                <li>사이즈 : ${strgdto.p_size }</li>
                             </ul>
                         </div>
                        
                     </div>
                 </td>            
-            <td class="cart__table__count" id = "amount" name = "amount">
-                           수량 : ${amount }
+            <td class="cart__table__count">
+                수량:${amount }
             </td>
-            <td class="cart__table__price" id = "sumprice" name = "sumprice">
-                           금액 : ${sumprice}
+            <td class="cart__table__price">
+                ${sumprice}원
             </td>
         </tr>
 
     </table>
 
-   
-   <table>
+
    
     <!-- <tr>
         <td>신세계포인트</td>
@@ -189,17 +248,17 @@ function move() {
         <td style="padding-left: 30px;"><input type="text"></td>
         <td><a href="">전환/조회</a></td>
     </tr> -->
-   </table>
    
-    <h2><class="infoput" >결제수단</h2> 
+   
+   <%--  <h2><class="infoput" >결제수단</h2> 
     <table>
         <tr>
             <td><input type="checkbox"><label for="checker3">신용카드로 결제</label></td>
             <td><input type="checkbox"><label for="checker4">다른결제 수단</label></td>
         </tr>
-    </table>
+    </table> --%>
 </div>
-</div>
+
 <div class="infoinput_right_inner">
     <h2 class="infoinput_sec_title" >결제정보</h2>
     <div id="dvPaymentInfo">
@@ -207,69 +266,76 @@ function move() {
         <li class="paymentinfo_list">
             <div>
                 <strong class="paymentinfo_title fl-left">총 상품금액</strong>
-                <span class="paymentinfo_price fl-right">${sumprice}</span>
+                <span class="paymentinfo_price fl-right">${sumprice}원</span>
             </div>
         </li>
         <li class="paymentinfo_list">
             <div>
                 <strong class="paymentinfo_title fl-left">총 배송비</strong>
-                <span class="paymentinfo_price fl-right">0원</span>
+                <span class="paymentinfo_price fl-right">${sping }원</span>
             </div>
         </li>
-        <li class="paymentinfo_list">
-            <div>
-                <strong class="paymentinfo_title fl-left">총 할인금액</strong>
-                <span class="paymentinfo_price fl-right">0원</span>
-            </div>
-        </li>
+        
        </ul>
          
     
         <div class="paymentAree_btm" >
                 <strong class="fl-left" style="padding-left: 40px;">총 결제 금액</strong>
-                <span class="fl-right">1000원</span><br>
+                <span class="fl-right">${sumsping }원</span><br>
             </div>
            
         </div>
-         <div class="paymentAgree" style="display: block;">
-            <div class="paymentAgree_top">
-                <p>구매동의 및 결제대행 서비스 이용약관 등에 모두 동의 하십니까?</p>
-                <table>
-                        <tr>
-                            <th><input type="checkbox" id="cbx_chkAll" /><label for="checker5"></label></th>
-                            <th class="fb__custom-checkbox" style="color: black;">모든 약관 동의</th>
-                        </tr>	
-                  
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="chk"><label for="checker6"></label></td>
-                            <td class="fb__custom-checkbox">전자금융거래 약관</td>
-                            <th><a href="" class="btn__contents" onclick="showPopup();">내용보기</a></th>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="chk"><label for="checker7"></label></td>
-                            <td class="fb__custom-checkbox">개인정보 수집, 이용동의</td>
-                            <th><a href="" class="btn__contents " onclick="showPopup2();">내용보기</a></th>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="chk"><label for="checker8"></label></td>
-                            <td class="fb__custom-checkbox">개인정보 위탁동의</td>
-                            <th><a href="" class="btn__contents" onclick="showPopup3();">내용보기</a></th>
-                        </tr>
-                    </tbody>
-                </table>
-               
-            </div>
-            <div style="position: relative; right: 100px; top: 20px;" >
-                <a href="pay?p_name=${indto.p_name }&amount=${amount }&sumprice=${sumprice}" class="btn-black2" id = "payBtn">결제하기</a>
-                
+    <div class="paymentAgree" style="display: block;">
+        <div class="paymentAgree_top">
+            <p>구매동의 및 결제대행 서비스 이용약관 등에 모두 동의 하십니까?</p>
+            <table>
+                    <tr>
+                        <th><input type="checkbox" id="cbx_chkAll" value='selectall'  name="chk" onclick="selectAll(this)"/><label for="checker5"></label></th>
+                        <th class="fb__custom-checkbox" style="color: black;">모든 약관 동의</th>
+                    </tr>	
+              
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" name="chk"><label for="checker6"></label></td>
+                        <td class="fb__custom-checkbox">전자금융거래 약관</td>
+                        <th><a href="" class="btn__contents" onclick="showPopup();">내용보기</a></th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="chk"><label for="checker7"></label></td>
+                        <td class="fb__custom-checkbox">개인정보 수집, 이용동의</td>
+                        <th><a href="" class="btn__contents " onclick="showPopup2();">내용보기</a></th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="chk"><label for="checker8"></label></td>
+                        <td class="fb__custom-checkbox">개인정보 위탁동의</td>
+                        <th><a href="" class="btn__contents" onclick="showPopup3();">내용보기</a></th>
+                    </tr>
+                </tbody>
+            </table>
+           
+        </div>
+            <div style="position: relative; right: 100px; top: 20px;"  >
+            	<input type="submit" value ='결제하기' onclick="essential()" style="background-color: black; color: white" class="btn-black2"  id = "payBtn" >
+                 <%-- <a href="Nomemberpay?p_name=${indto.p_name }&p_code=${indto.p_code }&amount=${amount }&sumprice=${sumprice}&sumsping=${sumsping}&n_ordername=${n_ordername}&n_name=${n_name}&n_addr1=${n_addr1 }&n_addr2=${n_addr2 }&n_addr3=${n_addr3 }&n_addr4=${n_addr4 }&n_number1=${n_number1 }&n_number2=${n_number2 }&p_img=${indto.p_img }&n_request=${n_request }" class="btn-black2" type="submit" id = "payBtn">결제하기</a> --%>
+           	
             </div>
          </div>
          
     </div>
-    </form>
     
-      <!--   <div id='wrap'>
+       
+          <input type="hidden" name="sumprice" id="sumprice" size="11" value = "${sumprice }" readonly>
+     <input type="hidden" name="sumsping" id="sumsping" size="11" value="${sumsping }" readonly>
+    <input type="hidden" name="amount" id="amount" size="11" value = "${amount }" readonly>
+    <input type="hidden" name="p_name" id="p_name" size="11" value = "${indto.p_name }" readonly>
+    <input type="hidden" name="p_code" id="p_code" size="11" value = "${indto.p_code }" readonly>
+   <input type="hidden" name="p_img" id="p_img" size="11" value="${indto.p_img }" readonly>
+    <input type="hidden" name="p_color" id="p_color" size="11" value=" ${strgdto.p_color }" readonly>
+    <input type="hidden" name="p_size" id="p_size" size="11" value=" ${strgdto.p_size }" readonly>
+            </form>
+ 
+     
+<!--     <div id='wrap'>
         <section id="wrap_section">
             
         </section>
@@ -309,8 +375,7 @@ function move() {
             </table>
           </div>
       </footer>
-    </div>   -->
-    
+    </div> -->
     
 </body>
 </html>
