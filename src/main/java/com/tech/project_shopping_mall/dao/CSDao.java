@@ -31,20 +31,23 @@ public interface CSDao {
 //1:1문의하기 게시판	
 	public ArrayList<InquiryDto> inquiryboard(int start, int end, String sk, String selNum);
 	public void Inquiry_write(String iselect1,String ititle,String icontent,String ifile,String iselect2,String mid);
-//커뮤니티 및 1:1문의하기 관리자 게시판	
+//관리자 조회페이지
 	public MembersDto CSMembers(String mid);
 	public MembersDto CSMembers2(String mid);
+//관리자 1:1 문의하기 게시판
 	public ArrayList<IMDto> InquiryMembers(int start, int end); 
 	public ArrayList<IMDto> InquiryMembers2(); 	
 	public IMDto inquirydetails(String sinum);
 	public void Manager_Inquiry(String mid);
 	public void inquirydelete(String sinum); 
-
+	public void istate(String inum,String istate);
+//관리자 고객의 소리 게시판
 	public ArrayList<CMDto> CommuMembers(int start, int end);
 	public ArrayList<CMDto> CommuMembers2();
 	public CMDto commudetails(String scnum);
 	public void Manager_Commu(String mid);
 	public void commudelete(String scnum);
+	public void cstate(String cnum,String cstate);
 //입점관리 게시판	
 	public ArrayList<EnterDto> EnterBoard(int start, int end);
 	public void Enter_write(String ereginum,String etradename,String eaddr1,String eaddr2,String eaddr3,String eaddr4,String esales,String ebname,String ebintro,String ehomepage,String econtactname,String eposition,

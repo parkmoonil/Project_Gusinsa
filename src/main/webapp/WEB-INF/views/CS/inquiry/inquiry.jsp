@@ -88,6 +88,7 @@ function checkSubmit() {
 		    <div class="inquiry_btn">
 		    	<input type="submit" value="전송" class="save_btn">
 		    </div>
+		    <input type="hidden" name="istate" value="확인중"/>
 	    </form>
 	</div>
 </div>

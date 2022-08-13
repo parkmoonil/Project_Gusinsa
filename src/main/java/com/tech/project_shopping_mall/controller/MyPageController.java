@@ -15,9 +15,7 @@ import com.tech.project_shopping_mall.dao.MyPageDao;
 import com.tech.project_shopping_mall.dto.CMDto;
 import com.tech.project_shopping_mall.dto.IMDto;
 import com.tech.project_shopping_mall.dto.InquiryDto;
-
 import com.tech.project_shopping_mall.dto.OrderinfoDto;
-import com.tech.project_shopping_mall.dto.ReviewDto;
 import com.tech.project_shopping_mall.dto.Review_Written_Dto;
 import com.tech.project_shopping_mall.vopage.SearchVO_CS;
 import com.tech.project_shopping_mall.vopage.SearchVO_product;
@@ -77,9 +75,6 @@ public class MyPageController {
 		String mid = (String )session.getAttribute("mid");
 		// 문의내역 수정해야됌
 		
-		
-		
-		
 		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
 		// 가자가자 페이징처리
 		String strPage = request.getParameter("page");  // 페이징처리 값 넣는다
@@ -123,6 +118,7 @@ public class MyPageController {
 		System.out.println("=====myinquiry====");
 
 		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
+		
 		HttpSession session = request.getSession();
 		String mid = (String) session.getAttribute("mid");
 		System.out.println("mid : " + mid);
@@ -159,11 +155,11 @@ public class MyPageController {
 		model.addAttribute("searchVO",searchVO);
 		 
 
-		return "/CS/myinquiry";
+		return "/myinquiry";
 	}
 
 	
-	 @RequestMapping("/mycommu") 
+	@RequestMapping("/mycommu") 
 	 public String mycommu(HttpServletRequest request,
 	 Model model,SearchVO_CS searchVO) { 
 		 System.out.println("=====mycommu====");
@@ -205,7 +201,7 @@ public class MyPageController {
 	 model.addAttribute("totRowcnt",total);
 	 model.addAttribute("searchVO",searchVO);
 	
-	 	return "/CS/mycommu"; 
+	 	return "/mycommu"; 
 	 	
 	 }
 	 

@@ -183,6 +183,7 @@ function checkSubmit() {
 	        	<input class="commu_next_btn" type="submit" value="작성완료" />
            	 	<a href="communication2" class="commu_before_btn">이전</a>
     		</div>
+    		<input type="hidden" name="cstate" value="확인중" />
     		</form>
         </div>
 </div>

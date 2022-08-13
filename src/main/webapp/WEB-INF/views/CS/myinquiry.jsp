@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My_Inquiry</title>
+<title>문의내역</title>
 <link rel="stylesheet" href="resources/css/cs/main.css">
 <link rel="stylesheet" href="resources/css/cs/board.css">
 <link rel="stylesheet" href="resources/css/cs/mypagecs.css">
@@ -33,6 +33,7 @@
 	            <tr>
 	                <th class="mypagecs_header">분류</th>
 	                <th class="mypagecs_title">제목</th>
+	                <th class="mypagecs_state">문의상태</th>
 	                <th>작성일자</th>
 	            </tr>
 	            
@@ -45,19 +46,20 @@
 							${dto.ititle }
 						</td>
 						<td>
+							${dto.istate }
+						</td>
+						<td>
 							${dto.idate }
 						</td>
 					</tr>
 				 	<tr class="mypagecs_content">
-		            	<td colspan="3">
-		            		<pre>${dto.icontent }</pre>
+		            	<td colspan="3"><pre>${dto.icontent }</pre>
 		            	</td>
 		            </tr>
 				</c:forEach>
 	        </table>
         </div>
         
-        	${totRowcnt }	
 			<form action="MypageIM" method="post">
 				<c:if test="${searchVO.totPage>1 }">
 				
@@ -82,7 +84,7 @@
 				     </c:if>
 	  			</c:if>
 			</form> 
-    </div>
+   	 </div>
 </div>
 <%@include file="../../../../resources/common/footer.jsp" %>
 </body>
