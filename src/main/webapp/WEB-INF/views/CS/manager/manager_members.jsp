@@ -70,6 +70,29 @@
 				      <a href="manager_members?page=${searchVO.totPage }">[마지막]</a>
 				    </c:if>
    				</c:if>
+   				
+   				<div>
+					<c:choose>
+						<c:when test="${mid }">
+							<input type="checkbox" name="searchType" value="mid" checked="checked" />				
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="searchType" value="mid" checked="checked"/>	
+						</c:otherwise>
+					</c:choose>
+					아이디
+					<c:choose>
+						<c:when test="${mname }">
+							<input type="checkbox" name="searchType" value="mname" checked="checked" />	
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" name="searchType" value="mname" checked="checked"/>	
+						</c:otherwise>
+					</c:choose>
+					 이름
+					<input type="text" name="sk" style="width:150px;" maxlength="50" value="" />
+					<input type="submit" value="검색" />
+				</div>
 			</form>
 		</div>
 	</div> 

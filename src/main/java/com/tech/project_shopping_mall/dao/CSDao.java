@@ -56,7 +56,7 @@ public interface CSDao {
 	public void enterdelete(String senumber);
 //회원관리 게시판
 	public void Manager_Members(String mid);
-	public ArrayList<MembersDto> MMembers(int rowStart, int rowEnd);
+	public ArrayList<MembersDto> MMembers(int start, int end, String sk, String selNum);
 	public MembersDto membersdetails(String smno);
 	public void membersdelete(String smno);
 	public void mgrade(String mno, String mgrade);
@@ -71,6 +71,10 @@ public interface CSDao {
 	public int CommuMembersBoardTotCount();
 	public int selectBoardTotCount3();
 	public int EnterBoardTotCount();
-	public int MembersBoardTotCount();
+
+	public int MembersBoardTotCount1(String searchKeyword);
+	public int MembersBoardTotCount2(String searchKeyword);
+	public int MembersBoardTotCount3(String searchKeyword);
+	public int MembersBoardTotCount4(String searchKeyword);
 }
  

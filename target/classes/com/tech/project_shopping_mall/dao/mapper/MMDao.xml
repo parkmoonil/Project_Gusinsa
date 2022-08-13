@@ -4,13 +4,42 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
+	<sql id="includeList2">
+		<choose>
+			<when test="param4==1">
+				WHERE MID LIKE '%'|| #{param3} || '%'
+			</when>
+			<when test="param4==2">
+				WHERE MNAME LIKE '%'|| #{param3} || '%'
+			</when>
+			<when test="param4==3">
+				WHERE MID LIKE '%'|| #{param3} || '%' OR MNAME LIKE '%'|| #{param3} || '%'
+			</when>
+			<otherwise>
+			
+			</otherwise>
+		</choose>
+	</sql>
 	
+	<select id="MembersBoardTotCount1" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBERS WHERE MID LIKE '%' || #{param1} || '%'
+	</select>
+	<select id="MembersBoardTotCount2" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBERS WHERE MNAME LIKE '%' || #{param1} || '%'
+	</select>
+	<select id="MembersBoardTotCount3" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBERS WHERE MID LIKE '%' || #{param1} || '%' OR MNAME LIKE '%' || #{param1} || '%'
+	</select>
+	<select id="MembersBoardTotCount4" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBERS
+	</select>
 	<select id="MMembers" resultType="com.tech.project_shopping_mall.dto.MembersDto">
 		SELECT MID,MPW,MNAME,MGENDER,MBIRTH,MPHONE,
 		MADDR_ONE,MADDR_TWO,MADDR_THREE,MADDR_FOUR,
 		MEMAIL,MGRADE,MNO FROM 
 		(SELECT ROWNUM NUM,N.* FROM
-		(SELECT * FROM MEMBERS ORDER BY MNO DESC) N)
+		(SELECT * FROM MEMBERS ORDER BY MNO DESC) N
+		<include refid="includeList2" />)
 		WHERE NUM BETWEEN #{param1} AND #{param2}
 		
 	<!-- 	테이블 변경되면
