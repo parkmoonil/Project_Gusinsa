@@ -20,8 +20,7 @@ function checkSubmit() {
 			'p_gender' : '성별',
 			'p_img' : '상품이미지',
 			'p_img2' : '상품상세이미지',
-			'p_img3' : '상품상세이미지1',
-			'brand' : '브랜드',
+			'brand' : '사업자등록번호 뒷자리',
 			'p_category' : '분류',
 			
 			
@@ -68,8 +67,12 @@ function checkSubmit() {
 						</td>
 					</tr>
 					<tr>
+						<th>분류</th>
+						<td><input type="text" name="p_category"/></td>
+					</tr>
+					<tr>
 						<th>성별</th>
-						<td><input type="radio" name="p_gender" value="남성" checked="checked"/>남성</td> <br />
+						<td><input type="radio" name="p_gender" value="남성" checked="checked"/>남성</td>
 						<td><input type="radio" name="p_gender" value="여성" />여성</td>
 					</tr>
 					<tr>
@@ -93,12 +96,8 @@ function checkSubmit() {
 						<td><input type="file" name="p_img5"/></td>
 					</tr>
 					<tr>
-						<th>브랜드</th>
+						<th>사업자등록번호 뒷자리 5자리</th>
 						<td><input type="text" name="brand"/></td>
-					</tr>
-					<tr>
-						<th>분류</th>
-						<td><input type="text" name="p_category"/></td>
 					</tr>
 				</table>
 			   <div class="enroll_btn">

@@ -5,16 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/css/brand1_style.css" />
+<link rel="stylesheet" href="resources/css/brand_info_style.css" />
 <title>Insert title here</title>
 </head>
 <body>
-<header>
 	<%@include file="../../../../resources/common/header.jsp"%>
-</header>
+	
 	<div id="__next" data-reactroot="">
 
-		<section style="background-image: url(resources/brandimg/youth.jpeg)" class="css-background-img">
+		<section style="background-image: url(resources/brandimg/youth/youth.jpeg)" class="css-background-img">
 
 			<div class="css-brand-text-1">
 
@@ -39,7 +38,7 @@
 							쓴 어패럴 디자인 브랜드입니다.</div>
 
 					</div>
-				</div>
+				</div>	
 			</div>
 		</section>
 	</div>
@@ -77,35 +76,34 @@
 	     </div>
 	</div> 
 	
-<%-- 	<c:if test="${ mid eq '001-02-65844' }"> --%>
-		<div>
-			<a href="product_enroll">상품등록</a>
-			<!-- <a href="product_enroll">재고등록</a> -->
-		</div>
-<%-- 	</c:if> --%>
+	<c:if test="${ ereginum eq '001-02-65844' }">
+			<div>
+				<a href="product_enroll">상품등록</a>
+				<!-- <a href="product_enroll">재고등록</a> -->
+			</div>
+	</c:if>
 	
 	<div class="paging" style="text-align:center; padding-bottom: 50px; color: black;">
 		<form action="brand1" method="post">
-			<c:if test="${searchVO_brand.totPage>1 }"><!-- 토탈 페이지가 1보다 크면 -->
-				<c:if test="${searchVO_brand.page>1 }">
+			<c:if test="${searchVO.totPage>1 }"><!-- 토탈 페이지가 1보다 크면 -->
+				<c:if test="${searchVO.page>1 }">
 					<a href="brand1?page=1">[처음]</a>
-					<a href="brand1?page=${searchVO_brand.page-1 }">[이전]</a>
+					<a href="brand1?page=${searchVO.page-1 }">[이전]</a>
 				</c:if>
-
-				<c:forEach begin="${searchVO_brand.pageStart }" end="${searchVO_brand.pageEnd }" var="i">
+				<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
 					<c:choose>
-						<c:when test="${i eq searchVO_brand.page }"> <!-- i eq searchVO_brand.page 내가 클릭한 페이지가 같을 때 -->
+						<c:when test="${i eq searchVO.page }"> <!-- i eq searchVO.page 내가 클릭한 페이지가 같을 때 -->
 							<span style="color: red; font-weight: bold;">${i }&nbsp;</span>
 						</c:when>
 						<c:otherwise>
 							<a href="brand1?page=${i }" style="text-decoration: none">${i }</a>&nbsp;
-			</c:otherwise>
+						</c:otherwise>
 
 					</c:choose>
 				</c:forEach>
-				<c:if test="${searchVO_brand.totPage>searchVO_brand.page }"> <!-- 마지막 페이지가 아닐때 -->
-					<a href="brand1?page=${searchVO_brand.page+1 }">[다음]</a>
-					<a href="brand1?page=${searchVO_brand.totPage }">[마지막]</a>
+				<c:if test="${searchVO.totPage>searchVO.page }"> <!-- 마지막 페이지가 아닐때 -->
+					<a href="brand1?page=${searchVO.page+1 }">[다음]</a>
+					<a href="brand1?page=${searchVO.totPage }">[마지막]</a>
 				</c:if>
 			</c:if>
 		</form>

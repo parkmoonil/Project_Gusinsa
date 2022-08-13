@@ -201,9 +201,73 @@
 	<select id="brand1" resultType="com.tech.project_shopping_mall.dto.Infodto">
  		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
 		(SELECT ROWNUM NUM,N.* FROM 
-		(SELECT * FROM PINFO ORDER BY DATA DESC) N)
+		(SELECT * FROM PINFO WHERE BRAND = '65844' ORDER BY DATA DESC) N)
 		WHERE NUM BETWEEN #{param1} AND #{param2} 
 	</select>
+	
+	<select id="brand2" resultType="com.tech.project_shopping_mall.dto.Infodto">
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO WHERE BRAND = '21433' ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	
+	<select id="brand3" resultType="com.tech.project_shopping_mall.dto.Infodto">
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO WHERE BRAND = '32544' ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	
+	<select id="brand4" resultType="com.tech.project_shopping_mall.dto.Infodto">
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO WHERE BRAND = '43655' ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	
+	<select id="brand5" resultType="com.tech.project_shopping_mall.dto.Infodto">
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO WHERE BRAND = '54766' ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	
+	<select id="brand6" resultType="com.tech.project_shopping_mall.dto.Infodto">
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO WHERE BRAND = '65877' ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	
+	<select id="brand7" resultType="com.tech.project_shopping_mall.dto.Infodto">
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO WHERE BRAND = '76988' ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	
+	<select id="brand8" resultType="com.tech.project_shopping_mall.dto.Infodto">
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO WHERE BRAND = '87099' ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	
+	<select id="brand9" resultType="com.tech.project_shopping_mall.dto.Infodto">
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO WHERE BRAND = '98100' ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	
+	<select id="brand10" resultType="com.tech.project_shopping_mall.dto.Infodto">
+ 		SELECT P_CODE, P_NAME, P_PRICE, P_GENDER, P_IMG, DATA FROM 
+		(SELECT ROWNUM NUM,N.* FROM 
+		(SELECT * FROM PINFO WHERE BRAND = '09211' ORDER BY DATA DESC) N)
+		WHERE NUM BETWEEN #{param1} AND #{param2} 
+	</select>
+	
 	<select id="selectBoardTotCount" resultType="Integer">
 		SELECT COUNT(*) FROM PINFO
 	</select>
@@ -216,7 +280,7 @@
 	</insert>
 		
 	<delete id="product_delete">
-		DELETE FROM PINFO WHERE P_CODE=#{param1}
+		DELETE FROM PINFO WHERE P_CODE = #{param1}
 	</delete>
 
 </mapper>
