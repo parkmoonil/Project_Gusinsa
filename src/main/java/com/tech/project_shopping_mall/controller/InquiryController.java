@@ -64,6 +64,7 @@ public class InquiryController {
 		String icontent=req.getParameter("icontent");
 		String ifile=req.getFilesystemName("ifile");
 		String iselect2=req.getParameter("iselect2");
+		String istate=req.getParameter("istate");
 		
 		
 		System.out.println("filename : "+ifile);
@@ -73,7 +74,7 @@ public class InquiryController {
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 		
-		dao.Inquiry_write(iselect1, ititle, icontent, ifile, iselect2,mid);
+		dao.Inquiry_write(iselect1, ititle, icontent, ifile, iselect2, mid, istate);
 		
 		return "redirect:inquiry2";
 	}
