@@ -11,19 +11,31 @@
     </insert>
     
     <insert id="mypageinsert">
-        INSERT INTO CART (CART_ID, MID, P_CODE, AMOUNT)
-        VALUES (SEQ_CART.NEXTVAL, #{param1}, #{param2}, #{param3})
+        INSERT INTO CART (CART_ID, MID, P_CODE, AMOUNT,CPRICE)
+        VALUES (SEQ_CART.NEXTVAL, #{param1}, #{param2}, #{param3},#{param4})
     </insert>
-        
+      
+      <select id="pricetest" resultType="com.tech.project_shopping_mall.dto.SpriceDto">
+	   SELECT P.SPRICE  FROM CART C, PINFO P WHERE C.P_CODE = P.P_CODE
+    </select>  
 
     <select id="MyCart" resultType="com.tech.project_shopping_mall.dto.Cartdto">
-	    SELECT CART_ID, P.P_CODE, C.MID, MNAME, P_NAME, AMOUNT, P_IMG, P_PRICE,SPRICE, (P_PRICE*AMOUNT) MONEY ,(SPRICE*AMOUNT) SMONEY
+	    <!-- SELECT CART_ID, P.P_CODE, C.MID, MNAME, P_NAME, AMOUNT, P_IMG, P_PRICE,SPRICE, (P_PRICE*AMOUNT) MONEY ,(SPRICE*AMOUNT) SMONEY
+	    FROM MEMBERS M, CART C, PINFO P 
+	    WHERE M.MID=C.MID AND C.P_CODE=P.P_CODE AND C.MID=#{mid} ORDER BY CART_ID -->
+	    SELECT CART_ID, P.P_CODE, C.MID, MNAME, P_NAME, AMOUNT, P_IMG, CPRICE, (CPRICE*AMOUNT) MONEY 
 	    FROM MEMBERS M, CART C, PINFO P 
 	    WHERE M.MID=C.MID AND C.P_CODE=P.P_CODE AND C.MID=#{mid} ORDER BY CART_ID
+	    
+	    
     </select>
     
+    
+    
+    
+    
      <select id="SumMoney" resultType="Integer">
-        SELECT NVL(SUM(P_PRICE*AMOUNT),0) 
+        SELECT NVL(SUM(CPRICE*AMOUNT),0) 
         FROM CART C,PINFO P 
         WHERE C.P_CODE=P.P_CODE AND MID=#{MID}
     </select>
@@ -33,7 +45,8 @@
     </select> 
     
     <delete id="delete" parameterType="com.tech.project_shopping_mall.dto.Cartdto">
-		DELETE FROM CART A WHERE EXISTS (SELECT 1 FROM PINFO B WHERE A.P_CODE = B.P_CODE AND B.P_CODE = #{p_code}) 
+		<!-- DELETE FROM CART A WHERE EXISTS (SELECT 1 FROM PINFO B WHERE A.P_CODE = B.P_CODE AND B.P_CODE = #{p_code})  -->
+		DELETE FROM CART WHERE CART_ID = #{param1}
     </delete>
     
     <delete id="deleteAll" parameterType="com.tech.project_shopping_mall.dto.Cartdto">

@@ -35,7 +35,7 @@ public class PayController {
 		String p_img = request.getParameter("p_img");
 		String o_quest = request.getParameter("o_quest");
 		String p_size = request.getParameter("p_size");
-		
+		String p_color = request.getParameter("p_color");
 		
 		
 		
@@ -64,13 +64,49 @@ public class PayController {
 		model.addAttribute("p_img", p_img);
 		model.addAttribute("o_quest", o_quest);
 		model.addAttribute("p_size", p_size);
-		
+		model.addAttribute("p_color", p_color);
 		
 		
 		
 		
 		return "Pay/pay";
 	}
+	
+	
+	@RequestMapping("/cart_pay")
+	public String cart_pay(HttpServletRequest request, Model model, SearchVO searchVO) {
+		PDao dao = sqlSession.getMapper(PDao.class);
+
+		int sprice = Integer.parseInt(request.getParameter("sumprice"));
+		int amount = Integer.parseInt(request.getParameter("amount"));
+		String p_name = request.getParameter("p_name");
+	
+		int pcode = Integer.parseInt(request.getParameter("p_code"));
+		
+		
+		
+		
+		System.out.println("페이=============================");
+		System.out.println("sprice" + sprice);
+		System.out.println("amount" + amount);
+		System.out.println("p_name" + p_name);
+		System.out.println("sprice" + sprice);
+		System.out.println("sprice" + sprice);
+		System.out.println("sprice" + sprice);
+		System.out.println("sprice" + sprice);
+	
+		model.addAttribute("sprice", sprice);
+		model.addAttribute("amount", amount);
+		model.addAttribute("p_name", p_name);
+		model.addAttribute("pcode", pcode);
+
+		
+		
+		
+		
+		return "Pay/cart_pay";
+	}
+	
 	
 	@RequestMapping("/Nomemberpay")
 	public String Nomemberpay(HttpServletRequest request, Model model, SearchVO searchVO) {
@@ -93,7 +129,7 @@ public class PayController {
 		String p_img = request.getParameter("p_img");
 		String n_request = request.getParameter("n_request");
 		String p_size = request.getParameter("p_size");
-		
+		String p_color = request.getParameter("p_color");
 		
 		
 		
@@ -126,7 +162,7 @@ public class PayController {
 		model.addAttribute("p_img", p_img);
 		model.addAttribute("n_request",n_request);
 		model.addAttribute("p_size", p_size);
-		
+		model.addAttribute("p_color", p_color);
 		
 		
 		
@@ -168,9 +204,9 @@ public class PayController {
 		String p_img = request.getParameter("p_img");
 		String o_quest = request.getParameter("o_quest");
 		String p_size = request.getParameter("p_size");
+		String p_color = request.getParameter("p_color");
 		
-		
-		dao.afterpay(p_code,p_name, sprice, o_count, o_totprice, maddr_one,maddr_two,maddr_three,maddr_four,mid,mphone,p_img,o_quest,p_size);
+		dao.afterpay(p_code,p_name, sprice, o_count, o_totprice, maddr_one,maddr_two,maddr_three,maddr_four,mid,mphone,p_img,o_quest,p_size,p_color);
 
 		/*
 		 * model.addAttribute("afterpay", dao.afterpay(p_name, sprice, o_count,
@@ -217,9 +253,9 @@ public class PayController {
 		String p_img = request.getParameter("p_img");
 		String n_request=request.getParameter("n_request");
 		String p_size = request.getParameter("p_size");
-
+		String p_color = request.getParameter("p_color");
 		
-		dao.afternopay(p_code,p_name, sprice, o_count, o_totprice,n_name, n_ordername,n_email,n_addr1,n_addr2,n_addr3,n_addr4,n_number1,n_number2,p_img,n_request,p_size);
+		dao.afternopay(p_code,p_name, sprice, o_count, o_totprice,n_name, n_ordername,n_email,n_addr1,n_addr2,n_addr3,n_addr4,n_number1,n_number2,p_img,n_request,p_size,p_color);
 		
 		/*
 		 * model.addAttribute("afterpay", dao.afterpay(p_name, sprice, o_count,

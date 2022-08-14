@@ -27,8 +27,8 @@
 	    </c:if>
            
             <td class="td1">
-                <a href="BuyPage?&p_code=${dto.p_code}">
-                    <img src="${dto.p_img }" width="300" height="350"><p class="p1">${dto.p_name } <br /> ${dto.p_price } </p>
+                <a href="SaleBuyPage?&p_code=${dto.p_code}&sprice=${dto.sprice }">
+                    <img src="${dto.p_img }" width="300" height="350"><p class="p1">${dto.p_name } <br /> ${dto.sprice } </p>
                 </a>    
             </td>
             
