@@ -121,7 +121,7 @@ function checkSubmit() {
 	                            </label>   
 	                            <div>
 	                                <p class="warning">
-	                                    로그인 후 [마이페이지 > 고객의 소리]에서도 답변 내용을 확인 하실 수 있습니다.
+	                                    로그인 후 [마이페이지 > 고객의 소리]에서도 확인 하실 수 있습니다.
 	                                </p>
 	                            </div>   
 	                        </div>    

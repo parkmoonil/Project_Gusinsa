@@ -29,7 +29,7 @@
                 고객의 소리 문의내역
             </a></li>
             <li class="cs_left_list"><a href="mypage_inquiry">
-                문의내역
+                1:1 문의내역
             </a></li>
         </ul>
         <h2 class="cs_left_title"><a href="mypage_orderlist">

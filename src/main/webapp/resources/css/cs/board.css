@@ -34,4 +34,6 @@ a {
 	color: inherit;
 }
 
-
+.paging {
+	text-align: center;
+}
