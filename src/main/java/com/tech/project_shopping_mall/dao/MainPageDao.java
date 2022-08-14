@@ -28,7 +28,7 @@ public interface MainPageDao {
 	
 	
 	public Infodto search_prouct_detail(int pcode);
-	public StorageDto storage(int pcode);
+	public ArrayList<StorageDto> storage(int pcode);
 
 
 	

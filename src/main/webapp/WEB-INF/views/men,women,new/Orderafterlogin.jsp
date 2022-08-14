@@ -181,8 +181,8 @@ function move() {
                         </p>
                         <div class="cart__table__option">
                             <ul>
-                                <li>색상 : ${strgdto.p_color }</li>
-                                <li>사이즈 : ${strgdto.p_size }</li>
+                                <%-- <li>사이즈 : ${strgdto.p_size }</li> --%>
+                              <li>사이즈 : ${p_size }</li>
                             </ul>
                         </div>
                        
@@ -285,8 +285,8 @@ function move() {
     <input type="hidden" name="p_name" id="p_name" size="11" value="${indto.p_name }" readonly>
     <input type="hidden" name="p_code" id="p_code" size="11" value="${indto.p_code }" readonly>
     <input type="hidden" name="p_img" id="p_img" size="11" value="${indto.p_img }" readonly>
-    <input type="hidden" name="p_color" id="p_color" size="11" value=" ${strgdto.p_color }" readonly>
-    <input type="hidden" name="p_size" id="p_size" size="11" value=" ${strgdto.p_size }" readonly>
+  
+    <input type="hidden" name="p_size" id="p_size" size="11" value=" ${p_size }" readonly>
     
     </form>
    <%--  <input type="hidden" name="p_name" id="p_code" size="11" value="${p_code }" readonly>

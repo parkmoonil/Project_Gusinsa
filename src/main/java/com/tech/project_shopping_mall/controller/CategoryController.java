@@ -103,23 +103,34 @@ public class CategoryController {
 		
 		
 		int pcode = Integer.parseInt(request.getParameter("p_code"));
-		StorageDto strgdto= dao.storage(pcode);
+		ArrayList<StorageDto>  strgdto= dao.storage(pcode);
 //		
 		int sell_price = Integer.parseInt(request.getParameter("sell_price"));
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		int sping =Integer.parseInt(request.getParameter("sping"));
 		int sumsping =Integer.parseInt(request.getParameter("sumsping"));
+		 String p_size = request.getParameter("p_size"); 
+	
+		
+		/*
+		 * System.out.println("사이즈 잘가져오는지 : " + p_size);
+		 * System.out.println("사이즈 잘가져오는지 : " + p_size);
+		 * System.out.println("사이즈 잘가져오는지 : " + p_size);
+		 */
 //		System.out.println("pcode : "+pcode);
 //		System.out.println("amount : "+amount);
 //		System.out.println("sumprice : "+sell_price);
 		
 //		System.out.println("amount : "+amount);
 		MainPageDao Mdao = sqlSession.getMapper(MainPageDao.class);
+		/* System.out.println("사이즈 1 : " + p_size); */
 		Infodto indto = Mdao.search_prouct_detail(pcode);
 		
 		// pcode를 통해 해당 상품조회
+		 model.addAttribute("p_size", p_size); 
+		
 		model.addAttribute("strgdto",strgdto);
-		model.addAttribute("members",dto);
+		model.addAttribute("members",dto);;
 		model.addAttribute("sumsping",sumsping);
 		model.addAttribute("sping",sping);
 		model.addAttribute("indto",indto);
@@ -148,7 +159,7 @@ public class CategoryController {
 	        Infodto indto = Mdao.search_prouct_detail(pcode);
 			System.out.println("indto : " + indto);
 			
-			StorageDto strgdto= dao.storage(pcode);
+			ArrayList<StorageDto>  strgdto= dao.storage(pcode);
 		
 //			
 			int sell_price = Integer.parseInt(request.getParameter("sell_price"));
@@ -166,6 +177,7 @@ public class CategoryController {
 			String n_addr4=request.getParameter("n_addr4");
 			String n_number2=request.getParameter("n_number2");
 			String n_request=request.getParameter("n_request");
+			String p_size = request.getParameter("p_size");
 			
 			
 //			System.out.println("pcode : "+pcode);
@@ -195,7 +207,8 @@ public class CategoryController {
 			model.addAttribute("n_request",n_request);
 			model.addAttribute("p_name", p_name);
 			model.addAttribute("p_code", pcode);
-			
+			model.addAttribute("p_size", p_size);
+	
 		
 			 
 			

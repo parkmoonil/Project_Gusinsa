@@ -35,7 +35,7 @@ public class PayController {
 		String p_img = request.getParameter("p_img");
 		String o_quest = request.getParameter("o_quest");
 		String p_size = request.getParameter("p_size");
-		String p_color = request.getParameter("p_color");
+		
 		
 		
 		
@@ -64,7 +64,7 @@ public class PayController {
 		model.addAttribute("p_img", p_img);
 		model.addAttribute("o_quest", o_quest);
 		model.addAttribute("p_size", p_size);
-		model.addAttribute("p_color", p_color);
+		
 		
 		
 		
@@ -93,7 +93,7 @@ public class PayController {
 		String p_img = request.getParameter("p_img");
 		String n_request = request.getParameter("n_request");
 		String p_size = request.getParameter("p_size");
-		String p_color = request.getParameter("p_color");
+		
 		
 		
 		
@@ -126,7 +126,7 @@ public class PayController {
 		model.addAttribute("p_img", p_img);
 		model.addAttribute("n_request",n_request);
 		model.addAttribute("p_size", p_size);
-		model.addAttribute("p_color", p_color);
+		
 		
 		
 		
@@ -168,9 +168,9 @@ public class PayController {
 		String p_img = request.getParameter("p_img");
 		String o_quest = request.getParameter("o_quest");
 		String p_size = request.getParameter("p_size");
-		String p_color = request.getParameter("p_color");
 		
-		dao.afterpay(p_code,p_name, sprice, o_count, o_totprice, maddr_one,maddr_two,maddr_three,maddr_four,mid,mphone,p_img,o_quest,p_size,p_color);
+		
+		dao.afterpay(p_code,p_name, sprice, o_count, o_totprice, maddr_one,maddr_two,maddr_three,maddr_four,mid,mphone,p_img,o_quest,p_size);
 
 		/*
 		 * model.addAttribute("afterpay", dao.afterpay(p_name, sprice, o_count,
@@ -217,9 +217,9 @@ public class PayController {
 		String p_img = request.getParameter("p_img");
 		String n_request=request.getParameter("n_request");
 		String p_size = request.getParameter("p_size");
-		String p_color = request.getParameter("p_color");
+
 		
-		dao.afternopay(p_code,p_name, sprice, o_count, o_totprice,n_name, n_ordername,n_email,n_addr1,n_addr2,n_addr3,n_addr4,n_number1,n_number2,p_img,n_request,p_size,p_color);
+		dao.afternopay(p_code,p_name, sprice, o_count, o_totprice,n_name, n_ordername,n_email,n_addr1,n_addr2,n_addr3,n_addr4,n_number1,n_number2,p_img,n_request,p_size);
 		
 		/*
 		 * model.addAttribute("afterpay", dao.afterpay(p_name, sprice, o_count,
