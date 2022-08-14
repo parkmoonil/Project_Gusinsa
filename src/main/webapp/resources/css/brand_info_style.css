@@ -3,7 +3,7 @@
 	position: relative;
 	z-index: 1;
 	min-width: 1000px;
-	min-height: 1000px;
+	min-height: 800px;
 	padding: 70px 90px 150px 70px;
 	-webkit-background-position: 50% 50%;
 	background-position: 50% 50%;
@@ -37,14 +37,14 @@
 
 .css-brand-text-2 {
 	width: 100%;
-	height: 300px;
+	height: 150px;
 	max-width: 780px;
 	box-sizing: border-box;
 }
 
 .css-brand-text-3 {
 	font-size: 18px;
-	margin-top: 300px;
+	margin-top: 150px;
 	font-weight: 600;
 	text-transform: uppercase;
 }
@@ -129,6 +129,7 @@
 	width: 735px;
 	margin-left: auto;
 	margin-right: auto;
+	
 }
 
 .product-list-style{
@@ -140,6 +141,7 @@
     color: #4b4b4b;	
     text-decoration: none;
 }
+
 .products h3 {
 	font-size: 24px;
 	color: #545454;
@@ -164,8 +166,18 @@
 .product-name {
 	margin-top: 10px;
 	margin-bottom: 4px;
+	text-decoration: none;
+	color: black;
+}
+.product-pirce {
+	text-decoration: none;
+	color: black;
 }
 
 .clearfix {
 	clear: both;
+}
+.paging{
+	text-decoration: none;
+	color: black;
 }

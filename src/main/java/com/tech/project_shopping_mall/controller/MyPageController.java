@@ -1,7 +1,15 @@
 package com.tech.project_shopping_mall.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,17 +19,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.tech.finalpj.crypt.CryptoUtil;
+import com.tech.project_shopping_mall.dao.JoinMapper;
+import com.tech.project_shopping_mall.dao.LoginMapper;
 import com.tech.project_shopping_mall.dao.MyPageDao;
 import com.tech.project_shopping_mall.dto.CMDto;
 import com.tech.project_shopping_mall.dto.IMDto;
 import com.tech.project_shopping_mall.dto.InquiryDto;
+import com.tech.project_shopping_mall.dto.MembersDto;
 import com.tech.project_shopping_mall.dto.OrderinfoDto;
 import com.tech.project_shopping_mall.dto.Review_Written_Dto;
 import com.tech.project_shopping_mall.vopage.SearchVO_CS;
 import com.tech.project_shopping_mall.vopage.SearchVO_product;
 
 @Controller
-@RequestMapping("/mypage/*")
 public class MyPageController {
 
 	
@@ -30,7 +41,7 @@ public class MyPageController {
 	
 	@RequestMapping("/mypage_orderlist")
 	public String mypage(HttpServletRequest request, Model model,SearchVO_product searchVO) {
-		System.out.println("주문내역 ㄱㄱ");
+		System.out.println("mypage_orderlist ㄱㄱ");
 		HttpSession session = request.getSession();
 		String mid = (String )session.getAttribute("mid");
 		
@@ -70,7 +81,7 @@ public class MyPageController {
 	
 	@RequestMapping("/mypage_inquiry")
 	public String mypage_inquiry(HttpServletRequest request, Model model,SearchVO_product searchVO) {
-		System.out.println("mypage ㄱㄱ");
+		System.out.println("mypage_inquiry ㄱㄱ");
 		HttpSession session = request.getSession();
 		String mid = (String )session.getAttribute("mid");
 		// 문의내역 수정해야됌
@@ -112,54 +123,10 @@ public class MyPageController {
 		return "/mypage/mypage_inquiry";
 	}
 	
-	@RequestMapping("/myinquiry")
-	public String myinquiry(HttpServletRequest request, 
-			Model model, SearchVO_CS searchVO) {
-		System.out.println("=====myinquiry====");
-
-		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
-		
-		HttpSession session = request.getSession();
-		String mid = (String) session.getAttribute("mid");
-		System.out.println("mid : " + mid);
 	
-		String strPage=request.getParameter("page");
-		System.out.println("pagggge: "+strPage);
-		
-		if(strPage==null) 
-			strPage="1"; 
-		System.out.println("pagge2 : "+strPage); 
-		int page=Integer.parseInt(strPage); 
-		searchVO.setPage(page);
-		
-		int total=dao.MypageIMBoardTotCount(mid);
-	
-		System.out.println("totalrow : "+total); 
-		searchVO.pageCalculate(total);
-		
-		 
-		System.out.println("totPage : "+total);
-		System.out.println("pageStart : "+searchVO.getPageStart());
-		System.out.println("pageEnd : "+searchVO.getPageEnd());
-		System.out.println("pageTot : "+searchVO.getTotPage());
-		System.out.println("rowStart : "+searchVO.getRowStart());
-		System.out.println("rowEnd : "+searchVO.getRowEnd());
-		
-		int rowStart=searchVO.getRowStart(); 
-		int rowEnd=searchVO.getRowEnd();
-		
-		ArrayList<IMDto> MypageIM = dao.MypageIM(mid, rowStart, rowEnd);
-		
-		model.addAttribute("MypageIM",MypageIM); 
-		model.addAttribute("totRowcnt",total);
-		model.addAttribute("searchVO",searchVO);
-		 
-
-		return "/myinquiry";
-	}
 
 	
-	@RequestMapping("/mycommu") 
+	@RequestMapping("/mypage_mycommu") 
 	 public String mycommu(HttpServletRequest request,
 	 Model model,SearchVO_CS searchVO) { 
 		 System.out.println("=====mycommu====");
@@ -201,7 +168,7 @@ public class MyPageController {
 	 model.addAttribute("totRowcnt",total);
 	 model.addAttribute("searchVO",searchVO);
 	
-	 	return "/mycommu"; 
+	 	return "/mypage/mypage_mycommu"; 
 	 	
 	 }
 	 
@@ -294,6 +261,91 @@ public class MyPageController {
 			
 			
 			return "/mypage/mypage_written_review";
+		}
+	 @RequestMapping("/mypage_user_pwcheck")
+		public String mypage_user_pwcheck(HttpServletRequest request, Model model,SearchVO_CS searchVO) {
+		 System.out.println("마이페이지 수정~");
+		 	HttpSession session = request.getSession();
+			String mid = (String )session.getAttribute("mid");
+			
+			
+			MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
+
+			
+			
+			
+			return "/mypage/mypage_user_pwcheck";
+		}
+	 
+	 
+	 @RequestMapping("/mypage_user_edit")
+		public String mypage_user_edit(HttpServletRequest request, Model model,SearchVO_CS searchVO)throws ParseException, InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+		 System.out.println("마이페이지 수정~");
+		 	HttpSession session = request.getSession();
+			String mid = (String )session.getAttribute("mid");
+			String key = "a1b2c3d4e5f6g7h8";
+			
+			LoginMapper LDao = sqlSession.getMapper(LoginMapper.class);
+			// 여기서 뿌려줘야함
+			
+			MembersDto mdto = LDao.selectUserPassword(mid);
+		
+			model.addAttribute("mdto",mdto);
+
+			
+			
+			
+			return "/mypage/mypage_user_edit";
+		}
+	 
+	 
+	 
+	 @RequestMapping("/mypage_user_editOk")
+		public String mypage_user_editOk(HttpServletRequest request, Model model,SearchVO_CS searchVO, MembersDto dto)throws ParseException, InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+		 System.out.println("수정완료~");
+		 	HttpSession session = request.getSession();
+			String mid = (String )session.getAttribute("mid");
+			String key = "a1b2c3d4e5f6g7h8";
+			
+			System.out.println("mid 오나" + mid);
+		
+			String checkid = "";
+			String mpw = request.getParameter("mpw");
+			
+			String mname = request.getParameter("mname");
+			String mphone = request.getParameter("mphone");
+			String memail = request.getParameter("memail");
+			String maddr_one = request.getParameter("maddr_one");
+			String maddr_two = request.getParameter("maddr_two");
+			String maddr_three = request.getParameter("maddr_three");
+			String maddr_four = request.getParameter("maddr_four");
+			
+			System.out.println("name : " +mname);
+			System.out.println("mphone : " +mphone);
+			System.out.println("memail : " +memail);
+			System.out.println("maddr_one : " +maddr_one);
+			System.out.println("maddr_two : " +maddr_two);
+			System.out.println("maddr_three : " +maddr_three);
+			System.out.println("maddr_four : " +maddr_four);
+			System.out.println("mpw : " +mpw);
+
+			JoinMapper jm = sqlSession.getMapper(JoinMapper.class);
+			if (mpw.equals(checkid)) {
+				System.out.println("비밀번호를 변경안할경우");
+				jm.User_Edit_NotPw(mid, mname,  mphone, maddr_one, maddr_two, maddr_three, maddr_four, memail);	
+			}
+			else {
+				System.out.println("비밀번호를 변경할경우");
+				String bcdpw = CryptoUtil.encryptAES256(mpw, key);//암호화처리
+				System.out.println("암호화된 값 : " + bcdpw);
+				dto.setMpw(bcdpw);
+				jm.User_Edit_InPw(mid, bcdpw, mname, mphone, maddr_one, maddr_two, maddr_three, maddr_four, memail);
+				session.invalidate();
+			}
+			
+			
+			
+			return "redirect:/login/loginform";
 		}
 	
 

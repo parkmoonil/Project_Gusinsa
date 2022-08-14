@@ -135,7 +135,7 @@ public class BrandController {
 		
 		System.out.println("brand1Page");
 
-				//---------------------페이징-------------------//
+		//---------------------페이징-------------------//
 				
 		BrandDao dao=sqlSession.getMapper(BrandDao.class);
 		
@@ -166,8 +166,9 @@ public class BrandController {
 		
 		int rowStart=searchVO.getRowStart();
 		int rowEnd=searchVO.getRowEnd();
+		String brand=request.getParameter("brand");
 		
-		ArrayList<Infodto> dto=dao.brand1(rowStart, rowEnd, "1");
+		ArrayList<Infodto> dto=dao.brand1(rowStart, rowEnd, "1", brand);
 		//model.addAttribute("list",list);
 		model.addAttribute("totRowcnt",total);
 		model.addAttribute("searchVO",searchVO);
@@ -328,71 +329,519 @@ public class BrandController {
 		return "/BrandPage/brand1";
 		
 		}
+		@RequestMapping("/brand2")
+		public String brand2(HttpServletRequest request, Model model, SearchVO_brand searchVO) {
+
+			System.out.println("brand2Page");
+			
+			//---------------------페이징 시작-------------------//
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+			String p_name=request.getParameter("p_name");
+			String p_price=request.getParameter("p_price");		
+			String p_img=request.getParameter("p_img");
+			
+			String strPage=request.getParameter("page"); //HttpServletRequest request, 가져오기
+			System.out.println("pagggge1 :"+strPage);
+			//null검사
+			if(strPage==null)//처음 리스트에서 list페이지로 넘어갈 때, null임.
+				strPage="1";
+			System.out.println("pagggge2 :"+strPage);
+			int page=Integer.parseInt(strPage);
+			searchVO.setPage(page);
+			
+			int total=dao.selectBoardTotCount();
+			searchVO.pageCalculate(total);
+			
+			//계산된 내용 출력
+			System.out.println("totRow : "+total);
+			System.out.println("clickPage : "+strPage);
+			System.out.println("pageStart : "+searchVO.getPageStart());
+			System.out.println("pageEnd : "+searchVO.getPageEnd());
+			System.out.println("pageTot : "+searchVO.getTotPage());
+			System.out.println("rowStart : "+searchVO.getRowStart());
+			System.out.println("rowEnd : "+searchVO.getRowEnd());
+			
+			int rowStart=searchVO.getRowStart();
+			int rowEnd=searchVO.getRowEnd();
+			String brand=request.getParameter("brand");
+			
+			ArrayList<Infodto> dto=dao.brand2(rowStart, rowEnd, "1", brand);
+//			model.addAttribute("list",list);
+			model.addAttribute("totRowcnt",total);
+			model.addAttribute("searchVO",searchVO);
+	        model.addAttribute("brand2",dto);
+	        
+	        //---------------------페이징 끝-------------------//
+	        
+			return "/BrandPage/brand2";
+			
+		}
+		@RequestMapping("/brand3")
+		public String brand3(HttpServletRequest request, Model model, SearchVO_brand searchVO) {
+			
+			System.out.println("brand3Page");
+			
+			//---------------------페이징 시작-------------------//
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+			String p_name=request.getParameter("p_name");
+			String p_price=request.getParameter("p_price");		
+			String p_img=request.getParameter("p_img");
+			
+			String strPage=request.getParameter("page"); //HttpServletRequest request, 가져오기
+			System.out.println("pagggge1 :"+strPage);
+			//null검사
+			if(strPage==null)//처음 리스트에서 list페이지로 넘어갈 때, null임.
+				strPage="1";
+			System.out.println("pagggge2 :"+strPage);
+			int page=Integer.parseInt(strPage);
+			searchVO.setPage(page);
+			
+			int total=dao.selectBoardTotCount();
+			searchVO.pageCalculate(total);
+			
+			//계산된 내용 출력
+			System.out.println("totRow : "+total);
+			System.out.println("clickPage : "+strPage);
+			System.out.println("pageStart : "+searchVO.getPageStart());
+			System.out.println("pageEnd : "+searchVO.getPageEnd());
+			System.out.println("pageTot : "+searchVO.getTotPage());
+			System.out.println("rowStart : "+searchVO.getRowStart());
+			System.out.println("rowEnd : "+searchVO.getRowEnd());
+			
+			int rowStart=searchVO.getRowStart();
+			int rowEnd=searchVO.getRowEnd();
+			String brand=request.getParameter("brand");
+			
+			ArrayList<Infodto> dto=dao.brand3(rowStart, rowEnd, "1", brand);
+//			model.addAttribute("list",list);
+			model.addAttribute("totRowcnt",total);
+			model.addAttribute("searchVO",searchVO);
+			model.addAttribute("brand3",dto);
+			
+			//---------------------페이징 끝-------------------//
+			
+			return "/BrandPage/brand3";
+			
+		}
+		@RequestMapping("/brand4")
+		public String brand4(HttpServletRequest request, Model model, SearchVO_brand searchVO) {
+			
+			System.out.println("brand4Page");
+			
+			//---------------------페이징 시작-------------------//
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+			String p_name=request.getParameter("p_name");
+			String p_price=request.getParameter("p_price");		
+			String p_img=request.getParameter("p_img");
+			
+			String strPage=request.getParameter("page"); //HttpServletRequest request, 가져오기
+			System.out.println("pagggge1 :"+strPage);
+			//null검사
+			if(strPage==null)//처음 리스트에서 list페이지로 넘어갈 때, null임.
+				strPage="1";
+			System.out.println("pagggge2 :"+strPage);
+			int page=Integer.parseInt(strPage);
+			searchVO.setPage(page);
+			
+			int total=dao.selectBoardTotCount();
+			searchVO.pageCalculate(total);
+			
+			//계산된 내용 출력
+			System.out.println("totRow : "+total);
+			System.out.println("clickPage : "+strPage);
+			System.out.println("pageStart : "+searchVO.getPageStart());
+			System.out.println("pageEnd : "+searchVO.getPageEnd());
+			System.out.println("pageTot : "+searchVO.getTotPage());
+			System.out.println("rowStart : "+searchVO.getRowStart());
+			System.out.println("rowEnd : "+searchVO.getRowEnd());
+			
+			int rowStart=searchVO.getRowStart();
+			int rowEnd=searchVO.getRowEnd();
+			String brand=request.getParameter("brand");
+			
+			ArrayList<Infodto> dto=dao.brand4(rowStart, rowEnd, "1", brand);
+//			model.addAttribute("list",list);
+			model.addAttribute("totRowcnt",total);
+			model.addAttribute("searchVO",searchVO);
+			model.addAttribute("brand4",dto);
+			
+			//---------------------페이징 끝-------------------//
+			
+			return "/BrandPage/brand4";
+			
+		}
+		@RequestMapping("/brand5")
+		public String brand5(HttpServletRequest request, Model model, SearchVO_brand searchVO) {
+			
+			System.out.println("brand5Page");
+			
+			//---------------------페이징 시작-------------------//
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+			String p_name=request.getParameter("p_name");
+			String p_price=request.getParameter("p_price");		
+			String p_img=request.getParameter("p_img");
+			
+			String strPage=request.getParameter("page"); //HttpServletRequest request, 가져오기
+			System.out.println("pagggge1 :"+strPage);
+			//null검사
+			if(strPage==null)//처음 리스트에서 list페이지로 넘어갈 때, null임.
+				strPage="1";
+			System.out.println("pagggge2 :"+strPage);
+			int page=Integer.parseInt(strPage);
+			searchVO.setPage(page);
+			
+			int total=dao.selectBoardTotCount();
+			searchVO.pageCalculate(total);
+			
+			//계산된 내용 출력
+			System.out.println("totRow : "+total);
+			System.out.println("clickPage : "+strPage);
+			System.out.println("pageStart : "+searchVO.getPageStart());
+			System.out.println("pageEnd : "+searchVO.getPageEnd());
+			System.out.println("pageTot : "+searchVO.getTotPage());
+			System.out.println("rowStart : "+searchVO.getRowStart());
+			System.out.println("rowEnd : "+searchVO.getRowEnd());
+			
+			int rowStart=searchVO.getRowStart();
+			int rowEnd=searchVO.getRowEnd();
+			String brand=request.getParameter("brand");
+			
+			ArrayList<Infodto> dto=dao.brand5(rowStart, rowEnd, "1", brand);
+//			model.addAttribute("list",list);
+			model.addAttribute("totRowcnt",total);
+			model.addAttribute("searchVO",searchVO);
+			model.addAttribute("brand5",dto);
+			
+			//---------------------페이징 끝-------------------//
+			
+			return "/BrandPage/brand5";
+			
+		}
+		@RequestMapping("/brand6")
+		public String brand6(HttpServletRequest request, Model model, SearchVO_brand searchVO) {
+			
+			System.out.println("brand6Page");
+			
+			//---------------------페이징 시작-------------------//
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+			String p_name=request.getParameter("p_name");
+			String p_price=request.getParameter("p_price");		
+			String p_img=request.getParameter("p_img");
+			
+			String strPage=request.getParameter("page"); //HttpServletRequest request, 가져오기
+			System.out.println("pagggge1 :"+strPage);
+			//null검사
+			if(strPage==null)//처음 리스트에서 list페이지로 넘어갈 때, null임.
+				strPage="1";
+			System.out.println("pagggge2 :"+strPage);
+			int page=Integer.parseInt(strPage);
+			searchVO.setPage(page);
+			
+			int total=dao.selectBoardTotCount();
+			searchVO.pageCalculate(total);
+			
+			//계산된 내용 출력
+			System.out.println("totRow : "+total);
+			System.out.println("clickPage : "+strPage);
+			System.out.println("pageStart : "+searchVO.getPageStart());
+			System.out.println("pageEnd : "+searchVO.getPageEnd());
+			System.out.println("pageTot : "+searchVO.getTotPage());
+			System.out.println("rowStart : "+searchVO.getRowStart());
+			System.out.println("rowEnd : "+searchVO.getRowEnd());
+			
+			int rowStart=searchVO.getRowStart();
+			int rowEnd=searchVO.getRowEnd();
+			String brand=request.getParameter("brand");
+			
+			ArrayList<Infodto> dto=dao.brand6(rowStart, rowEnd, "1", brand);
+//			model.addAttribute("list",list);
+			model.addAttribute("totRowcnt",total);
+			model.addAttribute("searchVO",searchVO);
+			model.addAttribute("brand6",dto);
+			
+			//---------------------페이징 끝-------------------//
+			
+			return "/BrandPage/brand6";
+			
+		}
+		@RequestMapping("/brand7")
+		public String brand7(HttpServletRequest request, Model model, SearchVO_brand searchVO) {
+			
+			System.out.println("brand7Page");
+			
+			//---------------------페이징 시작-------------------//
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+			String p_name=request.getParameter("p_name");
+			String p_price=request.getParameter("p_price");		
+			String p_img=request.getParameter("p_img");
+			
+			String strPage=request.getParameter("page"); //HttpServletRequest request, 가져오기
+			System.out.println("pagggge1 :"+strPage);
+			//null검사
+			if(strPage==null)//처음 리스트에서 list페이지로 넘어갈 때, null임.
+				strPage="1";
+			System.out.println("pagggge2 :"+strPage);
+			int page=Integer.parseInt(strPage);
+			searchVO.setPage(page);
+			
+			int total=dao.selectBoardTotCount();
+			searchVO.pageCalculate(total);
+			
+			//계산된 내용 출력
+			System.out.println("totRow : "+total);
+			System.out.println("clickPage : "+strPage);
+			System.out.println("pageStart : "+searchVO.getPageStart());
+			System.out.println("pageEnd : "+searchVO.getPageEnd());
+			System.out.println("pageTot : "+searchVO.getTotPage());
+			System.out.println("rowStart : "+searchVO.getRowStart());
+			System.out.println("rowEnd : "+searchVO.getRowEnd());
+			
+			int rowStart=searchVO.getRowStart();
+			int rowEnd=searchVO.getRowEnd();
+			String brand=request.getParameter("brand");
+			
+			ArrayList<Infodto> dto=dao.brand7(rowStart, rowEnd, "1", brand);
+//			model.addAttribute("list",list);
+			model.addAttribute("totRowcnt",total);
+			model.addAttribute("searchVO",searchVO);
+			model.addAttribute("brand7",dto);
+			
+			//---------------------페이징 끝-------------------//
+			
+			return "/BrandPage/brand7";
+			
+		}
+		@RequestMapping("/brand8")
+		public String brand8(HttpServletRequest request, Model model, SearchVO_brand searchVO) {
+			
+			System.out.println("brand8Page");
+			
+			//---------------------페이징 시작-------------------//
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+			String p_name=request.getParameter("p_name");
+			String p_price=request.getParameter("p_price");		
+			String p_img=request.getParameter("p_img");
+			
+			String strPage=request.getParameter("page"); //HttpServletRequest request, 가져오기
+			System.out.println("pagggge1 :"+strPage);
+			//null검사
+			if(strPage==null)//처음 리스트에서 list페이지로 넘어갈 때, null임.
+				strPage="1";
+			System.out.println("pagggge2 :"+strPage);
+			int page=Integer.parseInt(strPage);
+			searchVO.setPage(page);
+			
+			int total=dao.selectBoardTotCount();
+			searchVO.pageCalculate(total);
+			
+			//계산된 내용 출력
+			System.out.println("totRow : "+total);
+			System.out.println("clickPage : "+strPage);
+			System.out.println("pageStart : "+searchVO.getPageStart());
+			System.out.println("pageEnd : "+searchVO.getPageEnd());
+			System.out.println("pageTot : "+searchVO.getTotPage());
+			System.out.println("rowStart : "+searchVO.getRowStart());
+			System.out.println("rowEnd : "+searchVO.getRowEnd());
+			
+			int rowStart=searchVO.getRowStart();
+			int rowEnd=searchVO.getRowEnd();
+			String brand=request.getParameter("brand");
+			
+			ArrayList<Infodto> dto=dao.brand8(rowStart, rowEnd, "1", brand);
+//			model.addAttribute("list",list);
+			model.addAttribute("totRowcnt",total);
+			model.addAttribute("searchVO",searchVO);
+			model.addAttribute("brand8",dto);
+			
+			//---------------------페이징 끝-------------------//
+			
+			return "/BrandPage/brand8";
+			
+		}
+		@RequestMapping("/brand9")
+		public String brand9(HttpServletRequest request, Model model, SearchVO_brand searchVO) {
+			
+			System.out.println("brand9Page");
+			
+			//---------------------페이징 시작-------------------//
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+			String p_name=request.getParameter("p_name");
+			String p_price=request.getParameter("p_price");		
+			String p_img=request.getParameter("p_img");
+			
+			String strPage=request.getParameter("page"); //HttpServletRequest request, 가져오기
+			System.out.println("pagggge1 :"+strPage);
+			//null검사
+			if(strPage==null)//처음 리스트에서 list페이지로 넘어갈 때, null임.
+				strPage="1";
+			System.out.println("pagggge2 :"+strPage);
+			int page=Integer.parseInt(strPage);
+			searchVO.setPage(page);
+			
+			int total=dao.selectBoardTotCount();
+			searchVO.pageCalculate(total);
+			
+			//계산된 내용 출력
+			System.out.println("totRow : "+total);
+			System.out.println("clickPage : "+strPage);
+			System.out.println("pageStart : "+searchVO.getPageStart());
+			System.out.println("pageEnd : "+searchVO.getPageEnd());
+			System.out.println("pageTot : "+searchVO.getTotPage());
+			System.out.println("rowStart : "+searchVO.getRowStart());
+			System.out.println("rowEnd : "+searchVO.getRowEnd());
+			
+			int rowStart=searchVO.getRowStart();
+			int rowEnd=searchVO.getRowEnd();
+			String brand=request.getParameter("brand");
+			
+			ArrayList<Infodto> dto=dao.brand9(rowStart, rowEnd, "1", brand);
+//			model.addAttribute("list",list);
+			model.addAttribute("totRowcnt",total);
+			model.addAttribute("searchVO",searchVO);
+			model.addAttribute("brand9",dto);
+			
+			//---------------------페이징 끝-------------------//
+			
+			return "/BrandPage/brand9";
+			
+		}
+		@RequestMapping("/brand10")
+		public String brand10(HttpServletRequest request, Model model, SearchVO_brand searchVO) {
+			
+			System.out.println("brand10Page");
+			
+			//---------------------페이징 시작-------------------//
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+			String p_name=request.getParameter("p_name");
+			String p_price=request.getParameter("p_price");		
+			String p_img=request.getParameter("p_img");
+			
+			String strPage=request.getParameter("page"); //HttpServletRequest request, 가져오기
+			System.out.println("pagggge1 :"+strPage);
+			//null검사
+			if(strPage==null)//처음 리스트에서 list페이지로 넘어갈 때, null임.
+				strPage="1";
+			System.out.println("pagggge2 :"+strPage);
+			int page=Integer.parseInt(strPage);
+			searchVO.setPage(page);
+			
+			int total=dao.selectBoardTotCount();
+			searchVO.pageCalculate(total);
+			
+			//계산된 내용 출력
+			System.out.println("totRow : "+total);
+			System.out.println("clickPage : "+strPage);
+			System.out.println("pageStart : "+searchVO.getPageStart());
+			System.out.println("pageEnd : "+searchVO.getPageEnd());
+			System.out.println("pageTot : "+searchVO.getTotPage());
+			System.out.println("rowStart : "+searchVO.getRowStart());
+			System.out.println("rowEnd : "+searchVO.getRowEnd());
+			
+			int rowStart=searchVO.getRowStart();
+			int rowEnd=searchVO.getRowEnd();
+			String brand=request.getParameter("brand");
+			
+			ArrayList<Infodto> dto=dao.brand10(rowStart, rowEnd, "1", brand);
+//			model.addAttribute("list",list);
+			model.addAttribute("totRowcnt",total);
+			model.addAttribute("searchVO",searchVO);
+			model.addAttribute("brand10",dto);
+			
+			//---------------------페이징 끝-------------------//
+			
+			return "/BrandPage/brand10";
+			
+		}
+		
 		@RequestMapping("product_enroll")
 		public String product_enroll(HttpServletRequest request,
-			Model model) {
-		System.out.println("===enroll====");
+				Model model) {
+			System.out.println("===enroll====");
+			
 		
-		
-		BrandDao dao=sqlSession.getMapper(BrandDao.class);
-		
-		
-		return "BrandPage/product_enroll";
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+
+			return "BrandPage/product_enroll";
 		}
 		
 		@RequestMapping("product_enrollwrite")
 		public String product_enrollwrite(HttpServletRequest request,
-			Model model) throws Exception {
-		System.out.println("====enroll====");
-		
-		String attachPath="resources\\upload\\";
-		String uploadPath=request.getSession().getServletContext().getRealPath("/");
-		System.out.println("uploadPath : "+uploadPath);
-		String path=uploadPath+attachPath;
-		
-		MultipartRequest req=
-				new MultipartRequest(request, path, 1024*1024*20, "utf-8",
-						new DefaultFileRenamePolicy());
-		
-		 HttpSession session = request.getSession();
-		 
-		 String p_name=req.getParameter("p_name"); 
-		 int p_price=Integer.parseInt(req.getParameter("p_price"));
-		 String p_class=req.getParameter("p_class"); 
-		 String p_gender=req.getParameter("p_gender"); 
-		 String p_img=req.getFilesystemName("p_img"); 
-		 System.out.println("p_img :"+p_img);
-		 String p_img2=req.getFilesystemName("p_img2"); 
-		 System.out.println("p_img :"+p_img2);
-		 String p_img3=req.getFilesystemName("p_img3"); 
-		 System.out.println("p_img :"+p_img3);
-		 String p_img4=req.getFilesystemName("p_img4"); 
-		 System.out.println("p_img :"+p_img4);
-		 String p_img5=req.getFilesystemName("p_img5"); 
-		 System.out.println("p_img :"+p_img5);
-		 String brand=req.getParameter("brand"); 
-		 String p_category=req.getParameter("p_category");
-		 
-		 System.out.println("filename : "+p_img);
-			if (p_img==null) {
-				p_img="";
-			}
-		 
-		BrandDao dao=sqlSession.getMapper(BrandDao.class);
-		dao.product_enrollwrite(p_name, p_price, p_class, p_gender, p_img, p_img2, p_img3, p_img4, p_img5, brand, p_category);
-		
-		return "redirect:brand";
-		}
-		@RequestMapping("product_delete")
-		public String product_delete(HttpServletRequest request,
-				Model model) {
-			System.out.println("====delelte===-");
+				Model model) throws Exception {
+			System.out.println("====enroll====");
 			
-			String sp_code=request.getParameter("p_code");
+			String attachPath="resources\\upload\\";
+			String uploadPath=request.getSession().getServletContext().getRealPath("/");
+			System.out.println("uploadPath : "+uploadPath);
+			String path=uploadPath+attachPath;
+			
+			MultipartRequest req=
+					new MultipartRequest(request, path, 1024*1024*20, "utf-8",
+							new DefaultFileRenamePolicy());
+			
+			 HttpSession session = request.getSession();
+			 
+			 String p_name=req.getParameter("p_name"); 
+			 int p_price=Integer.parseInt(req.getParameter("p_price"));
+			 String p_class=req.getParameter("p_class"); 
+			 String p_gender=req.getParameter("p_gender"); 
+			 String p_img=req.getFilesystemName("p_img"); 
+			 System.out.println("p_img :"+p_img);
+			 String p_img2=req.getFilesystemName("p_img2"); 
+			 System.out.println("p_img :"+p_img2);
+			 String p_img3=req.getFilesystemName("p_img3"); 
+			 System.out.println("p_img :"+p_img3);
+			 String p_img4=req.getFilesystemName("p_img4"); 
+			 System.out.println("p_img :"+p_img4);
+			 String p_img5=req.getFilesystemName("p_img5"); 
+			 System.out.println("p_img :"+p_img5);
+			 String brand=req.getParameter("brand"); 
+			 String p_category=req.getParameter("p_category");
+			 
+			 System.out.println("filename : "+p_img);
+				if (p_img3==null) {
+					p_img3="";
+				}
+				if (p_img4==null) {
+					p_img4="";
+				}
+				if (p_img5==null) {
+					p_img5="";
+				}
+			 
 			BrandDao dao=sqlSession.getMapper(BrandDao.class);
-			dao.product_delete(sp_code);
-			
+			dao.product_enrollwrite(p_name, p_price, p_class, p_gender, p_img, p_img2, p_img3, p_img4, p_img5, brand, p_category);
 			
 			return "redirect:brand";
 		}
-}
+			@RequestMapping("product_delete")
+			public String product_delete(HttpServletRequest request,
+					Model model) {
+				System.out.println("====delelte===-");
+				
+				String sp_code=request.getParameter("p_code");
+				BrandDao dao=sqlSession.getMapper(BrandDao.class);
+				dao.product_delete(sp_code);
+				
+				
+				return "redirect:brand";
+			}
+	}

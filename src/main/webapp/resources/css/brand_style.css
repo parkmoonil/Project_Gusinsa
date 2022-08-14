@@ -134,6 +134,7 @@ a:hover {
 	opacity: 0;
 	text-decoration: none;
 	font-size: .75em;
+	z-index: 3;
 }
 
 #back-to-top:hover {

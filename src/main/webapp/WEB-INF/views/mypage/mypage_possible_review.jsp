@@ -241,43 +241,7 @@ font-weight: bold;
 <body>
 <%@include file="../../../../resources/common/header.jsp" %> 
 <div class="cs_main">
-<div class="cs_left_nav">
-        <h2 class="cs_left_title"><a href="mypage_orderlist">
-            마이페이지
-        </a></h2>
-        <ul>
-            <li class="cs_left_list" ><a href="noticeboard">
-                회원정보 수정
-            </a></li>
-            <li class="cs_left_list"><a href="mypage_orderlist" >
-                주문 내역
-            </a></li>
-            <li class="cs_left_list"><a href="../MyCart">
-                장바구니
-            </a></li>
-            <li class="cs_left_list"><a href="../inquiry">
-                1:1 문의하기
-            </a></li>
-            <li class="cs_left_list"><a href="mypage_inquiry">
-                문의내역
-            </a></li>
-            <li class="cs_left_list"><a href="../membership">
-                멤버쉽(클럽)안내
-            </a></li>
-        </ul>
-        <h2 class="cs_left_title"><a href="mypage_orderlist">
-            상품 리뷰
-        </a></h2>
-        <ul>
-            <li class="cs_left_list" ><a href="mypage_possible_review" id = "mypage_orderlist">
-                작성 가능한 리뷰
-            </a></li>
-            <li class="cs_left_list"><a href="mypage_written_review">
-                내가 작성한 리뷰
-            </a></li>
-            </ul>
-        
-    </div>
+<%@include file="mypage_left_nav/mypage_nav.jsp" %>  
 </body>
 </html>   
     <div class="cs_main_board">
@@ -295,6 +259,7 @@ font-weight: bold;
                 <th class="faqboard_date">리뷰상태</th>
             </tr>
             <c:forEach items="${order }" var="list" varStatus ="status" >
+             <input type="hidden" name="p_code" id="p_code" value="${list.p_code }"/>
             <tr>
                 <th>${list.o_code }</th>
                 <th>${list.o_date }</th>
@@ -303,8 +268,9 @@ font-weight: bold;
                 <th>${list.p_size }</th>
                 <th>${list.o_count }</th>
                 <th>${list.o_price }</th>
-                <th><a href="${pageContext.request.contextPath }/review_write_view?o_code=${list.o_code}">작성하기</a></th>
+                <th><a href="${pageContext.request.contextPath }/review_write_view?o_code=${list.o_code}&p_code=${list.p_code }">작성하기</a></th>
             </tr>
+           
             </c:forEach>
         </table>
 <div class="paging" >

@@ -16,6 +16,7 @@ import com.tech.project_shopping_mall.dto.Infodto;
 @Controller
 public class BuyPageController {
 
+
    @Autowired
    private SqlSession sqlSession;
    
@@ -51,3 +52,5 @@ public class BuyPageController {
       
    }
 }
+
+

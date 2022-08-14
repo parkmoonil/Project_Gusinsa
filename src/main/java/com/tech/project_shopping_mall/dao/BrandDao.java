@@ -59,7 +59,16 @@ public interface BrandDao {
 	public BrandDto brand(String brand_id);
 	
 	public int selectBoardTotCount();
-	public ArrayList<Infodto> brand1(int rowStart, int rowEnd, String p_img);
+	public ArrayList<Infodto> brand1(int rowStart, int rowEnd, String p_img, String brand);
+	public ArrayList<Infodto> brand2(int rowStart, int rowEnd, String p_img, String brand);
+	public ArrayList<Infodto> brand3(int rowStart, int rowEnd, String p_img, String brand);
+	public ArrayList<Infodto> brand4(int rowStart, int rowEnd, String p_img, String brand);
+	public ArrayList<Infodto> brand5(int rowStart, int rowEnd, String p_img, String brand);
+	public ArrayList<Infodto> brand6(int rowStart, int rowEnd, String p_img, String brand);
+	public ArrayList<Infodto> brand7(int rowStart, int rowEnd, String p_img, String brand);
+	public ArrayList<Infodto> brand8(int rowStart, int rowEnd, String p_img, String brand);
+	public ArrayList<Infodto> brand9(int rowStart, int rowEnd, String p_img, String brand);
+	public ArrayList<Infodto> brand10(int rowStart, int rowEnd, String p_img, String brand);
 	public ArrayList<Infodto> Pricelistdesc(int rowStart, int rowEnd, String p_img);
 	public ArrayList<Infodto> Pricelistasc(int rowStart, int rowEnd, String p_img);
 	public ArrayList<Infodto> datedesc(int rowStart, int rowEnd, String p_img);
