@@ -18,7 +18,6 @@
 		   , MADDR_THREE
 		   , MADDR_FOUR
 		   , MEMAIL
-		   , MGRADE
 		   , MNO
 		) VALUES (
 		     #{mid}
@@ -32,7 +31,6 @@
 		   , #{maddr_three}
 		   , #{maddr_four}
 		   , #{memail}
-		   , #{mgrade,jdbcType=VARCHAR}
 		   , MEMBERS_SEQ.NEXTVAL
 		)
 		</insert>

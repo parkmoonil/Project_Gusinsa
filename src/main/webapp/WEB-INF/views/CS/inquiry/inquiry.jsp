@@ -89,7 +89,6 @@ function checkSubmit() {
 		    <div class="inquiry_btn">
 		    	<input type="submit" value="전송" class="save_btn">
 		    </div>
-		  
 	    </form>
 	</div>
 </div>

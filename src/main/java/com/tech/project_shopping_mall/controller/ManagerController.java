@@ -28,13 +28,6 @@ public class ManagerController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@RequestMapping("/manager")
-	public String manager() {
-		System.out.println("=====manager=====");
-		
-		return "CS/manager/manager";
-	}
-	
 	@RequestMapping("/manager_inquiry")
 	public String inquiryboard(HttpServletRequest request,
 			Model model,SearchVO_CS searchVO) {
@@ -55,14 +48,6 @@ public class ManagerController {
 		
 		System.out.println("totalrow : "+total);
 		searchVO.pageCalculate(total);
-		
-		System.out.println("totPage : "+total);
-		System.out.println("clickpage : "+strPage);
-		System.out.println("pageStart : "+searchVO.getPageStart());
-		System.out.println("pageEnd : "+searchVO.getPageEnd());
-		System.out.println("pageTot : "+searchVO.getTotPage());
-		System.out.println("rowStart : "+searchVO.getRowStart());
-		System.out.println("rowEnd : "+searchVO.getRowEnd());
 		
 		int rowStart=searchVO.getRowStart();
 		int rowEnd=searchVO.getRowEnd();
@@ -152,14 +137,6 @@ public class ManagerController {
 		
 		System.out.println("totalrow : "+total);
 		searchVO.pageCalculate(total);
-		
-		System.out.println("totPage : "+total);
-		System.out.println("clickpage : "+strPage);
-		System.out.println("pageStart : "+searchVO.getPageStart());
-		System.out.println("pageEnd : "+searchVO.getPageEnd());
-		System.out.println("pageTot : "+searchVO.getTotPage());
-		System.out.println("rowStart : "+searchVO.getRowStart());
-		System.out.println("rowEnd : "+searchVO.getRowEnd());
 		
 		int rowStart=searchVO.getRowStart();
 		int rowEnd=searchVO.getRowEnd();
@@ -253,14 +230,6 @@ public class ManagerController {
 		
 		int rowStart=searchVO.getRowStart();
 		int rowEnd=searchVO.getRowEnd();
-		
-		System.out.println("totPage : "+total);
-		System.out.println("clickpage : "+strPage);
-		System.out.println("pageStart : "+searchVO.getPageStart());
-		System.out.println("pageEnd : "+searchVO.getPageEnd());
-		System.out.println("pageTot : "+searchVO.getTotPage());
-		System.out.println("rowStart : "+searchVO.getRowStart());
-		System.out.println("rowEnd : "+searchVO.getRowEnd());
 		
 		ArrayList<EnterDto> EnterBoard=dao.EnterBoard(rowStart, rowEnd);
 	
@@ -370,14 +339,6 @@ public class ManagerController {
 		
 		searchVO.pageCalculate(total);
 		
-		System.out.println("totRow : "+total);
-		System.out.println("clickpage : "+strPage);
-		System.out.println("pageStart : "+searchVO.getPageStart());
-		System.out.println("pageEnd : "+searchVO.getPageEnd());
-		System.out.println("pageTot : "+searchVO.getTotPage());
-		System.out.println("rowStart : "+searchVO.getRowStart());
-		System.out.println("rowEnd : "+searchVO.getRowEnd());
-		
 		int rowStart=searchVO.getRowStart();
 		int rowEnd=searchVO.getRowEnd();
 		
@@ -430,13 +391,45 @@ public class ManagerController {
 	 
 	 @RequestMapping("membersdelete")
 		public String membersdelete(HttpServletRequest request, Model model) {
-			System.out.println("=====manager_delete====");
+		System.out.println("=====manager_delete====");
 
-			String smno = request.getParameter("mno");
-			CSDao dao = sqlSession.getMapper(CSDao.class);
-			dao.membersdelete(smno);
-			
-			return "redirect:manager_members";
+		String smno = request.getParameter("mno");
+		CSDao dao = sqlSession.getMapper(CSDao.class);
+		dao.membersdelete(smno);
+		
+		return "redirect:manager_members";
 		}
+	 
+	 @RequestMapping(method = RequestMethod.POST, value= "/istate")
+	 public String istate(HttpServletRequest request,
+			 Model model) {
+		 System.out.println("====istate====");
+		 
+		 String inum=request.getParameter("inum");
+		 String istate=request.getParameter("istate");
+		 System.out.println("inum  :"+inum);
+		 System.out.println("cstate  :"+istate);
+		 
+		 CSDao dao = sqlSession.getMapper(CSDao.class);
+		 dao.istate(inum, istate);
+	
+		 return "redirect:manager_inquiry";
+	 }
+	 
+	 @RequestMapping(method = RequestMethod.POST, value= "/cstate")
+	 public String cstate(HttpServletRequest request,
+			 Model model) {
+		 System.out.println("====cstate====");
+		 
+		 String cnum=request.getParameter("cnum");
+		 String cstate=request.getParameter("cstate");
+		 System.out.println("cnum  :"+cnum);
+		 System.out.println("cstate  :"+cstate);
+		 
+		 CSDao dao = sqlSession.getMapper(CSDao.class);
+		 dao.cstate(cnum, cstate);
+	
+		 return "redirect:manager_commu";
+	 }
 	
 }

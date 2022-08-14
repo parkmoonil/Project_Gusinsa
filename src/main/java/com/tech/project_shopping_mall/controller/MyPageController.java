@@ -85,6 +85,7 @@ public class MyPageController {
 		HttpSession session = request.getSession();
 		String mid = (String )session.getAttribute("mid");
 		// 문의내역 수정해야됌
+		System.out.println("mid :"+mid);
 		
 		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
 		// 가자가자 페이징처리
@@ -104,21 +105,16 @@ public class MyPageController {
 		int rowStart = searchVO.getRowStart();  // 첫 페이지 계산
 		int rowEnd = searchVO.getRowEnd();  // 마지막 페이지 계산
 		
-		System.out.println("rowStart : " + rowStart);
-		System.out.println("rowEnd : " + rowEnd);
-		System.out.println("rowStart : " + rowStart);
-		System.out.println("rowEnd : " + rowEnd);
 		
+		ArrayList<IMDto> MypageIM = dao.MypageIM(mid, rowStart, rowEnd); // 첫페이지, 마지막 페이지  아이디 저장
 		
-		ArrayList<InquiryDto> Inqdto = dao.Inqlist(rowStart,rowEnd,mid);  // 첫페이지, 마지막 페이지  아이디 저장
-		System.out.println("Inqdto : " + Inqdto);
 		
 		// 문의내역으로 조회되게 해야됌
 		
-		model.addAttribute("inq",Inqdto);
+		model.addAttribute("MypageIM",MypageIM);
 		model.addAttribute("totRowCnt",total);
 		model.addAttribute("searchVO",searchVO);
-		System.out.println("Inqdto : " + Inqdto);
+		
 		
 		return "/mypage/mypage_inquiry";
 	}
@@ -150,14 +146,6 @@ public class MyPageController {
 	  
 	 System.out.println("totalrow : "+total); 
 	 searchVO.pageCalculate(total);
-	  
-	 System.out.println("totPage : "+total);
-	 System.out.println("clickpage : "+strPage);
-	 System.out.println("pageStart : "+searchVO.getPageStart());
-	 System.out.println("pageEnd : "+searchVO.getPageEnd());
-	 System.out.println("pageTot : "+searchVO.getTotPage());
-	 System.out.println("rowStart : "+searchVO.getRowStart());
-	 System.out.println("rowEnd : "+searchVO.getRowEnd());
 	 
 	 int rowStart=searchVO.getRowStart(); 
 	 int rowEnd=searchVO.getRowEnd();

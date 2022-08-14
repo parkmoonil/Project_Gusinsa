@@ -37,7 +37,7 @@
 	                <th>작성일자</th>
 	            </tr>
 	            
-	            <c:forEach items="${MypageIM}" var="dto">
+	            <c:forEach items="${MypageIM}" var="inq">
 					<tr class="Mytoggle" onclick="test(this)">
 						<td>
 							${inq.iselect1}
