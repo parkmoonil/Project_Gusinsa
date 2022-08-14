@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tech.project_shopping_mall.dao.MainPageDao;
 import com.tech.project_shopping_mall.dto.Infodto;
+import com.tech.project_shopping_mall.dto.StorageDto;
 
 @Controller
 public class BuyPageController {
@@ -27,6 +28,8 @@ public class BuyPageController {
 		int pcode = Integer.parseInt(request.getParameter("p_code"));
 		//String pcode = request.getParameter("p_code");
 
+		ArrayList<StorageDto>  strgdto= dao.storage(pcode);
+
         Infodto indto = dao.search_prouct_detail(pcode);
 		System.out.println("indto : " + indto);
 
@@ -36,6 +39,7 @@ public class BuyPageController {
 	}
 	
 	
+
 	@RequestMapping("SaleBuyPage")
 	public String SaleBuyPage(HttpServletRequest request, Model model) {
 		
@@ -50,4 +54,48 @@ public class BuyPageController {
 		return "/Sale/SuperSale";
 		
 	}
+
+	/*
+	 * @RequestMapping("BuyPage") public String BuyPagae(HttpServletRequest request,
+	 * Model model) {
+	 * 
+	 * HttpSession session = request.getSession(); String[] mid = (String[]
+	 * )session.getAttribute("mid");
+	 * 
+	 * if (mid.length < 0) { // 비회원일때는 값처리 하고 리턴을 다른곳 비회원전용 MainPageDao dao =
+	 * sqlSession.getMapper(MainPageDao.class); int pcode =
+	 * Integer.parseInt(request.getParameter("p_code")); //String pcode =
+	 * request.getParameter("p_code");
+	 * 
+	 * Infodto indto = dao.search_prouct_detail(pcode);
+	 * System.out.println("indto : " + indto);
+	 * 
+	 * model.addAttribute("indto", indto); return "/Sale/SaleBuying";
+	 * 
+	 * 
+	 * }
+	 * 
+	 * 
+	 * //여기는 회원전용
+	 * 
+	 * HttpSession session = request.getSession(); String mid = (String
+	 * )session.getAttribute("mid");
+	 * 
+	 * 
+	 * 
+	 * MainPageDao dao = sqlSession.getMapper(MainPageDao.class); int pcode =
+	 * Integer.parseInt(request.getParameter("p_code")); //String pcode =
+	 * request.getParameter("p_code");
+	 * 
+	 * Infodto indto = dao.search_prouct_detail(pcode);
+	 * System.out.println("indto : " + indto);
+	 * 
+	 * model.addAttribute("indto", indto); return "/Sale/SaleBuying";
+	 * 
+	 * 
+	 * 
+	 * }
+	 */
+	 
+
 }

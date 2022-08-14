@@ -270,11 +270,11 @@ SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM
   <select id="Orderafterlogin" resultType="com.tech.project_shopping_mall.dto.MembersDto">
 	SELECT MNAME,MADDR_ONE,MADDR_TWO,MADDR_THREE,MADDR_FOUR,MPHONE FROM MEMBERS WHERE MID=#{MID,jdbcType=VARCHAR}
 	</select>
-		<insert id="afterpay">
+	<insert id="afterpay">
 
 	
-	INSERT INTO ORDERINFO (O_CODE, P_CODE, P_NAME, P_PRICE, O_COUNT, O_TOTPRICE, MADDR_ONE, MADDR_TWO, MADDR_THREE, MADDR_FOUR, MID, MPHONE, P_IMG,O_QUEST,P_SIZE,P_COLOR) 
-	VALUES(ORDERINFO_SEQ.NEXTVAL,#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11}, #{param12}, #{param13}, #{param14}, #{param15})
+	INSERT INTO ORDERINFO (O_CODE, P_CODE, P_NAME, P_PRICE, O_COUNT, O_TOTPRICE, MADDR_ONE, MADDR_TWO, MADDR_THREE, MADDR_FOUR, MID, MPHONE, P_IMG,O_QUEST,P_SIZE) 
+	VALUES(ORDERINFO_SEQ.NEXTVAL,#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11}, #{param12}, #{param13}, #{param14})
 	
 <!-- 	INSERT INTO ORDERINFO (O_CODE, P_CODE, P_NAME, P_PRICE, O_COUNT, O_TOTPRICE, MID
 	) VALUES(ORDERINFO_SEQ.NEXTVAL,#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
@@ -284,8 +284,8 @@ SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM
 	<insert id="afternopay">
 
 	
-	INSERT INTO NORDERINFO (MNO, P_CODE, P_NAME, P_PRICE, O_COUNT, O_TOTPRICE, N_NAME, N_ORDERNAME, N_EMAIL, N_ADDR1, N_ADDR2, N_ADDR3, N_ADDR4,N_NUMBER1,N_NUMBER2,P_IMG,N_REQUEST,P_SIZE,P_COLOR) 
-	VALUES(NORDERINFO_SEQ.NEXTVAL,#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11}, #{param12}, #{param13}, #{param14}, #{param15}, #{param16}, #{param17}, #{param18})
+	INSERT INTO NORDERINFO (MNO, P_CODE, P_NAME, P_PRICE, O_COUNT, O_TOTPRICE, N_NAME, N_ORDERNAME, N_EMAIL, N_ADDR1, N_ADDR2, N_ADDR3, N_ADDR4,N_NUMBER1,N_NUMBER2,P_IMG,N_REQUEST,P_SIZE) 
+	VALUES(NORDERINFO_SEQ.NEXTVAL,#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11}, #{param12}, #{param13}, #{param14}, #{param15}, #{param16}, #{param17})
 	
 <!-- 	INSERT INTO ORDERINFO (O_CODE, P_CODE, P_NAME, P_PRICE, O_COUNT, O_TOTPRICE, MID
 	) VALUES(ORDERINFO_SEQ.NEXTVAL,#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
@@ -294,8 +294,39 @@ SELECT P_NAME, P_PRICE, P_IMG FROM 	(SELECT ROWNUM NUM,N.* FROM
 	</insert>
 	
 	<select  id="storage" resultType = "com.tech.project_shopping_mall.dto.StorageDto">
-SELECT P_CODE, P_SIZE, P_COLOR FROM STORAGE WHERE P_CODE = #{param1}
+SELECT P_CODE, P_SIZE FROM STORAGE WHERE P_CODE = #{param1}
 </select>
+	
+<!-- 	<insert id="norderwrite">
+	INSERT INTO NORDERINFO(
+MNO,
+N_ORDERNAME,
+N_NUMBER1,
+N_EMAIL,
+N_NAME,
+N_ADDR1,
+N_ADDR2,
+N_ADDR3,
+N_ADDR4,
+N_NUMBER2,
+N_REQUEST)
+VALUES
+(
+ORDERINFO_SEQ.NEXTVAL,
+ #{param1},
+ #{param2}, 
+ #{param3}, 
+ #{param4}, 
+ #{param5}, 
+ #{param6}, 
+ #{param7}, 
+ #{param8}, 
+ #{param9}, 
+ #{param10}
+
+)
+	</insert> -->
+	
 </mapper>
 <!-- ,jdbcType=VARCHAR -->
 

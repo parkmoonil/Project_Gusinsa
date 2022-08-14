@@ -243,11 +243,26 @@ function move() {
 	
 	let sum = sell_price * amount;
     let sping = 2500;
-    
+    let option_size = document.getElementById("option_size").value;
     if (sum > 50000){
     	sping = 0;
     }
     let sumsping= sum+sping;
+<<<<<<< HEAD
+=======
+    
+    
+   if (mid=='null') {
+		location.href ="Orderbeforelogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping+"&p_size="+option_size; 
+	}  
+	else{
+		location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping+"&p_size="+option_size;
+	}
+    
+    
+    
+    
+>>>>>>> 55ff48b5e828560ce448531c8f41badaab9a7c93
 	// 스페이스바 주의 null값 우려
 	location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping; 
 
@@ -289,6 +304,7 @@ function move() {
                         <td class="td1">상품 옵션</td>
                     </tr>
 
+<<<<<<< HEAD
 					<tr id="option_color"> <!-- 맨위쪽에 css있어요 .option_color -->
                     color  
                      <select name="option_color" class="option_color">
@@ -296,14 +312,23 @@ function move() {
                     <option value="blue">blue</option>
                     
                 </select>
+=======
+				
+>>>>>>> 55ff48b5e828560ce448531c8f41badaab9a7c93
                <br />
                     
                     </tr>
-                    <trid="option_size" >
-                    size  <select name="option_size" class="option_size">
+                    <tr id="option_size" >
+                    size  <select name="option_size" class="option_size" id ="option_size">
                     <option value="">선택</option>
+<<<<<<< HEAD
                     <option value="free">free</option>
                     
+=======
+                    <c:forEach var="strgdto" items="${strgdto }">
+                    <option value="${strgdto.p_size }">${strgdto.p_size }</option>
+                    </c:forEach>
+>>>>>>> 55ff48b5e828560ce448531c8f41badaab9a7c93
                      </select>
                     </tr>	
 				
