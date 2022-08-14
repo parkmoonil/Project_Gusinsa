@@ -245,7 +245,7 @@ function move() {
 	let mid = '<%=(String)session.getAttribute("mid")%>';
 	let sum = sell_price * amount;
     let sping = 2500;
-    
+    let option_size = document.getElementById("option_size").value;
     if (sum > 50000){
     	sping = 0;
     }
@@ -254,10 +254,10 @@ function move() {
     
     
    if (mid=='null') {
-		location.href ="Orderbeforelogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping; 
+		location.href ="Orderbeforelogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping+"&p_size="+option_size; 
 	}  
 	else{
-		location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping;	
+		location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping+"&p_size="+option_size;
 	}
     
     
@@ -304,20 +304,16 @@ function move() {
                         <td class="td1">상품 옵션</td>
                     </tr>
 
-					<tr id="option_color"> <!-- 맨위쪽에 css있어요 .option_color -->
-                    color  
-                     <select name="option_color" class="option_color">
-                    <option value="">선택</option>
-                    <option value="컬러">${strgdto.p_color }</option>
-                    
-                </select>
+				
                <br />
                     
                     </tr>
-                    <trid="option_size" >
-                    size  <select name="option_size" class="option_size">
+                    <tr id="option_size" >
+                    size  <select name="option_size" class="option_size" id ="option_size">
                     <option value="">선택</option>
-                    <option value="사이즈">${strgdto.p_size }</option>
+                    <c:forEach var="strgdto" items="${strgdto }">
+                    <option value="${strgdto.p_size }">${strgdto.p_size }</option>
+                    </c:forEach>
                      </select>
                     </tr>	
 					
