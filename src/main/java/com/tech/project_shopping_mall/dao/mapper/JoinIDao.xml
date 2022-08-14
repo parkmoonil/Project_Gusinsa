@@ -39,4 +39,17 @@
 		<select parameterType="String" id="Id_Check" resultType="com.tech.project_shopping_mall.dto.MembersDto">
 			SELECT MID FROM MEMBERS WHERE MID = #{id}
 		</select>
+		
+		<update id = "User_Edit_NotPw">
+		UPDATE MEMBERS SET MNAME = #{param2 },  MBIRTH = SYSDATE,  MPHONE = #{param3 },  MADDR_ONE = #{param4 },  MADDR_TWO = #{param5 },  MADDR_THREE = #{param6 },  MADDR_FOUR = #{param7 }
+,  MEMAIL = #{param8 } WHERE MID = #{param1 }
+		</update>
+		
+		<update id = "User_Edit_InPw">
+		UPDATE MEMBERS SET MPW =#{param2 }  ,MNAME = #{param3 },  MBIRTH = SYSDATE,  MPHONE = #{param4 },  MADDR_ONE = #{param5 },  MADDR_TWO = #{param6 },  MADDR_THREE = #{param7 },  MADDR_FOUR = #{param8 }
+,  MEMAIL = #{param9 } WHERE MID = #{param1 }
+		</update>
+		
+		
+		
 </mapper>

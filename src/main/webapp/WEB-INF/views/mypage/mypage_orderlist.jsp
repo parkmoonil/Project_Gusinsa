@@ -250,7 +250,7 @@ font-weight: bold;
             마이페이지
         </a></h2>
         <ul>
-            <li class="cs_left_list" ><a href="noticeboard">
+            <li class="cs_left_list" ><a href="mypage_user_pwcheck">
                 회원정보 수정
             </a></li>
             <li class="cs_left_list"><a href="mypage_orderlist" id = "mypage_orderlist">

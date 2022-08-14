@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -16,7 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tech.finalpj.crypt.CryptoUtil;
 import com.tech.project_shopping_mall.dao.LoginMapper;
@@ -111,6 +114,35 @@ public class LoginController {
 		//model.addAttribute("user", dto);
 		
 		return "/login/idpw/idcheck2";
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/PW_Check", produces="text/plane")
+	public String PW_Check(@RequestBody String paramData,HttpServletRequest request) throws ParseException, InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+		//클라이언트가 보낸 ID값
+		String PW = paramData.trim();
+		System.out.println("여기까지 오니 : " + PW);  // 입력한 비밀번호
+		HttpSession session = request.getSession();
+		String mid = (String )session.getAttribute("mid");  // 세션아이디
+		
+		
+		
+		LoginMapper dao=sqlSession.getMapper(LoginMapper.class);
+		MembersDto rtnDto = dao.selectUserPassword(mid); // 아직 못한거
+		
+		System.out.println("rtndto : " +rtnDto); 
+		String decryptPwd = CryptoUtil.decryptAES256(rtnDto.getMpw(),key);  // 비밀번호를 복호화한 거
+		
+		System.out.println("decryptPwd : " + decryptPwd);
+		if(PW.equals(decryptPwd)) {// 비번이 맞으면 성공
+			return "0";
+		} else {		//없으면 아이디 존재 X
+			System.out.println("null");
+			return "1";
+		}
+		
+		
 	}
 
 }

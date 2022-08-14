@@ -246,7 +246,7 @@ font-weight: bold;
             마이페이지
         </a></h2>
         <ul>
-            <li class="cs_left_list" ><a href="noticeboard">
+            <li class="cs_left_list" ><a href="mypage_user_pwcheck">
                 회원정보 수정
             </a></li>
             <li class="cs_left_list"><a href="mypage_orderlist" >
@@ -295,6 +295,7 @@ font-weight: bold;
                 <th class="faqboard_date">리뷰상태</th>
             </tr>
             <c:forEach items="${order }" var="list" varStatus ="status" >
+             <input type="hidden" name="p_code" id="p_code" value="${list.p_code }"/>
             <tr>
                 <th>${list.o_code }</th>
                 <th>${list.o_date }</th>
@@ -303,8 +304,9 @@ font-weight: bold;
                 <th>${list.p_size }</th>
                 <th>${list.o_count }</th>
                 <th>${list.o_price }</th>
-                <th><a href="${pageContext.request.contextPath }/review_write_view?o_code=${list.o_code}">작성하기</a></th>
+                <th><a href="${pageContext.request.contextPath }/review_write_view?o_code=${list.o_code}&p_code=${list.p_code }">작성하기</a></th>
             </tr>
+           
             </c:forEach>
         </table>
 <div class="paging" >
