@@ -255,7 +255,7 @@
                          </c:if> 
                         <li id="sidebar_li"><a href="${pageContext.request.contextPath }/join/joinform2" id="sidebar_li_a" style="color: rgb(255, 255, 255);"><b>회원가입</b></a></li>
                          <c:if test="${not empty mid }"> 
-                        <li id="sidebar_li"><a href="${pageContext.request.contextPath }/mypage/mypage_orderlist" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>마이페이지</b></a></li>
+                        <li id="sidebar_li"><a href="${pageContext.request.contextPath }/mypage_orderlist" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>마이페이지</b></a></li>
                          </c:if> 
                          <li id="sidebar_li"><a href="${pageContext.request.contextPath }/manager" id="sidebar_li_a" style="color: rgb(255, 255, 255);" ><b>매니저 페이지</b></a></li>
                         

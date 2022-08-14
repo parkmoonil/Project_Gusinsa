@@ -33,7 +33,6 @@ import com.tech.project_shopping_mall.vopage.SearchVO_CS;
 import com.tech.project_shopping_mall.vopage.SearchVO_product;
 
 @Controller
-@RequestMapping("/mypage/*")
 public class MyPageController {
 
 	

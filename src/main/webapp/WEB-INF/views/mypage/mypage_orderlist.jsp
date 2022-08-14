@@ -256,16 +256,16 @@ font-weight: bold;
             <li class="cs_left_list"><a href="mypage_orderlist" id = "mypage_orderlist">
                 주문 내역
             </a></li>
-            <li class="cs_left_list"><a href="../MyCart">
+            <li class="cs_left_list"><a href="MyCart">
                 장바구니
             </a></li>
-            <li class="cs_left_list"><a href="../inquiry">
+            <li class="cs_left_list"><a href="inquiry">
                 1:1 문의하기
             </a></li>
             <li class="cs_left_list"><a href="mypage_inquiry">
                 문의내역
             </a></li>
-            <li class="cs_left_list"><a href="../membership">
+            <li class="cs_left_list"><a href="membership">
                 멤버쉽(클럽)안내
             </a></li>
         </ul>
