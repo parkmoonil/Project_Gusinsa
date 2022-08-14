@@ -1,0 +1,14 @@
+div { position: relative; }
+.detail{
+	margin-left: 500px;
+}
+.left{
+	background-color: #eee;
+	width: 150px
+}
+.left1{
+	margin-right: 100px;
+}
+tr:hover {
+	background-color: green;
+}

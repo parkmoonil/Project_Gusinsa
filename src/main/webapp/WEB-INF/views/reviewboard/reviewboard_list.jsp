@@ -6,12 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/css/reviewboard.css" />
+<link rel="stylesheet" href="resources/css/reviewboard_list.css" />
 <title>Insert title here</title>
-<%@include file="/../resources/common/header.jsp" %>    
+ 
 </head>
 
 <body>
+<div style="absolute">
+<%@include file="../../../../resources/common/header.jsp" %>
+</div>  
     <!--<center>
     <img src="img/main.png" alt="리뷰배너" style="width:1200px;height:500px;" >
     </center>-->
@@ -28,7 +31,6 @@
             	src="resources/upload/${dto.r_img}" alt="" /></a>
             </div>
             <div class="like1" >
-                좋아요 10건
             </div>
             <div class="blank-line">
             <div style="font-weight: bold;">${dto.r_title}</div>
@@ -83,6 +85,8 @@
     </div>
 	</form>
 </div>    
-
+<footer>
+<%@include file="../../../../resources/common/footer.jsp" %>
+</footer>
 </body>
 </html>

@@ -6,6 +6,7 @@ import com.tech.project_shopping_mall.dto.CMDto;
 import com.tech.project_shopping_mall.dto.IMDto;
 import com.tech.project_shopping_mall.dto.InquiryDto;
 import com.tech.project_shopping_mall.dto.OrderinfoDto;
+import com.tech.project_shopping_mall.dto.ReviewDto;
 import com.tech.project_shopping_mall.dto.Review_Written_Dto;
 
 public interface MyPageDao {
@@ -35,5 +36,19 @@ public interface MyPageDao {
 
 	public int MypageIMBoardTotCount(String mid);
 	public int MypageCMBoardTotCount(String mid);
-
+	
+	//KEY 리뷰 	
+	public ArrayList<ReviewDto> review_list(int rowStart, int rowEnd);
+	public void review_write(int pcode, String mid, String r_starpoint
+	,String r_title, String r_contents, String fname, int ocode);
+	public ReviewDto review_view(String r_num);
+	public void review_modify(String r_num,String r_starpoint,
+			String r_title,String r_contents);
+	public void review_delete(String r_num);
+	
+	public void download(String path, String fname, String r_num);
+	
+	public double staravg(int pcode);
+	public int selectReviewTotCount();
+		
 }

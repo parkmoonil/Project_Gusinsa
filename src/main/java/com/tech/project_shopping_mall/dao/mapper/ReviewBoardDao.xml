@@ -11,7 +11,7 @@
 
  	<select id="reviewboard_view" resultType="com.tech.project_shopping_mall.dto.ReviewBoardDto">
 		SELECT R_NUM,P_CODE,R_STARPOINT,R_TITLE,R_CONTENTS
-			,R_IMG,R_LIKEPOINT,MID,R_DATE,R_HIT,O_CODE
+			,R_IMG,MID,R_DATE,R_HIT,O_CODE
 			FROM REVIEW WHERE R_NUM=#{param1}
 	</select>
 
@@ -23,7 +23,7 @@
 	
 	<select id="reviewboard_list" resultType="com.tech.project_shopping_mall.dto.ReviewBoardDto">
 		SELECT R_NUM,P_CODE,R_STARPOINT,R_TITLE,R_CONTENTS
-		,R_IMG,R_LIKEPOINT, MID, R_DATE,R_HIT,O_CODE
+		,R_IMG,MID, R_DATE,R_HIT,O_CODE
 		FROM (SELECT ROWNUM NUM, N.*FROM (SELECT * FROM REVIEW ORDER BY R_DATE DESC) N) 
 		WHERE NUM BETWEEN #{param1} AND #{param2}
 	</select>
