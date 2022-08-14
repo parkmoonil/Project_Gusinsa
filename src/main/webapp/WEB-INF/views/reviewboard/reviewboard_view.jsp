@@ -53,59 +53,59 @@ $(".likeimg").on("click", function () {
 <body>
 <h3>유저리뷰</h3>
 
-<input type="hidden" name="r_num" value="${reviewboard_list.r_num }" />
+<input type="hidden" name="r_num" value="${r_num }" />
 	<div>
 		<div>
 			<span class="left">아이디</span>
-			<span>${reviewboard_view.mid }</span>
+			<span>${mid }</span>
 		<div>
 			<span class="left">조회수</span>
-			<span>${reviewboard_view.r_hit }</span>
+			<span>${r_hit }</span>
 		</div>
 		<div>
 			<span class="left">
-			 	<c:if test="${reviewboard_view.r_img ne null }">
+			 	<c:if test="${r_img ne null }">
 				<div>
 					<img border="1" width="500" height="500" 
-					src="resources/upload/${reviewboard_view.r_img }" alt="" />	
+					src="resources/upload/${r_img }" alt="" />	
 				</div>
 				</c:if>
-				</span>
+			</span>
 		</div>
 		<div>
 			<span class="left">별점</span>
 			<span>
-					<c:if test="${reviewboard_view.r_starpoint==1 }">
+					<c:if test="${r_starpoint==1 }">
 					★☆☆☆☆
 					</c:if>
-					<c:if test="${reviewboard_view.r_starpoint==2 }">
+					<c:if test="${r_starpoint==2 }">
 					★★☆☆☆
 					</c:if>
-					<c:if test="${reviewboard_view.r_starpoint==3 }">
+					<c:if test="${r_starpoint==3 }">
 					★★★☆☆
 					</c:if>
-					<c:if test="${reviewboard_view.r_starpoint==4 }">
+					<c:if test="${r_starpoint==4 }">
 					★★★★☆
 					</c:if>
-					<c:if test="${reviewboard_view.r_starpoint==5 }">
+					<c:if test="${r_starpoint==5 }">
 					★★★★★
 					</c:if>
 			</span>
 		<div>
 			<span class="left">제목</span>
-			<span>${reviewboard_view.r_title }</span>
+			<span>${r_title }</span>
 		</div>
 		<div>
 			<span class="left">내용</span>
-			<span>${reviewboard_view.r_contents }</span>
+			<span>${r_contents }</span>
 		</div>
 		<div>
 			<span class="left">작성일</span>
-			<span><fmt:formatDate value="${reviewboard.r_date}" pattern = "yyyy.MM.dd"/></span>
+			<span><fmt:formatDate value="${r_date}" pattern = "yyyy.MM.dd"/></span>
 		</div>
 		<div>
 			<span class="left">상품</span>
-			<span>${reviewboard_view.p_code }</span>
+			<span>${p_code }</span>
 		</div>
 		<div text-align="right">
 		<a href="reviewboard_list">리뷰목록</a>

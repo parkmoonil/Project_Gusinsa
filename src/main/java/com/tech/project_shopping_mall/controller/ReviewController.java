@@ -1,7 +1,7 @@
 package com.tech.project_shopping_mall.controller;
 
 import java.io.FileInputStream;
-
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
@@ -89,6 +89,7 @@ public class ReviewController {
 		int total=dao.selectReviewTotCount();
 		System.out.println("totalrow : "+total);
 
+		
 		// 조건에 따른 갯수 구하기
 //		int total = 0;
 //		if (r_title.equals("r_title") && r_contents.equals("")) {
@@ -128,7 +129,19 @@ public class ReviewController {
 		
 		HttpSession session=request.getSession();
 	    String mid = (String)session.getAttribute("mid");
+	    //int pcode = Integer.parseInt(request.getParameter("p_code"));
+	    //float avg = dao.staravg(pcode); // pcode의 속한 점수 평균이 avg에 저장
+	    //System.out.println("pcode : " + pcode);
+	    //double avg = dao.staravg(pcode); // pcode의 속한 점수 평균이 avg에 저장
+	    
+	    
+		
+		//System.out.println("pcode : " + pcode);
+		//model.addAttribute("p_code", pcode);
+		//int ocode = Integer.parseInt(request.getParameter("o_code"));
+		//model.addAttribute("o_code", ocode);
 		model.addAttribute("mid", mid);
+		//model.addAttribute("avg",avg);
 		System.out.println("mid : " + mid);
 
 		return "review/review_list";
@@ -201,7 +214,7 @@ public class ReviewController {
 		dao.review_write(pcode, mid, r_starpoint, r_title, r_contents,fname,ocode);
 		
 		
-		return "redirect:/review_list";
+		return "mypage/mypage_written_review";
 	}
 
 
@@ -261,38 +274,69 @@ public class ReviewController {
  @RequestMapping("/review_update") 
 	 public String review_update(HttpServletRequest request, Model model) {
 	  System.out.println("======review_update()======"); // db에 데이터 저장 //toss //
-		/*
-		 * model.addAttribute("request",request); //
-		 *//*  bServiceInter=new BReview_ViewService(); // 
-	  bServiceInter.execute(model);*/
+
+	  String r_num=request.getParameter("r_num"); 
+	  String mid = request.getParameter("mid");
+	  int pcode = Integer.parseInt(request.getParameter("p_code"));
+	  int ocode = Integer.parseInt(request.getParameter("o_code"));
+	  String r_title = request.getParameter("r_title"); 
+	  String r_contents = request.getParameter("r_contents");
 	  
-	  String sr_num=request.getParameter("r_num"); 
+	  model.addAttribute("r_num",r_num);
+	  model.addAttribute("mid",mid);
+	  model.addAttribute("p_code",pcode);
+	  model.addAttribute("o_code",ocode);
+	  model.addAttribute("r_title",r_title);
+	  model.addAttribute("r_contents",r_contents);
+	  
 	  ReviewDao dao=sqlSession.getMapper(ReviewDao.class);
-	  
-	  ReviewDto dto=dao.review_view(sr_num); 
-	  model.addAttribute("review_view",dto);
 	    
 	  return "review/review_update"; 
 	  }
   
   @RequestMapping(method = RequestMethod.POST,value = "/review_modify") 
-  public String review_modify(HttpServletRequest request, Model model) {
+  public String review_modify(HttpServletRequest request, Model model) throws Exception {
   System.out.println("======review_modify()======"); // db에 데이터 저장 //toss //
-  //model.addAttribute("request",request); 
-  // bServiceInter=new BModifyService();
-  // bServiceInter.execute(model);
-  
-  String sr_num=request.getParameter("r_num"); 
-  String r_starpoint=request.getParameter("r_starpoint"); 
-  String r_title=request.getParameter("r_title"); 
-  String r_contents=request.getParameter("r_contents");
-  
-  ReviewDao dao=sqlSession.getMapper(ReviewDao.class); 
-  dao.review_modify(sr_num, r_starpoint, r_title, r_contents);
-  
-  return "redirect:/review_list"; 
-  }
-  
+
+  HttpSession session=request.getSession();
+    //String pcode = (String)session.getAttribute("pcode");
+    
+
+    String attachPath="resources\\upload\\";
+    String uploadPath=request.getSession().getServletContext().getRealPath("/");
+    System.out.println("uploadPath : "+uploadPath);
+    String path=uploadPath+attachPath;
+    
+  //멀티파트폼 데이터로 받음
+    MultipartRequest req=
+          new MultipartRequest(request, path, 1024*1024*20, "utf-8",
+                new DefaultFileRenamePolicy());
+    		//같은 이름이 있는 파일은 숫자를 넣어줘라 bo.jpg bo1.jpg
+    //maxPostSize 몇 메가 파일 크기
+    
+    
+    int pcode = Integer.parseInt(req.getParameter("pcode"));
+    //String pcode = request.getParameter("pcode");
+    System.out.println("p_code : "+pcode);
+    String r_num=req.getParameter("r_num");
+    String mid=req.getParameter("mid");
+    String r_starpoint=req.getParameter("r_starpoint");
+    String r_title=req.getParameter("r_title");
+    String r_contents=req.getParameter("r_contents");
+    String fname=req.getFilesystemName("r_img");
+    int ocode = Integer.parseInt(req.getParameter("o_code"));
+    System.out.println("o_code : "+ocode);
+
+	System.out.println("filename : "+fname);
+	if (fname==null) {
+		fname="";
+	}
+	
+	ReviewDao dao=sqlSession.getMapper(ReviewDao.class);
+	dao.review_modify(r_num, pcode, mid, r_starpoint, r_title, r_contents,fname,ocode);
+
+	return "redirect:/mypage/mypage_written_review";
+}
  
   @RequestMapping("/review_delete") 
   public String review_delete(HttpServletRequest request,
@@ -306,6 +350,6 @@ System.out.println("======review_delete()======"); // db에 데이터 삭제
   ReviewDao dao=sqlSession.getMapper(ReviewDao.class); 
   dao.review_delete(sr_num);
   
-  return "redirect:/review_list";
+  return "mypage/mypage_written_review";
   }
 }
