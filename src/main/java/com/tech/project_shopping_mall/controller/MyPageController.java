@@ -41,7 +41,7 @@ public class MyPageController {
 	
 	@RequestMapping("/mypage_orderlist")
 	public String mypage(HttpServletRequest request, Model model,SearchVO_product searchVO) {
-		System.out.println("주문내역 ㄱㄱ");
+		System.out.println("mypage_orderlist ㄱㄱ");
 		HttpSession session = request.getSession();
 		String mid = (String )session.getAttribute("mid");
 		
@@ -81,7 +81,7 @@ public class MyPageController {
 	
 	@RequestMapping("/mypage_inquiry")
 	public String mypage_inquiry(HttpServletRequest request, Model model,SearchVO_product searchVO) {
-		System.out.println("mypage ㄱㄱ");
+		System.out.println("mypage_inquiry ㄱㄱ");
 		HttpSession session = request.getSession();
 		String mid = (String )session.getAttribute("mid");
 		// 문의내역 수정해야됌
@@ -123,54 +123,10 @@ public class MyPageController {
 		return "/mypage/mypage_inquiry";
 	}
 	
-	@RequestMapping("/myinquiry")
-	public String myinquiry(HttpServletRequest request, 
-			Model model, SearchVO_CS searchVO) {
-		System.out.println("=====myinquiry====");
-
-		MyPageDao dao = sqlSession.getMapper(MyPageDao.class);
-		
-		HttpSession session = request.getSession();
-		String mid = (String) session.getAttribute("mid");
-		System.out.println("mid : " + mid);
 	
-		String strPage=request.getParameter("page");
-		System.out.println("pagggge: "+strPage);
-		
-		if(strPage==null) 
-			strPage="1"; 
-		System.out.println("pagge2 : "+strPage); 
-		int page=Integer.parseInt(strPage); 
-		searchVO.setPage(page);
-		
-		int total=dao.MypageIMBoardTotCount(mid);
-	
-		System.out.println("totalrow : "+total); 
-		searchVO.pageCalculate(total);
-		
-		 
-		System.out.println("totPage : "+total);
-		System.out.println("pageStart : "+searchVO.getPageStart());
-		System.out.println("pageEnd : "+searchVO.getPageEnd());
-		System.out.println("pageTot : "+searchVO.getTotPage());
-		System.out.println("rowStart : "+searchVO.getRowStart());
-		System.out.println("rowEnd : "+searchVO.getRowEnd());
-		
-		int rowStart=searchVO.getRowStart(); 
-		int rowEnd=searchVO.getRowEnd();
-		
-		ArrayList<IMDto> MypageIM = dao.MypageIM(mid, rowStart, rowEnd);
-		
-		model.addAttribute("MypageIM",MypageIM); 
-		model.addAttribute("totRowcnt",total);
-		model.addAttribute("searchVO",searchVO);
-		 
-
-		return "/myinquiry";
-	}
 
 	
-	@RequestMapping("/mycommu") 
+	@RequestMapping("/mypage_mycommu") 
 	 public String mycommu(HttpServletRequest request,
 	 Model model,SearchVO_CS searchVO) { 
 		 System.out.println("=====mycommu====");
@@ -212,7 +168,7 @@ public class MyPageController {
 	 model.addAttribute("totRowcnt",total);
 	 model.addAttribute("searchVO",searchVO);
 	
-	 	return "/mycommu"; 
+	 	return "/mypage/mypage_mycommu"; 
 	 	
 	 }
 	 
