@@ -214,7 +214,7 @@ public class ReviewController {
 		dao.review_write(pcode, mid, r_starpoint, r_title, r_contents,fname,ocode);
 		
 		
-		return "mypage/mypage_written_review";
+		return "redirect:/mypage_written_review";
 	}
 
 
@@ -335,7 +335,7 @@ public class ReviewController {
 	ReviewDao dao=sqlSession.getMapper(ReviewDao.class);
 	dao.review_modify(r_num, pcode, mid, r_starpoint, r_title, r_contents,fname,ocode);
 
-	return "redirect:/mypage/mypage_written_review";
+	return "redirect:/mypage_written_review";
 }
  
   @RequestMapping("/review_delete") 
@@ -350,6 +350,6 @@ System.out.println("======review_delete()======"); // db에 데이터 삭제
   ReviewDao dao=sqlSession.getMapper(ReviewDao.class); 
   dao.review_delete(sr_num);
   
-  return "mypage/mypage_written_review";
+  return "mypage_written_review";
   }
 }

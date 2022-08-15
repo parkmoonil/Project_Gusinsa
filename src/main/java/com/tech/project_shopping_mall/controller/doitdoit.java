@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tech.project_shopping_mall.dao.IDao;
 import com.tech.project_shopping_mall.dao.MainPageDao;
+import com.tech.project_shopping_mall.dao.PDao;
 import com.tech.project_shopping_mall.dto.Cartdto;
 import com.tech.project_shopping_mall.dto.Infodto;
+import com.tech.project_shopping_mall.dto.MembersDto;
+import com.tech.project_shopping_mall.dto.SpriceDto;
+import com.tech.project_shopping_mall.dto.StorageDto;
 import com.tech.project_shopping_mall.dto.Sumdto;
 
 
@@ -43,10 +47,9 @@ public class doitdoit {
 	    String id = (String) session.getAttribute("mid");
 	    ArrayList<Cartdto> dto=dao.MyCart(id);
 	    
-	       
-	      System.out.println(dto.get(0).getAmount());
-	      System.out.println(dto.get(0).getMoney());
-	      
+	    
+	      String size = request.getParameter("p_size");
+	      System.out.println("size : " + size);
 	      int aa = dao.SumAmount(id);
 	      int sum = dao.SumMoney(id);
 	      
@@ -56,8 +59,7 @@ public class doitdoit {
 	      model.addAttribute("MyCart",dto); 
 
 	      System.out.println("p_name : " +id);
-		    System.out.println("p_price : " +p_price);
-		    System.out.println("p_img : " +p_img);
+		  
 		    
 		return "count/MyCart";
 	}
@@ -68,10 +70,11 @@ public class doitdoit {
 		System.out.println("들어와야할거다");
 		int p_code = Integer.parseInt(request.getParameter("p_code"));
 		HttpSession session=request.getSession();
-		String id = (String) session.getAttribute("mid");
-		System.out.println("p_code : "+p_code);
+		int cartid = Integer.parseInt(request.getParameter("cart_id"));
 		IDao dao = sqlSession.getMapper(IDao.class);
-		dao.delete(p_code);
+		
+		 String id = (String) session.getAttribute("mid");
+		dao.delete(cartid);
 		
 		String aa = request.getContextPath();
 		System.out.println("aa : " + aa);
@@ -103,6 +106,10 @@ public class doitdoit {
 		System.out.println("제발 되자!");
 		IDao dao=sqlSession.getMapper(IDao.class);
 	    int p_code=Integer.parseInt(request.getParameter("p_code"));
+	    int p_price=Integer.parseInt(request.getParameter("p_price"));
+
+	
+	    
 	    String amount=request.getParameter("amount");      
 	    //String sell_price=request.getParameter("sell_price");
 	    
@@ -112,7 +119,12 @@ public class doitdoit {
 	      //session.setAttribute("sell_price", sell_price);
 
 	    String id = (String) session.getAttribute("mid");
-	    dao.mypageinsert(id, p_code, amount);
+	    System.out.println("좌좌 카트에 넣어야할 명단 우이런 개시발우");
+	    System.out.println("id : " + id);
+	    System.out.println("p_code : " + p_code);
+	    System.out.println("amount : " + amount);
+	    System.out.println("p_price : " + p_price);
+	    dao.mypageinsert(id, p_code, amount, p_price);
 	    // 인서트 임무끝 
 	    
 	    // select 해서 뿌려주면됌 
@@ -130,7 +142,34 @@ public class doitdoit {
 		return "Sale/SuperSale";
 	}
 
+	@RequestMapping("/cart_buypage")
+	public String cart_buypage(HttpServletRequest request,Model model) {
+		System.out.println("카트에서 구매페이지로 이동");
+		
 
+		
+		IDao dao=sqlSession.getMapper(IDao.class);
+		PDao pdao=sqlSession.getMapper(PDao.class);
+		HttpSession session=request.getSession();
+
+	    String id = (String) session.getAttribute("mid");
+	    ArrayList<Cartdto> dto=dao.MyCart(id);
+	    
+	    MembersDto Lodto= pdao.Orderafterlogin(id);
+	     // String size = request.getParameter("p_size");
+	      int aa = dao.SumAmount(id);
+	      int sum = dao.SumMoney(id);
+	      
+	      System.out.println("amount : " + aa);
+	      model.addAttribute("amount",aa); 
+	      model.addAttribute("sumprice",sum); 
+	      model.addAttribute("Orderafterlogin",Lodto);
+	      model.addAttribute("MyCart",dto); 
+
+	      System.out.println("p_name : " +id);
+		return "men,women,new/Cart_Orderafterlogin";
+
+	}
 	
 	
 

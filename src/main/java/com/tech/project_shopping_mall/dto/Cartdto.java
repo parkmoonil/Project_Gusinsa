@@ -9,10 +9,12 @@ public class Cartdto{
 	private String mname;
 	private int p_code;
 	private String p_name;
-	private int p_price;
+	private int cprice;
 	private int money;
 	private int amount;
 	private String p_img;
+
+	
 
 	
 	public int getCart_id() {
@@ -45,11 +47,11 @@ public class Cartdto{
 	public void setP_name(String p_name) {
 		this.p_name = p_name;
 	}
-	public int getP_price() {
-		return p_price;
+	public int getCprice() {
+		return cprice;
 	}
-	public void setP_price(int p_price) {
-		this.p_price = p_price;
+	public void setCprice(int cprice) {
+		this.cprice = cprice;
 	}
 	public int getMoney() {
 		return money;
@@ -74,7 +76,7 @@ public class Cartdto{
 	@Override
     public String toString() {
         return "Cartdto [CART_ID=" + cart_id + ", MID=" + mid + ", MNAME=" + mname + ", P_CODE=" + p_code
-                + ", P_NAME=" + p_name + ", P_PRICE=" + p_price + ", money=" + money + ", amount=" + amount + "]";
+                + ", P_NAME=" + p_name + ", P_PRICE=" + cprice + ", money=" + money + ", amount=" + amount + "]";
     }
    
 	

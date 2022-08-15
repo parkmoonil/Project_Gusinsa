@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 
 public class Infodto {
  private int p_code;
- private String ocode;
  private String p_name;
  private int p_price;
  private String p_class;
@@ -16,19 +15,18 @@ public class Infodto {
  private String p_img4;
  private String p_img5;
  private String brand;
- private int buynumber;
+ private int buycount;
  private String p_category;
- 
+ private int sprice; 
  
  
  
  public Infodto() {
 	// TODO Auto-generated constructor stub
 }
- public Infodto(int p_code,String ocode,String p_name,int p_price,String p_class,String p_gender,
+ public Infodto(int p_code,String ocode,String p_name,int p_price,String p_class,String p_gender,int sprice,
 		 String p_img,Timestamp data,String p_img2,String p_img3,String p_img4,String p_img5,String brand,int buynumber,String p_category) {
 	 this.p_code = p_code;
-	 this.ocode = ocode;
 	 this.p_name = p_name;
 	 this.p_price = p_price;
 	 this.p_class = p_class;
@@ -39,9 +37,10 @@ public class Infodto {
 	 this.p_img4 =p_img4;
 	 this.p_img5 =p_img5;
 	 this.brand = brand;
-	 this.buynumber = buynumber;
+	 this.buycount = buynumber;
 	 this.p_category = p_category;
 	 this.data = data;
+	 this.sprice = sprice;
 	 
  }
  
@@ -50,12 +49,6 @@ public int getP_code() {
 }
 public void setP_code(int p_code) {
 	this.p_code = p_code;
-}
-public String getOcode() {
-	return ocode;
-}
-public void setOcode(String ocode) {
-	this.ocode = ocode;
 }
 public String getP_name() {
 	return p_name;
@@ -124,10 +117,10 @@ public void setBrand(String brand) {
 	this.brand = brand;
 }
 public int getBuynumber() {
-	return buynumber;
+	return buycount;
 }
 public void setBuynumber(int buynumber) {
-	this.buynumber = buynumber;
+	this.buycount = buynumber;
 }
 public String getP_category() {
 	return p_category;
@@ -135,7 +128,12 @@ public String getP_category() {
 public void setP_category(String p_category) {
 	this.p_category = p_category;
 }
- 
+public int getSprice() {
+	return sprice;
+}
+public void setSprice(int sprice) {
+	this.sprice = sprice;
+}
  
 
 

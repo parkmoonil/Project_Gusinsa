@@ -47,14 +47,77 @@ SELECT COUNT(*) FROM PINFO WHERE P_NAME LIKE '%'||#{param1}||'%' OR P_CLASS LIKE
 </select>
 
 <select  id="search_prouct_detail" resultType = "com.tech.project_shopping_mall.dto.Infodto">
-SELECT P_CODE, P_NAME, P_PRICE, P_CLASS, P_GENDER,P_IMG, DATA,P_IMG2,P_IMG3,P_IMG4,P_IMG5, BRAND, BUYCOUNT, P_CATEGORY FROM PINFO WHERE P_CODE = #{param1}
+SELECT P_CODE, P_NAME, P_PRICE, P_CLASS, P_GENDER,P_IMG, DATA,P_IMG2,P_IMG3,P_IMG4,P_IMG5, BRAND, BUYCOUNT, P_CATEGORY,SPRICE FROM PINFO WHERE P_CODE = #{param1}
 </select>
 <select  id="storage" resultType = "com.tech.project_shopping_mall.dto.StorageDto">
 SELECT P_CODE, P_SIZE FROM STORAGE WHERE P_CODE = #{param1}
 </select>
-
 <select  id="recent_products" resultType = "com.tech.project_shopping_mall.dto.Infodto">
 SELECT  * FROM  ( SELECT *  FROM PINFO ORDER BY DATA DESC ) <![CDATA[WHERE ROWNUM <= 4]]>
 </select>
+
+
+
+<!-- 요기서 리뷰
+ -->
+
+   <select id="selectReviewTotCount" resultType="Integer">
+      SELECT COUNT(*) FROM REVIEW
+   </select>
+         
+<!--     <select id="staravg" resultType="float">
+      SELECT ROUND(AVG(R_STARPOINT),1) FROM REVIEW WHERE P_CODE = {param1}
+   </select>  -->
+   
+   
+    <select id="staravg" resultType="Double">
+      SELECT CASE WHEN ROUND(AVG(R_STARPOINT),1) IS NULL THEN 0
+                ELSE ROUND(AVG(R_STARPOINT),1)
+                END AVG
+        FROM REVIEW WHERE P_CODE=#{param1}
+   </select>
+      
+   <insert id="review_write">
+         INSERT INTO REVIEW VALUES(REVIEW_SEQ.NEXTVAL,
+         #{param1},#{param3},#{param4},#{param5},#{param6},
+         #{param2},SYSDATE,0,#{param7})   
+   </insert>
+
+    <select id="review_view" resultType="com.tech.project_shopping_mall.dto.ReviewDto">
+      SELECT R_NUM,P_CODE,R_STARPOINT,R_TITLE,R_CONTENTS
+         ,R_IMG,MID,R_DATE,R_HIT,O_CODE
+         FROM REVIEW WHERE R_NUM=#{param1}
+   </select>
+
+   <select id="review_list" resultType="com.tech.project_shopping_mall.dto.ReviewDto">
+      SELECT R_NUM,P_CODE,R_STARPOINT,R_TITLE,R_CONTENTS
+      ,R_IMG, MID, R_DATE,R_HIT,O_CODE
+      FROM (SELECT ROWNUM NUM, N.*FROM (SELECT * FROM REVIEW ORDER BY R_DATE DESC) N) 
+      WHERE NUM BETWEEN #{param1} AND #{param2}
+   </select>
+   
+   <select id="product_review" resultType="com.tech.project_shopping_mall.dto.ReviewDto">
+      SELECT R_NUM,P_CODE,R_STARPOINT,R_TITLE,R_CONTENTS
+      ,R_IMG, MID, R_DATE,R_HIT,O_CODE
+      FROM (SELECT ROWNUM NUM, N.*FROM (SELECT * FROM REVIEW ORDER BY R_DATE DESC) N) 
+      WHERE NUM BETWEEN #{param2} AND #{param3} AND P_CODE = #{param1}
+   </select>
+
+    <update id="review_modify">
+      UPDATE REVIEW
+         SET R_STARPOINT=#{param2}, R_TITLE=#{param3},
+         R_CONTENTS=#{param4}   WHERE R_NUM=#{param1}
+   </update>
+
+   <delete id="review_delete">
+      DELETE FROM REVIEW WHERE R_NUM=#{param1}
+   </delete>
+
+
+
+
+
+
+
 
 </mapper>
