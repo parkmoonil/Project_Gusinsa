@@ -6,8 +6,8 @@
 <mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
 		
 	<insert id="Inquiry_write">
-	INSERT INTO INQUIRYBOARD(INUM,ISELECT1,ITITLE,ICONTENT,IFILE,ISELECT2,FK_MID,ISTATE)  
-	VALUES(INQUIRYBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})	
+	INSERT INTO INQUIRYBOARD(INUM,ISELECT1,ITITLE,ICONTENT,IFILE,ISELECT2,FK_MID)  
+	VALUES(INQUIRYBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})	
 	</insert>
 	
 	<select id="InquiryMembers" resultType="com.tech.project_shopping_mall.dto.IMDto">

@@ -18,8 +18,6 @@ function checkSubmit() {
 	  		
 	  }
 	  var keyso = Object.keys(tags);
-	  console.log(keyso);
-	  console.log(keyso[0]);
 	  for (i = 0; i < keyso.length; i++ ) {
 		  var tag = document.getElementsByName(keyso[i]);
 		  if (tag[0].value == '') {
@@ -38,7 +36,6 @@ function checkSubmit() {
 	    <div class="line"> </div>
 	    <h3 class="inquiry_title">1:1 문의하기</h3>
 	    <form action="Inquiry_write" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit()">
-	      <input type="hidden" name="istate" value="확인중"/>
 		    <table class="inquiry_table">
 		        <tr>
 		            <th>문의 분류</th>

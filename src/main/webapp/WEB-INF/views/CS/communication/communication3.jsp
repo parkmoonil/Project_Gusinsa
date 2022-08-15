@@ -22,8 +22,6 @@ function checkSubmit() {
 			'ccontent' : '문의 내용',
 	}	
 	var keyso = Object.keys(tags);
-	console.log(keyso);
-	console.log(keyso[0]);
 	 for (i = 0; i < keyso.length; i++ ) {
 		 var tag = document.getElementsByName(keyso[i]);
 		  if (tag[0].value == '') {
@@ -62,7 +60,6 @@ function checkSubmit() {
 	            </P> 
             </div>
             <form action="Commu_write" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit()">
-	            <input type="hidden" name="cstate" value="확인중" />
 	            <table class="commu_table">
 	                <tr>
 	                    <th>

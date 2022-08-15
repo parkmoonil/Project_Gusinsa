@@ -74,7 +74,7 @@ public class InquiryController {
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 		
-		dao.Inquiry_write(iselect1, ititle, icontent, ifile, iselect2, mid, istate);
+		dao.Inquiry_write(iselect1, ititle, icontent, ifile, iselect2, mid);
 		
 		return "redirect:inquiry2";
 	}

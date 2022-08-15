@@ -40,8 +40,6 @@ public class CommuController {
 			return "redirect:login/loginform";
 		} else {
 
-			System.out.println("mid : "+mid);
-			
 			CSDao dao=sqlSession.getMapper(CSDao.class);
 			MembersDto dto = dao.CSMembers(mid);
 			model.addAttribute("Members",dto);
@@ -86,7 +84,7 @@ public class CommuController {
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 
-		dao.Commu_write(cselect1, cselect2, cselect3, cselect4, ctitle, ccontent, cfile, mid, cstate);
+		dao.Commu_write(cselect1, cselect2, cselect3, cselect4, ctitle, ccontent, cfile, mid);
 
 		
 		return "redirect:communication4";
@@ -97,7 +95,6 @@ public class CommuController {
 		System.out.println("========write========");
 		
 		String mid=(String)request.getParameter("mid");
-		
 		System.out.println("mid : " + mid);
 
 		return "CS/communication/communication3";

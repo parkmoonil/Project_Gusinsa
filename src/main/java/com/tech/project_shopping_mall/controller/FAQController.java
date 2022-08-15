@@ -33,22 +33,13 @@ public class FAQController {
 		
 		if(strPage==null)
 			strPage="1";
-		System.out.println("pagge2 : "+strPage);
+
 		int page=Integer.parseInt(strPage);
 		searchVO.setPage(page);
 		
 		int total=dao.selectBoardTotCount3();
 		
-		System.out.println("totalrow : "+total);
 		searchVO.pageCalculate(total);
-		
-		System.out.println("totPage : "+total);
-		System.out.println("clickpage : "+strPage);
-		System.out.println("pageStart : "+searchVO.getPageStart());
-		System.out.println("pageEnd : "+searchVO.getPageEnd());
-		System.out.println("pageTot : "+searchVO.getTotPage());
-		System.out.println("rowStart : "+searchVO.getRowStart());
-		System.out.println("rowEnd : "+searchVO.getRowEnd());
 		
 		int rowStart=searchVO.getRowStart();
 		int rowEnd=searchVO.getRowEnd();
@@ -70,9 +61,6 @@ public class FAQController {
 		String fheader=request.getParameter("fheader");
 		String ftitle=request.getParameter("ftitle");
 		String fcontent=request.getParameter("fcontent");
-		System.out.println("fheader : " + fheader);
-		System.out.println("ftitle : " + ftitle);
-		System.out.println("fcontent : " + fcontent);
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 		dao.faq_write(fheader, ftitle, fcontent);
