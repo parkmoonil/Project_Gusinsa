@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Manager Page</title>
-<link rel="stylesheet" href="resources/manager_nav.css" />
+<link rel="stylesheet" href="resources/manager_nav.css?after" />
 </head>
 <body>
 <div class="manager_nav">
