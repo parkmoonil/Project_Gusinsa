@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/cs/main.css" />
-<link rel="stylesheet" href="resources/css/cs/board.css" />
-<link rel="stylesheet" href="resources/css/cs/communication.css" />
-<link rel="stylesheet" href="resources/css/cs/communication3.css" />
+<link rel="stylesheet" href="resources/css/cs/main.css?after" />
+<link rel="stylesheet" href="resources/css/cs/board.css?after" />
+<link rel="stylesheet" href="resources/css/cs/communication.css?after" />
+<link rel="stylesheet" href="resources/css/cs/communication3.css?after" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>

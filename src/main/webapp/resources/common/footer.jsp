@@ -18,14 +18,16 @@ text-align: center;
 
 
 
-footer {width: 100%;height: 10px;bottom: 5px;  position: relative;border-top: 1px solid #c4c4c4; color: #808080;font-size: 11px; transform: translateY(-100%);}
+footer {width: 100%;height: 10px;bottom: 5px;  position: relative;border-top: 1px solid #c4c4c4; color: #808080;font-size: 11px; 
+/* transform: translateY(-100%); */}
 footer a:visited {color: #808080;}
 footer p {margin-top: 0;  margin-left: 10px;}
 footer p span {display: inline-block;margin-left: 20px; margin-bottom: 5px;} 
 #wrap{
-    width: 100%;height: auto;
+	padding-top: 30px;
     min-height: 100%;
-    margin-top: 10px;
+    position: relative;
+    padding-bottom: 30px;
 }
 
 #footer_addr{float: left;}
@@ -44,7 +46,7 @@ footer p span {display: inline-block;margin-left: 20px; margin-bottom: 5px;}
           <p>
             <table>
             <tr>
-                <td>상호명 : (주)구신사</td>
+                <td>상호명 : (주)구신사 수정</td>
                 <td>조장 : 이종현</td>
                 <td>주소 : 서울시 구로구 </td>
             </tr>

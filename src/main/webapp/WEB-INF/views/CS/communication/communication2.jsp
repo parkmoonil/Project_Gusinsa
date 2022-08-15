@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고객의 소리</title>
-	<link rel="stylesheet" href="resources/css/cs/main.css" />
+	<link rel="stylesheet" href="resources/css/cs/main.css?after" />
 <!-- 	<link rel="stylesheet" href="resources/css/cs/board.css" /> -->
-	<link rel="stylesheet" href="resources/css/cs/communication.css" />
-	<link rel="stylesheet" href="resources/css/cs/communication2.css" />
+	<link rel="stylesheet" href="resources/css/cs/communication.css?after" />
+	<link rel="stylesheet" href="resources/css/cs/communication2.css?after" />
 </head>
 <script>
 function checkSubmit() {

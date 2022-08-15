@@ -277,16 +277,11 @@ public class ManagerController {
 		String mname="";
 		
 		String[] brdtitle=request.getParameterValues("searchType");
-		if(brdtitle!=null) {
-			for(int i=0;i<brdtitle.length;i++) {
-				System.out.println("brdtitle : "+brdtitle[i]);
-			}
-		}
 		
 		if (brdtitle!=null) {
 			for (String val : brdtitle) {
 				if (val.equals("mid")) {
-					model.addAttribute("smid","true");//검색체크유지
+					model.addAttribute("mid","true");//검색체크유지
 					mid="mid";
 				}else if (val.equals("mname")) {
 					model.addAttribute("mname","true");//검색체크유지
@@ -305,7 +300,7 @@ public class ManagerController {
 			}
 		}
 		if(sn!=null) {
-			if (sn.equals("mid")) {
+			if (sn.equals("mname")) {
 				mname=sn;
 				model.addAttribute("mname","true");//검색체크유지
 			}

@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Manager_Inquiry</title>
-<link rel="stylesheet" href="resources/css/cs/manager.css" />
-<link rel="stylesheet" href="resources/css/cs/manager2.css" />
-<link rel="stylesheet" href="resources/css/cs/board.css" />
+<link rel="stylesheet" href="resources/css/cs/manager.css?after" />
+<link rel="stylesheet" href="resources/css/cs/manager2.css?after" />
+<link rel="stylesheet" href="resources/css/cs/board.css?after" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>

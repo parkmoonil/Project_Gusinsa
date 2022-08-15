@@ -14,8 +14,6 @@
 <%@include file="../../../../resources/common/header.jsp"%>
 <style>
 
-   
-
    .option_color{
      position:relative;
      left:5px;
@@ -257,14 +255,20 @@ function move() {
    else{
       location.href ="Orderafterlogin?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum+"&sping="+sping+"&sumsping="+sumsping+"&p_size="+option_size;
    }
-    
-    
-    
-    
-   // 스페이스바 주의 null값 우려
-    
-   
+       
 }   
+
+function cart() {
+	let amount = document.getElementById("amount").value;
+	let sell_price = document.getElementById("sell_price").value;
+	let psize = document.getElementById("option_size").value; 
+	let sum = sell_price * amount;
+	
+
+	// 스페이스바 주의 null값 우려
+	location.href ="buyingmypageinsert?p_code=${indto.p_code }"+"&amount="+ amount +"&sell_price="+sum +"&p_price=" +sell_price+"&p_size="+psize; 
+
+}
 </script>
     <br>
     <hr>
@@ -342,7 +346,7 @@ function move() {
             
 
             <figcaption>
-                <button type="button" class="btn1"> <a href="SaleCart" class="Ja1">장바구니</a> </button>
+               <button type="button" class="btn1" onclick="cart()">장바구니 </button>
                 <button type="button" class="btn2" onclick="move()" >구매하기</button>
             </figcaption>
         </figure>
@@ -535,11 +539,11 @@ function move() {
         </section>
       </div>
     
-    <hr>
+
     <%@include file="../../../../resources/common/footer.jsp" %>
-    
+   
 </body>
 
-<html>
+
 
 </html>

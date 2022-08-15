@@ -60,6 +60,9 @@
         #header_right_img{ 
             float: left; width: 180px; height: 40px; margin-left: 20px;
         }
+        .header_sess{
+         float: left; width: 500px; height: 40px; margin-left: 20px;
+        }
         #hearder_color{ background: #020202; background-color: #020202; width: 100%;height: 50px;margin-bottom: 30px;float: right;text-align: center;}
         /* body{width: 0 auto;text-align: center;} */
         /* ----------------------------------------- 헤더메뉴 ----------------------------------------- */
@@ -233,11 +236,54 @@
             height: 250px;
         }
     </style>
-      
+    
+    <script>
+var tid;
+var cnt = parseInt(3000);//�ʱⰪ(�ʴ���)
+function counter_init() {
+	tid = setInterval("counter_run()", 1000);
+}
+
+function counter_reset() {
+	clearInterval(tid);
+	cnt = parseInt(3000);
+	counter_init();
+}
+
+function counter_run() {
+	document.all.counter.innerText = time_format(cnt);
+	cnt--;
+	if(cnt < 0) {
+		clearInterval(tid);
+		self.location = "logout.php";
+	}
+}
+function time_format(s) {
+	var nHour=0;
+	var nMin=0;
+	var nSec=0;
+	if(s>0) {
+		nMin = parseInt(s/60);
+		nSec = s%60;
+
+		if(nMin>60) {
+			nHour = parseInt(nMin/60);
+			nMin = nMin%60;
+		}
+	} 
+	if(nSec<10) nSec = "0"+nSec;
+	if(nMin<10) nMin = "0"+nMin;
+
+	return ""+nHour+":"+nMin+":"+nSec;
+}
+</script>
+<script>
+counter_init();
+</script>
 <body>
  <header>															<!--../../../resources/common/header.jsp --> 
         <div class="header_left"><a href="/project_shopping_mall"><img src="${pageContext.request.contextPath }/resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
-        <div class="header_left"><h2>로그인 ${mid } ${ereginum }</h2></div>
+        <div class="header_sess"><c:if test="${not empty mid }"> <span id="counter"> </span> 후 자동로그아웃  ${mid } 님 반갑습니다!<input type="button" value="연장" onclick="counter_reset()"></c:if></div>
         <div class="header_right">
         <ul id="header_gita">
             <li><input type="checkbox" class="side_list"  id="menuicon">

@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>문의내역</title>
-<link rel="stylesheet" href="resources/css/cs/main.css">
-<link rel="stylesheet" href="resources/css/cs/board.css">
-<link rel="stylesheet" href="resources/css/cs/mypagecs.css">
+<link rel="stylesheet" href="resources/css/cs/main.css?after">
+<link rel="stylesheet" href="resources/css/cs/board.css?after">
+<link rel="stylesheet" href="resources/css/cs/mypagecs.css?after">
 </head>
 <script>
 	function test(element) {

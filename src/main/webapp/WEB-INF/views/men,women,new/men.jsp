@@ -93,48 +93,8 @@
   
   
   
-    <div id='wrap'>
-        <section id="wrap_section">
-            
-        </section>
-        <footer>
-            <div id="footer_addr">
-    
-          <p>
-            <table>
-            <tr>
-                <td>상호명 : (주)구신사</td>
-                <td>조장 : 이종현</td>
-                <td>주소 : 서울시 구로구 </td>
-            </tr>
-            <tr>
-                <td colspan="3">이메일 : dlwhdgus@gmail.com</td>
-                <td></td>
-                <td></td>
-            </tr>
-            </table>
-          </p>
-        </div>
-    
-          <div class="footer_div">
-            <table>
-                <tr>
-                    <td>고객문의 대표전화</td>
-                    <td>고객센터 문의전화</td>
-                </tr>
-                <tr>
-                    <td>1588-1588</td>
-                    <td>1588-3407</td>
-                </tr>
-                <tr>
-                    <td>평일 09:00 ~ 18:00 <br>(주말 및 공휴일 휴무)</td>
-                    <td><a href="#">구신사 상품 문의접수</a></td>
-                </tr>
-            </table>
-          </div>
-      </footer>
-    </div>  
-
+   <%@include file="../../../../resources/common/footer.jsp" %>
+   
 </body>
 
 

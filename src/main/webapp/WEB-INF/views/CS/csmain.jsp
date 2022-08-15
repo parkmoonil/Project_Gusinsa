@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/cs/main.css">
+<link rel="stylesheet" href="resources/css/cs/main.css?after">
 <!-- <link rel="stylesheet" href="resources/css/cs/board.css" /> -->
-<link rel="stylesheet" href="resources/css/cs/faq.css" />
+<link rel="stylesheet" href="resources/css/cs/faq.css?after" />
 </head>
 <body>
 <script>
@@ -26,14 +26,14 @@
 <%@include file="cs_nav/cs_left_nav.jsp" %>   
     <div class="cs_main_board">
        <div class="line"></div>
-       <h2>BEST FAQ</h2>
+       <h2>FAQ</h2>
        <table>
             <tr>
                 <th class="faqboard_header">분류</th>
                 <th class="faqboard_title">제목</th>
                 <th class="faqboard_date">날짜</th>
             </tr>
-            <c:forEach items="${faqboard2}" var="dto" begin="0" end="5">
+            <c:forEach items="${faqboard2}" var="dto" begin="0" end="4">
 				<tr class="faqtoggle" onclick="test(this)" >
 					<td class="fheader">
 						${dto.fheader}
@@ -53,7 +53,7 @@
 				<th class="noticeboard_title">제목</th>
 				<th class="noticeboard_date">작성일자</th>
 			</tr>
-			<c:forEach items="${noticeboard2}" var="dto" begin="0" end="5">
+			<c:forEach items="${noticeboard2}" var="dto" begin="0" end="4">
 				<tr>
 					<td>
 					<a href="content_view?nnum=${dto.nnum }">${dto.ntitle}</a>

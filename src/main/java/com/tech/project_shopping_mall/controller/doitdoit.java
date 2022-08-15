@@ -141,6 +141,53 @@ public class doitdoit {
 		   
 		return "Sale/SuperSale";
 	}
+	
+	
+	@RequestMapping("/buyingmypageinsert")
+	public String buyingmypageinsert(HttpServletRequest request,Model model) {
+		
+		System.out.println("제발 되자!");
+		IDao dao=sqlSession.getMapper(IDao.class);
+	    int p_code=Integer.parseInt(request.getParameter("p_code"));
+	    int p_price=Integer.parseInt(request.getParameter("p_price"));
+
+	
+	    
+	    String amount=request.getParameter("amount");      
+	    //String sell_price=request.getParameter("sell_price");
+	    
+	      HttpSession session=request.getSession();
+	      session.setAttribute("p_code", p_code);
+	      session.setAttribute("amount", amount);
+	      //session.setAttribute("sell_price", sell_price);
+
+	    String id = (String) session.getAttribute("mid");
+	    System.out.println("좌좌 카트에 넣어야할 명단 우이런 개시발우");
+	    System.out.println("id : " + id);
+	    System.out.println("p_code : " + p_code);
+	    System.out.println("amount : " + amount);
+	    System.out.println("p_price : " + p_price);
+	    dao.mypageinsert(id, p_code, amount, p_price);
+	    // 인서트 임무끝 
+	    
+	    // select 해서 뿌려주면됌 
+	    
+	    MainPageDao mdao = sqlSession.getMapper(MainPageDao.class);
+		
+		//String pcode = request.getParameter("p_code");
+
+        Infodto indto = mdao.search_prouct_detail(p_code);
+		System.out.println("indto : " + indto);
+
+		model.addAttribute("indto", indto);
+
+		   
+		return "Sale/SaleBuying";
+	}
+	
+	
+	
+	
 
 	@RequestMapping("/cart_buypage")
 	public String cart_buypage(HttpServletRequest request,Model model) {
