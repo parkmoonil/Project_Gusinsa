@@ -54,7 +54,7 @@ public class LoginController {
 		
 		LoginMapper dao=sqlSession.getMapper(LoginMapper.class);
 		MembersDto rtnDto = dao.selectUserPassword(mid);
-
+		
 		String decryptPwd = CryptoUtil.decryptAES256(rtnDto.getMpw(),key);
 		try {
 			if(mpw.equals(decryptPwd)) {
@@ -64,6 +64,7 @@ public class LoginController {
 				session.setAttribute("mid", rtnDto.getMid());
 				session.setAttribute("mpw", rtnDto.getMpw());
 				System.out.println("아이디와 비밀번호가 맞았습니다");
+				session.setMaxInactiveInterval(1800);
 			}else {
 				System.out.println("아이디와 비밀번호가 틀렸습니다");
 			}

@@ -55,6 +55,12 @@ public class MainPageController {
 		String pclass = "";
 		String pname = "";
 		
+		if (keyword == "") {
+			
+			
+			return "MainPage/searchview";
+			
+		}
 		
 		
 		String[] bp_class = request.getParameterValues("keyword");

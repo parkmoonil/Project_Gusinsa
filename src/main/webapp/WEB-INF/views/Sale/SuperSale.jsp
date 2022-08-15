@@ -543,6 +543,5 @@ function cart() {
     
 </body>
 
-<html>
 
 </html>

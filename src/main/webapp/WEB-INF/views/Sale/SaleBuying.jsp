@@ -14,8 +14,6 @@
 <%@include file="../../../../resources/common/header.jsp"%>
 <style>
 
-   
-
    .option_color{
      position:relative;
      left:5px;
@@ -541,11 +539,11 @@ function cart() {
         </section>
       </div>
     
-    <hr>
+
     <%@include file="../../../../resources/common/footer.jsp" %>
-    
+   
 </body>
 
-<html>
+
 
 </html>

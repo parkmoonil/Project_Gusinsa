@@ -312,9 +312,8 @@
               
 
 
-<footer>
+
 <%@include file="../../../../resources/common/footer.jsp" %>
-</footer>
 </div>  
 
 </body>
