@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/cs/enter.css" />
-<link rel="stylesheet" href="resources/css/cs/main.css" />
-<link rel="stylesheet" href="resources/css/cs/board.css" />
+<link rel="stylesheet" href="resources/css/cs/enter.css?after" />
+<link rel="stylesheet" href="resources/css/cs/main.css?after" />
+<link rel="stylesheet" href="resources/css/cs/board.css?after" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>

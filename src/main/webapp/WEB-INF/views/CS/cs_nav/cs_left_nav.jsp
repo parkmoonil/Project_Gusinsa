@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/cs/main.css">
-<link rel="stylesheet" href="resources/css/cs/board.css" />
+<link rel="stylesheet" href="resources/css/cs/main.css?after">
+<link rel="stylesheet" href="resources/css/cs/board.css?after" />
 </head>
 <body>
 <div class="cs_left_nav">

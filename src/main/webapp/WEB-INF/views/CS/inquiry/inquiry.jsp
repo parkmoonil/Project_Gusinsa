@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/cs/main.css" />
-<link rel="stylesheet" href="resources/css/cs/board.css" />
-<link rel="stylesheet" href="resources/css/cs/inquiry.css" />
+<link rel="stylesheet" href="resources/css/cs/main.css?after" />
+<link rel="stylesheet" href="resources/css/cs/board.css?after" />
+<link rel="stylesheet" href="resources/css/cs/inquiry.css?after" />
 </head>
 <script>
 function checkSubmit() {
@@ -55,7 +55,9 @@ function checkSubmit() {
 		            </td>
 		        </tr>
 		        <tr>
-		            <th>제목</th>
+		            <th>제목
+		            	<span class="point">*</span>
+		           	</th>
 		            <td>
 			            <div class="title_input">
 			        	    <input type="text" name="ititle" title="제목입력" cols="40" rows="2"  placeholder="제목을 입력해주세요." maxlength="50" />

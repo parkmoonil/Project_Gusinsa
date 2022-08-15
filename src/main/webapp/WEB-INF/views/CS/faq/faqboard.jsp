@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/cs/main.css" />
-<link rel="stylesheet" href="resources/css/cs/board.css" />
-<link rel="stylesheet" href="resources/css/cs/faq.css" />
+<link rel="stylesheet" href="resources/css/cs/main.css?after" />
+<link rel="stylesheet" href="resources/css/cs/board.css?after" />
+<link rel="stylesheet" href="resources/css/cs/faq.css?after" />
 </head>
 <body>
 <script>
@@ -60,28 +60,30 @@
 	        </c:if>
 	    </div>
 	    
-		<form action="faqboard" method="post">
-			<c:if test="${searchVO.totPage>1 }">
-		      <c:if test="${searchVO.page>1}">
-		     	 <a href="faqboard?page=1">[처음]</a>
-		     	 <a href="faqboard?page=${searchVO.page-1 }">[이전]</a>
-		      </c:if>
-     			<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
-			         <c:choose>
-			            <c:when test="${i eq searchVO.page }">
-			               <span style="color: red; font-weight: bold;">${i }&nbsp;</span>
-			            </c:when>
-			            <c:otherwise>
-			               <a href="faqboard?page=${i }" style="text-decoration: none">${i }</a>  &nbsp;
-			      		</c:otherwise>
-			         </c:choose>
-     			</c:forEach>
-				<c:if test="${searchVO.totPage>searchVO.page}">
-			      <a href="faqboard?page=${searchVO.page+1 }">[다음]</a>
-			      <a href="faqboard?page=${searchVO.totPage }">[마지막]</a>
-			    </c:if>
-  			</c:if>
-		</form>
+	    <div class="paging">
+			<form action="faqboard" method="post">
+				<c:if test="${searchVO.totPage>1 }">
+			      <c:if test="${searchVO.page>1}">
+			     	 <a href="faqboard?page=1">[처음]</a>
+			     	 <a href="faqboard?page=${searchVO.page-1 }">[이전]</a>
+			      </c:if>
+	     			<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+				         <c:choose>
+				            <c:when test="${i eq searchVO.page }">
+				               <span style="color: red; font-weight: bold;">${i }&nbsp;</span>
+				            </c:when>
+				            <c:otherwise>
+				               <a href="faqboard?page=${i }" style="text-decoration: none">${i }</a>  &nbsp;
+				      		</c:otherwise>
+				         </c:choose>
+	     			</c:forEach>
+					<c:if test="${searchVO.totPage>searchVO.page}">
+				      <a href="faqboard?page=${searchVO.page+1 }">[다음]</a>
+				      <a href="faqboard?page=${searchVO.totPage }">[마지막]</a>
+				    </c:if>
+	  			</c:if>
+			</form>
+		</div>
 	  
 	</div>
 </div>   

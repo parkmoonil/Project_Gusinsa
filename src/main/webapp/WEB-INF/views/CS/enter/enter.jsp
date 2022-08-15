@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<link rel="stylesheet" href="resources/css/cs/enter.css" />
-<link rel="stylesheet" href="resources/css/cs/main.css" />
-<link rel="stylesheet" href="resources/css/cs/board.css" />
+<link rel="stylesheet" href="resources/css/cs/enter.css?after" />
+<link rel="stylesheet" href="resources/css/cs/main.css?after" />
+<link rel="stylesheet" href="resources/css/cs/board.css?after" />
 </head>
 <script>
 //주소찾기

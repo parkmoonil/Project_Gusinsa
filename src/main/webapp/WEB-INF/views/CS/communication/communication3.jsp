@@ -9,10 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="resources/css/cs/main.css" />
-	<link rel="stylesheet" href="resources/css/cs/board.css" />
-	<link rel="stylesheet" href="resources/css/cs/communication.css" />
-    <link rel="stylesheet" href="resources/css/cs/communication2.css" />
+    <link rel="stylesheet" href="resources/css/cs/main.css?after" />
+	<link rel="stylesheet" href="resources/css/cs/board.css?after" />
+	<link rel="stylesheet" href="resources/css/cs/communication.css?after" />
+    <link rel="stylesheet" href="resources/css/cs/communication2.css?after" />
 </head>
 <script>
 function checkSubmit() {
@@ -121,7 +121,7 @@ function checkSubmit() {
 	                            </label>   
 	                            <div>
 	                                <p class="warning">
-	                                    로그인 후 [마이페이지 > 고객의 소리]에서도 답변 내용을 확인 하실 수 있습니다.
+	                                    로그인 후 [마이페이지 > 고객의 소리]에서도 확인 하실 수 있습니다.
 	                                </p>
 	                            </div>   
 	                        </div>    
