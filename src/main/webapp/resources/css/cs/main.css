@@ -1,7 +1,22 @@
-.cs_left_title{
-    /* position: absolute;
-    top: 100px;
-    left: 70px; */
+
+.cs_main {
+    display: grid;
+    grid-template-columns: 1fr 300px 1200px 1fr;
+    grid-template-areas: " . nav board . ";
+    margin-bottom: 200px;
+}
+
+.cs_left_nav {
+    width: 250px;
+    grid-area: nav;
+    
+}
+
+.cs_main_board {
+    grid-area: board;
+}
+
+.cs_left_title {
     color: #000;
     font-size: 30px;
     white-space: nowrap;
@@ -11,13 +26,6 @@
     margin: 20px 22px 0 0;
     padding-bottom: 20px;
    
-}
-
-.cs_left_nav{
-    width: 250px;
-    grid-area: nav;
-    /* background-color: lightblue; */
-    
 }
 
 .cs_left_list{
@@ -37,21 +45,13 @@ ul{
     -webkit-padding-start: 0;
 }
 
-.cs_main_board{
-    grid-area: board;
-}
+
 
 /* .cs_table_notice{
     width: 70%;
     border-collapse: collapse;
    
 } */
-
-.cs_main{
-    display: grid;
-    grid-template-columns: 1fr 300px 1200px 1fr;
-    grid-template-areas: " . nav board . ";
-}
 
 .cs_table_title{
     font-size: 22px;
@@ -166,4 +166,14 @@ td{
     color: #ff3e2f;
     font-size: 17px;
     vertical-align: middle;
+}
+
+.modify_btn {
+	background-color: white;
+	border: none;
+	font-size:16px;
+}
+
+.modify_btn:hover {
+	cursor: pointer;
 }

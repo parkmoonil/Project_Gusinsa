@@ -77,8 +77,6 @@ function checkSubmit() {
   		'eemail' : '이메일',
   }
   var keyso = Object.keys(tags);
-  console.log(keyso);
-  console.log(keyso[0]);
   for (i = 0; i < keyso.length; i++ ) {
 	  var tag = document.getElementsByName(keyso[i]);
 	  if (tag[0].value == '') {

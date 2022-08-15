@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="resources/css/cs/board.css" />
-<link rel="stylesheet" href="resources/css/cs/main.css" />
-<link rel="stylesheet" href="resources/css/cs/notice_writeview.css" />
+<link rel="stylesheet" href="resources/css/cs/board.css?after" />
+<link rel="stylesheet" href="resources/css/cs/main.css?after" />
+<link rel="stylesheet" href="resources/css/cs/notice_writeview.css?after" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -15,16 +15,8 @@
 <div class="cs_main">
 <%@include file="../cs_nav/cs_left_nav.jsp" %>  
 	<div class="cs_main_board">
-	 	<div class="line">
-	 	</div>
-	 	
-	 	<table class="notice_search">
-    		<td>
-    			<h2>공지사항</h2>
-    		</td>
-    		
-    	</table>
-  
+	 	<div class="line"></div>
+	<h2>공지사항</h2>
 		<table>
 			<tr>
 				<th class="noticeboard_title">제목</th>
@@ -90,6 +82,7 @@
 					<input type="submit" value="검색" />
 				</div>
 		</form>
+		
 	</div>
 </div>	
 <%@include file="../../../../resources/common/footer.jsp" %>

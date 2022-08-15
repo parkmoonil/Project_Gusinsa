@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/cs/board.css" />
-<link rel="stylesheet" href="resources/css/cs/main.css" />
+<link rel="stylesheet" href="resources/css/cs/board.css?after" />
+<link rel="stylesheet" href="resources/css/cs/main.css?after" />
 </head>
 <body>
 <%@include file="../../../../resources/common/header.jsp" %>
@@ -25,14 +25,16 @@
 						<td class="notice_view_date">${content_view.ndate }</td>
 					</tr>
 					<tr>
-						<td colspan="2"><pre>${content_view.ncontent }</pre></pre></td>
+						<td colspan="2"><pre>${content_view.ncontent }</pre></td>
 					</tr>
 				</table>
-			<a href="noticeboard">목록</a> &nbsp;&nbsp;
-			<c:if test="${ mid eq 'admin0001' }"> 
-				<input type="submit" value="수정"/> &nbsp;&nbsp;
-				<a href="delete?nnum=${content_view.nnum}">삭제</a> &nbsp;&nbsp;
-			</c:if>
+				<div class="paging2">
+					<a href="noticeboard">목록</a> &nbsp;&nbsp;
+					<c:if test="${ mid eq 'admin0001' }"> 
+						<input type="submit" value="수정" class="modify_btn" /> &nbsp;&nbsp;
+						<a href="delete?nnum=${content_view.nnum}">삭제</a> &nbsp;&nbsp;
+					</c:if>
+				</div>
 		</form>
 	</div>
 </div>

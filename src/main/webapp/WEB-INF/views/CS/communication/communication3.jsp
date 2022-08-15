@@ -158,7 +158,7 @@ function checkSubmit() {
 	                    </th>
 	                    <td class="commu_table_box_title">
 	                        <div class="commu_table_box_wrap">
-	                            <input type="text" name="ctitle" class="box_input" placeholder="제목을 입력해주세요." maxlength="100">	                               
+	                            <input type="text" name="ctitle" class="box_title" placeholder="제목을 입력해주세요." maxlength="100">	                               
 	                        </div>
 	                    </td>
 	                </tr>
