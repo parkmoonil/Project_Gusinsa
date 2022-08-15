@@ -278,7 +278,11 @@
 	 	#{param5}, SYSDATE, #{param6}, #{param7}, #{param8}, #{param9},
 	 	#{param10}, #{param11})
 	</insert>
-		
+			
+	<insert id="product_storagewrite">
+	 	INSERT INTO STORAGE (S_CODE, P_CODE, P_SIZE, P_AMOUNT, P_DATE) VALUES (STORAGE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},SYSDATE)
+	</insert>
+	
 	<delete id="product_delete">
 		DELETE FROM PINFO WHERE P_CODE = #{param1}
 	</delete>

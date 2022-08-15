@@ -78,4 +78,6 @@ public interface BrandDao {
 			String p_category); 
 	
 	public void product_delete(String sp_code);
+	
+	public void product_storagewrite(String p_code, String p_size, int p_amount);
 }

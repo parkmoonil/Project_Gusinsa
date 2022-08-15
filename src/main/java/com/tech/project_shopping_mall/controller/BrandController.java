@@ -832,6 +832,46 @@ public class BrandController {
 			
 			return "redirect:brand";
 		}
+		
+		@RequestMapping("product_storage")
+		public String product_storage(HttpServletRequest request,
+				Model model) {
+			System.out.println("===storage====");
+			
+		
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			
+
+			return "BrandPage/product_storage";
+		}
+		@RequestMapping("product_storagewrite")
+		public String product_storagewrite(HttpServletRequest request,
+				Model model) throws Exception {
+			System.out.println("====storage====");
+			
+			String attachPath="resources\\upload\\";
+			String uploadPath=request.getSession().getServletContext().getRealPath("/");
+			System.out.println("uploadPath : "+uploadPath);
+			String path=uploadPath+attachPath;
+			
+			MultipartRequest req=
+					new MultipartRequest(request, path, 1024*1024*20, "utf-8",
+							new DefaultFileRenamePolicy());
+			
+			HttpSession session = request.getSession();
+			
+			String p_code=req.getParameter("p_code");			 
+			String p_size=req.getParameter("p_size");			 
+			System.out.println("p_size :"+p_size);
+			int p_amount=Integer.parseInt(req.getParameter("p_amount"));
+			System.out.println("p_amount :"+p_amount);
+			
+			BrandDao dao=sqlSession.getMapper(BrandDao.class);
+			dao.product_storagewrite(p_code, p_size ,p_amount);
+			
+			return "redirect:brand";
+		}
+		
 			@RequestMapping("product_delete")
 			public String product_delete(HttpServletRequest request,
 					Model model) {
