@@ -88,7 +88,7 @@
     <a href="BuyPage?p_code=${dto.p_code }" style="color: black;">
         <div class="bp_inner">
             <div class="img">
-                <img class="don_lazy b-loaded" src="${dto.p_img }" style="width: 250px; height: 300px;">
+                <img class="don_lazy b-loaded" src="resources/upload/p_img/${dto.p_img }" style="width: 250px; height: 300px;">
             </div>
             
         </div>
