@@ -218,11 +218,11 @@
   
       <article id="3685" class="location-listing">
   
-        <a class="location-title" href="#">
+        <a class="location-title" href="brand1">
             Youth           </a>
   
         <div class="location-image">
-          <a href="#">
+          <a href="brand1">
               <img width="300" height="169" src="resources/brandimg/brand_1.jpg" alt="san francisco">    </a>
   
         </div>
@@ -231,11 +231,11 @@
   
       <article id="3688" class="location-listing">
   
-        <a class="location-title" href="#">
+        <a class="location-title" href="brand2">
            HOMEGROWN SVPPLY&CO           </a>
   
         <div class="location-image">
-          <a href="#">
+          <a href="brand2">
               <img width="300" height="169" src="resources/brandimg/brand_2.jpg" alt="london">  </a>
   
         </div>
@@ -244,11 +244,11 @@
   
       <article id="3691" class="location-listing">
   
-        <a class="location-title" href="#">
+        <a class="location-title" href="brand3">
           NEITHERS      </a>
   
         <div class="location-image">
-          <a href="#">
+          <a href="brand3">
               <img width="300" height="169" src="resources/brandimg/brand_3.jpg" alt="new york">  </a>
   
         </div>
@@ -257,11 +257,11 @@
   
       <article id="3694" class="location-listing">
   
-        <a class="location-title" href="#">
+        <a class="location-title" href="brand4">
           BROWNYARD           </a>
   
         <div class="location-image">
-          <a href="#">
+          <a href="brand4">
               <img width="300" height="169" src="resources/brandimg/brand_4.jpg" alt="cape town">  </a>
   
         </div>
@@ -270,11 +270,11 @@
   
       <article id="3697" class="location-listing">
   
-        <a class="location-title" href="#">
+        <a class="location-title" href="brand5">
             FREITAG           </a>
   
         <div class="location-image">
-          <a href="#">
+          <a href="brand5">
               <img width="300" height="169" src="resources/brandimg/brand_5.jpg" alt="beijing">    </a>
   
         </div>

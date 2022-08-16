@@ -342,9 +342,9 @@ counter_init();
             <ul class="header_menu_BRAND">
                 <li id="product_menu_list"><a href="${pageContext.request.contextPath }/brand" id="high_con">BRAND</a>
                     <ul class="BRAND_Second">
-                        <li class ="ViewallBrands" id="product_menu_list"><a href="" id="con" >AFTER PRAY</a>
+                        <li class ="ViewallBrands" id="product_menu_list"><a href="brand8" id="con" >AFTER PRAY</a>
                             <ul class="ViewallBrands_Three">
-                                <li id="product_menu_list"><a href="" id="con">
+                                <li id="product_menu_list"><a href="brand8" id="con">
                                     <img src="${pageContext.request.contextPath }/resources/brandimg/brand_8.jpg"   alt="">
                                 </a></li>        
                                 
@@ -352,44 +352,44 @@ counter_init();
                             </ul>
                             </li>
     
-                        <li class="Restock"  id="product_menu_list"><a href="" id="con">BROWNYARD</a>
+                        <li class="Restock"  id="product_menu_list"><a href="brand4" id="con">BROWNYARD</a>
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_4.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="brand4" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_4.jpg" alt=""></a></li>        
                                 
                             </ul>
                             </li>
-                        <li class="Restock"  id="product_menu_list"><a href="" id="con">EASTLOGUE PERMANENT</a>
+                        <li class="Restock"  id="product_menu_list"><a href="brand9" id="con">EASTLOGUE PERMANENT</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_9.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="brand9" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_9.jpg" alt=""></a></li>        
                                 
                             </ul>
                             </li>
-                        <li class="Restock"  id="product_menu_list"><a href="" id="con">HOMEGROWN SVPPLY</a>
+                        <li class="Restock"  id="product_menu_list"><a href="brand2" id="con">HOMEGROWN SVPPLY</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_2.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="brand2" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_2.jpg" alt=""></a></li>        
                                 
                             </ul>
                             </li>
-                        <li class="Restock"  id="product_menu_list"><a href="" id="con">LEARVE</a>
+                        <li class="Restock"  id="product_menu_list"><a href="brand7" id="con">LEARVE</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_7.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="brand7" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_7.jpg" alt=""></a></li>        
                                 
                             </ul>
                             </li>
-                        <li class="Restock"  id="product_menu_list"><a href="" id="con">NEITHERS</a>
+                        <li class="Restock"  id="product_menu_list"><a href="brand3" id="con">NEITHERS</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_3.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="brand3" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_3.jpg" alt=""></a></li>        
                                     
                             </ul>
                         </li>
-                        <li class="Restock"  id="product_menu_list"><a href="" id="con">YOUTH</a>
+                        <li class="Restock"  id="product_menu_list"><a href="brand1" id="con">YOUTH</a>
                                 
                             <ul class="BRAND_Three">
-                                <li id="product_menu_list"><a href="" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_1.jpg" alt=""></a></li>        
+                                <li id="product_menu_list"><a href="brand1" id="con"><img src="${pageContext.request.contextPath }/resources/brandimg/brand_1.jpg" alt=""></a></li>        
                                     
                             </ul>
                         </li>
