@@ -70,6 +70,16 @@
 							">${manager_commu.cfile}</a></td>
 				</tr>
 				<tr>
+					<th>답변내용</th>
+					<td>
+						<form action="manager_creply" method="post">
+							<input type="hidden" name="cnum" value="${manager_commu.cnum}"/>
+							<textarea class="reply_input" name="creply" cols="30" rows="10" placeholder="답변을 입력해주세요." >${manager_commu.creply }</textarea>
+							<input type="submit" value="저장" />
+						</form>
+					</td>
+				</tr>
+				<tr>
 					<th>상태</th>
 					<td>
 						<form action="cstate" method="post">
@@ -86,7 +96,7 @@
 				<div class="page_align">
 					<a href="manager_commu">목록보기</a> &nbsp;&nbsp;
 					<a href="commudelete?cnum=${manager_commu.cnum }">삭제</a>
-				<div>
+				</div>
 		</div>
 	</div>
 </div>

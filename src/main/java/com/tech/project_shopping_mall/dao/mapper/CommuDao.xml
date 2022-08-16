@@ -38,7 +38,7 @@
 	
 	<select id="commudetails" resultType="com.tech.project_shopping_mall.dto.CMDto">
 		SELECT CNUM,MID,MNAME,MPHONE,MEMAIL,
-		CSELECT1,CSELECT2,CSELECT3,CSELECT4,CTITLE,CCONTENT,CFILE,SYSDATE
+		CSELECT1,CSELECT2,CSELECT3,CSELECT4,CTITLE,CCONTENT,CFILE,SYSDATE,CREPLY
 		FROM COMMUMEMBERS WHERE CNUM=#{param1} 
 	</select>
 	
@@ -48,6 +48,11 @@
 
 	<update id="cstate">
 		UPDATE COMMUMEMBERS SET CSTATE=#{param2}
+		WHERE CNUM=#{param1}
+	</update>
+	
+	<update id="manager_creply">
+		UPDATE COMMUMEMBERS SET CREPLY=#{param2}
 		WHERE CNUM=#{param1}
 	</update>
 	

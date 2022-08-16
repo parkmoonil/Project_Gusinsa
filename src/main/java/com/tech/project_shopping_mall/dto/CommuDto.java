@@ -13,12 +13,13 @@ public class CommuDto {
 	private String cfile;
 	private Date cdate;
 	private String cstate;
+	private String creply;
 	
 	public CommuDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CommuDto(String cnum,String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile,Date cdate,String cstate) {
+	public CommuDto(String cnum,String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile,Date cdate,String cstate,String creply) {
 		this.cnum=cnum;
 		this.cselect1=cselect1;
 		this.cselect2=cselect2;
@@ -29,6 +30,7 @@ public class CommuDto {
 		this.cfile=cfile;
 		this.cdate=cdate;
 		this.cstate=cstate;
+		this.creply=creply;
 	}
 
 	public String getCnum() {
@@ -111,4 +113,12 @@ public class CommuDto {
 		this.cstate = cstate;
 	}
 
+	public String getCreply() {
+		return creply;
+	}
+
+	public void setCreply(String creply) {
+		this.creply = creply;
+	}
+	
 }

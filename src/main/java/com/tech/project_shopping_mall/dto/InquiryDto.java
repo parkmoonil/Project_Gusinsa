@@ -11,12 +11,13 @@ public class InquiryDto {
 	private String iselect2;
 	private Date idate;
 	private String istate;
+	private String ireply;
 	
 	public InquiryDto() {
 
 	}
 	
-	public InquiryDto(String inum,String iselect1,String ititle,String icontent,String ifile,String iselect2,Date idate,String istate) {
+	public InquiryDto(String inum,String iselect1,String ititle,String icontent,String ifile,String iselect2,Date idate,String istate,String ireply) {
 		this.inum=inum;
 		this.iselect1=iselect1;
 		this.ititle=ititle;
@@ -88,6 +89,14 @@ public class InquiryDto {
 
 	public void setIstate(String istate) {
 		this.istate = istate;
+	}
+
+	public String getIreply() {
+		return ireply;
+	}
+
+	public void setIreply(String ireply) {
+		this.ireply = ireply;
 	}
 	
 }

@@ -11,12 +11,15 @@
 <link rel="stylesheet" href="resources/css/cs/mypagecs.css">
 </head>
 <script>
-	function test(element) {
-		var test = element.nextElementSibling;
-		if (test.style.display == 'none') {
-			test.style = "display:table-row; *display:block";
+	function toggle(element) {
+		var toggleContent = element.nextElementSibling;
+		var toggleContent2 = toggleContent.nextElementSibling;
+		if (toggleContent.style.display == 'none') {
+			toggleContent.style = "display:table-row; *display:block";
+			toggleContent2.style = "display:table-row; *display:block";
 		} else {
-			test.style.display = 'none';
+			toggleContent.style.display = 'none';
+			toggleContent2.style.display = 'none';
 		}
 	}
 </script>
@@ -38,7 +41,7 @@
 	            </tr>
 	            
 	            <c:forEach items="${MypageIM}" var="inq">
-					<tr class="Mytoggle" onclick="test(this)">
+					<tr class="Mytoggle" onclick="toggle(this)">
 						<td>
 							${inq.iselect1}
 						</td>
@@ -53,37 +56,40 @@
 						</td>
 					</tr>
 				 	<tr class="mypagecs_content">
-		            	<td colspan="3"><pre>${inq.icontent }</pre>
+		            	<td colspan="4"><pre>${inq.icontent }</pre>
 		            	</td>
+		            </tr>
+		            <tr class="mypagecs_content">
+		            	<td colspan="4"><pre>답변내용 : ${inq.ireply }</pre></td>
 		            </tr>
 				</c:forEach>
 	        </table>
         </div>
         
-			<form action="MypageIM" method="post">
-				<c:if test="${searchVO.totPage>1 }">
-				
-	     			<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
-				         <c:choose>
-				            <c:when test="${i eq searchVO.page }">
-				               <span style="color: red; font-weight: bold;">${i }&nbsp;</span>
-				            </c:when>
-				            <c:otherwise>
-				               <a href="mypage_inquiry?page=${i }" style="text-decoration: none">${i }</a>  &nbsp;
-				      		</c:otherwise>
-				         </c:choose>
-	     			</c:forEach>
-     			
-	     			 <c:if test="${searchVO.page>1}">
-				     	 <a href="mypage_inquiry?page=1">[처음]</a>
-				     	 <a href="mypage_inquiry?page=${searchVO.page-1 }">[이전]</a>
-				      </c:if>
-					 <c:if test="${searchVO.totPage>searchVO.page}">
-					     <a href="mypage_inquiry?page=${searchVO.page+1 }">[다음]</a>
-					     <a href="mypage_inquiry?page=${searchVO.totPage }">[마지막]</a>
-				     </c:if>
-	  			</c:if>
-			</form> 
+		<form action="MypageIM" method="post">
+			<c:if test="${searchVO.totPage>1 }">
+			
+     			<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+			         <c:choose>
+			            <c:when test="${i eq searchVO.page }">
+			               <span style="color: red; font-weight: bold;">${i }&nbsp;</span>
+			            </c:when>
+			            <c:otherwise>
+			               <a href="mypage_inquiry?page=${i }" style="text-decoration: none">${i }</a>  &nbsp;
+			      		</c:otherwise>
+			         </c:choose>
+     			</c:forEach>
+    			
+     			 <c:if test="${searchVO.page>1}">
+			     	 <a href="mypage_inquiry?page=1">[처음]</a>
+			     	 <a href="mypage_inquiry?page=${searchVO.page-1 }">[이전]</a>
+			      </c:if>
+				 <c:if test="${searchVO.totPage>searchVO.page}">
+				     <a href="mypage_inquiry?page=${searchVO.page+1 }">[다음]</a>
+				     <a href="mypage_inquiry?page=${searchVO.totPage }">[마지막]</a>
+			     </c:if>
+  			</c:if>
+		</form> 
    	 </div>
 </div>
 <%@include file="../../../../resources/common/footer.jsp" %>

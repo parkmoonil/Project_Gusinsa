@@ -15,6 +15,7 @@ public class IMDto {
 	private String iselect2;
 	private Date idate;
 	private String istate;
+	private String ireply;
 	
 	public IMDto() {
 		
@@ -22,7 +23,7 @@ public class IMDto {
 	
 	public IMDto(String mid,String mname,String mphone,
 			String memail,String iselect1,String inum,String ititle
-			,String icontent,String ifile,String iselect2,Date idate,String istate) {
+			,String icontent,String ifile,String iselect2,Date idate,String istate,String ireply) {
 		this.mid=mid;
 		this.mname=mname;
 		this.mphone=mphone;
@@ -35,6 +36,7 @@ public class IMDto {
 		this.iselect2=iselect2;
 		this.idate=idate;
 		this.istate=istate;
+		this.ireply=ireply;
 	}
 
 	public String getMid() {
@@ -132,6 +134,13 @@ public class IMDto {
 	public void setIstate(String istate) {
 		this.istate = istate;
 	}
-	
+
+	public String getIreply() {
+		return ireply;
+	}
+
+	public void setIreply(String ireply) {
+		this.ireply = ireply;
+	}
 	
 }

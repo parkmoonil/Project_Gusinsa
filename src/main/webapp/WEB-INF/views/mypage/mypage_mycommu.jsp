@@ -11,12 +11,15 @@
 <link rel="stylesheet" href="resources/css/cs/mypagecs.css">
 </head>
 <script>
-	function test(element) {
-		var test = element.nextElementSibling;
-		if (test.style.display == 'none') {
-			test.style = "display:table-row; *display:block";
+	function toggle(element) {
+		var toggleContent = element.nextElementSibling;
+		var toggleContent2 = toggleContent.nextElementSibling;
+		if (toggleContent.style.display == 'none') {
+			toggleContent.style = "display:table-row; *display:block";
+			toggleContent2.style= "display:table-row; *display:block";
 		} else {
-			test.style.display = 'none';
+			toggleContent.style.display = 'none';
+			toggleContent2.style.display = 'none';
 		}
 	}
 </script>
@@ -37,7 +40,7 @@
 					<th>작성일자</th>
 				</tr>
 				<c:forEach items="${MypageCM}" var="dto">
-							<tr class="Mytoggle" onclick="test(this)">
+							<tr class="Mytoggle" onclick="toggle(this)">
 						<td>
 							${dto.cselect1}
 						</td>
@@ -52,7 +55,10 @@
 						</td>
 					</tr>
 				 	<tr class="mypagecs_content" >
-		            	<td colspan="3"><pre>${dto.ccontent }</pre></td>
+		            	<td colspan="4"><pre>${dto.ccontent }</pre></td>
+		            </tr>
+		            <tr class="mypagecs_content">
+		            	<td colspan="4"><pre>답변내용 : ${dto.creply }</pre></td>
 		            </tr>
 				</c:forEach>
 	        </table>

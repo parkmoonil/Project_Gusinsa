@@ -423,4 +423,32 @@ public class ManagerController {
 		 return "redirect:manager_commu";
 	 }
 	
+	 @RequestMapping(method = RequestMethod.POST, value= "/manager_creply")
+	 public String manager_creply(HttpServletRequest request,
+			 Model model) {
+		 System.out.println("====creply====");
+		 
+		 String cnum=request.getParameter("cnum");
+		 String creply=request.getParameter("creply");
+		
+		 CSDao dao = sqlSession.getMapper(CSDao.class);
+		 dao.manager_creply(cnum, creply);
+		 
+		 return "redirect:manager_commu";
+	 }
+	 
+	 @RequestMapping(method = RequestMethod.POST, value= "/manager_ireply")
+	 public String manager_ireply(HttpServletRequest request,
+			 Model model) {
+		 System.out.println("====ireply====");
+		 
+		 String inum=request.getParameter("inum");
+		 String ireply=request.getParameter("ireply");
+		
+		 CSDao dao = sqlSession.getMapper(CSDao.class);
+		 dao.manager_ireply(inum, ireply);
+		 
+		 return "redirect:manager_inquiry";
+	 }
+	 
 }
