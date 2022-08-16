@@ -6,8 +6,8 @@
 <mapper namespace="com.tech.project_shopping_mall.dao.CSDao">
 
 	<insert id="Commu_write">
-		INSERT INTO COMMUBOARD(CNUM,CSELECT1,CSELECT2,CSELECT3,CSELECT4,CTITLE,CCONTENT,CFILE,FK_MID,CSTATE) 
-		VALUES(COMMUBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9})
+		INSERT INTO COMMUBOARD(CNUM,CSELECT1,CSELECT2,CSELECT3,CSELECT4,CTITLE,CCONTENT,CFILE,FK_MID) 
+		VALUES(COMMUBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8})
 	</insert>
 	
 	<select id="CommuMembers" resultType="com.tech.project_shopping_mall.dto.CMDto">

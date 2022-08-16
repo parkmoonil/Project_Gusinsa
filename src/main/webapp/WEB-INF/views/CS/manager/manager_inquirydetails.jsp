@@ -32,7 +32,7 @@
 					<th>이름</th>
 					<td>${manager_inquiry.mname}</td>
 				</tr>
-					<tr>
+				<tr>
 					<th>제목</th>
 					<td>${manager_inquiry.ititle}</td>
 				</tr>
@@ -57,7 +57,7 @@
 					<td><a href="Inquirydownload?p=resources/upload/&i=${manager_inquiry.ifile}
 							">${manager_inquiry.ifile}</a></td>
 				</tr>
-					<tr>
+				<tr>
 					<th>상태</th>
 					<td>
 						<form action="istate" method="post">
@@ -71,10 +71,10 @@
 					</td>	
 				</tr>
 			</table>
-			<div class="page_align">
-				<a href="manager_inquiry">목록보기</a> &nbsp;&nbsp;
-				<a href="inquirydelete?inum=${manager_inquiry.inum }">삭제</a>
-			<div>
+				<div class="page_align">
+					<a href="manager_inquiry">목록보기</a> &nbsp;&nbsp;
+					<a href="inquirydelete?inum=${manager_inquiry.inum }">삭제</a>
+				</div>
 		</div>
 	</div>
 </div> 

@@ -402,8 +402,6 @@ public class ManagerController {
 		 
 		 String inum=request.getParameter("inum");
 		 String istate=request.getParameter("istate");
-		 System.out.println("inum  :"+inum);
-		 System.out.println("cstate  :"+istate);
 		 
 		 CSDao dao = sqlSession.getMapper(CSDao.class);
 		 dao.istate(inum, istate);
@@ -418,8 +416,6 @@ public class ManagerController {
 		 
 		 String cnum=request.getParameter("cnum");
 		 String cstate=request.getParameter("cstate");
-		 System.out.println("cnum  :"+cnum);
-		 System.out.println("cstate  :"+cstate);
 		 
 		 CSDao dao = sqlSession.getMapper(CSDao.class);
 		 dao.cstate(cnum, cstate);

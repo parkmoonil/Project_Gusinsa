@@ -27,10 +27,10 @@ public interface CSDao {
 	public void faqdelete(int snnum);
 //커뮤니티 게시판	
 	public ArrayList<CommuDto> Commuboard();
-	public void Commu_write(String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile,String mid,String cstate);
+	public void Commu_write(String cselect1,String cselect2,String cselect3,String cselect4,String ctitle,String ccontent,String cfile,String mid);
 //1:1문의하기 게시판	
 	public ArrayList<InquiryDto> inquiryboard(int start, int end, String sk, String selNum);
-	public void Inquiry_write(String iselect1,String ititle,String icontent,String ifile,String iselect2,String mid,String istate);
+	public void Inquiry_write(String iselect1,String ititle,String icontent,String ifile,String iselect2,String mid);
 //관리자 조회페이지
 	public MembersDto CSMembers(String mid);
 	public MembersDto CSMembers2(String mid);

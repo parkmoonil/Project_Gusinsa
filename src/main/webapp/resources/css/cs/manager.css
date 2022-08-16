@@ -25,6 +25,7 @@
     display: grid;
     grid-template-columns: 1fr 300px 1200px 1fr;
     grid-template-areas: " . nav board . ";
+    margin-bottom: 200px;
 }
 
 .manager_main a {

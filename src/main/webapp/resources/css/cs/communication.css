@@ -237,11 +237,10 @@ div .radio_set {
 .commu_table_box_wrap {
     display: flex;
     border: 1px solid #d2d2d2;
-    padding-right: 53px;
     height: 100%;
 }
 
-.box_input {
+.box_title {
     width: 100%;
     height: 100%;
     padding: 0 20px;

@@ -609,32 +609,7 @@ hr{
 <body>
 <%@include file="../../../../resources/common/header.jsp" %> 
 <div class="cs_main">
-<div class="cs_left_nav">
-        <h2 class="cs_left_title"><a href="mypage_orderlist">
-            마이페이지
-        </a></h2>
-        <ul>
-            <li class="cs_left_list" ><a href="noticeboard">
-                회원정보 수정
-            </a></li>
-            <li class="cs_left_list"><a href="mypage_orderlist" id = "mypage_orderlist">
-                주문 내역
-            </a></li>
-            <li class="cs_left_list"><a href="../MyCart">
-                장바구니
-            </a></li>
-            <li class="cs_left_list"><a href="../inquiry">
-                1:1 문의하기
-            </a></li>
-            <li class="cs_left_list"><a href="mypage_inquiry">
-                문의내역
-            </a></li>
-            <li class="cs_left_list"><a href="../membership">
-                멤버쉽(클럽)안내
-            </a></li>
-        </ul>
-        
-    </div>
+<%@include file="../mypage/mypage_left_nav/mypage_nav.jsp" %>      
 </body>
 
     <div class="cs_main_board">

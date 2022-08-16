@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>입점문의 페이지</title>
 <link rel="stylesheet" href="resources/css/cs/enter.css?after" />
 <link rel="stylesheet" href="resources/css/cs/main.css?after" />
 <link rel="stylesheet" href="resources/css/cs/board.css?after" />

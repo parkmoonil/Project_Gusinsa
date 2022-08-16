@@ -39,18 +39,13 @@ public class CSController {
 		
 	}
 	
-//	redirect:noticeboard
+
 	@RequestMapping("/noticeboard")
 	public String notice(HttpServletRequest request,SearchVO_CS searchVO,Model model) {
 		System.out.println("======NoticeBoard=======");
 		
 		HttpSession session = request.getSession();
 		String mid=(String)session.getAttribute("mid");
-			
-//		ArrayList<NoticeDto> noticeboard=dao.noticeboard();
-//		model.addAttribute("noticeboard",noticeboard);
-		
-		System.out.println("mid : " + mid);
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 		
@@ -119,14 +114,6 @@ public class CSController {
 		}
 		
 		searchVO.pageCalculate(total);
-		
-		System.out.println("totRow : "+total);
-		System.out.println("clickpage : "+strPage);
-		System.out.println("pageStart : "+searchVO.getPageStart());
-		System.out.println("pageEnd : "+searchVO.getPageEnd());
-		System.out.println("pageTot : "+searchVO.getTotPage());
-		System.out.println("rowStart : "+searchVO.getRowStart());
-		System.out.println("rowEnd : "+searchVO.getRowEnd());
 		
 		int rowStart=searchVO.getRowStart();
 		int rowEnd=searchVO.getRowEnd();
