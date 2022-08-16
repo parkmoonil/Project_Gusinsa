@@ -283,7 +283,8 @@ counter_init();
 <body>
  <header>															<!--../../../resources/common/header.jsp --> 
         <div class="header_left"><a href="/project_shopping_mall"><img src="${pageContext.request.contextPath }/resources/headerimg/GUSINSA.png" alt="" id="header_right_img" style="width: 120px; height: 50px;"></a></div>
-        <div class="header_sess"><c:if test="${not empty mid }"> <span id="counter"> </span> 후 자동로그아웃  ${mid } 님 반갑습니다!<input type="button" value="연장" onclick="counter_reset()"></c:if></div>
+        <div class="header_sess"><c:if test="${not empty mid }"> <span id="counter"> </span> 후 자동로그아웃  ${mid } 님 반갑습니다!<input type="button" value="연장" onclick="counter_reset()"></c:if>
+        						 <c:if test="${not empty ereginum }"> <span id="counter"> </span> 후 자동로그아웃  ${ereginum  } 님 반갑습니다!<input type="button" value="연장" onclick="counter_reset()"></c:if></div>
         <div class="header_right">
         <ul id="header_gita">
             <li><input type="checkbox" class="side_list"  id="menuicon">
@@ -311,12 +312,13 @@ counter_init();
                 <!-- /project_shopping_malltest/src/main/webapp/resources/headerimg -->
             <!-- <li><a href=#><img src="../headerimg/목록.png" style="margin-right: 80px;" alt="목록" class="header_img"></a></li> -->
             <li><a href="${pageContext.request.contextPath }/MyCart"><img src="${pageContext.request.contextPath }/resources/headerimg/장바구니.png" style="height: 47px;" alt="장바구니" class="header_img"></a></li>
-            <c:if test="${empty mid }"> 
+            <c:if test="${empty mid && empty ereginum }"> 
             <li><a href="${pageContext.request.contextPath }/login/loginform"><img src="${pageContext.request.contextPath }/resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></a></li>
             </c:if>
-            <c:if test="${not empty mid }"> 
+            <c:if test="${not empty mid || not empty ereginum }"> 
             <li><a href="${pageContext.request.contextPath }/login/logout"><img src="${pageContext.request.contextPath }/resources/headerimg/logout.png" style="height: 47px;" alt="로그아웃" class="header_img"></a></li>
             </c:if>
+            
             <%-- <li><a href="${pageContext.request.contextPath }/login/loginform"><img src="${pageContext.request.contextPath }/resources/headerimg/login.png" style="height: 47px;" alt="로그인" class="header_img"></a></li> --%>
              <!-- 로그인 안했을때 그림 로그인했을때 로그아웃 그림 필요 if문 써야함 -->
 
