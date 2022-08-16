@@ -38,3 +38,9 @@
 .page_align {
 	text-align: right;
 }
+
+.reply_input {
+	resize: none;
+	padding-left: 5px;
+	
+}

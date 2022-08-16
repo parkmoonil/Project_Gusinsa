@@ -58,6 +58,16 @@
 							">${manager_inquiry.ifile}</a></td>
 				</tr>
 				<tr>
+					<th>답변내용</th>
+					<td>
+						<form action="manager_ireply" method="post">
+							<input type="hidden" name="inum" value="${manager_inquiry.inum}"/>
+							<textarea class="reply_input" name="ireply" cols="30" rows="10"  placeholder="답변을 입력해주세요.">${manager_inquiry.ireply }</textarea>								
+							<input type="submit" value="저장" />
+						</form>
+					</td>
+				</tr>
+				<tr>
 					<th>상태</th>
 					<td>
 						<form action="istate" method="post">

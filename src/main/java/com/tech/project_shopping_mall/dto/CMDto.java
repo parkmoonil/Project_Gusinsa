@@ -17,6 +17,7 @@ public class CMDto {
 	private String cfile;
 	private Date cdate;
 	private String cstate;
+	private String creply;
 	
 	public CMDto() {
 		// TODO Auto-generated constructor stub
@@ -24,7 +25,7 @@ public class CMDto {
 	
 	public CMDto(String cnum,String mid,String mname,String mphone,
 			String memail,String cselect1,String cselect2,String cselect3,
-			String cselect4,String ctitle,String ccontent,String cfile,Date cdate,String cstate) {
+			String cselect4,String ctitle,String ccontent,String cfile,Date cdate,String cstate,String creply) {
 		this.cnum=cnum;
 		this.mid=mid;
 		this.mname=mname;
@@ -39,6 +40,7 @@ public class CMDto {
 		this.cfile=cfile;
 		this.cdate=cdate;
 		this.cstate=cstate;
+		this.creply=creply;
 	}
 
 	public String getCnum() {
@@ -151,6 +153,14 @@ public class CMDto {
 
 	public void setCstate(String cstate) {
 		this.cstate = cstate;
+	}
+
+	public String getCreply() {
+		return creply;
+	}
+
+	public void setCreply(String creply) {
+		this.creply = creply;
 	}
 	
 }

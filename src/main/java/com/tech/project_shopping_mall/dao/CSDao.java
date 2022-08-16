@@ -41,6 +41,7 @@ public interface CSDao {
 	public void Manager_Inquiry(String mid);
 	public void inquirydelete(String sinum); 
 	public void istate(String inum,String istate);
+	public void manager_ireply(String inum,String ireply);
 //관리자 고객의 소리 게시판
 	public ArrayList<CMDto> CommuMembers(int start, int end);
 	public ArrayList<CMDto> CommuMembers2();
@@ -48,6 +49,7 @@ public interface CSDao {
 	public void Manager_Commu(String mid);
 	public void commudelete(String scnum);
 	public void cstate(String cnum,String cstate);
+	public void manager_creply(String cnum,String creply);
 //입점관리 게시판	
 	public ArrayList<EnterDto> EnterBoard(int start, int end);
 	public void Enter_write(String ereginum,String etradename,String eaddr1,String eaddr2,String eaddr3,String eaddr4,String esales,String ebname,String ebintro,String ehomepage,String econtactname,String eposition,

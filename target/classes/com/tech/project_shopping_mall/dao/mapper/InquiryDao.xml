@@ -37,7 +37,7 @@
 	
 	<select id="inquirydetails" resultType="com.tech.project_shopping_mall.dto.IMDto">
 		SELECT INUM,MID,MNAME,MPHONE,MEMAIL,
-		ISELECT1,ITITLE,ICONTENT,IFILE,ISELECT2
+		ISELECT1,ITITLE,ICONTENT,IFILE,ISELECT2,IREPLY
 		FROM INQUIRYMEMBERS WHERE INUM=#{param1} 
 	</select>
 	
@@ -47,6 +47,11 @@
 	
 	<update id="istate">
 		UPDATE INQUIRYMEMBERS SET ISTATE=#{param2}
+		WHERE INUM=#{param1}
+	</update>
+	
+	<update id="manager_ireply">
+		UPDATE INQUIRYMEMBERS SET IREPLY=#{param2}
 		WHERE INUM=#{param1}
 	</update>
 
