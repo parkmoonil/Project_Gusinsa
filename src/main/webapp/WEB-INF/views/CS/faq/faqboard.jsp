@@ -34,7 +34,7 @@
 	        <tr>
 	            <th class="faqboard_header">분류</th>
 	            <th class="faqboard_title">제목</th>
-	            <th class="faqboard_date">날짜</th>
+	            <th class="faqboard_date">작성일자</th>
 	        </tr>
 	        <c:forEach items="${faqboard }" var="dto" begin="0" end="10">
 	        

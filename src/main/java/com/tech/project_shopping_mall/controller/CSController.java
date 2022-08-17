@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.tech.project_shopping_mall.dao.CSDao;
 import com.tech.project_shopping_mall.dto.FaqDto;
@@ -39,16 +42,16 @@ public class CSController {
 		
 	}
 	
-
 	@RequestMapping("/noticeboard")
 	public String notice(HttpServletRequest request,SearchVO_CS searchVO,Model model) {
 		System.out.println("======NoticeBoard=======");
 		
 		HttpSession session = request.getSession();
 		String mid=(String)session.getAttribute("mid");
+		System.out.println("mid :"+mid);		
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
-		
+	
 		String ntitle="";
 		String ncontent="";
 		
