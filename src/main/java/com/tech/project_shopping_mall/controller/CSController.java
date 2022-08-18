@@ -45,9 +45,8 @@ public class CSController {
 		
 		HttpSession session = request.getSession();
 		String mid=(String)session.getAttribute("mid");
-		System.out.println("mid :"+mid);
 		String mgrade=(String)session.getAttribute("mgrade");
-		System.out.println("mgrade :"+mgrade);
+
 		
 		CSDao dao=sqlSession.getMapper(CSDao.class);
 	
