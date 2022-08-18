@@ -47,7 +47,7 @@
 	            </tr>
 	            <tr class="faqcontent">
 	            	<td colspan="3" class="faqcontent2"><pre> ${dto.fcontent }</pre>
-						<c:if test="${ mid eq 'admin0001' }">	
+						<c:if test="${ mgrade eq '관리자' }">	
 							<a href="faqdelete?fnum=${dto.fnum}">삭제</a>
 						</c:if>	
 	            	</td>
@@ -55,7 +55,7 @@
 	        </c:forEach>
 	    </table>
 	    <div class="write_button">
-	    	<c:if test="${ mid eq 'admin0001' }">
+	    	<c:if test="${ mgrade eq '관리자' }">
 	        	<a href="faq_writeview">글쓰기</a>
 	        </c:if>
 	    </div>
