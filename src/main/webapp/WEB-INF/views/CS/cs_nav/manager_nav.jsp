@@ -12,7 +12,7 @@
 <body>
 <div class="manager_nav">
 	<div class="manager_title">
-		<h2><a href="manager.html">Manager Page</a></h2>
+		<h2><a href="manager_inquiry.html">Manager Page</a></h2>
 	</div>
 	<ul>
 		<li class="manager_left_list"><a href="manager_inquiry">
